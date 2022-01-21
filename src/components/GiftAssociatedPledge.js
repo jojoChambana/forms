@@ -18,7 +18,7 @@ export default function GiftAssociatedPledge() {
             </Row>
             {visable && (
                 <Row>
-                    <Col xs={12} md={4}><TextField {...register("pledgeRevenueId")} placeholder="Pledge Revenue ID ID" label="Pledge Revenue ID" className="maxWidth" /></Col>
+                    <Col xs={12} md={4}><TextField {...register("Pledge Revenue ID")} placeholder="Pledge Revenue ID" label="Pledge Revenue ID" className="maxWidth" /></Col>
                 </Row>
             )}
         </FormGroup>

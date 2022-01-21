@@ -18,41 +18,6 @@ export default function DepartmentCampus(props) {
     };
     return (
         <Box>
-            {/* <FormControl component="fieldset" >
-                <FormLabel component="legend">Select Campus</FormLabel>
-                <RadioGroup
-                    {...register("Campus")}
-                    row
-                    aria-label="trustType"
-                    name="row-radio-buttons-group"
-                // defaultValue="Urbana"
-                >
-                    <FormControlLabel
-                        control={<Radio />}
-                        value="Urbana"
-                        label="Urbana"
-                        name="campus"
-                        checked={(props.dataValues?.campus || "Urbana") === "Urbana"}
-                        onChange={handleChange}
-                    />{" "}
-                    <FormControlLabel
-                        control={<Radio />}
-                        value="Chicago"
-                        label="Chicago"
-                        name="campus"
-                        checked={(props.dataValues?.campus || "Urbana") === "Chicago"}
-                        onChange={handleChange}
-                    />{" "}
-                    <FormControlLabel
-                        control={<Radio />}
-                        value="Springfield"
-                        label="Springfield"
-                        name="campus"
-                        checked={(props.dataValues?.campus || "Urbana") === "Springfield"}
-                        onChange={handleChange}
-                    />{" "}
-                </RadioGroup>
-            </FormControl> */}
             <FormControl>
                 <RadioGroup
                     aria-labelledby="campus-Location"
@@ -61,13 +26,13 @@ export default function DepartmentCampus(props) {
                 >
                     <Row>
                         <Col>
-                            <FormControlLabel value="Urbana" control={<Radio {...register("campusLocation")} />} label="Urbana" />
+                            <FormControlLabel value="Urbana" control={<Radio {...register("Campus Location")} />} label="Urbana" />
                         </Col>
                         <Col>
-                            <FormControlLabel value="Chicago" control={<Radio {...register("campusLocation")} />} label="Chicago" />
+                            <FormControlLabel value="Chicago" control={<Radio {...register("Campus Location")} />} label="Chicago" />
                         </Col>
                         <Col>
-                            <FormControlLabel value="Springfield" control={<Radio {...register("campusLocation")} />} label="Springfield" />
+                            <FormControlLabel value="Springfield" control={<Radio {...register("Campus Location")} />} label="Springfield" />
                         </Col>
                     </Row>
                 </RadioGroup>

@@ -9,7 +9,7 @@ export default function ForeignAddress(props) {
         <Row>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("donorForeignAddress")}
+                    {...register("Address")}
                     required
                     id="donorForeignAddress"
                     label="Address"
@@ -18,7 +18,7 @@ export default function ForeignAddress(props) {
             </Col>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("donorForeignCity")}
+                    {...register("City")}
                     required
                     id="donorForeignCity"
                     label="City"
@@ -27,16 +27,16 @@ export default function ForeignAddress(props) {
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("donorProvinceRegion")}
+                    {...register("Province or Region")}
                     required
                     id="donorProvinceRegion"
-                    label="State/Province/Region"
+                    label="Province/Region"
                     className="maxWidth"
                 />
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("donorCountry")}
+                    {...register("Country")}
                     required
                     id="donorCountry"
                     label="Country"
@@ -45,7 +45,7 @@ export default function ForeignAddress(props) {
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("donorPostalCode")}
+                    {...register("PostalCode")}
                     required
                     id="donorPostalCode"
                     label="Postal Code"

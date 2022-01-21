@@ -8,7 +8,7 @@ export default function ForeignCheckBox() {
 
         return (
             <FormGroup>
-                <FormControlLabel control={<Checkbox {...register("foreignDonor")} />} label="Check for foreign address" />
+                <FormControlLabel control={<Checkbox {...register("Is this a foreign address?")} />} label="Check for foreign address" />
             </FormGroup>
         );
     }

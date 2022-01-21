@@ -5,34 +5,29 @@ import { useFormContext } from 'react-hook-form';
 import DonorInfoCheckBoxes from './DonorInfoCheckBoxes';
 
 export default function TedOrgDonor() {
-    function NestedTedOrgDonorInput() {
-        const { register } = useFormContext(); // retrieve all hook methods
-        const [visible, setVisible] = useState(false);
-        const handleChange = () => {
-            setVisible(!visible);
-        };
-        return (
-            <>
-                <DonorInfoCheckBoxes />
-                <Col xs={12}>
-                    <FormControlLabel control={<Checkbox {...register("donorUnknown")} onChange={handleChange} />} label="Donor is unknown, anonymous, or various cash donors" />
-                </Col>
-                {!visible && (
-                    <>
-                        <Col xs={12} md={6}>
-                            <TextField {...register("tedConstId")} required placeholder='TED Constituent ID' className="maxWidth" label="TED Constituent ID" />
 
-                        </Col>
-                        <Col xs={12} md={6}>
-                            <TextField {...register("orgDonorName")} placeholder='Organization/Donor Name' className="maxWidth" label="Organization/Donor name" />
-                        </Col>
-                    </>
-                )}
-            </>
-        );
-
-    }
+    const { register } = useFormContext(); // retrieve all hook methods
+    const [visible, setVisible] = useState(false);
+    const handleChange = () => {
+        setVisible(!visible);
+    };
     return (
-        <NestedTedOrgDonorInput />
-    )
+        <>
+            <DonorInfoCheckBoxes />
+            <Col xs={12}>
+                <FormControlLabel control={<Checkbox {...register("Donor nnknown")} onChange={handleChange} />} label="Donor is unknown, anonymous, or various cash donors" />
+            </Col>
+            {!visible && (
+                <>
+                    <Col xs={12} md={6}>
+                        <TextField {...register("TED Constituent ID")} required placeholder='TED Constituent ID' className="maxWidth" label="TED Constituent ID" />
+
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <TextField {...register("Organization/Donor Name")} placeholder='Organization/Donor Name' className="maxWidth" label="Organization/Donor name" />
+                    </Col>
+                </>
+            )}
+        </>
+    );
 }

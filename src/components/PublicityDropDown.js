@@ -1,4 +1,4 @@
-import { Container, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import React from 'react'
 import { Col, Row } from 'react-bootstrap';
 import { useFormContext } from 'react-hook-form';
@@ -14,7 +14,7 @@ export default function PublicityDropDown() {
     // console.log({ ...register(publicity) })
 
     return (
-        <Row>
+        <Row className='mb-0'>
             <Col xs={12} md={3}>
                 <FormControl className='maxWidth'>
                     <InputLabel id="publicityCode">
@@ -28,13 +28,13 @@ export default function PublicityDropDown() {
                         value={publicity}
                         onChange={handleChange}
                     >
-                        <MenuItem {...register("No Restrictions")} value={"no restrictions"} >No Restrictions</MenuItem>
-                        <MenuItem {...register("No Personal Contact")} value={"no personal contact"}>No Personal Contact</MenuItem>
-                        <MenuItem {...register("No Publicity")} value={"no publicity"}>No Publicity</MenuItem>
-                        <MenuItem {...register("No Contact/Publicity")} value={"no contact/publicity"}>
+                        <MenuItem {...register("No Restrictions")} value={"No restrictions"} >No Restrictions</MenuItem>
+                        <MenuItem {...register("No Personal Contact")} value={"No personal contact"}>No Personal Contact</MenuItem>
+                        <MenuItem {...register("No Publicity")} value={"No publicity"}>No Publicity</MenuItem>
+                        <MenuItem {...register("No Contact/Publicity")} value={"No contact/publicity"}>
                             No Contact/Publicity
                         </MenuItem>
-                        <MenuItem {...register("Anonymous")} value={"anonymous"}>Anonymous</MenuItem>
+                        <MenuItem {...register("Anonymous")} value={"Anonymous"}>Anonymous</MenuItem>
                     </Select>
                 </FormControl>
             </Col>

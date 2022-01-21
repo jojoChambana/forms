@@ -17,7 +17,7 @@ nav {
   flex-basis: content;
 }
 .row {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .maxWidth {
@@ -28,4 +28,19 @@ nav {
 h3 {
   background-color: #ccc;
   padding: 0.25rem;
+}
+
+.dollarAmount {
+  .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+    top: -10px;
+  }
+  fieldset {
+    border: none;
+  }
+  border: solid;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }

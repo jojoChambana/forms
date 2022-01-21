@@ -1,6 +1,6 @@
 import { Checkbox, FormControlLabel, FormGroup, TextField, Typography } from '@mui/material'
 import { useState } from 'react';
-import { Button, Col, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { useFormContext } from 'react-hook-form';
 import GiftAssociatedOpportunity from './GiftAssociatedOpportunity';
 import GiftAssociatedPledge from './GiftAssociatedPledge';
@@ -14,11 +14,11 @@ export default function DesignationInformaiton() {
         setChecked(!checked);
     };
 
-    const [checkGiftPortion, setGiftPortion] = useState(false);
+    // const [checkGiftPortion, setGiftPortion] = useState(false);
     // const [visible, setVisible] = useState(false);
-    const handleGiftPortion = () => {
-        setGiftPortion(!checkGiftPortion);
-    }
+    // const handleGiftPortion = () => {
+    //     setGiftPortion(!checkGiftPortion);
+    // }
 
 
 
@@ -26,41 +26,46 @@ export default function DesignationInformaiton() {
         <>
             <Typography variant="h5" component="h3">Designation Information</Typography>
             <FormGroup>
-                <FormControlLabel control={<Checkbox {...register("newDesigNationRequested")} onChange={handleChange} />} label="New Designation Requested" />
+                <FormControlLabel control={<Checkbox {...register("Newn Designation Requested")} onChange={handleChange} />} label="New Designation Requested" />
             </FormGroup>
 
             {checked ?
                 <>
                     <Row>
                         <Col xs={12} md={3} className='offset-md-2'>
-                            <TextField {...register("departmentContactEmail")} required type="email" placeholder="Department Contact Email" label="Department Contact Email" className="maxWidth" />
+                            <TextField {...register("Department Contact Email")} required type="email" placeholder="Department Contact Email" label="Department Contact Email" className="maxWidth" />
                         </Col>
                     </Row>
                     <Row>
                         <Col xs={12} md={3} className='offset-md-2'>
-                            <TextField {...register("departmentContact")} required placeholder="Department Contact" label="Department Contact" className="maxWidth" />
+                            <TextField {...register("Department Contact")} required placeholder="Department Contact" label="Department Contact" className="maxWidth" />
                         </Col>
                     </Row>
                 </> :
                 <Row>
                     <Col xs={12} md={3} className='offset-md-2'>
-                        <TextField {...register("tedDesignationId")} required placeholder="TED Designation ID" label="TED Designation ID" className="maxWidth" />
+                        <TextField {...register("TED Designation ID")} required placeholder="TED Designation ID" label="TED Designation ID" className="maxWidth" />
                     </Col>
                 </Row>
             }
             <Row>
                 <Col xs={12} md={6} className='offset-md-2'>
-                    <TextField {...register("tedDesignationTitle")} required placeholder="Designation Title" label="Designation Title" className="maxWidth" />
+                    <TextField {...register("TED Designation Title")} required placeholder="Designation Title" label="Designation Title" className="maxWidth" />
                 </Col>
             </Row>
-            <Row>
-                <Col xs={12} md={3} className='offset-md-2'><TextField label="Designation Amount" placeholder='Designation Amount' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} /></Col>
+            <Row className='d-flex flex-row-reverse'>
+                <Col xs={12} md={3} className='offset-md-2'>
+                    <div className='dollarAmount'>
+                        <TextField label="Designation Amount" placeholder='Designation Amount' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} />
+                    </div>
+                </Col>
+
             </Row>
             <NonGiftPortion />
             <GiftAssociatedPledge />
             <GiftAssociatedOpportunity />
             <GiftTribute />
-            <Row>
+            {/* <Row>
                 <Col xs={6} md={3}>
                     <Button placeholder='Add additional designation' label='Add additional designation'>Add additional designation</Button>
                 </Col>
@@ -72,7 +77,7 @@ export default function DesignationInformaiton() {
                 <Col sm={12}>
                     <TextField placeholder='Comments' label='Comments' {...register('designationAdditionalComments')} className="maxWidth" />
                 </Col>
-            </Row>
+            </Row> */}
         </>
     )
 }

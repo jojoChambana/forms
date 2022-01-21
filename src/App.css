@@ -20,8 +20,13 @@ nav #navbarSupportedContent > div > div.active > h1 {
   display: block;
 }
 
+.flexBasis {
+  -ms-flex-preferred-size: content;
+  flex-basis: content;
+}
+
 .row {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .maxWidth {
@@ -34,5 +39,22 @@ nav #navbarSupportedContent > div > div.active > h1 {
 h3 {
   background-color: #ccc;
   padding: 0.25rem;
+}
+
+.dollarAmount {
+  border: solid;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.dollarAmount .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+  top: -10px;
+}
+
+.dollarAmount fieldset {
+  border: none;
 }
 /*# sourceMappingURL=App.css.map */
