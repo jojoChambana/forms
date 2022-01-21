@@ -1,8 +1,7 @@
-import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material'
+import { Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, TextField } from '@mui/material'
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap'
 import { useFormContext } from 'react-hook-form';
-import Address from './Address';
 import DomesticAddress from './DomesticAddress';
 import ForeignAddress from './ForeignAddress';
 
@@ -31,7 +30,7 @@ export default function GiftTribute(props) {
         <FormGroup>
             <Row className='mb-0'>
                 <Col>
-                    <FormControlLabel label="Check if this gift is a tribute" control={<Checkbox placeholder="Check if this gift is a tribute" onChange={handleChange} />} />
+                    <FormControlLabel label="Check if this gift is a tribute" control={<Checkbox {...register("Tribute")} placeholder="Check if this gift is a tribute" onChange={handleChange} />} />
                 </Col>
             </Row>
             {
@@ -46,10 +45,10 @@ export default function GiftTribute(props) {
                             >
                                 <Row className='mb-0'>
                                     <Col xs={6} md={2} style={divStyle}>
-                                        <FormControlLabel value="In Memory Of" control={<Radio {...register("giftTribute")} />} label="In Memory Of" />
+                                        <FormControlLabel value="In Memory Of" control={<Radio {...register("Gift Tribute")} />} label="In Memory Of" />
                                     </Col>
                                     <Col xs={6} md={2} style={divStyle}>
-                                        <FormControlLabel value="In Honor Of" control={<Radio {...register("giftTribute")} />} label="In Honor Of" />
+                                        <FormControlLabel value="In Honor Of" control={<Radio {...register("Gift Tribute")} />} label="In Honor Of" />
                                     </Col>
                                 </Row>
                                 <Row className='mb-0'>
@@ -59,15 +58,15 @@ export default function GiftTribute(props) {
                                                 <Col xs={12} >
                                                     <Row className='mb-0'>
                                                         <Col xs={12} md={4}>
-                                                            <TextField placeholder='TED Constiutent ID' label='TED Constiutent ID' {...register("inMemoryOfTedID")} className='maxWidth' />
+                                                            <TextField placeholder='TED Constiutent ID' label='TED Constiutent ID' {...register("Ted constituent ID")} className='maxWidth' />
                                                         </Col>
 
                                                         <Col xs={12} md={4}>
-                                                            <TextField placeholder='Deceased Full Name' required label='Deceased Full Name' {...register("inMemoryDeceasedFullName")} className='maxWidth' />
+                                                            <TextField placeholder='Deceased Full Name' required label='Deceased Full Name' {...register("Deceased Full Name")} className='maxWidth' />
                                                         </Col>
                                                         <Col xs={12} md={4}>
                                                             <FormGroup>
-                                                                <FormControlLabel control={<Checkbox />} label="New Address" {...register("inHonorNewAddress")} />
+                                                                <FormControlLabel control={<Checkbox />} label="New Address" {...register("In Honor New Address")} />
                                                             </FormGroup>
                                                         </Col>
                                                     </Row>

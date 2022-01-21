@@ -1,5 +1,5 @@
 import { Container } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { Row } from 'react-bootstrap'
 import { FormProvider, useForm } from 'react-hook-form'
 import ContactInformation from "../components/ContactInformation"
@@ -14,15 +14,20 @@ import DesignationInformaiton from '../components/DesignationInformaiton'
 import TotalDonationAmount from '../components/TotalDonationAmount'
 import TransmittalTotals from '../components/TransmittalTotals'
 
-export default function Cash() {
+export default function Cash(props) {
 
     const navigate = useNavigate();
     const methods = useForm();
+    const { totalDonationAmount, setTotalDonationAmount } = useState(0);
+    const { opportunityAmount, setOpportunityAmount } = useState(0);
     const onSubmit = data => {
-        navigate("/checkprint");
-        console.table(data)
+        // const combinedValues = Object.assign(data);
+        props.setFormValues(data);
+        console.table(data);
+        navigate("/cashprint");
 
     };
+
     return (
         <>
             <Instructions />
@@ -31,17 +36,17 @@ export default function Cash() {
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
                         <Row className="mt-4">
                             <DepartmentCampus />
-                            <ContactInformation />
+                            {/* <ContactInformation /> */}
                         </Row>
-                        <Row>
+                        {/* <Row>
                             <NameEmail />
                         </Row>
                         <DonorInformation />
                         <Address />
-                        <PublicityDropDown />
-                        <TotalDonationAmount />
+                        <PublicityDropDown /> */}
+                        <TotalDonationAmount amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
                         <DesignationInformaiton />
-                        <TransmittalTotals />
+                        < TransmittalTotals amount={totalDonationAmount + opportunityAmount} />
                         <input type="submit" />
                     </form>
                 </Container>

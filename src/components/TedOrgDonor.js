@@ -15,7 +15,7 @@ export default function TedOrgDonor() {
         <>
             <DonorInfoCheckBoxes />
             <Col xs={12}>
-                <FormControlLabel control={<Checkbox {...register("Donor nnknown")} onChange={handleChange} />} label="Donor is unknown, anonymous, or various cash donors" />
+                <FormControlLabel control={<Checkbox {...register("Donor unknown")} onChange={handleChange} />} label="Donor is unknown, anonymous, or various cash donors" />
             </Col>
             {!visible && (
                 <>
