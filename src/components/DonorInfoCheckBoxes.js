@@ -9,10 +9,10 @@ export default function DonorInfoCheckBoxes() {
         <FormGroup>
             <Row className="mb-0">
                 <Col xs={12} md={6}>
-                    <FormControlLabel control={<Checkbox {...register("New Donor")} />} label="New donor" />
+                    <FormControlLabel control={<Checkbox {...register("newDonor")} />} label="New donor" />
                 </Col>
                 <Col xs={12} md={6}>
-                    <FormControlLabel control={<Checkbox {...register("New Address")} />} label="New address" />
+                    <FormControlLabel control={<Checkbox {...register("newAddress")} />} label="New address" />
                 </Col>
             </Row>
         </FormGroup>

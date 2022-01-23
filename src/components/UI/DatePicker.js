@@ -15,7 +15,7 @@ export default function DatePicker(props) {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DesktopDatePicker  {...register("Date")} label="Date"
+            <DesktopDatePicker  {...register("donationDate")} label="Date"
                 inputFormat="MM/dd/yyyy"
                 value={value}
                 onChange={handleChange}

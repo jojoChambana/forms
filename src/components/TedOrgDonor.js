@@ -15,16 +15,16 @@ export default function TedOrgDonor() {
         <>
             <DonorInfoCheckBoxes />
             <Col xs={12}>
-                <FormControlLabel control={<Checkbox {...register("Donor unknown")} onChange={handleChange} />} label="Donor is unknown, anonymous, or various cash donors" />
+                <FormControlLabel control={<Checkbox {...register("donorUnknown")} onChange={handleChange} />} label="Donor is unknown, anonymous, or various cash donors" />
             </Col>
             {!visible && (
                 <>
                     <Col xs={12} md={6}>
-                        <TextField {...register("TED Constituent ID")} required placeholder='TED Constituent ID' className="maxWidth" label="TED Constituent ID" />
+                        <TextField {...register("tedConstituentId")} required placeholder='TED Constituent ID' className="maxWidth" label="TED Constituent ID" />
 
                     </Col>
                     <Col xs={12} md={6}>
-                        <TextField {...register("Organization/Donor Name")} placeholder='Organization/Donor Name' className="maxWidth" label="Organization/Donor name" />
+                        <TextField {...register("organization/donor Name")} placeholder='Organization/Donor Name' className="maxWidth" label="Organization/Donor name" />
                     </Col>
                 </>
             )}

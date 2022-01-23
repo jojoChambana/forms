@@ -20,6 +20,7 @@ export default function Cash(props) {
     const methods = useForm();
     const { totalDonationAmount, setTotalDonationAmount } = useState(0);
     const { opportunityAmount, setOpportunityAmount } = useState(0);
+    const { totalDesignationAmount, designationAmount } = useState();
     const onSubmit = data => {
         // const combinedValues = Object.assign(data);
         props.setFormValues(data);
@@ -36,17 +37,17 @@ export default function Cash(props) {
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
                         <Row className="mt-4">
                             <DepartmentCampus />
-                            {/* <ContactInformation /> */}
+                            <ContactInformation />
                         </Row>
-                        {/* <Row>
+                        <Row>
                             <NameEmail />
                         </Row>
                         <DonorInformation />
                         <Address />
-                        <PublicityDropDown /> */}
-                        <TotalDonationAmount amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
-                        <DesignationInformaiton />
-                        < TransmittalTotals amount={totalDonationAmount + opportunityAmount} />
+                        {/* <PublicityDropDown /> */}
+                        {/* <TotalDonationAmount amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
+                        <DesignationInformaiton amount={totalDesignationAmount + designationAmount} />
+                        <TransmittalTotals amount={setOpportunityAmount + opportunityAmount} /> */}
                         <input type="submit" />
                     </form>
                 </Container>

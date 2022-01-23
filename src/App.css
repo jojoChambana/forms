@@ -57,4 +57,12 @@ h3 {
 .dollarAmount fieldset {
   border: none;
 }
+
+span.normal {
+  font-weight: normal;
+}
+
+.headerPrint {
+  display: none;
+}
 /*# sourceMappingURL=App.css.map */

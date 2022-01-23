@@ -9,7 +9,7 @@ export default function DomesticAddress() {
         <Row>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("Address")}
+                    {...register("address")}
                     required
                     id="donorDomesticAddress"
                     label="Address"
@@ -18,7 +18,7 @@ export default function DomesticAddress() {
             </Col>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("City")}
+                    {...register("city")}
                     required
                     id="donorCity"
                     label="City"
@@ -27,7 +27,7 @@ export default function DomesticAddress() {
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("State")}
+                    {...register("state")}
                     required
                     id="donorState"
                     label="State"
@@ -36,7 +36,7 @@ export default function DomesticAddress() {
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("Zip Code")}
+                    {...register("zipCode")}
                     required
                     id="donorPostalCode"
                     label="Zip Code"

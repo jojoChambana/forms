@@ -1,25 +1,39 @@
+import { DatePicker, LocalizationProvider } from '@mui/lab';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import { TextField } from '@mui/material';
+import React from 'react';
 import { Col } from 'react-bootstrap';
 import { useFormContext } from 'react-hook-form';
-import DatePicker from './UI/DatePicker';
+
 
 
 export default function NameEmail() {
     const { register } = useFormContext(); // retrieve all hook methods
+    const [value, setValue] = React.useState(new Date());
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    };
     return (
         <>
             <Col xs={12} md={3}>
-                <TextField {...register("Department name")} required placeholder='Department name' className="maxWidth" label="Department name" />
+                <TextField {...register("departmentName")} required placeholder='Department name' className="maxWidth" label="Department name" />
 
             </Col>
-            <Col xs={12} md={3}>
-                <TextField {...register("Prepared by")} required placeholder='Prepared by' className="maxWidth" label="Prepared by" />
-            </Col>
             <Col xs={12} md={2}>
-                <DatePicker />
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DatePicker {...register("donationDate")} label="Date"
+                        inputFormat="MM/dd/yyyy"
+                        value={value}
+                        onChange={handleChange}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                </LocalizationProvider>
+            </Col>
+            <Col xs={12} md={3}>
+                <TextField {...register("preparedBy")} required placeholder='Prepared by' className="maxWidth" label="Prepared by" />
             </Col>
             <Col xs={12} md={4}>
-                <TextField {...register("Unit Reference Number")} placeholder='Unit reference number' className="maxWidth" label="Unit reference number" />
+                <TextField {...register("unitReferenceNumber")} placeholder='Unit reference number' className="maxWidth" label="Unit reference number" />
             </Col>
         </>
     );
