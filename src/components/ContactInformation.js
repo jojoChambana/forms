@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { useFormContext, useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 
@@ -9,7 +9,7 @@ export default function DonorInfo(props) {
     // const resolver = useYupValidationResolver(validationSchema);
     // const { handleSubmit } = useForm({ resolver });
     return (
-        <>
+        <Row>
             <Col xs={12} md={4}>
                 <TextField {...register("contactFullName")} required placeholder='Contact full name' className="maxWidth" label="Contact full name" />
                 <ErrorMessage errors={errors} name="singleErrorInput" />
@@ -23,7 +23,7 @@ export default function DonorInfo(props) {
             <Col xs={12} md={4}>
                 <TextField {...register("collegeName")} required placeholder='College name' label="College name" className="maxWidth" />
             </Col>
-        </>
+        </Row>
     );
 }
 

@@ -18,14 +18,12 @@ export default function Cash(props) {
 
     const navigate = useNavigate();
     const methods = useForm();
-    const { totalDonationAmount, setTotalDonationAmount } = useState(0);
-    const { opportunityAmount, setOpportunityAmount } = useState(0);
-    const { totalDesignationAmount, designationAmount } = useState();
     const onSubmit = data => {
         // const combinedValues = Object.assign(data);
         props.setFormValues(data);
         console.table(data);
         navigate("/cashprint");
+
     };
 
     return (
@@ -34,15 +32,19 @@ export default function Cash(props) {
             <FormProvider {...methods} >
                 <Container>
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
-                        <DepartmentCampus />
-                        <ContactInformation />
-                        <NameEmail />
+                        <Row className="mt-4">
+                            <DepartmentCampus />
+                            {/* <ContactInformation /> */}
+                        </Row>
+                        {/* <Row>
+                            <NameEmail />
+                        </Row>
                         <DonorInformation />
                         <Address />
-                        <PublicityDropDown />
-                        <TotalDonationAmount amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
-                        <DesignationInformaiton amount={totalDesignationAmount + designationAmount} />
-                        <TransmittalTotals amount={setOpportunityAmount + opportunityAmount} />
+                        <PublicityDropDown /> */}
+                        <TotalDonationAmount />
+                        <DesignationInformaiton />
+                        < TransmittalTotals />
                         <input type="submit" />
                     </form>
                 </Container>

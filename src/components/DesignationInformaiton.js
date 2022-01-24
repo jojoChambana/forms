@@ -8,10 +8,22 @@ import GiftTribute from './GiftTribute';
 import NonGiftPortion from './NonGiftPortion';
 
 export default function DesignationInformaiton() {
-    const { register } = useFormContext(); // retrieve all hook methods
+    const { register, setValue, getValues } = useFormContext(); // retrieve all hook methods
     const [checked, setChecked] = useState(false);
     const handleChange = () => {
         setChecked(!checked);
+    };
+
+    const parseNum = (num) => {
+        let newValue = parseFloat(num)
+
+        if (isNaN(newValue))
+            newValue = 0;
+
+        return (newValue)
+    }
+    const myHandleChange = (event) => {
+        setValue("giftTotals", parseNum(event.target.value) + parseNum(getValues("totalDonationAmount")))
     };
 
     // const [checkGiftPortion, setGiftPortion] = useState(false);
@@ -26,41 +38,42 @@ export default function DesignationInformaiton() {
         <>
             <Typography variant="h5" component="h3">Designation Information</Typography>
             <FormGroup>
-                <FormControlLabel control={<Checkbox {...register("Newn Designation Requested")} onChange={handleChange} />} label="New Designation Requested" />
+                <FormControlLabel control={<Checkbox {...register("newDesignationRequested")} onChange={handleChange} />} label="New Designation Requested" />
             </FormGroup>
 
             {checked ?
                 <>
                     <Row>
                         <Col xs={12} md={3} className='offset-md-2'>
-                            <TextField {...register("Department Contact Email")} required type="email" placeholder="Department Contact Email" label="Department Contact Email" className="maxWidth" />
+                            <TextField {...register("departmentContactEmail")} required type="email" placeholder="Department Contact Email" label="Department Contact Email" className="maxWidth" />
                         </Col>
                     </Row>
                     <Row>
                         <Col xs={12} md={3} className='offset-md-2'>
-                            <TextField {...register("Department Contact")} required placeholder="Department Contact" label="Department Contact" className="maxWidth" />
+                            <TextField {...register("departmentContact")} required placeholder="Department Contact" label="Department Contact" className="maxWidth" />
                         </Col>
                     </Row>
                 </> :
                 <Row>
                     <Col xs={12} md={3} className='offset-md-2'>
-                        <TextField {...register("TED Designation ID")} required placeholder="TED Designation ID" label="TED Designation ID" className="maxWidth" />
+                        <TextField {...register("tedDesignationId")} required placeholder="TED Designation ID" label="TED Designation ID" className="maxWidth" />
                     </Col>
                 </Row>
             }
             <Row>
                 <Col xs={12} md={6} className='offset-md-2'>
-                    <TextField {...register("TED Designation Title")} required placeholder="Designation Title" label="Designation Title" className="maxWidth" />
+                    <TextField {...register("tedDesignationTitle")} required placeholder="Designation Title" label="Designation Title" className="maxWidth" />
                 </Col>
             </Row>
             <Row className='d-flex flex-row-reverse'>
                 <Col xs={12} md={3} className='offset-md-2'>
                     <div className='dollarAmount'>
-                        <TextField label="Designation Amount" placeholder='Designation Amount' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} />
+                        <TextField label="designationAmount" placeholder='Designation Amount' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}  {...register("totalDesignationAmount")} onChange={myHandleChange} />
                     </div>
                 </Col>
 
             </Row>
+
             <NonGiftPortion />
             <GiftAssociatedPledge />
             <GiftAssociatedOpportunity />

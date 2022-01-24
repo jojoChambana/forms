@@ -22,7 +22,6 @@ export default function DepartmentCampus(props) {
                 <RadioGroup
                     aria-labelledby="campus-Location"
                     defaultValue="Urbana"
-
                 >
                     <Row>
                         <Col>

@@ -5,36 +5,36 @@ import { useFormContext } from 'react-hook-form';
 
 export default function PublicityDropDown() {
     const { register } = useFormContext(); // retrieve all hook methods
-    const [publicity, setPublicity] = React.useState('');
+    const [publicityCode, setPublicity] = React.useState('');
     const handleChange = (event) => {
-
         setPublicity(event.target.value);
-
+        // console.table(event.target.value)
     };
-    // console.log({ ...register(publicity) })
 
     return (
         <Row className='mb-0'>
             <Col xs={12} md={3}>
-                <FormControl className='maxWidth'>
+                <FormControl className='maxWidth' name="publicityCode">
                     <InputLabel id="publicityCode">
                         Contact/Publicity Code
                     </InputLabel>
                     <Select
+                        {...register("publicityCode")}
                         labelId="publicityCode"
                         id="publicityCode"
                         label="Contact/Publicity Code*"
                         required
-                        value={publicity}
+
+                        value={publicityCode}
                         onChange={handleChange}
                     >
-                        <MenuItem {...register("No Restrictions")} value={"No restrictions"} >No Restrictions</MenuItem>
-                        <MenuItem {...register("No Personal Contact")} value={"No personal contact"}>No Personal Contact</MenuItem>
-                        <MenuItem {...register("No Publicity")} value={"No publicity"}>No Publicity</MenuItem>
-                        <MenuItem {...register("No Contact/Publicity")} value={"No contact/publicity"}>
+                        <MenuItem value={"No restrictions"}>No Restrictions</MenuItem>
+                        <MenuItem value={"No personal contact"}>No Personal Contact</MenuItem>
+                        <MenuItem value={"No publicity"}>No Publicity</MenuItem>
+                        <MenuItem value={"No contact/publicity"} >
                             No Contact/Publicity
                         </MenuItem>
-                        <MenuItem {...register("Anonymous")} value={"Anonymous"}>Anonymous</MenuItem>
+                        <MenuItem value={"anonymous"} >Anonymous</MenuItem>
                     </Select>
                 </FormControl>
             </Col>
