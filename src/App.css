@@ -41,7 +41,8 @@ h3 {
   padding: 0.25rem;
 }
 
-.dollarAmount {
+.dollarAmount,
+dateField {
   border: solid;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -50,11 +51,13 @@ h3 {
   -o-border-radius: 4px;
 }
 
-.dollarAmount .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+.dollarAmount .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root,
+dateField .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
   top: -10px;
 }
 
-.dollarAmount fieldset {
+.dollarAmount fieldset,
+dateField fieldset {
   border: none;
 }
 
@@ -64,5 +67,10 @@ span.normal {
 
 .headerPrint {
   display: none;
+}
+
+.rdbld {
+  font-weight: bold;
+  color: red;
 }
 /*# sourceMappingURL=App.css.map */

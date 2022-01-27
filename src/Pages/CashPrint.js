@@ -131,7 +131,7 @@ const CashPrint = (props) => {
                         <Row>
                             <Col>
                                 <Typography variant="formCat">
-                                    New donor: <span className="normal">{props.formValues.newDonor}</span>
+                                    New donor: <span className="normal">{props.formValues.newDonor}</span> - <span className="rdbld">TO DO - Make yes or no</span>
                                 </Typography>
                             </Col>
                         </Row>
@@ -158,7 +158,7 @@ const CashPrint = (props) => {
                                 </Typography>
                             </Col>
                         </Row>
-                        <Row>
+                        {/* <Row>
                             <Col>
                                 <Typography variant="formCat">
                                     New address: <span className="normal">{props.formValues.newAddress}</span>
@@ -171,7 +171,7 @@ const CashPrint = (props) => {
                                     Foriegn address: <span className="normal">{props.formValues.foreignAddress}</span>
                                 </Typography>
                             </Col>
-                        </Row>
+                        </Row> */}
                         <Row>
                             <Col>
                                 <span className="normal">{props.formValues.address}</span>
@@ -344,9 +344,6 @@ const CashPrint = (props) => {
                             </Col>
                         </Row>
 
-                        <Col>
-                            <Typography variant="formCat">New Address: <span className="normal">{props.formValues.inMemoryNewAddress}</span></Typography>
-                        </Col>
                         <Row>
                             <Col>
                                 <Typography variant="formCat">Address: <span className="normal">{props.formValues.address}</span></Typography>
@@ -416,7 +413,7 @@ const CashPrint = (props) => {
                     <Col>
                         <button
                             onClick={() => {
-                                navigate(-1);
+                                navigate("/cash");
                             }}
                         >
                             Back

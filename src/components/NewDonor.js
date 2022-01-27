@@ -1,12 +1,11 @@
 import React from "react";
 import { Checkbox } from "@mui/material";
-import { useFormContext } from 'react-hook-form';
 
-function NestedNewDonorCheckBox() {
-    const { register } = useFormContext(); // retrieve all hook methods
+function NestedNewDonorCheckBox({ errors, register }) {
+
     return (
         <>
-            <Checkbox {...register("New donor?")} />
+            <Checkbox {...register("newDonorCheckBox")} />
         </>
     );
 }

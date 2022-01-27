@@ -1,10 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import React from 'react'
 import { Col, Row } from 'react-bootstrap';
-import { useFormContext } from 'react-hook-form';
 
-export default function PublicityDropDown() {
-    const { register } = useFormContext(); // retrieve all hook methods
+export default function PublicityDropDown({ register }) {
     const [publicityCode, setPublicity] = React.useState('');
     const handleChange = (event) => {
         setPublicity(event.target.value);
@@ -12,7 +10,7 @@ export default function PublicityDropDown() {
     };
 
     return (
-        <Row className='mb-0'>
+        <Row>
             <Col xs={12} md={3}>
                 <FormControl className='maxWidth' name="publicityCode">
                     <InputLabel id="publicityCode">
@@ -24,7 +22,7 @@ export default function PublicityDropDown() {
                         id="publicityCode"
                         label="Contact/Publicity Code*"
                         required
-
+                        default="No restrictions"
                         value={publicityCode}
                         onChange={handleChange}
                     >

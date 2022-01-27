@@ -4,8 +4,8 @@ import { useFormContext } from 'react-hook-form';
 import DomesticAddress from './DomesticAddress';
 import ForeignAddress from './ForeignAddress';
 
-export default function Address(props) {
-    const { register } = useFormContext(); // retrieve all hook methods
+export default function Address({ errors, register }) {
+
     const [checked, setChecked] = useState(false);
     // const prefix = props.prefix;
     const handleChange = () => {
@@ -17,9 +17,9 @@ export default function Address(props) {
                 <FormControlLabel control={<Checkbox {...register("foreignDonor")} onChange={handleChange} />} label="Check for foreign address" />
             </FormGroup>
             {checked ?
-                <ForeignAddress prefix="hello" />
+                <ForeignAddress errors={errors} register={register} />
                 :
-                <DomesticAddress />
+                <DomesticAddress errors={errors} register={register} />
             }
         </>
     )

@@ -1,20 +1,15 @@
 import { TextField } from '@mui/material'
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
-import { useFormContext } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
 
-export default function DomesticAddress() {
-    const { register } = useFormContext(); // retrieve all hook methods
+export default function DomesticAddress({ errors, register }) {
+
     return (
         <Row>
             <Col xs={12} md={3}>
-                <TextField
-                    {...register("address")}
-                    required
-                    id="donorDomesticAddress"
-                    label="Address"
-                    className="maxWidth"
-                />
+                <TextField {...register("address")} required placeholder='Address' className="maxWidth" label="Address" />
+                <ErrorMessage errors={errors} name="addressError" />
             </Col>
             <Col xs={12} md={3}>
                 <TextField
