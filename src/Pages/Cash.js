@@ -41,7 +41,7 @@ export default function Cash(props) {
                         <Address />
                         <PublicityDropDown />
                         <TotalDonationAmount amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
-                        <DesignationInformaiton amount={totalDesignationAmount + designationAmount} />
+                        {/* <DesignationInformaiton amount={totalDesignationAmount + designationAmount} /> */}
                         <TransmittalTotals amount={setOpportunityAmount + opportunityAmount} />
                         <input type="submit" />
                     </form>
