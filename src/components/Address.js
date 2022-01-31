@@ -1,6 +1,5 @@
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import { useState } from 'react';
-import { useFormContext } from 'react-hook-form';
 import DomesticAddress from './DomesticAddress';
 import ForeignAddress from './ForeignAddress';
 
@@ -8,8 +7,10 @@ export default function Address({ errors, register }) {
 
     const [checked, setChecked] = useState(false);
     // const prefix = props.prefix;
-    const handleChange = () => {
+    const handleChange = (props) => {
         setChecked(!checked);
+        // console.log(checked)
+
     };
     return (
         <>

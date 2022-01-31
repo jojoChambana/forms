@@ -19,6 +19,7 @@ export default function DonorInformation({ errors, newDonor, newAddress, handleC
 
                     <Col xs={12} md={6}>
                         <FormControlLabel control={<Checkbox {...register("donorUnknown")} onClick={handleClickUnknownDonor} />} label="Donor is unknown, anonymous, or various cash donors" />
+
                     </Col>
 
                     <Col xs={12} md={6}>

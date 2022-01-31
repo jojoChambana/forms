@@ -1,10 +1,13 @@
 import { Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap'
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import { Controller, useForm } from 'react-hook-form';
+import "react-phone-number-input/style.css";
 import DomesticAddress from './DomesticAddress';
 import ForeignAddress from './ForeignAddress';
 
-export default function GiftTribute({ errors, register }) {
+export default function GiftTribute({ errors, register, control }) {
 
     const [visable, setVisable] = useState(false);
     const handleChange = () => {
@@ -31,7 +34,7 @@ export default function GiftTribute({ errors, register }) {
             <FormGroup>
                 <Row className='mb-0'>
                     <Col>
-                        <FormControlLabel label="Check if this gift is a tribute" control={<Checkbox {...register("tribute")} placeholder="Check if this gift is a tribute" onChange={handleChange} />} />
+                        <FormControlLabel label="Check if this gift is a tribute" defaultValue={false} control={<Checkbox {...register("tribute")} placeholder="Check if this gift is a tribute" onChange={handleChange} />} />
                     </Col>
                 </Row>
                 {
@@ -46,10 +49,10 @@ export default function GiftTribute({ errors, register }) {
                                 >
                                     <Row className='mb-0'>
                                         <Col xs={6} md={2} style={divStyle}>
-                                            <FormControlLabel value="In Memory Of" control={<Radio {...register("giftTribute")} />} label="In Memory Of" />
+                                            <FormControlLabel value="In Memory Of" control={<Radio {...register("giftTribute")} />} label="In memory of" />
                                         </Col>
                                         <Col xs={6} md={2} style={divStyle}>
-                                            <FormControlLabel value="In Honor Of" control={<Radio {...register("giftTribute")} />} label="In Honor Of" />
+                                            <FormControlLabel value="in honor Of" control={<Radio {...register("giftTribute")} />} label="In honor of" />
                                         </Col>
                                     </Row>
                                     <Row className='mb-0'>
@@ -59,16 +62,11 @@ export default function GiftTribute({ errors, register }) {
                                                     <Col xs={12} >
                                                         <Row className='mb-0'>
                                                             <Col xs={12} md={4}>
-                                                                <TextField placeholder='TED Constiutent ID' label='TED Constiutent ID' {...register("tedconstituentID")} className='maxWidth' />
+                                                                <TextField placeholder='TED Constiutent ID' label='TED Constiutent ID' {...register("deceasedTedconstituentID")} className='maxWidth' />
                                                             </Col>
 
                                                             <Col xs={12} md={4}>
                                                                 <TextField placeholder='Deceased Full Name' required label='Deceased Full Name' {...register("deceasedFullName")} className='maxWidth' />
-                                                            </Col>
-                                                            <Col xs={12} md={4}>
-                                                                <FormGroup>
-                                                                    <FormControlLabel control={<Checkbox />} label="New Address" {...register("inMemoryNewAddress")} />
-                                                                </FormGroup>
                                                             </Col>
                                                         </Row>
                                                     </Col>
@@ -90,12 +88,23 @@ export default function GiftTribute({ errors, register }) {
                                     </Row>
                                 </RadioGroup>
                             </FormControl>
-                            <FormGroup>
-                                <FormControlLabel control={<Checkbox onChange={handleChangeAddressToggle} />} {...register("inMemoryForeignAddress")} placeholder='Foreign Address' label='Foreign Address' />
-                            </FormGroup>
+                            <Row>
+                                <Col xs={12} md={4}>
+                                    <FormGroup>
+                                        <FormControlLabel control={<Checkbox />} label="New Address" {...register("inMemoryNewAddress")} />
+                                    </FormGroup>
+                                </Col>
+                                <Col xs={12} md={4}>
+                                    <FormGroup>
+                                        <FormControlLabel control={<Checkbox onChange={handleChangeAddressToggle} />} {...register("inMemoryForeignAddress")} placeholder='Foreign Address' label='Foreign Address' />
+                                    </FormGroup>
+                                </Col>
+                            </Row>
                             {
-                                visableAddressToggle ? (<ForeignAddress />) : (<DomesticAddress />)
+                                visableAddressToggle ? <ForeignAddress errors={errors} register={register} {...register} />
+                                    : <DomesticAddress errors={errors} register={register} />
                             }
+
                             <Row>
                                 <Col xs={12} md={4}>
                                     <TextField type="tel" placeholder='Designation phone number' label='Phone number' {...register("designationPhoneNumber")} className='maxWidth' />

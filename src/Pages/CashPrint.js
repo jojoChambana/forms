@@ -9,6 +9,16 @@ import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
+import PrintForeign from "../components/PrintForeign";
+
+function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return null;
+}
 
 const CashPrint = (props) => {
     const navigate = useNavigate();
@@ -16,7 +26,15 @@ const CashPrint = (props) => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-    console.log("these are the", props)
+    // console.log("these are the", props)
+
+    // // let unknownDonor = props.formValues.donorUnknown.toString(false);
+    // const theDonorIsUnknown = <Typography className='normal'>Donor is unknown, anonymous, or various cash donors.</Typography>;
+
+    // // let newDonor = props.formValues.donorUnknown.toString(false)
+    // const theDonorIsNew = <Typography className='normal'>New donor.</Typography>;
+
+    // const theAddressIsNew = <Typography className="normal">This is a new address.</Typography>
 
     const theme = createTheme({
         typography: {
@@ -27,6 +45,7 @@ const CashPrint = (props) => {
     });
 
     return (
+
         <>
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
@@ -61,350 +80,605 @@ const CashPrint = (props) => {
                                 </Col>
                             </Row>
                         </Row>
-                        <Row>
+                        <Row className="resultItems">
                             <Col>
                                 <Typography variant="h4" component="h1">
-                                    Donor check transmittal
+                                    Donor cash transmittal
                                 </Typography>
                             </Col>
                         </Row>
-
-                        {/* {props.formValues.totalDonationAmount} */}
-
-                        <Row>
+                        <Row xs={12} className="resultItems">
                             <Col>
-                                <Typography variant="h6" component="h2">
-                                    Campus: <span className="normal">{props.formValues.campusLocation}</span>
-
+                                <Typography variant="formCat" className="lineUp">
+                                    Campus:
                                 </Typography>
                             </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="h6" component="h2">
-                                    Contact: {props.formValues.contactFullName}
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Phone: <span className="normal">{props.formValues.contactPhone}</span>
-                                </Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Email: <span className="normal">{props.formValues.contactEmail}</span></Typography>
-                            </Col>
-
-                            <Col>
-                                <Typography variant="formCat">
-                                    College name: <span className="normal">{props.formValues.collegeName}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Department name: <span className="normal">{props.formValues.departmentName}</span>
-                                </Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Prepared by: <span className="normal">{props.formValues.preparedBy}</span>
-                                </Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Date prepared: <span className="normal">{props.formValues.datePrepared}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Typography variant="h5" component="h3">Donor Information</Typography>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Donor is Unknown, Anonymous or various cash donors: <span className="normal">{props.formValues.donorUnknown}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    New donor: <span className="normal">{props.formValues.newDonor}</span> - <span className="rdbld">TO DO - Make yes or no</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            {/* <Typography variant="h6" component="h4">
-                                Address
-                            </Typography> */}
-                            <Col>
-                                <Typography variant="formCat">
-                                    <Col>
-                                        <Typography variant="formCat">
-                                            TED Constituent ID: <span className="normal">{props.formValues.tedConstituentId}</span>
-                                        </Typography>
-                                    </Col>
-                                </Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">
-                                    <Col>
-                                        <Typography variant="formCat">
-                                            Organization/Donor Name : <span className="normal">{props.formValues.organizationDonorName}</span>
-                                        </Typography>
-                                    </Col>
-                                </Typography>
+                            <Col className="results">
+                                <span className="normal">{props.formValues.campusLocation}</span>
                             </Col>
                         </Row>
                         {/* <Row>
                             <Col>
-                                <Typography variant="formCat">
-                                    New address: <span className="normal">{props.formValues.newAddress}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Foriegn address: <span className="normal">{props.formValues.foreignAddress}</span>
+                                <Typography variant="h5" component="h3">
+                                    Contact Information
                                 </Typography>
                             </Col>
                         </Row> */}
                         <Row>
-                            <Col>
-                                <span className="normal">{props.formValues.address}</span>
-                                <br />
-                                <span className="normal">{props.formValues.city} <span className="normal">{props.formValues.state}</span></span>
-                                <br />
-                                <span className="normal">{props.formValues.zipCode}</span>
-                            </Col>
-                        </Row>
+                            <Col xs={12} md={6}>
+                                <Row xs={12} className="resultItems">
+                                    <Col>
+                                        <Typography variant="formCat" className="lineUp">
+                                            Contact full name:
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">{props.formValues.contactFullName}</span>
+                                    </Col>
+                                </Row>
 
-                        <Row>
+                                <Row xs={12} className="resultItems">
+                                    <Col className="rightLabel">
+                                        <Typography variant="formCat" className="lineUp">
+                                            Phone:
+                                        </Typography>
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">{props.formValues.contactPhone}</span>
+                                    </Col>
+                                </Row>
+                                <Row xs={12} className="resultItems">
+                                    <Col className="rightLabel">
+                                        <Typography variant="formCat" className="lineUp">
+                                            Email: </Typography>
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">{props.formValues.contactEmail}</span>
+                                    </Col>
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    <Col className="rightLabel">
+                                        <Typography variant="formCat" className="lineUp">
+                                            College name: </Typography>
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">{props.formValues.collegeName}</span>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col xs={12} md={6}>
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.unitReferenceNumber) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Department name:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.departmentName}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.unitReferenceNumber) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Date received by department:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.donationDate}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.preparedBy) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Prepared by:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.preparedBy}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.unitReferenceNumber) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Unit reference number:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.unitReferenceNumber}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                            </Col>
+
+                        </Row>
+                        {/* <Row>
                             <Col>
-                                <Typography variant="formCat">
-                                    Contact/Publicity code: <span className="normal">{props.formValues.publicityCode}</span>
+                                <Typography variant="h6" component="h3">
+                                    Donor Information
                                 </Typography>
                             </Col>
-                        </Row>
+                        </Row> */}
+
                         <Row>
+                            <Col xs={12} md={6}>
+                                <Row xs={12} className="resultItems">
+
+                                    {
+                                        (() => {
+                                            if (props.formValues.organizationDonorName) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Organization/Donor name:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.organizationDonorName}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.domesticAddress) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Domestic Address:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.domesticAddress}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.domesticCity) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Domestic city:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.domesticCity}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.domesticState) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Domestic state:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.domesticState}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.zipCode) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Zip:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.zipCode}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.foreignAddress) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Foreign Address:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.foreignAddress}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.provinceRegion) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                State/Province/Region:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.provinceRegion}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.country) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Country:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.country}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.postalCode) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Postal code:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.postalCode}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.foreignCountry) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Country:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.foreignCountry}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+
+                            </Col>
+                            <Col xs={12} md={6}>
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.tedConstituentId) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Ted constituent ID:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.tedConstituentId}</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+
+
+                                <Row xs={12} className="resultItems">
+
+                                    {
+                                        (() => {
+                                            if (props.formValues.donorUnknown) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Donor is unknown, anonymous, or various cash donors:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">Yes</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+                                <Row xs={12} className="resultItems">
+
+                                    {
+                                        (() => {
+                                            if (props.formValues.newDonor) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                New donor:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">Yes</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.newAddress) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                New address:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">Yes</span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+                                <Row xs={12} className="resultItems">
+                                    {
+                                        (() => {
+                                            if (props.formValues.publicityCode) {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Contact/Publicity:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">
+                                                                {props.formValues.publicityCode}
+                                                            </span>
+                                                        </Col>
+                                                    </>
+                                                );
+                                            }
+                                        })()
+                                    }
+                                </Row>
+                            </Col>
+                        </Row>
+
+                        <Row xs={12} className="resultItems mb-4">
+                            <hr />
+                            {
+                                (() => {
+                                    if (props.formValues.totalDonationAmount) {
+                                        return (
+                                            <>
+                                                <Col>
+                                                    <Typography variant="formCat" className="lineUp">
+                                                        Total donation amount:
+                                                    </Typography>
+                                                </Col>
+                                                <Col className="results">
+                                                    <span className="normal">
+                                                        {props.formValues.totalDonationAmount}
+                                                    </span>
+                                                </Col>
+                                            </>
+                                        );
+                                    }
+                                })()
+                            }
+                        </Row>
+                        {/* <Row>
                             <Col>
-                                <Typography variant="formCat">
-                                    Total donation amount: <span className="normal">{props.formValues.totalDonationAmount}</span>
+                                <Typography variant="h6" component="h3">
+                                    Tribute
                                 </Typography>
                             </Col>
-                        </Row>
+                        </Row> */}
 
-                        <Typography variant="h5" component="h3">Designation Information</Typography>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Has a new designation been requested? <span className="normal">{props.formValues.newDesignationRequested}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
+                        {
+                            (() => {
+                                if (props.formValues.tribute) {
+                                    return (
+                                        <Row xs={12} className="resultItems">
+                                            <Col>
+                                                <Row>
+                                                    <Col>
+                                                        <Typography>
+                                                            This is a tribute {props.formValues.giftTribute}:
+                                                            <span className="normal"> {props.formValues.deceasedFullName}</span>
+                                                        </Typography>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <Typography variant="formCat" className="lineUp">
+                                                            TED constituent Id:
+                                                        </Typography>
+                                                    </Col>
+                                                    <Col className="results">
+                                                        <span className="normal">
+                                                            {props.formValues.deceasedTedconstituentID}
+                                                        </span>
+                                                    </Col>
 
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    TED designation Id: <span className="normal">{props.formValues.tedDesignationId}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Department contact: <span className="normal">{props.formValues.departmentContact}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Department email: <span className="normal">{props.formValues.departmentEmail}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    TED designation title: <span className="normal">{props.formValues.tedDesignationTitle}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Typography variant="formCat">
-                                Designation amount: <span className="normal">{props.formValues.tedDesignationAmount}</span>
-                            </Typography>
-                        </Row>
-
-                        <Row>
-                            <Typography variant="formCat">
-                                Is there a non-gift portion? <span className="normal">{props.formValues.nonGiftPortion}</span>
-                            </Typography>
-                            <Row>
-                                <Col>
-                                    <Typography variant="formCat">
-                                        Non-gift TED designation Id: <span className="normal">{props.formValues.nonGiftTedId}</span>
-                                    </Typography>
-                                </Col>
-                                <Col>
-                                    <Typography variant="formCat">
-                                        Gift amount: <span className="normal">{props.formValues.giftTedAmount}</span>
-                                    </Typography>
-                                </Col>
-                                <Col>
-                                    <Typography variant="formCat">
-                                        Non-Gift amount: <span className="normal">{props.formValues.nonGiftTedAmount}</span>
-                                    </Typography>
-                                </Col>
-                            </Row>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Is this gift associated with a pledge? <span className="normal">{props.formValues.giftAssociatedWithPledge}</span>
-                                </Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Pledge revenue Id: <span className="normal">{props.formValues.pledgeRevenueId}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Is this gift associated with an Opportunity? <span className="normal">{props.formValues.associatedOpportunity}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    TED household Id: <span className="normal">{props.formValues.tedHouseholdId}</span>
-                                </Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">Household name: <span className="normal">{props.formValues.tedHousehold}</span></Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Plan name: </Typography><span className="normal">{props.formValues.tedPlanName}</span></Col>
-                            <Col>
-                                <Typography variant="formCat">Opportunity amount: </Typography><span className="normal">{props.formValues.tedOpportunityAmount}</span></Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Actual ask date: </Typography><span className="normal">{props.formValues.actualAskDate}</span></Col>
-                            <Col>
-                                <Typography variant="formCat">Primary plan manager name: </Typography><span className="normal">{props.formValues.primaryPlanManager}</span></Col>
-                        </Row>
+                                                    <Col>
+                                                        <Typography variant="formCat" className="lineUp">
+                                                            Full name of the deceased:
+                                                        </Typography>
+                                                    </Col>
+                                                    <Col className="results">
+                                                        <span className="normal">
+                                                            {props.formValues.deceasedFullName}
+                                                        </span>
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+                                        </Row>
+                                    );
+                                }
+                            })()
+                        }
 
 
+                        {
+                            (() => {
+                                if (!props.formValues.tribute) {
+                                    return (
+                                        <>
+                                            <Row xs={12} className="resultItems">
+                                                <Col>
+                                                    <Typography>
+                                                        This is in honor of :
+                                                        <span className="normal"> {props.formValues.honoreeFullName}</span>
+                                                    </Typography>
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
+                                                    <Typography variant="formCat" className="lineUp">
+                                                        Address:
+                                                    </Typography>
+                                                </Col>
+                                                <Col className="results">
+                                                    <span className="normal">
+                                                        {props.formValues.domesticAddress}
+                                                    </span>
+                                                </Col>
+                                            </Row>
+                                        </>
+                                    );
+                                }
+                            })()
+                        }
 
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">
-                                    Is this gift a tribute? <span className="normal">{props.formValues.giftTribute}</span>
-                                </Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Typography variant="h6">In memory</Typography>
-                            <Col>
-                                <Typography variant="formCat">TED constituent Id: <span className="normal">{props.formValues.inMemoryTedID}</span></Typography>
-                            </Col>
-
-                            <Col>
-                                <Typography variant="formCat">Deceased full name: <span className="normal">{props.formValues.dedeasedFullName}</span></Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Typography variant="h6">In honor</Typography>
-                            <Col>
-                                <Typography variant="formCat">TED constituent Id: <span className="normal">{props.formValues.inHonorTedID}</span></Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Honoree full name: <span className="normal">{props.formValues.honoreeFullName}</span></Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Address: <span className="normal">{props.formValues.address}</span></Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">City: <span className="normal">{props.formValues.city}</span></Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">State: <span className="normal">{props.formValues.state}</span></Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">Zip Code: <span className="normal">{props.formValues.zipCode}</span></Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Phone: <span className="normal">{props.formValues.phone}</span></Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">Email<span className="normal">{props.formValues.email}</span></Typography>
-                            </Col>
-                        </Row>
-                        <Col>
-                            <Typography variant="formCat">Foreign Address: <span className="normal">{props.formValues.inMemoryForeignAddress}</span></Typography>
-                        </Col>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Address: <span className="normal">{props.formValues.address}</span></Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">City: <span className="normal">{props.formValues.city}</span></Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">Region/Province: <span className="normal">{props.formValues.provinceRegion}</span></Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">Country: <span className="normal">{props.formValues.country}</span></Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">Postal Code: <span className="normal">{props.formValues.postalCode}</span></Typography>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Phone: <span className="normal">{props.formValues.phone}</span></Typography>
-                            </Col>
-                            <Col>
-                                <Typography variant="formCat">Email: <span className="normal">{props.formValues.email}</span></Typography>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Typography variant="formCat">Comments: <span className="normal">{props.formValues.email}</span></Typography>
-                            </Col>
-                        </Row>
                     </Container>
                 </div>
             </ThemeProvider >

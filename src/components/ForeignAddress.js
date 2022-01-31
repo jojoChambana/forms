@@ -1,13 +1,14 @@
-import { TextField } from '@mui/material'
+import { TextField, Typography } from '@mui/material'
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
 export default function ForeignAddress({ errors, register }) {
+
     return (
         <Row>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("address")}
+                    {...register("foreignAddress")}
                     required
                     id="donorForeignAddress"
                     label="Address"
@@ -16,7 +17,7 @@ export default function ForeignAddress({ errors, register }) {
             </Col>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("city")}
+                    {...register("foreignCity")}
                     required
                     id="donorForeignCity"
                     label="City"
@@ -34,7 +35,7 @@ export default function ForeignAddress({ errors, register }) {
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("country")}
+                    {...register("foreignCountry")}
                     required
                     id="donorCountry"
                     label="Country"
@@ -53,3 +54,5 @@ export default function ForeignAddress({ errors, register }) {
         </Row>
     )
 }
+
+

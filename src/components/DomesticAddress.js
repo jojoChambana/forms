@@ -1,5 +1,4 @@
 import { TextField } from '@mui/material'
-import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { ErrorMessage } from '@hookform/error-message';
 
@@ -8,12 +7,12 @@ export default function DomesticAddress({ errors, register }) {
     return (
         <Row>
             <Col xs={12} md={3}>
-                <TextField {...register("address")} required placeholder='Address' className="maxWidth" label="Address" />
-                <ErrorMessage errors={errors} name="addressError" />
+                <TextField {...register("domesticAddress")} required placeholder='Address' className="maxWidth" label="Address" />
+                {/* <ErrorMessage errors={errors} name="addressError" /> */}
             </Col>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("city")}
+                    {...register("domesticCity")}
                     required
                     id="donorCity"
                     label="City"
@@ -22,7 +21,7 @@ export default function DomesticAddress({ errors, register }) {
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("state")}
+                    {...register("domesticState")}
                     required
                     id="donorState"
                     label="State"

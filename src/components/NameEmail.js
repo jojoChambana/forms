@@ -6,7 +6,7 @@ import { ErrorMessage } from '@hookform/error-message';
 
 export default function NameEmail({ errors, register }) {
     var today = new Date();
-    let date = (today.getMonth() + 1) + '-' + (today.getDate() + 1) + '-' + today.getFullYear();
+    let date = (today.getMonth() + 1) + '-' + (today.getDate()) + '-' + today.getFullYear();
     return (
         <Row>
             <Col xs={12} md={3}>
@@ -20,7 +20,10 @@ export default function NameEmail({ errors, register }) {
                 <TextField {...register("preparedBy")} required placeholder='Prepared by' className="maxWidth" label="Prepared by" />
             </Col>
             <Col xs={12} md={4}>
-                <TextField {...register("unitReferenceNumber")} placeholder='Unit reference number' className="maxWidth" label="Unit reference number" />
+                {/* <TextField {...register("unitReferenceNumber")} placeholder='Unit reference number' className="maxWidth" label="Unit reference number" /> */}
+                <TextField type="text" placeholder="Unit number" id="unit-ref" {...register("unitReferenceNumber", { required: false, pattern: /^[0-9]*$/i })} className="maxWidth" label="Unit reference number" />{errors["unit-ref"] && (
+                    <p className="error-message">Invalid unit reference number</p>
+                )}
             </Col>
         </Row>
     );

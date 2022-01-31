@@ -45,9 +45,29 @@ dateField {
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
 }
+span.lineUp,
+.lineUp {
+    font-weight: normal;
+}
+.rightLable,
+span.lineUp,
+.lineUp {
+    display: flex;
+    @media only screen and (min-device-width: 768px) {
+        justify-content: flex-end;
+        text-align: right;
+    }
+}
+.resultItems {
+    margin-bottom: 0;
+    .results {
+        display: flex;
+        align-items: center;
+    }
+}
 
 span.normal {
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .headerPrint {
@@ -57,4 +77,19 @@ span.normal {
 .rdbld {
     font-weight: bold;
     color: red;
+}
+
+.PhoneInput {
+    border: solid 1px #cccccc;
+    padding: 0.9rem;
+    border-radius: 4px;
+    .PhoneInputInput {
+        border: none;
+    }
+}
+
+.PhoneInputInput {
+    :focus-visible {
+        border: none;
+    }
 }

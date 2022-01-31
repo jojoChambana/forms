@@ -1,40 +1,31 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import { useForm } from "react-hook-form";
 
-import { Checkbox, FormControlLabel, TextField } from "@mui/material";
-import { Button } from "react-bootstrap";
+const Trust = () => {
+    const { register, handleSubmit, unregister } = useForm();
 
-import { Controller, useForm } from "react-hook-form";
-
-
-export default function Trust() {
-    const { control, handleSubmit } = useForm({
-        defaultValues: {
-            checkbox: false,
-        }
-    });
-
-    //const onSubmit = (values) => console.log(JSON.stringify(values));
-    const onSubmit = (values) => console.table(values);
+    const onSubmit = (data) => {
+        console.log(JSON.stringify(data));
+    };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-
-            <Controller
-                control={control}
-                name="checkbox"
-                render={({ field: { value, onChange } }) => (
-                    // Checkbox accepts its value as `checked`
-                    // so we need to connect the props here
-                    <FormControlLabel
-                        control={<Checkbox checked={value} onChange={onChange} />}
-                        label="I am a second checkbox"
-                    />
-                )}
-            />
-
-            <br />
-            <Button type="submit" variant="contained" color="primary">
-                Submit
-            </Button>
+            <label>Last Name</label>
+            <input {...register("firstName")} />
+            <label>First Name</label>
+            <input {...register("lastName")} />
+            <button
+                type="button"
+                onClick={() => {
+                    unregister("lastName");
+                }}
+            >
+                unregister lastName
+            </button>
+            <input type="submit" />
         </form>
     );
-}
+};
+
+export default Trust;

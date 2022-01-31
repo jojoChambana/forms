@@ -1,17 +1,15 @@
-import { TextField } from '@mui/material';
+import { FormControl } from '@mui/material';
 import MuiPhoneNumber from 'material-ui-phone-number';
-import { useForm } from 'react-hook-form';
+import React from 'react';
+import FormCheckLabel from 'react-bootstrap/esm/FormCheckLabel';
 
-
-
-function PhoneField(register) {
-    const { handleOnChange } = register;
+function PhoneField({ register }) {
+    const [phoneCode, setPhone] = React.useState('');
 
     return (
-        <>
-
-            <MuiPhoneNumber variant="outlined" label="Phone" defaultCountry={'us'} onChange={handleOnChange} />
-        </>
+        <FormControl name="phone">
+            <MuiPhoneNumber inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} placeholder="Phone" required {...register("contactPhone")} label="Phone" className="maxWidth" {...register("contactPhone")} variant="outlined" value={phoneCode} defaultCountry={'us'} />
+        </FormControl>
     );
 }
 

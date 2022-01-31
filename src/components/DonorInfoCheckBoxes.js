@@ -11,17 +11,17 @@ export default function DonorInfoCheckBoxes() {
             checkbox: false,
         }
     });
-    const [newDonor, setNewDonor] = React.useState('');
-    const [newAddress, setNewAddress] = React.useState('false');
-    const handleClickDonor = (event) => {
-        setNewDonor(event.target.value);
-        console.log(setNewDonor)
-    };
+    // const [newDonor, setNewDonor] = React.useState('');
+    // const [newAddress, setNewAddress] = React.useState('false');
+    // const handleClickDonor = (event) => {
+    //     setNewDonor(event.target.value);
+    //     console.log(setNewDonor)
+    // };
 
-    const handleClickAddress = (event) => {
-        setNewAddress(event.target.value);
-        console.log(setNewAddress);
-    };
+    // const handleClickAddress = (event) => {
+    //     setNewAddress(event.target.value);
+    //     console.log(setNewAddress);
+    // };
 
     return (
         <FormGroup>
@@ -30,7 +30,7 @@ export default function DonorInfoCheckBoxes() {
                     {/* <FormControlLabel control={<Checkbox {...register("newDonor")} value={newDonor} onClick={handleClickDonor} />} label="New donor" /> */}
                     <Controller
                         control={control}
-                        name="checkbox"
+                        name="newDonor"
                         render={({ field: { value, onChange } }) => (
                             // Checkbox accepts its value as `checked`
                             // so we need to connect the props here
@@ -43,7 +43,19 @@ export default function DonorInfoCheckBoxes() {
 
                 </Col>
                 <Col xs={12} md={6}>
-                    <FormControlLabel control={<Checkbox {...register("newAddress")} value={newAddress} onClick={handleClickAddress} />} label="New address" />
+                    {/* <FormControlLabel control={<Checkbox {...register("newAddress")} value={newAddress} onClick={handleClickAddress} />} label="New address" /> */}
+                    <Controller
+                        control={control}
+                        name="newAddress"
+                        render={({ field: { value, onChange } }) => (
+                            // Checkbox accepts its value as `checked`
+                            // so we need to connect the props here
+                            <FormControlLabel
+                                control={<Checkbox checked={value} onChange={onChange} />}
+                                label="New address"
+                            />
+                        )}
+                    />
                 </Col>
             </Row>
         </FormGroup>
