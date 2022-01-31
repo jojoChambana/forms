@@ -87,17 +87,17 @@ export default function Cash(props) {
             <Instructions />
             <FormProvider>
                 <Container>
-
-                    <form onSubmit={methods.handleSubmit(onSubmit)}>
-                        <DepartmentCampus />
-                        <ContactInformation />
-                        <NameEmail />
-                        <DonorInformation />
-                        <Address />
-                        <PublicityDropDown />
-                        <TotalDonationAmount amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
-                        {/* <DesignationInformaiton amount={totalDesignationAmount + designationAmount} /> */}
-                        <TransmittalTotals amount={setOpportunityAmount + opportunityAmount} />
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <DepartmentCampus register={register} />
+                        <ContactInformation errors={errors} register={register} />
+                        <NameEmail errors={errors} register={register} />
+                        <DonorInformation errors={errors} register={register} />
+                        <Address errors={errors} register={register} />
+                        <PublicityDropDown errors={errors} register={register} />
+                        <TotalDonationAmount errors={errors} register={register} amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
+                        <GiftTribute errors={errors} register={register} />
+                        <TransmittalTotals errors={errors} register={register} watch={watch} setValue={setValue} />
+                        {/* <DesignationInformaiton errors={errors} register={register} setValue={setValue} /> */}
                         <input type="submit" />
                     </form>
                     <DevTool control={control} /> {/* set up the dev tool */}
