@@ -1,14 +1,12 @@
 import { Checkbox, FormControlLabel, TextField, Typography } from '@mui/material'
 import { useState } from 'react';
-// import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
-import { useFormContext } from 'react-hook-form';
 import DonorInfoCheckBoxes from './DonorInfoCheckBoxes'
 
-export default function DonorInformation(props) {
-    const { register } = useFormContext(); // retrieve all hook methods
+export default function DonorInformation({ errors, newDonor, newAddress, handleClickAddress, handleClickDonor, register }) {
+
     const [visible, setVisible] = useState(false);
-    const handleChange = () => {
+    const handleClickUnknownDonor = () => {
         setVisible(!visible);
     };
     return (
@@ -18,12 +16,20 @@ export default function DonorInformation(props) {
             </Typography>
             <Row className="mt-4">
                 <>
-                    <DonorInfoCheckBoxes />
-                    <Col xs={12}>
-                        <FormControlLabel control={<Checkbox {...register("donorUnknown")} onChange={handleChange} />} label="Donor is unknown, anonymous, or various cash donors" />
+
+                    <Col xs={12} md={6}>
+                        <FormControlLabel control={<Checkbox {...register("donorUnknown")} onClick={handleClickUnknownDonor} />} label="Donor is unknown, anonymous, or various cash donors" />
+
+                    </Col>
+
+                    <Col xs={12} md={6}>
+                        <FormControlLabel control={<Checkbox {...register("newDonor")} value={newDonor} onClick={handleClickDonor} />} label="New donor" />
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <FormControlLabel control={<Checkbox {...register("newAddress")} value={newAddress} onClick={handleClickAddress} />} label="New address" />
                     </Col>
                     {!visible && (
-                        <>
+                        <Row>
                             <Col xs={12} md={6}>
                                 <TextField {...register("tedConstituentId")} required placeholder='TED Constituent ID' className="maxWidth" label="TED Constituent ID" />
 
@@ -31,7 +37,7 @@ export default function DonorInformation(props) {
                             <Col xs={12} md={6}>
                                 <TextField {...register("organizationDonorName")} placeholder='Organization/Donor Name' className="maxWidth" label="Organization/Donor name" />
                             </Col>
-                        </>
+                        </Row>
                     )}
                 </>
             </Row>

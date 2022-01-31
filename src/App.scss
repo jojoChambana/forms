@@ -1,54 +1,95 @@
 nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: #434849;
-  color: white;
-  #navbarSupportedContent > div > div > h1 {
-    display: none;
-  }
-  #navbarSupportedContent > div > div.active > h1 {
-    display: block;
-  }
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: #434849;
+    color: white;
+    #navbarSupportedContent > div > div > h1 {
+        display: none;
+    }
+    #navbarSupportedContent > div > div.active > h1 {
+        display: block;
+    }
 }
 .flexBasis {
-  -ms-flex-preferred-size: content;
-  flex-basis: content;
+    -ms-flex-preferred-size: content;
+    flex-basis: content;
 }
 .row {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .maxWidth {
-  display: flex !important;
-  width: 100% !important;
+    display: flex !important;
+    width: 100% !important;
 }
 
 h3 {
-  background-color: #ccc;
-  padding: 0.25rem;
+    background-color: #ccc;
+    padding: 0.25rem;
 }
 
-.dollarAmount {
-  .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
-    top: -10px;
-  }
-  fieldset {
-    border: none;
-  }
-  border: solid;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
+.dollarAmount,
+dateField {
+    .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+        top: -10px;
+    }
+    fieldset {
+        border: none;
+    }
+    border: solid;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+span.lineUp,
+.lineUp {
+    font-weight: normal;
+}
+.rightLable,
+span.lineUp,
+.lineUp {
+    display: flex;
+    @media only screen and (min-device-width: 768px) {
+        justify-content: flex-end;
+        text-align: right;
+    }
+}
+.resultItems {
+    margin-bottom: 0;
+    .results {
+        display: flex;
+        align-items: center;
+    }
 }
 
 span.normal {
-  font-weight: normal;
+    font-weight: bold;
 }
 
 .headerPrint {
-  display: none;
+    display: none;
+}
+
+.rdbld {
+    font-weight: bold;
+    color: red;
+}
+
+.PhoneInput {
+    border: solid 1px #cccccc;
+    padding: 0.9rem;
+    border-radius: 4px;
+    .PhoneInputInput {
+        border: none;
+    }
+}
+
+.PhoneInputInput {
+    :focus-visible {
+        border: none;
+    }
 }

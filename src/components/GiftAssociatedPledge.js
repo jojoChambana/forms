@@ -1,10 +1,9 @@
 import { Checkbox, FormControlLabel, FormGroup, TextField } from '@mui/material'
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap'
-import { useFormContext } from 'react-hook-form';
 
-export default function GiftAssociatedPledge() {
-    const { register } = useFormContext(); // retrieve all hook methods
+export default function GiftAssociatedPledge({ errors, register }) {
+
     const [visable, setVisable] = useState(false);
     const handleChange = () => {
         setVisable(!visable);
@@ -18,7 +17,7 @@ export default function GiftAssociatedPledge() {
             </Row>
             {visable && (
                 <Row>
-                    <Col xs={12} md={4}><TextField {...register("Pledge Revenue ID")} placeholder="Pledge Revenue ID" label="Pledge Revenue ID" className="maxWidth" /></Col>
+                    <Col xs={12} md={4}><TextField {...register("pledgeRevenueId")} placeholder="Pledge Revenue ID" label="Pledge Revenue ID" className="maxWidth" /></Col>
                 </Row>
             )}
         </FormGroup>

@@ -41,7 +41,8 @@ h3 {
   padding: 0.25rem;
 }
 
-.dollarAmount {
+.dollarAmount,
+dateField {
   border: solid;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -50,19 +51,77 @@ h3 {
   -o-border-radius: 4px;
 }
 
-.dollarAmount .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+.dollarAmount .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root,
+dateField .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
   top: -10px;
 }
 
-.dollarAmount fieldset {
+.dollarAmount fieldset,
+dateField fieldset {
   border: none;
 }
 
-span.normal {
+span.lineUp,
+.lineUp {
   font-weight: normal;
+}
+
+.rightLable,
+span.lineUp,
+.lineUp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .rightLable,
+  span.lineUp,
+  .lineUp {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    text-align: right;
+  }
+}
+
+.resultItems {
+  margin-bottom: 0;
+}
+
+.resultItems .results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+span.normal {
+  font-weight: bold;
 }
 
 .headerPrint {
   display: none;
+}
+
+.rdbld {
+  font-weight: bold;
+  color: red;
+}
+
+.PhoneInput {
+  border: solid 1px #cccccc;
+  padding: 0.9rem;
+  border-radius: 4px;
+}
+
+.PhoneInput .PhoneInputInput {
+  border: none;
+}
+
+.PhoneInputInput :focus-visible {
+  border: none;
 }
 /*# sourceMappingURL=App.css.map */

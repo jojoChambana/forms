@@ -1,10 +1,9 @@
 import { Checkbox, FormControlLabel, FormGroup, TextField } from '@mui/material'
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap'
-import { useFormContext } from 'react-hook-form';
 
-export default function NonGiftPortion() {
-    const { register, setValue } = useFormContext(); // retrieve all hook methods
+export default function NonGiftPortion({ errors, setValue, register }) {
+
     const [visable, setVisable] = useState(false);
     // const [visible, setVisible] = useState(false);
     const handleChange = () => {
