@@ -18,11 +18,11 @@ import './App.css';
 import { dateRangePickerDayClasses } from "@mui/lab";
 
 function App() {
-    const methods = useForm();
-    var today = new Date();
+    // const methods = useForm();
+    // var today = new Date();
     // let date = (today.getMonth() + 1) + '-' + (today.getDate() + 1) + '-' + today.getFullYear();
     // const onSubmit = data => console.log(data);
-    const theDate = new Date().toLocaleString();
+    // const theDate = new Date().toLocaleString();
     const [checkValues, setCheckValues] = useState({
 
     });
@@ -44,22 +44,39 @@ function App() {
         tedDesignationTitle: "", //DesignationInformation.js
         totalDesignationAmount: "", //DesignationInformation.js
 
-        address: "",  // DomesticAddress.js
-        city: "", // DomesticAddress.js
-        state: "", // DomesticAddress.js
-        zipCode: "", // DomesticAddress.js
-        newDonor: "", // DomesticAddress.js
-        newAddress: "", // DomesticAddress.js
+
+        newDonorAddress: false, // DonorInfoCheckBoxes.js
+        donorForeignAddressCheckbox: false, //ForeignAddressCheckbox.js,
+
+        donorDomesticAddressCity: "", // DomesticAddress.js
+        donorDomesticAddress: "",  // DomesticAddress.js
+        donorDomesticAddressState: "", // DomesticAddress.js
+        donorDomesticAddressZipCode: "", // DomesticAddress.js
+
+        donorDomesticAddressNewAddress: false,
+
+        donorForeignAddressCity: "",
+        donorForeignAddress: "",
+        // donorForeignAddressNewDonor: "",
+        // donorForeignAddressNewAddress: false,
+        donorForeignAddressProvinceRegion: "",
+        donorForeignAddressPostalCode: "",
+
+        // donorForeignAddress: {
+        //     city: "",
+        //     address: "",
+        //     provinceRegion: "", // ForeignAddress.js,
+        //     country: "", // ForeignAddress.js,
+        //     postalCode: "", // ForeignAddress.js,
+        //     newAddress: false,
+        // },
 
         donorUnknown: "", // DonorInformation.js
         tedConstituentId: "", // DonorInformation.js
         organizationDonorName: "", // DonorInformation.js
 
-        provinceRegion: "", // ForeignAddress.js,
-        country: "", // ForeignAddress.js,
-        postalCode: "", // ForeignAddress.js,
 
-        foreignaddress: "", //ForeignAddressCheckbox.js,
+
 
         associatedOpportunity: "", // GiftAssociatedOpportunity.js
         tedHouseholdId: "", // GiftAssociatedOpportunity.js
@@ -113,6 +130,8 @@ function App() {
         // 62 field or checkboxes on Cash alone!!!!!
 
     });
+
+
     return (
         <>
             <Router>
@@ -129,7 +148,7 @@ function App() {
                         exact path="/cashprint"
                         element={<CashPrint formValues={cashValues} />}
                     />
-                    <Route
+                    {/* <Route
                         exact path="/check"
                         element={
                             <Check formValues={checkValues} setFormValues={setCheckValues} />
@@ -143,7 +162,7 @@ function App() {
 
                     <Route path="/securities" element={<Securities />} />
                     <Route path="/wire" element={<Wire />} />
-                    <Route path="/trust" element={<Trust />} />
+                    <Route path="/trust" element={<Trust />} /> */}
 
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>

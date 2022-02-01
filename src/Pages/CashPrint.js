@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
 import PrintForeign from "../components/PrintForeign";
+import AddressPrint from "../components/AddressPrint";
 
 function formatPhoneNumber(phoneNumberString) {
     var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -267,6 +268,8 @@ const CashPrint = (props) => {
                                     }
                                 </Row>
 
+                                <AddressPrint prefix="donor" formValues={props.formValues} />
+
                                 <Row xs={12} className="resultItems">
                                     {
                                         (() => {
@@ -368,6 +371,20 @@ const CashPrint = (props) => {
                                                         </Col>
                                                     </>
                                                 );
+                                            }
+                                            else {
+                                                return (
+                                                    <>
+                                                        <Col>
+                                                            <Typography variant="formCat" className="lineUp">
+                                                                Domestic Address:
+                                                            </Typography>
+                                                        </Col>
+                                                        <Col className="results">
+                                                            <span className="normal">{props.formValues.domesticAddress}</span>
+                                                        </Col>
+                                                    </>
+                                                )
                                             }
                                         })()
                                     }

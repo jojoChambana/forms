@@ -1,4 +1,4 @@
-import { Container } from '@mui/material'
+import { Button, Container } from '@mui/material'
 import React, { useState } from 'react'
 import { DevTool } from "@hookform/devtools";
 import { FormProvider, useForm } from 'react-hook-form'
@@ -57,7 +57,7 @@ import TransmittalTotals from '../components/TransmittalTotals'
 export default function Cash(props) {
     // const resolver = useYupValidationResolver(validationSchema);
     // const { register, control, setValue, watch, formState: { errors }, handleSubmit, data } = useForm({
-    const { register, control, setValue, watch, formState: { errors }, handleSubmit } = useForm({
+    const { register, control, setValue, getValues, watch, formState: { errors }, handleSubmit } = useForm({
         defaultValues: props.formValues,
         // resolver,
         mode: "onChange",
@@ -82,17 +82,83 @@ export default function Cash(props) {
         console.table(data)
     };
 
+    const fillButton = () => {
+        // console.log("fill")
+
+        setValue("contactFullName", "Joseph")
+        setValue("contactPhone", "(309)-310-5364")
+        setValue("foreignDonor", false, "")
+        setValue("contactEmail", "jchrisman71@gmail.com")
+        setValue("collegeName", "Fine Arts")
+        setValue("collegeName", "English")
+        setValue("campusLocation", "Chicago")
+        setValue("designationAdditionalComments", "This is a designation additional comment")
+        setValue("newDesignationRequested", false)
+        setValue("departmentContactEmail", "info@department.edu")
+        setValue("departmentContact", "Jame Doe")
+        setValue("tedDesignationId", "946578")
+        setValue("tedDesignationTitle", "The Chrisman family")
+        setValue("totalDesignationAmount", 0)
+        setValue("foreignaddress", false)
+        setValue("donorDomesticAddress", "1006 S. Westlawn Ave")
+        setValue("donorDomesticAddressCity", "Champaign")
+        setValue("donorDomesticAddressState", "IL")
+        setValue("donorDomesticAddressZipCode", "61821")
+        setValue("publicityCode", "no restrictions")
+        setValue("donorDomesticAddressNewDonor", false)
+        setValue("donorDomesticAddressNewAddress", false)
+        setValue("donorUnknown", false)
+        setValue("tedConstituentId", "4567788")
+        setValue("organizationDonorName", "The Chrisman family")
+        setValue("associatedOpportunity", false)
+        setValue("tedHouseholdId", "32511")
+        setValue("tedHouseholdName", "Chrisman")
+        setValue("tedPlanName", "Chrisman TED Plan")
+        setValue("tedOpportunityAmount", 30000)
+        setValue("actualAskDate", "03-21-2000")
+        setValue("primaryPlanManager", "John Burns")
+        setValue("giftAssociatedWithPledge", false)
+        setValue("pledgeRevenueId", "RevId621321")
+        setValue("giftAmount", "600")
+        setValue("tribute", false)
+        setValue("giftTribute", false)
+        setValue("tedconstituentID", "95465")
+        setValue("deceasedFullName", "Dan Doe")
+        setValue("inMemoryNewAddress", "3215 Tandy")
+        setValue("inHonorTedID", "679856")
+        setValue("honoreeFullName", "Jim Dandy")
+        setValue("departmentName", "Music")
+        setValue("preparedBy", "Joe Chrisman")
+        setValue("unitReferenceNumber", "884564")
+        setValue("newDonorCheckBox", false)
+        setValue("nonGiftPortion", 0)
+        setValue("nonGiftTedId", "98754654")
+        setValue("giftTedAmount", 0)
+        setValue("nonGiftTedAmount", 0)
+        setValue("tedConstituentID", "6549")
+        setValue("nonGiftAmount", 0)
+        setValue("tedDonorUnknown", false)
+        setValue("organizationDonorName", "The Chrisman group")
+        setValue("totalDonationAmount", 1000)
+        setValue("giftTotals", 200)
+        setValue("nonGiftTotals", 15)
+        setValue("totaldonations", 0)
+
+        // console.table(props.formValues)
+    }
+
     return (
         <>
             <Instructions />
             <FormProvider>
                 <Container>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <Button onClick={fillButton}>Fill</Button>
                         <DepartmentCampus register={register} />
-                        <ContactInformation errors={errors} register={register} />
+                        <ContactInformation errors={errors} register={register} control={control} />
                         <NameEmail errors={errors} register={register} />
                         <DonorInformation errors={errors} register={register} />
-                        <Address errors={errors} register={register} />
+                        <Address errors={errors} register={register} setValue={setValue} getValues={getValues} prefix="donor" />
                         <PublicityDropDown errors={errors} register={register} />
                         <TotalDonationAmount errors={errors} register={register} amount={totalDonationAmount} setAmount={setTotalDonationAmount} />
                         <GiftTribute errors={errors} register={register} />

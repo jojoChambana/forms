@@ -8,7 +8,7 @@ import NonGiftPortion from './NonGiftPortion';
 
 export default function DesignationInformaiton({ errors, register, setValue }) {
 
-    const formMethods = useForm();
+    // const formMethods = useForm();
 
     const [checked, setChecked] = useState(false);
     const handleChange = () => {

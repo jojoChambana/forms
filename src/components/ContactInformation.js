@@ -3,13 +3,13 @@ import { Col, Row } from 'react-bootstrap';
 import { ErrorMessage } from '@hookform/error-message';
 import { useState } from 'react';
 import validator from 'validator';
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
-import { Controller, useForm } from 'react-hook-form';
+import PhoneInput from "react-phone-number-input";
+import { Controller } from 'react-hook-form';
 import "react-phone-number-input/style.css";
-export default function DonorInfo({ register }) {
-    const { handleSubmit, formState: { errors }, control } = useForm();
+export default function DonorInfo({ register, errors, control }) {
+
     const [emailError, setEmailError] = useState("");
-    // const [phoneError, setPhoneError] = useState("");
+    const [phoneError, setPhoneError] = useState("");
     const validateEmail = (e) => {
         var email = e.target.value
         if (validator.isEmail(email)) {
@@ -19,14 +19,14 @@ export default function DonorInfo({ register }) {
         }
     }
 
-    // const validatePhone = (e) => {
-    //     var phone = e.target.value
-    //     if (validator.isPhone(phone)) {
-    //         setPhoneError('Valid Phone: ')
-    //     } else {
-    //         setPhoneError('Enter a valid phone number')
-    //     }
-    // }
+    const validatePhone = (e) => {
+        var phone = e.target.value
+        if (validator.isPhone(phone)) {
+            setPhoneError('Valid Phone: ')
+        } else {
+            setPhoneError('Enter a valid phone number')
+        }
+    }
 
 
 
@@ -52,7 +52,7 @@ export default function DonorInfo({ register }) {
                             name="phone-input"
                             control={control}
                             rules={{
-                                validate: (value) => isValidPhoneNumber(value)
+                                validatePhone
                             }}
                             render={({ field: { onChange, value } }) => (
                                 <PhoneInput
@@ -66,7 +66,7 @@ export default function DonorInfo({ register }) {
                             )}
                         />
                         {errors["phone-input"] && (
-                            <p className="error-message">Invalid Phone</p>
+                            <p className="error-message">{phoneError}</p>
                         )}
                     </div>
                 </Col>

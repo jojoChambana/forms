@@ -2,37 +2,38 @@ import { TextField } from '@mui/material'
 import { Col, Row } from 'react-bootstrap'
 import { ErrorMessage } from '@hookform/error-message';
 
-export default function DomesticAddress({ errors, register }) {
+export default function DomesticAddress({ errors, register, prefix }) {
 
+    console.log()
     return (
         <Row>
             <Col xs={12} md={3}>
-                <TextField {...register("domesticAddress")} required placeholder='Address' className="maxWidth" label="Address" />
+                <TextField {...register(`${prefix}DomesticAddress`)} required placeholder='Address' className="maxWidth" label="Address" />
                 {/* <ErrorMessage errors={errors} name="addressError" /> */}
             </Col>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("domesticCity")}
+                    {...register(`${prefix}DomesticAddressCity`)}
                     required
-                    id="donorCity"
+                    id={`${prefix}DomesticAddressCity`}
                     label="City"
                     className="maxWidth"
                 />
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("domesticState")}
+                    {...register(`${prefix}DomesticAddressState`)}
                     required
-                    id="donorState"
+                    id={`${prefix}DomesticAddressState`}
                     label="State"
                     className="maxWidth"
                 />
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("zipCode")}
+                    {...register(`${prefix}DomesticAddressZipCode`)}
                     required
-                    id="donorPostalCode"
+                    id={`${prefix}DomesticAddressZipCode`}
                     label="Zip Code"
                     className="maxWidth"
                 />

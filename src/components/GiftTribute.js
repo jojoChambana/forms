@@ -2,10 +2,11 @@ import { Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, 
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap'
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
-import { Controller, useForm } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import "react-phone-number-input/style.css";
 import DomesticAddress from './DomesticAddress';
 import ForeignAddress from './ForeignAddress';
+import Address from './Address';
 
 export default function GiftTribute({ errors, register, control }) {
 
@@ -100,10 +101,12 @@ export default function GiftTribute({ errors, register, control }) {
                                     </FormGroup>
                                 </Col>
                             </Row>
-                            {
+                            {/* {
                                 visableAddressToggle ? <ForeignAddress errors={errors} register={register} {...register} />
                                     : <DomesticAddress errors={errors} register={register} />
-                            }
+                            } */}
+
+                            <Address errors={errors} register={register} prefix="tribute" />
 
                             <Row>
                                 <Col xs={12} md={4}>

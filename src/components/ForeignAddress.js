@@ -1,14 +1,14 @@
-import { TextField, Typography } from '@mui/material'
+import { TextField } from '@mui/material'
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
-export default function ForeignAddress({ errors, register }) {
+export default function ForeignAddress({ errors, register, prefix }) {
 
     return (
         <Row>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("foreignAddress")}
+                    {...register(`${prefix}ForeignAddress`)}
                     required
                     id="donorForeignAddress"
                     label="Address"
@@ -17,36 +17,36 @@ export default function ForeignAddress({ errors, register }) {
             </Col>
             <Col xs={12} md={3}>
                 <TextField
-                    {...register("foreignCity")}
+                    {...register(`${prefix}ForeignAddressCity`)}
                     required
-                    id="donorForeignCity"
+                    id={`${prefix}ForeignAddressCity`}
                     label="City"
                     className="maxWidth"
                 />
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("provinceRegion")}
+                    {...register(`${prefix}ForeignAddressProvinceRegion`)}
                     required
-                    id="donorProvinceRegion"
+                    id={`${prefix}ForeignAddressProvinceRegion`}
                     label="Province/Region"
                     className="maxWidth"
                 />
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("foreignCountry")}
+                    {...register(`${prefix}ForeignAddressCountry`)}
                     required
-                    id="donorCountry"
+                    id={`${prefix}ForeignAddressCountry`}
                     label="Country"
                     className="maxWidth"
                 />
             </Col>
             <Col xs={12} md={2}>
                 <TextField
-                    {...register("postalCode")}
+                    {...register(`${prefix}ForeignAddressPostalCode`)}
                     required
-                    id="donorPostalCode"
+                    id={(`${prefix}ForeignAddressCountry`)}
                     label="Postal Code"
                     className="maxWidth"
                 />
