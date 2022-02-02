@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Header } from "./components/UI/Header";
@@ -14,18 +13,11 @@ import CheckPrint from "./Pages/CashPrint";
 import PageNotFound from "./Pages/PageNotFound";
 import Home from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
+import "./App.css";
 import { dateRangePickerDayClasses } from "@mui/lab";
 
 function App() {
-    // const methods = useForm();
-    // var today = new Date();
-    // let date = (today.getMonth() + 1) + '-' + (today.getDate() + 1) + '-' + today.getFullYear();
-    // const onSubmit = data => console.log(data);
-    // const theDate = new Date().toLocaleString();
-    const [checkValues, setCheckValues] = useState({
-
-    });
+    const [checkValues, setCheckValues] = useState({});
     const [cashValues, setCashValues] = useState({
         foreignDonor: "", // Address.js
 
@@ -44,12 +36,11 @@ function App() {
         tedDesignationTitle: "", //DesignationInformation.js
         totalDesignationAmount: "", //DesignationInformation.js
 
-
         newDonorAddress: false, // DonorInfoCheckBoxes.js
         donorForeignAddressCheckbox: false, //ForeignAddressCheckbox.js,
 
         donorDomesticAddressCity: "", // DomesticAddress.js
-        donorDomesticAddress: "",  // DomesticAddress.js
+        donorDomesticAddress: "", // DomesticAddress.js
         donorDomesticAddressState: "", // DomesticAddress.js
         donorDomesticAddressZipCode: "", // DomesticAddress.js
 
@@ -75,9 +66,6 @@ function App() {
         tedConstituentId: "", // DonorInformation.js
         organizationDonorName: "", // DonorInformation.js
 
-
-
-
         associatedOpportunity: "", // GiftAssociatedOpportunity.js
         tedHouseholdId: "", // GiftAssociatedOpportunity.js
         tedHouseholdName: "", // GiftAssociatedOpportunity.js
@@ -90,7 +78,6 @@ function App() {
         pledgeRevenueId: "", // GiftAccociatedPledge.js
 
         giftAmount: 0,
-
 
         tribute: "", // GiftTribute.js
         giftTribute: "", // GiftTribute.js
@@ -121,16 +108,16 @@ function App() {
         tedConstituentID: "", // TedOrgDonor.js
         organizationDonorNawne: "", // TedOrgDonor.js
 
-        totalDonationAmount: 0, // TotalDonationAmount.js
+        // totalDonationAmount: "", // TotalDonationAmount.js
 
         giftTotals: "", // TransmittalTotals.js
         nonGiftTotals: "", // TransmittalTotals.js
         totaldonations: "", // TransmittalTotals.js
 
+        tributeForeignAddressCheckbox: false,
+
         // 62 field or checkboxes on Cash alone!!!!!
-
     });
-
 
     return (
         <>
@@ -139,13 +126,18 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route
-                        exact path="/cash"
+                        exact
+                        path="/cash"
                         element={
-                            <Cash formValues={cashValues} setFormValues={setCashValues} />
+                            <Cash
+                                formValues={cashValues}
+                                setFormValues={setCashValues}
+                            />
                         }
                     />
                     <Route
-                        exact path="/cashprint"
+                        exact
+                        path="/cashprint"
                         element={<CashPrint formValues={cashValues} />}
                     />
                     {/* <Route

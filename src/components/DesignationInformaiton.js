@@ -1,15 +1,18 @@
-import { Checkbox, FormControlLabel, FormGroup, TextField, Typography } from '@mui/material'
-import { useState } from 'react';
-import { Button, Col, Row } from 'react-bootstrap'
-import { FormProvider, useForm, useFormContext } from 'react-hook-form';
-import GiftAssociatedOpportunity from './GiftAssociatedOpportunity';
-import GiftAssociatedPledge from './GiftAssociatedPledge';
-import NonGiftPortion from './NonGiftPortion';
+import {
+    Checkbox,
+    FormControlLabel,
+    FormGroup,
+    TextField,
+    Typography,
+} from "@mui/material";
+import { useState } from "react";
+import { Button, Col, Row } from "react-bootstrap";
+import { FormProvider } from "react-hook-form";
+import GiftAssociatedOpportunity from "./GiftAssociatedOpportunity";
+import GiftAssociatedPledge from "./GiftAssociatedPledge";
+import NonGiftPortion from "./NonGiftPortion";
 
 export default function DesignationInformaiton({ errors, register, setValue }) {
-
-    // const formMethods = useForm();
-
     const [checked, setChecked] = useState(false);
     const handleChange = () => {
         setChecked(!checked);
@@ -17,13 +20,22 @@ export default function DesignationInformaiton({ errors, register, setValue }) {
 
     return (
         <>
-
-            <Typography variant="h5" component="h3">Designation Information</Typography>
+            <Typography variant="h5" component="h3">
+                Designation Information
+            </Typography>
             <FormGroup>
-                <FormControlLabel control={<Checkbox {...register("newDesignationRequested")} onChange={handleChange} />} label="New Designation Requested" />
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            {...register("newDesignationRequested")}
+                            onChange={handleChange}
+                        />
+                    }
+                    label="New Designation Requested"
+                />
             </FormGroup>
 
-            {checked ?
+            {checked ? (
                 <>
                     <Row>
                         {/* <Col xs={12} md={4} className='offset-md-2'>
@@ -33,13 +45,14 @@ export default function DesignationInformaiton({ errors, register, setValue }) {
                             <TextField {...register("departmentContact")} required placeholder="Department Contact" label="Department Contact" className="maxWidth" />
                         </Col> */}
                     </Row>
-                </> :
+                </>
+            ) : (
                 <Row>
                     {/* <Col xs={12} md={3} className='offset-md-2'>
                         <TextField {...register("tedDesignationId")} required placeholder="TED Designation ID" label="TED Designation ID" className="maxWidth" />
                     </Col> */}
                 </Row>
-            }
+            )}
             <Row>
                 {/* <Col xs={12} md={6} className='offset-md-2'>
                     <TextField {...register("tedDesignationTitle")} required placeholder="Designation Title" label="Designation Title" className="maxWidth" />
@@ -51,7 +64,6 @@ export default function DesignationInformaiton({ errors, register, setValue }) {
                         <TextField label="Designation Amount" placeholder='Designation Amount' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}  {...register("totalDesignationAmount")} />
                     </div> */}
                 </Col>
-
             </Row>
 
             <NonGiftPortion register={register} setValue={setValue} />
@@ -75,5 +87,5 @@ export default function DesignationInformaiton({ errors, register, setValue }) {
                 </Col> */}
             </Row>
         </>
-    )
+    );
 }

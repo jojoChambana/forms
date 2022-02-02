@@ -55,8 +55,6 @@ import TransmittalTotals from "../components/TransmittalTotals";
 // });
 
 export default function Cash(props) {
-    // const resolver = useYupValidationResolver(validationSchema);
-    // const { register, control, setValue, watch, formState: { errors }, handleSubmit, data } = useForm({
     const {
         register,
         control,
@@ -94,7 +92,7 @@ export default function Cash(props) {
         setValue("foreignDonor", false, "");
         setValue("contactEmail", "tjones@gmail.com");
         setValue("collegeName", "Fine Arts");
-        setValue("collegeName", "English");
+        setValue("departmentName", "English");
         setValue("campusLocation", "Chicago");
         setValue(
             "designationAdditionalComments",
@@ -134,26 +132,31 @@ export default function Cash(props) {
         setValue("inMemoryNewAddress", "3215 Tandy");
         setValue("inHonorTedID", "679856");
         setValue("honoreeFullName", "Jim Dandy");
-        setValue("departmentName", "Music");
         setValue("preparedBy", "Ted Logan");
-        setValue("unitReferenceNumber", "884564");
+        setValue("unitReferenceNumber", "");
         setValue("newDonorCheckBox", false);
-        setValue("nonGiftPortion", 0);
+        setValue("nonGiftPortion", "");
         setValue("nonGiftTedId", "98754654");
-        setValue("giftTedAmount", 0);
-        setValue("nonGiftTedAmount", 0);
+        setValue("giftTedAmount", "");
+        setValue("nonGiftTedAmount", "");
         setValue("tedConstituentID", "6549");
-        setValue("nonGiftAmount", 0);
+        setValue("nonGiftAmount", "");
+        setValue("totalDonationAmount", 1000);
         setValue("tedDonorUnknown", false);
         setValue("organizationDonorName", "The Goonies ");
-        setValue("totalDonationAmount", 1000);
-        setValue("giftTotals", 200);
-        setValue("nonGiftTotals", 15);
-        setValue("totaldonations", 0);
-
+        setValue("giftTotals");
+        setValue("nonGiftTotals");
+        setValue("tributeForeignAddressCheckbox", false);
+        setValue("tributeDomesticAddress", "123 Main Street");
+        setValue("tributeDomesticAddressCity", "Burlington");
+        setValue("tributeDomesticAddressState", "IA");
+        setValue("tributeDomesticAddressZipCode", "42153");
+        setValue("donorForeignAddressCheckbox", false);
         // console.table(props.formValues)
     };
-
+    const myFunction = () => {
+        console.log("hello");
+    };
     return (
         <>
             <Instructions />
@@ -185,8 +188,14 @@ export default function Cash(props) {
                             register={register}
                             amount={totalDonationAmount}
                             setAmount={setTotalDonationAmount}
+                            onClick={myFunction}
                         />
-                        <GiftTribute errors={errors} register={register} />
+                        <GiftTribute
+                            errors={errors}
+                            register={register}
+                            getValues={getValues}
+                            setValue={setValue}
+                        />
                         <TransmittalTotals
                             errors={errors}
                             register={register}
