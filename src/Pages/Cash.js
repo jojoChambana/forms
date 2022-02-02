@@ -15,45 +15,6 @@ import { useNavigate } from "react-router-dom";
 import TotalDonationAmount from "../components/TotalDonationAmount";
 import TransmittalTotals from "../components/TransmittalTotals";
 
-// import * as yup from "yup";
-// import { useCallback } from 'react';
-
-// const useYupValidationResolver = validationSchema =>
-//     useCallback(
-//         async data => {
-//             try {
-//                 const values = await validationSchema.validate(data, {
-//                     abortEarly: false
-//                 });
-
-//                 return {
-//                     values,
-//                     errors: {}
-//                 };
-//             } catch (errors) {
-//                 return {
-//                     values: {},
-//                     errors: errors.inner.reduce(
-//                         (allErrors, currentError) => ({
-//                             ...allErrors,
-//                             [currentError.path]: {
-//                                 type: currentError.type ?? "validation",
-//                                 message: currentError.message
-//                             }
-//                         }),
-//                         {}
-//                     )
-//                 };
-//             }
-//         },
-//         [validationSchema]
-//     );
-
-// const validationSchema = yup.object({
-//     contactFullName: yup.string().required("Required"),
-//     contactPhone: yup.string({ pattern: /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/i }).required("Required")
-// });
-
 export default function Cash(props) {
     const {
         register,

@@ -24,19 +24,19 @@ export default function GiftTribute({
     getValues,
     setValue,
 }) {
-    const [visable, setVisable] = useState(false);
+    const [visible, setvisible] = useState(false);
     const handleChange = () => {
-        setVisable(!visable);
+        setvisible(!visible);
     };
 
-    const [visableTribute, setVisableTribute] = useState(false);
+    const [visibleTribute, setvisibleTribute] = useState(false);
     const handleChangeTribute = (event) => {
-        setVisableTribute(!visableTribute);
+        setvisibleTribute(!visibleTribute);
     };
 
-    const [visableAddressToggle, setVisableAddressToggle] = useState(false);
+    const [visibleAddressToggle, setvisibleAddressToggle] = useState(false);
     const handleChangeAddressToggle = (event) => {
-        setVisableAddressToggle(!visableAddressToggle);
+        setvisibleAddressToggle(!visibleAddressToggle);
     };
 
     const divStyle = {
@@ -64,7 +64,7 @@ export default function GiftTribute({
                         />
                     </Col>
                 </Row>
-                {visable && (
+                {visible && (
                     <>
                         <FormControl>
                             <RadioGroup
@@ -98,7 +98,7 @@ export default function GiftTribute({
                                     </Col>
                                 </Row>
                                 <Row className="mb-0">
-                                    {!visableTribute ? (
+                                    {!visibleTribute ? (
                                         <>
                                             <Col xs={12}>
                                                 <Row className="mb-0">

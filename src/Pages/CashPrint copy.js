@@ -9,6 +9,17 @@ import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
+import PrintForeign from "../components/PrintForeign";
+import AddressPrint from "../components/AddressPrint";
+
+function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ("" + phoneNumberString).replace(/\D/g, "");
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        return "(" + match[1] + ") " + match[2] + "-" + match[3];
+    }
+    return null;
+}
 
 const CashPrint = (props) => {
     const navigate = useNavigate();
@@ -16,7 +27,6 @@ const CashPrint = (props) => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-    console.log("these are the", props)
 
     const theme = createTheme({
         typography: {
@@ -39,7 +49,10 @@ const CashPrint = (props) => {
                             <Row>
                                 <Col>
                                     <img
-                                        src={process.env.PUBLIC_URL + "foundation-logo.png"}
+                                        src={
+                                            process.env.PUBLIC_URL +
+                                            "foundation-logo.png"
+                                        }
                                         alt="Logo"
                                     />
                                 </Col>
@@ -50,11 +63,18 @@ const CashPrint = (props) => {
                                         justifyContent="flex-end"
                                         alignItems="flex-start"
                                     >
-                                        <Typography variant="subtitle2" component="div">
-                                            Univesity of Illinois Foundation<br />
-                                            Harker Hall, 1305 West Green Street<br />
-                                            Urbana, IL 61801<br />
-                                            217.244.2706<br />
+                                        <Typography
+                                            variant="subtitle2"
+                                            component="div"
+                                        >
+                                            Univesity of Illinois Foundation
+                                            <br />
+                                            Harker Hall, 1305 West Green Street
+                                            <br />
+                                            Urbana, IL 61801
+                                            <br />
+                                            217.244.2706
+                                            <br />
                                             cashdesk@uif.uillinois.edu
                                         </Typography>
                                     </Grid>
@@ -63,235 +83,303 @@ const CashPrint = (props) => {
                         </Row>
                         <Row className="resultItems">
                             <Col>
-                                <Typography variant="h5" component="h1">
-                                    Donor check transmittal
+                                <Typography variant="h4" component="h1">
+                                    Donor cash transmittal
                                 </Typography>
                             </Col>
                         </Row>
-
-                        {/* {props.formValues.totalDonationAmount} */}
+                        <Row xs={12} className="resultItems">
+                            <Col>
+                                <Typography
+                                    variant="formCat"
+                                    className="lineUp"
+                                >
+                                    Campus:
+                                </Typography>
+                            </Col>
+                            <Col className="results">
+                                <span className="normal">
+                                    {props.formValues.campusLocation}
+                                </span>
+                            </Col>
+                        </Row>
+                        {/* <Row>
+                            <Col>
+                                <Typography variant="h5" component="h3">
+                                    Contact Information
+                                </Typography>
+                            </Col>
+                        </Row> */}
                         <Row>
                             <Col xs={12} md={6}>
                                 <Row xs={12} className="resultItems">
                                     <Col>
-                                        <Typography variant="h6" component="h2" className="lineUp">
-                                            Campus:
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Contact full name:
                                         </Typography>
                                     </Col>
                                     <Col className="results">
-                                        <span className="normal">{props.formValues.campusLocation}</span>
+                                        <span className="normal">
+                                            {props.formValues.contactFullName}
+                                        </span>
                                     </Col>
                                 </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col>
-                                        <Typography variant="h6" component="h2" className="lineUp">
-                                            Contact:
-                                        </Typography>
-                                    </Col>
-                                    <Col className="results">
-                                        <span className="normal">{props.formValues.contactFullName}</span>
-                                    </Col>
-                                </Row>
+
                                 <Row xs={12} className="resultItems">
                                     <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Address:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.address}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            City:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.city}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            State:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.state}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            State/Province/Region:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.provinceRegion}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Country:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.country}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Zip:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.zipCode}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Postal code:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.postalCode}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
                                             Phone:
                                         </Typography>
                                     </Col>
                                     <Col>
-                                        <span className="normal">{props.formValues.contactPhone}</span>
+                                        <span className="normal">
+                                            {props.formValues.contactPhone}
+                                        </span>
                                     </Col>
                                 </Row>
                                 <Row xs={12} className="resultItems">
                                     <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Email: </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.contactEmail}</span>
-                                    </Col>
-                                </Row>
-                            </Col>
-                            <Col xs={12} md={6}>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            College name: </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.collegeName}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Department name:
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Email:{" "}
                                         </Typography>
                                     </Col>
                                     <Col>
-                                        <span className="normal">{props.formValues.departmentName}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Date:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.donationDate}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Prepared by:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.preparedBy}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Unit reference number:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.unitReferenceNumber}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Donor unknown:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.donorUnknown}</span>
-                                    </Col>
-                                </Row>
-                                <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            New donor:
-                                        </Typography>
-                                    </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.newDonor}</span>
+                                        <span className="normal">
+                                            {props.formValues.contactEmail}
+                                        </span>
                                     </Col>
                                 </Row>
 
+                                <Row xs={12} className="resultItems">
+                                    <Col className="rightLabel">
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            College name:{" "}
+                                        </Typography>
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.collegeName}
+                                        </span>
+                                    </Col>
+                                </Row>
                             </Col>
                             <Col xs={12} md={6}>
                                 <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            New address:
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Department name:
                                         </Typography>
                                     </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            {props.formValues.departmentName}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
                                     <Col>
-                                        <span className="normal">{props.formValues.newAddress}</span>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Date received by department:
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            {props.formValues.donationDate}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Prepared by:
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            {props.formValues.preparedBy}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Unit reference number:
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            {
+                                                props.formValues
+                                                    .unitReferenceNumber
+                                            }
+                                        </span>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+                        {/* <Row>
+                            <Col>
+                                <Typography variant="h6" component="h3">
+                                    Donor Information
+                                </Typography>
+                            </Col>
+                        </Row> */}
+
+                        <Row>
+                            <Col xs={12} md={6}>
+                                <Row xs={12} className="resultItems">
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Organization/Donor name:
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            {
+                                                props.formValues
+                                                    .organizationDonorName
+                                            }
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <AddressPrint
+                                    prefix="donor"
+                                    formValues={props.formValues}
+                                />
+                            </Col>
+                            <Col xs={12} md={6}>
+                                <Row xs={12} className="resultItems">
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Ted constituent ID:
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            {props.formValues.tedConstituentId}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            &nbsp;
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            Donor is unknown, anonymous, or
+                                            various cash donors
+                                        </span>
                                     </Col>
                                 </Row>
                                 <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            TED Constituent ID:
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            &nbsp;
                                         </Typography>
                                     </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            This is a new donor
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row xs={12} className="resultItems">
                                     <Col>
-                                        <span className="normal">{props.formValues.tedConstituentId}</span>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            &nbsp;
+                                        </Typography>
+                                    </Col>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            This is a new address
+                                        </span>
                                     </Col>
                                 </Row>
                                 <Row xs={12} className="resultItems">
-                                    <Col className="rightLabel">
-                                        <Typography variant="formCat" className="lineUp">
-                                            Organization donor name:
+                                    <Col>
+                                        <Typography
+                                            variant="formCat"
+                                            className="lineUp"
+                                        >
+                                            Contact/Publicity:
                                         </Typography>
                                     </Col>
-                                    <Col>
-                                        <span className="normal">{props.formValues.organizationDonorName}</span>
+                                    <Col className="results">
+                                        <span className="normal">
+                                            {props.formValues.publicityCode}
+                                        </span>
                                     </Col>
                                 </Row>
                             </Col>
                         </Row>
 
+                        <Row xs={12} className="resultItems mb-4">
+                            <hr />
 
+                            <Col>
+                                <Typography
+                                    variant="formCat"
+                                    className="lineUp"
+                                >
+                                    Total donation amount:
+                                </Typography>
+                            </Col>
+                            <Col className="results">
+                                <span className="normal">
+                                    {props.formValues.totalDonationAmount}
+                                </span>
+                            </Col>
+                        </Row>
                     </Container>
                 </div>
-            </ThemeProvider >
+            </ThemeProvider>
             <Container>
                 <Row>
                     <Col>
@@ -313,6 +401,3 @@ const CashPrint = (props) => {
 };
 
 export default CashPrint;
-
-
-
