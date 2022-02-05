@@ -21,6 +21,7 @@ export default function Address({
             `${prefix}ForeignAddressCheckbox`,
             setChecked(event.target.checked)
         ); // Change value of array in formVariables
+
         console.log(
             "handleChange",
             prefix,
@@ -29,6 +30,7 @@ export default function Address({
             getValues(`${prefix}ForeignAddressCheckbox`),
             getValues("contactFullName")
         );
+
         //setChecked(event.target.checked); // Change the state value
         // console.log(event.target.checked);
     };

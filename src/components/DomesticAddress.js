@@ -1,14 +1,18 @@
-import { TextField } from '@mui/material'
-import { Col, Row } from 'react-bootstrap'
-import { ErrorMessage } from '@hookform/error-message';
+import { TextField } from "@mui/material";
+import { Col, Row } from "react-bootstrap";
 
 export default function DomesticAddress({ errors, register, prefix }) {
-
-    console.log()
+    console.log();
     return (
         <Row>
             <Col xs={12} md={3}>
-                <TextField {...register(`${prefix}DomesticAddress`)} required placeholder='Address' className="maxWidth" label="Address" />
+                <TextField
+                    {...register(`${prefix}DomesticAddress`)}
+                    required
+                    placeholder="Address"
+                    className="maxWidth"
+                    label="Address"
+                />
                 {/* <ErrorMessage errors={errors} name="addressError" /> */}
             </Col>
             <Col xs={12} md={3}>
@@ -39,5 +43,5 @@ export default function DomesticAddress({ errors, register, prefix }) {
                 />
             </Col>
         </Row>
-    )
+    );
 }

@@ -49,7 +49,7 @@ span.lineUp,
 .lineUp {
     font-weight: normal;
 }
-.rightLable,
+.rightLabel,
 span.lineUp,
 .lineUp {
     display: flex;
@@ -59,7 +59,10 @@ span.lineUp,
     }
 }
 .resultItems {
-    margin-bottom: 0;
+    .row {
+        margin-bottom: 0;
+    }
+
     .results {
         display: flex;
         align-items: center;

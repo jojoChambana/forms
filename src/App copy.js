@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Header } from "./components/UI/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cash from "./Pages/Cash";
@@ -13,21 +14,10 @@ import PageNotFound from "./Pages/PageNotFound";
 import Home from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { newDesignation } from "./components/HelperFunctions";
+import { dateRangePickerDayClasses } from "@mui/lab";
 
 function App() {
-    var today = new Date();
-    let date =
-        today.getMonth() +
-        1 +
-        "-" +
-        (today.getDate() + 1) +
-        "-" +
-        today.getFullYear();
-    // const onSubmit = data => console.log(data);
-    const theDate = new Date().toLocaleString();
     const [checkValues, setCheckValues] = useState({});
-
     const [cashValues, setCashValues] = useState({
         foreignDonor: "", // Address.js
 
@@ -37,6 +27,7 @@ function App() {
         collegeName: "", // ContactInformation.js
 
         campusLocation: "", // DepartmentCampus.js
+
         designationAdditionalComments: "", //DesignationInformation.js
         newDesignationRequested: "", //DesignationInformation.js
         departmentContactEmail: "", //DesignationInformation.js
@@ -44,6 +35,7 @@ function App() {
         tedDesignationId: "", //DesignationInformation.js
         tedDesignationTitle: "", //DesignationInformation.js
         totalDesignationAmount: "", //DesignationInformation.js
+
         newDonorAddress: false, // DonorInfoCheckBoxes.js
         donorForeignAddressCheckbox: false, //ForeignAddressCheckbox.js,
 
@@ -56,12 +48,24 @@ function App() {
 
         donorForeignAddressCity: "",
         donorForeignAddress: "",
+        // donorForeignAddressNewDonor: "",
+        // donorForeignAddressNewAddress: false,
         donorForeignAddressProvinceRegion: "",
         donorForeignAddressPostalCode: "",
+
+        // donorForeignAddress: {
+        //     city: "",
+        //     address: "",
+        //     provinceRegion: "", // ForeignAddress.js,
+        //     country: "", // ForeignAddress.js,
+        //     postalCode: "", // ForeignAddress.js,
+        //     newAddress: false,
+        // },
 
         donorUnknown: "", // DonorInformation.js
         tedConstituentId: "", // DonorInformation.js
         organizationDonorName: "", // DonorInformation.js
+
         associatedOpportunity: "", // GiftAssociatedOpportunity.js
         tedHouseholdId: "", // GiftAssociatedOpportunity.js
         tedHouseholdName: "", // GiftAssociatedOpportunity.js
@@ -72,6 +76,7 @@ function App() {
 
         giftAssociatedWithPledge: "", // GiftAccociatedPledge.js
         pledgeRevenueId: "", // GiftAccociatedPledge.js
+
         giftAmount: 0,
 
         tribute: "", // GiftTribute.js
@@ -88,7 +93,7 @@ function App() {
         unitReferenceNumber: "", // NameEmail.js
 
         newDonorCheckBox: "", // NewDonor.js
-        designation: [{ ...newDesignation() }],
+
         nonGiftPortion: "", // NonGiftPortion.js
         nonGiftTedId: "", // NonGiftPortion.js
         giftTedAmount: "", // NonGiftPortion.js
@@ -101,6 +106,7 @@ function App() {
 
         tedDonorUnknown: "", // TedOrgDonor.js
         tedConstituentID: "", // TedOrgDonor.js
+        organizationDonorNawne: "", // TedOrgDonor.js
 
         // totalDonationAmount: "", // TotalDonationAmount.js
 
@@ -109,10 +115,6 @@ function App() {
         totaldonations: "", // TransmittalTotals.js
 
         tributeForeignAddressCheckbox: false,
-
-        giftTotal: 0, // TransmittalTotals.js
-        nonGiftTotal: 0, // TransmittalTotals.js
-        overallTotal: 0, // TransmittalTotals.js
 
         // 62 field or checkboxes on Cash alone!!!!!
     });
@@ -139,25 +141,20 @@ function App() {
                         element={<CashPrint formValues={cashValues} />}
                     />
                     {/* <Route
-                        exact
-                        path="/check"
+                        exact path="/check"
                         element={
-                            <Check
-                                formValues={checkValues}
-                                setFormValues={setCheckValues}
-                            />
+                            <Check formValues={checkValues} setFormValues={setCheckValues} />
                         }
                     />
                     <Route
-                        exact
-                        path="/checkprint"
+                        exact path="/checkprint"
                         element={<CheckPrint formValues={checkValues} />}
-                    /> */}
+                    />
                     <Route path="/gift-in-kind" element={<GiftInKind />} />
 
                     <Route path="/securities" element={<Securities />} />
                     <Route path="/wire" element={<Wire />} />
-                    {/* <Route path="/trust" element={<Trust />} /> */}
+                    <Route path="/trust" element={<Trust />} /> */}
 
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>

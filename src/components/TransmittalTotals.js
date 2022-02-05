@@ -7,32 +7,26 @@ import {
 } from "@mui/material";
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-
+// import { useFormContext } from "react-hook-form";
+import { parseNum, formatAmount, calcFinalTotals } from "./HelperFunctions";
 // import TotalDonationAmount from "./TotalDonationAmount";
 
 export default function TransmittalTotals({ register, setValue, watch }) {
-    const parseNum = (num) => {
-        let newValue = parseFloat(num);
+    // const parseNum = (num) => {
+    //     let newValue = parseFloat(num)
 
-        if (isNaN(newValue)) newValue = 0;
+    //     if (isNaN(newValue))
+    //         newValue = 0;
 
-        return newValue;
-    };
+    //     return (newValue)
+    // }
 
     useEffect(() => {
         const subscription = watch((values, { name, value }) => {
-            if (
-                name === "totalDonationAmount" ||
-                name === "totalDesignationAmount"
-            ) {
-                setValue(
-                    "giftTotals",
-                    parseNum(values.totalDonationAmount) +
-                        parseNum(values.totalDesignationAmount)
-                );
+            if (name.startsWith("designation.")) {
+                calcFinalTotals(values.designation, setValue);
             }
         });
-
         return () => subscription.unsubscribe();
     });
 
@@ -48,34 +42,34 @@ export default function TransmittalTotals({ register, setValue, watch }) {
 
             <Row>
                 <Col xs={12} md={2}>
-                    <FormLabel>Total donation amount</FormLabel>
+                    <FormLabel>Gift Total</FormLabel>
                     <div className="dollarAmount">
                         <Input
                             disabled
-                            label="Total donation amount"
-                            {...register("giftTotals")}
+                            label="Gift Total"
+                            {...register("giftTotal")}
                         />
                     </div>
                 </Col>
                 <Col xs={12} md={2}>
-                    <FormLabel>Non-gift total</FormLabel>
+                    <FormLabel>Non-gift Total</FormLabel>
                     <div className="dollarAmount">
                         <Input
                             disabled
-                            htmlFor="Non-Gift"
+                            htmlFor="Non-Gift Total"
                             label="Non-Gift"
-                            {...register("nonGiftTotals")}
+                            {...register("nonGiftTotal")}
                         />
                     </div>
                 </Col>
                 <Col xs={12} md={2}>
-                    <FormLabel>Total donations</FormLabel>
+                    <FormLabel>Total Amount</FormLabel>
                     <div className="dollarAmount">
                         <Input
                             disabled
-                            htmlFor="Total Donations"
-                            label="Total Donations"
-                            {...register("totaldonations")}
+                            htmlFor="Total Amount"
+                            label="Total Amount"
+                            {...register("overallTotal")}
                         />
                     </div>
                 </Col>

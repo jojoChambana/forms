@@ -66,7 +66,7 @@ span.lineUp,
   font-weight: normal;
 }
 
-.rightLable,
+.rightLabel,
 span.lineUp,
 .lineUp {
   display: -webkit-box;
@@ -75,7 +75,7 @@ span.lineUp,
 }
 
 @media only screen and (min-device-width: 768px) {
-  .rightLable,
+  .rightLabel,
   span.lineUp,
   .lineUp {
     -webkit-box-pack: end;
@@ -85,7 +85,7 @@ span.lineUp,
   }
 }
 
-.resultItems {
+.resultItems .row {
   margin-bottom: 0;
 }
 

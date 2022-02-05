@@ -1,3 +1,4 @@
+import { ErrorMessage } from "@hookform/error-message";
 import {
     Checkbox,
     FormControlLabel,
@@ -8,30 +9,14 @@ import {
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-export default function GiftAssociatedOpportunity({
-    register,
-    setValue,
-    getValues,
-    index,
-}) {
-    // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
-    const [aCheckboxChanged, setaCheckboxChanged] = useState(false); // we use this to trigger a render operation
-
-    const handleChange = (event) => {
-        const [, index] = event.target.name.split("."); // the name will be 'designation.index.fieldName' and we just need the index
-        setValue(
-            `designation.${index}.associatedOpportunityChecked`,
-            event.target.checked
-        ); // set the react hook array element appropriately
-        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
+export default function GiftAssociatedOpportunity({ register, errors }) {
+    const [visable, setVisable] = useState(false);
+    const handleChange = () => {
+        setVisable(!visable);
     };
-
-    const initCheckValue = getValues(
-        `designation[${index}].associatedOpportunityChecked`
-    );
     return (
         <>
-            <Typography variant="h5" component="h3">
+            <Typography variant="h6" component="h4">
                 Opportunity
             </Typography>
             <FormGroup>
@@ -41,26 +26,24 @@ export default function GiftAssociatedOpportunity({
                             label="Check if this gift is associated with an opportunity"
                             control={
                                 <Checkbox
+                                    {...register(`associatedOpportunity`)}
                                     placeholder="Is this gift associated with an opportunity"
-                                    {...register(
-                                        `designation.${index}.associatedOpportunityChecked`
-                                    )}
                                     onChange={handleChange}
-                                    name={`OpprtunityCheckbox.${index}`}
-                                    checked={initCheckValue}
                                 />
                             }
                         />
+                        <ErrorMessage
+                            errors={errors}
+                            name="associatedOpportunity"
+                        />
                     </Col>
                 </Row>
-                {initCheckValue && (
+                {visable && (
                     <>
                         <Row>
                             <Col xs={12} md={4}>
                                 <TextField
-                                    {...register(
-                                        `designation.${index}.tedHouseholdId`
-                                    )}
+                                    {...register("tedHouseholdId")}
                                     required
                                     placeholder="TED Household ID"
                                     label="TED Household ID"
@@ -69,9 +52,7 @@ export default function GiftAssociatedOpportunity({
                             </Col>
                             <Col xs={12} md={8}>
                                 <TextField
-                                    {...register(
-                                        `designation.${index}.tedHouseholdName`
-                                    )}
+                                    {...register("tedHouseholdName")}
                                     required
                                     placeholder="Household name"
                                     label="Household name"
@@ -82,9 +63,7 @@ export default function GiftAssociatedOpportunity({
                         <Row>
                             <Col xs={12} md={8}>
                                 <TextField
-                                    {...register(
-                                        `designation.${index}.tedPlanName`
-                                    )}
+                                    {...register("tedPlanName")}
                                     required
                                     placeholder="Plan name"
                                     label="Plan name"
@@ -94,9 +73,7 @@ export default function GiftAssociatedOpportunity({
                             <Col xs={12} md={4}>
                                 <div className="dollarAmount">
                                     <TextField
-                                        {...register(
-                                            `designation.${index}.tedOpportunityAmount`
-                                        )}
+                                        {...register("tedOpportunityAmount")}
                                         required
                                         placeholder="Opportunity amount"
                                         label="Opportunity amount"
@@ -108,9 +85,7 @@ export default function GiftAssociatedOpportunity({
                         <Row>
                             <Col xs={12} md={4}>
                                 <TextField
-                                    {...register(
-                                        `designation.${index}.actualAskDate`
-                                    )}
+                                    {...register("actualAskDate")}
                                     required
                                     placeholder="Actual ask date"
                                     label="Actual ask date"
@@ -119,9 +94,7 @@ export default function GiftAssociatedOpportunity({
                             </Col>
                             <Col xs={12} md={6}>
                                 <TextField
-                                    {...register(
-                                        `designation.${index}.primaryPlanManager`
-                                    )}
+                                    {...register("primaryPlanManager")}
                                     required
                                     placeholder="Primary plan manager name"
                                     label="Primary plan manager name"

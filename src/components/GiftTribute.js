@@ -10,11 +10,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
-import { Controller } from "react-hook-form";
 import "react-phone-number-input/style.css";
-import DomesticAddress from "./DomesticAddress";
-import ForeignAddress from "./ForeignAddress";
+
 import Address from "./Address";
 
 export default function GiftTribute({
@@ -69,14 +66,14 @@ export default function GiftTribute({
                         <FormControl>
                             <RadioGroup
                                 aria-labelledby="campus-Location"
-                                defaultValue="In Memory Of"
+                                defaultValue="In memory of"
                                 name="gift-tribute-radio-buttons-group"
                                 onChange={handleChangeTribute}
                             >
                                 <Row className="mb-0">
                                     <Col xs={6} md={2} style={divStyle}>
                                         <FormControlLabel
-                                            value="In Memory Of"
+                                            value="In memory of"
                                             control={
                                                 <Radio
                                                     {...register("giftTribute")}
@@ -87,7 +84,7 @@ export default function GiftTribute({
                                     </Col>
                                     <Col xs={6} md={2} style={divStyle}>
                                         <FormControlLabel
-                                            value="in honor Of"
+                                            value="In honor Of"
                                             control={
                                                 <Radio
                                                     {...register("giftTribute")}

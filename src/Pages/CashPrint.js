@@ -88,28 +88,192 @@ const CashPrint = (props) => {
                                 </Typography>
                             </Col>
                         </Row>
-                        <Row xs={12} className="resultItems">
-                            <Col>
-                                <Typography
-                                    variant="formCat"
-                                    className="lineUp"
-                                >
-                                    Campus:
-                                </Typography>
+
+                        <Row className="resultItems">
+                            <Col md={6}>
+                                <Row>
+                                    <Col className="rightLabel">Campus: </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.campusLocation}
+                                        </span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="rightLabel">
+                                        Contact full name:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.contactFullName}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col className="rightLabel">Phone:</Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.contactPhone}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col className="rightLabel">
+                                        {" "}
+                                        Contact email:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.contactEmail}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col className="rightLabel">
+                                        College name:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.collegeName}
+                                        </span>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col className="rightLabel">
+                                        Contact department name:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.departmentName}
+                                        </span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="rightLabel">
+                                        Donation date:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.donationDate}
+                                        </span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="rightLabel">
+                                        Prepared by:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.preparedBy}
+                                        </span>
+                                    </Col>
+                                </Row>
+                                {/* <Row>
+                                    <Col className="rightLabel">
+                                        Donor Unknown Checkbox:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.donorUnknown}
+                                        </span>
+                                    </Col>
+                                </Row> */}
+
+                                {props.formValues.unitReferenceNumber ? (
+                                    <Row>
+                                        <Col className="rightLabel">
+                                            Unit reference number:
+                                        </Col>
+                                        <Col>
+                                            <span className="normal">
+                                                {
+                                                    props.formValues
+                                                        .unitReferenceNumber
+                                                }
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                ) : null}
                             </Col>
-                            <Col className="results">
-                                <span className="normal">
-                                    {props.formValues.campusLocation}
-                                </span>
+                            <Col md={6}>
+                                <Row>
+                                    <Col className="rightLabel">
+                                        TED constituent ID:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {props.formValues.tedConstituentId}
+                                        </span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="rightLabel">
+                                        Organization/Donor name:
+                                    </Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {
+                                                props.formValues
+                                                    .organizationDonorName
+                                            }
+                                        </span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="rightLabel">Address:</Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {
+                                                props.formValues
+                                                    .donorDomesticAddress
+                                            }
+                                        </span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="rightLabel">City:</Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {
+                                                props.formValues
+                                                    .donorDomesticAddressCity
+                                            }
+                                        </span>
+
+                                        {/* <span className="normal">
+                                            ,&nbsp;
+                                            {
+                                                props.formValues
+                                                    .donorDomesticAddressZipCode
+                                            }
+                                        </span> */}
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="rightLabel">Zip:</Col>
+                                    <Col>
+                                        <span className="normal">
+                                            {
+                                                props.formValues
+                                                    .donorDomesticAddressZipCode
+                                            }
+                                        </span>
+
+                                        {/* <span className="normal">
+                                            ,&nbsp;
+                                            {
+                                                props.formValues
+                                                    .donorDomesticAddressZipCode
+                                            }
+                                        </span> */}
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
-                        {/* <Row>
-                            <Col>
-                                <Typography variant="h5" component="h3">
-                                    Contact Information
-                                </Typography>
-                            </Col>
-                        </Row> */}
 
                         {/* <Row>
                             <Col>

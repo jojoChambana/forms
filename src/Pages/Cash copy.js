@@ -11,7 +11,7 @@ import Address from "../components/Address";
 import GiftTribute from "../components/GiftTribute";
 import PublicityDropDown from "../components/PublicityDropDown";
 import { useNavigate } from "react-router-dom";
-import DesignationInformation from "../components/DesignationInformation";
+// import DesignationInformaiton from '../components/DesignationInformaiton'
 import TotalDonationAmount from "../components/TotalDonationAmount";
 import TransmittalTotals from "../components/TransmittalTotals";
 
@@ -55,8 +55,6 @@ import TransmittalTotals from "../components/TransmittalTotals";
 // });
 
 export default function Cash(props) {
-    // const resolver = useYupValidationResolver(validationSchema);
-    // const { register, control, setValue, watch, formState: { errors }, handleSubmit, data } = useForm({
     const {
         register,
         control,
@@ -75,7 +73,7 @@ export default function Cash(props) {
 
     const { totalDonationAmount, setTotalDonationAmount } = useState(0);
     // const { opportunityAmount, setOpportunityAmount } = useState(0);
-    // const { designationGiftAmount, designationAmount } = useState();
+    // const { totalDesignationAmount, designationAmount } = useState();
 
     function removeEmptyFields(data) {}
 
@@ -84,103 +82,81 @@ export default function Cash(props) {
         props.setFormValues(data);
         navigate("/cashprint");
         console.table(data);
-        console.log(data.designation);
     };
 
     const fillButton = () => {
-        setValue("campusLocation", "Chicago");
+        // console.log("fill")
 
         setValue("contactFullName", "Thomas Jones");
         setValue("contactPhone", "(555)-867-5309");
+        setValue("foreignDonor", false, "");
         setValue("contactEmail", "tjones@gmail.com");
         setValue("collegeName", "Fine Arts");
         setValue("departmentName", "English");
-        setValue("donationDate", "02-10-2022"); // Not sure about this one
-        setValue("preparedBy", "Ted Logan");
-        setValue("unitReferenceNumber", "");
-        setValue("donorUnknown", false);
+        setValue("campusLocation", "Chicago");
+        setValue(
+            "designationAdditionalComments",
+            "This is a designation additional comment"
+        );
 
-        setValue("donorDomesticAddressNewDonor", false);
-        setValue("donorDomesticAddressNewAddress", false);
-        setValue("tedConstituentId", "4567788");
-        setValue("organizationDonorName", "The Jones family");
-
+        setValue("departmentContactEmail", "info@department.edu");
+        setValue("departmentContact", "Jame Doe");
+        setValue("tedDesignationId", "946578");
+        setValue("tedDesignationTitle", "The Jones family");
+        setValue("totalDesignationAmount", 0);
+        setValue("foreignaddress", false);
         setValue("donorDomesticAddress", "2112 S. Rush St.");
         setValue("donorDomesticAddressCity", "Chicago");
         setValue("donorDomesticAddressState", "IL");
         setValue("donorDomesticAddressZipCode", "61111");
-
-        setValue("donorForeignAddressCheckbox", false);
-        console.table(props.formValues);
-
-        setValue("donorForeignAddress", "1234 Main St.");
-        setValue("donorForeignAddressCity", "Berlin");
-        setValue("donorForeignAddressProvinceRegion", "Bavaria");
-        setValue("donorForeignAddressCountry", "Germany");
-        setValue("donorForeignAddressPostalCode", 80331);
-
         setValue("publicityCode", "no restrictions");
-
+        setValue("donorDomesticAddressNewDonor", false);
+        setValue("donorDomesticAddressNewAddress", false);
+        setValue("donorUnknown", false);
+        setValue("tedConstituentId", "4567788");
+        setValue("organizationDonorName", "The Jones family");
+        setValue("associatedOpportunity", false);
+        setValue("tedHouseholdId", "32511");
+        setValue("tedHouseholdName", "Jones");
+        setValue("tedPlanName", "Jones TED Plan");
+        setValue("tedOpportunityAmount", 30000);
+        setValue("actualAskDate", "03-21-2000");
+        setValue("primaryPlanManager", "John Burns");
+        setValue("giftAssociatedWithPledge", false);
+        setValue("pledgeRevenueId", "RevId621321");
+        setValue("giftAmount", "600");
         setValue("tribute", false);
-
-        setValue("giftTribute", false); // Check Bill's code pertaining to checkboxes
-
+        setValue("giftTribute", false);
+        setValue("tedconstituentID", "95465");
         setValue("deceasedFullName", "Dan Doe");
-
-        setValue("tributeForeignAddressCheckbox", false);
-        setValue("inMemoryNewAddress", false);
-
         setValue("inMemoryNewAddress", "3215 Tandy");
-
         setValue("inHonorTedID", "679856");
         setValue("honoreeFullName", "Jim Dandy");
-
+        setValue("preparedBy", "Ted Logan");
+        setValue("unitReferenceNumber", "");
+        setValue("newDonorCheckBox", false);
+        setValue("nonGiftPortion", "");
+        setValue("nonGiftTedId", "98754654");
+        setValue("giftTedAmount", "");
+        setValue("nonGiftTedAmount", "");
+        setValue("tedConstituentID", "6549");
+        setValue("nonGiftAmount", "");
+        setValue("totalDonationAmount", 1000);
+        setValue("tedDonorUnknown", false);
+        setValue("organizationDonorName", "The Goonies ");
+        setValue("giftTotals");
+        setValue("nonGiftTotals");
+        setValue("tributeForeignAddressCheckbox", false);
         setValue("tributeDomesticAddress", "123 Main Street");
         setValue("tributeDomesticAddressCity", "Burlington");
         setValue("tributeDomesticAddressState", "IA");
         setValue("tributeDomesticAddressZipCode", "42153");
-
-        setValue("tributeForeignAddress", "37 Appleton Rd");
-        setValue("tributeForeignAddressCity", "Calgary");
-        setValue("tributeForeignAddressProvinceRegion", "AB");
-        setValue("tributeForeignAddressCountry", "Canada");
-        setValue("tributeForeignAddressPostalCode", "T2G");
-
-        setValue("designationPhoneNumber", "555-555-55555");
-        setValue("designationEmail", "jdandy@gardenhills.com");
-
-        setValue("designation.0.newDesignationRequestedChecked", false);
-        setValue("NonGiftCheckbox.0", false);
-
-        setValue("designation.0.tedDesignationId", "68137");
-        setValue("designation.0.tedDesignationTitle", "The first designation");
-        setValue("designation.0.designationGiftAmount", 3000);
-
-        setValue("designation.0.designationNonGiftAmount", 3000);
-        setValue("designation.0.designationTotalAmount", 5000);
-
-        setValue("designation.0.pledgeRevenueId", "9739185");
-
-        setValue(
-            "designation.0.departmentContactEmail",
-            "info@designation1.com"
-        );
-        setValue("designation.0.departmentContact", "John Doe");
-
-        setValue("OpprtunityCheckbox.0", false);
-
-        setValue("designation.0.tedHouseholdId", "657954");
-        setValue("designation.0.tedHouseholdName", "The Doe Household");
-        setValue("designation.0.tedPlanName", "The Doe Plan");
-        setValue("designation.0.tedOpportunityAmount", 22000);
-        setValue("designation.0.actualAskDate", "01-22-2022");
-        setValue("designation.0.primaryPlanManager", "Tom Smith");
-        setValue(
-            "designation.0.designationAdditionalComments",
-            "This is a designation additional comment"
-        );
+        setValue("donorForeignAddressCheckbox", false);
+        // console.table(props.formValues)
     };
-
+    const myFunction = () => {
+        console.log("hello");
+    };
     return (
         <>
             <Instructions />
@@ -207,25 +183,18 @@ export default function Cash(props) {
                             errors={errors}
                             register={register}
                         />
-                        {/* <TotalDonationAmount
+                        <TotalDonationAmount
                             errors={errors}
                             register={register}
                             amount={totalDonationAmount}
                             setAmount={setTotalDonationAmount}
-                        /> */}
+                            onClick={myFunction}
+                        />
                         <GiftTribute
                             errors={errors}
                             register={register}
-                            control={control}
                             getValues={getValues}
                             setValue={setValue}
-                        />
-                        <DesignationInformation
-                            register={register}
-                            control={control}
-                            setValue={setValue}
-                            getValues={getValues}
-                            watch={watch}
                         />
                         <TransmittalTotals
                             errors={errors}
@@ -233,6 +202,7 @@ export default function Cash(props) {
                             watch={watch}
                             setValue={setValue}
                         />
+                        {/* <DesignationInformaiton errors={errors} register={register} setValue={setValue} /> */}
                         <input type="submit" />
                     </form>
                     <DevTool control={control} /> {/* set up the dev tool */}
