@@ -1,3 +1,4 @@
+@import url(/node_modules/bootstrap-print-css/css/bootstrap-print.min.css);
 nav {
   display: -webkit-box;
   display: -ms-flexbox;

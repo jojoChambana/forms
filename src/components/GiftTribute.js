@@ -17,9 +17,9 @@ import Address from "./Address";
 export default function GiftTribute({
     errors,
     register,
-    control,
     getValues,
     setValue,
+    checked,
 }) {
     const [visible, setvisible] = useState(false);
     const handleChange = () => {
@@ -31,15 +31,16 @@ export default function GiftTribute({
         setvisibleTribute(!visibleTribute);
     };
 
-    const [visibleAddressToggle, setvisibleAddressToggle] = useState(false);
-    const handleChangeAddressToggle = (event) => {
-        setvisibleAddressToggle(!visibleAddressToggle);
-    };
+    // const [visibleAddressToggle, setvisibleAddressToggle] = useState(false);
+    // const handleChangeAddressToggle = (event) => {
+    //     setvisibleAddressToggle(!visibleAddressToggle);
+    // };
 
     const divStyle = {
         flexBasis: "content",
         msFlexPreferredSize: "content",
     };
+
     return (
         <>
             <Typography variant="h5" component="h3">
@@ -51,6 +52,7 @@ export default function GiftTribute({
                         <FormControlLabel
                             label="Check if this gift is a tribute"
                             defaultValue={false}
+                            checked={checked}
                             control={
                                 <Checkbox
                                     {...register("tribute")}

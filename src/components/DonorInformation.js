@@ -15,11 +15,14 @@ export default function DonorInformation({
     handleClickAddress,
     handleClickDonor,
     register,
+    value,
 }) {
     const [visible, setVisible] = useState(false);
     const handleClickUnknownDonor = () => {
         setVisible(!visible);
     };
+
+    // console.log(donorUnknownCheckBoxVal);
     return (
         <>
             <Typography variant="h5" component="h3">

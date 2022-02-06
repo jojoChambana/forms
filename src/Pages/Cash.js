@@ -195,7 +195,12 @@ export default function Cash(props) {
                             control={control}
                         />
                         <NameEmail errors={errors} register={register} />
-                        <DonorInformation errors={errors} register={register} />
+                        <DonorInformation
+                            errors={errors}
+                            register={register}
+                            getValues={getValues}
+                            setValue={setValue}
+                        />
                         <Address
                             errors={errors}
                             register={register}
@@ -219,6 +224,7 @@ export default function Cash(props) {
                             control={control}
                             getValues={getValues}
                             setValue={setValue}
+                            prefix="tribute"
                         />
                         <DesignationInformation
                             register={register}

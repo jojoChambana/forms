@@ -3,5 +3,8 @@
     "node_modules{,/**}",
     ".vscode{,/**}"
   ],
-  "appService.showBuildDuringDeployPrompt": false
+  "appService.showBuildDuringDeployPrompt": false,
+  "cSpell.ignoreWords": [
+    "setvisible"
+  ]
 }

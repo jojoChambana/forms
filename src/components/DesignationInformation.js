@@ -8,13 +8,15 @@ import {
 import { useState, useEffect } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import GiftAssociatedOpportunity from "./GiftAssociatedOpportunity";
-import { useFieldArray } from "react-hook-form";
+import { Controller, useFieldArray } from "react-hook-form";
 import {
     parseNum,
     formatAmount,
     calcFinalTotals,
     newDesignation,
 } from "./HelperFunctions";
+import CurrencyFormat from "react-currency-format";
+import NumberFormat from "react-number-format";
 
 export default function DesignationInformaiton({
     register,
@@ -237,6 +239,53 @@ export default function DesignationInformaiton({
                                         />
                                     </div>
                                 </Col>
+
+                                {/* <Col xs={12} md={2} className="offset-md-2">
+                                    <div className="dollarAmount maxWidth">
+                                        <CurrencyFormat
+                                            label="Gift Amount"
+                                            placeholder="Gift Amount"
+                                            required
+                                            thousandSeparator={true}
+                                            prefix={"$"}
+                                            displayType={"input"}
+                                            decimalScale={2}
+                                            inputprops={{
+                                                inputMode: "numeric",
+                                                pattern: "[0-9]*",
+                                            }}
+                                            {...register(
+                                                `designation.${index}.designationGiftAmount`
+                                            )}
+                                        />
+                                    </div>
+                                </Col> */}
+
+                                {/* <Col>
+                                    <Controller
+                                        as={
+                                            <NumberFormat
+                                                customInput={TextField}
+                                                thousandSeparator={true}
+                                                prefix={"$ "}
+                                                onValueChange={(v) => {
+                                                    //value without dollar signe
+                                                    // const [, index] =
+                                                    //     v.split(".");
+                                                    // setValue(
+                                                    //     `designation.${index}.designationGiftAmount`,
+                                                    //     v.value
+                                                    // );
+                                                    console.log(v.value);
+                                                }}
+                                            />
+                                        }
+                                        name="amount"
+                                        variant="outlined"
+                                        defaultValue="20000"
+                                        control={control}
+                                    />
+                                </Col> */}
 
                                 {/* Only show nongift and total if nongift is checked */}
                                 {nonGiftChecked && (

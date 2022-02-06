@@ -12,15 +12,6 @@ import { parseNum, formatAmount, calcFinalTotals } from "./HelperFunctions";
 // import TotalDonationAmount from "./TotalDonationAmount";
 
 export default function TransmittalTotals({ register, setValue, watch }) {
-    // const parseNum = (num) => {
-    //     let newValue = parseFloat(num)
-
-    //     if (isNaN(newValue))
-    //         newValue = 0;
-
-    //     return (newValue)
-    // }
-
     useEffect(() => {
         const subscription = watch((values, { name, value }) => {
             if (name.startsWith("designation.")) {
@@ -41,6 +32,17 @@ export default function TransmittalTotals({ register, setValue, watch }) {
             </Row>
 
             <Row>
+                {/* <Col xs={12} md={2}>
+                    <FormLabel>Gift Total</FormLabel>
+                    <div className="dollarAmount">
+                        <Input
+                            disabled
+                            label="Gift Total"
+                            {...register("giftTotal")}
+                        />
+                    </div>
+                </Col> */}
+
                 <Col xs={12} md={2}>
                     <FormLabel>Gift Total</FormLabel>
                     <div className="dollarAmount">
@@ -51,6 +53,7 @@ export default function TransmittalTotals({ register, setValue, watch }) {
                         />
                     </div>
                 </Col>
+
                 <Col xs={12} md={2}>
                     <FormLabel>Non-gift Total</FormLabel>
                     <div className="dollarAmount">
