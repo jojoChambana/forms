@@ -120,18 +120,18 @@ const CashPrint = (props) => {
                             </Col>
                         </Row>
 
-                        <Row>
+                        <Row className="resultItems">
                             <PrintContactAndDonorInfo
                                 formValues={props.formValues}
                             />
                         </Row>
-                        <Row>
+                        <Row className="resultItems">
                             <Col>
                                 <PrintTribute formValues={props.formValues} />
                             </Col>
                             <Col></Col>
                         </Row>
-                        <Row>
+                        <Row className="theDesignationResults">
                             <PrintDesignations formValues={props.formValues} />
                             <PrintTotals formValues={props.formValues} />
                         </Row>

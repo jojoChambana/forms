@@ -6,7 +6,7 @@ import {
     Typography,
 } from "@mui/material";
 import { useState, useEffect } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import GiftAssociatedOpportunity from "./GiftAssociatedOpportunity";
 import { Controller, useFieldArray } from "react-hook-form";
 import {
@@ -84,7 +84,7 @@ export default function DesignationInformaiton({
 
     return (
         <>
-            <ul className="list-group mb-4">
+            <ListGroup className="list-group row">
                 {fields.map((item, index) => {
                     var newDesigChecked = getValues(
                         `designation[${index}].newDesignationRequestedChecked`
@@ -94,7 +94,7 @@ export default function DesignationInformaiton({
                     );
 
                     return (
-                        <li className="list-group-item pt-3" key={item.id}>
+                        <ListGroupItem key={item.id}>
                             <Typography variant="h5" component="h3">
                                 Designation Information
                             </Typography>
@@ -361,10 +361,10 @@ export default function DesignationInformaiton({
                                     />
                                 </Col>
                             </Row>
-                        </li>
+                        </ListGroupItem>
                     );
                 })}
-            </ul>
+            </ListGroup>
             {/* the Add Designation button at the end */}
             <Row>
                 <Col xs={6} md={3}>

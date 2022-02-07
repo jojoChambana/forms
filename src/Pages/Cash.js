@@ -133,7 +133,7 @@ export default function Cash(props) {
         setValue("inMemoryNewAddress", "3215 Tandy");
 
         setValue("inHonorTedID", "679856");
-        setValue("honoreeFullName", "Jim Dandy");
+        setValue("honoreeFullName", "");
 
         setValue("tributeDomesticAddress", "123 Main Street");
         setValue("tributeDomesticAddressCity", "Burlington");
@@ -167,7 +167,7 @@ export default function Cash(props) {
         );
         setValue("designation.0.departmentContact", "John Doe");
 
-        setValue("OpprtunityCheckbox.0", false);
+        setValue("OpportunityCheckbox.0", false);
 
         setValue("designation.0.tedHouseholdId", "657954");
         setValue("designation.0.tedHouseholdName", "The Doe Household");

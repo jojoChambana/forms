@@ -12,11 +12,9 @@ import { Row, Col } from "react-bootstrap";
 // import PrintForeign from "../components/PrintForeign";
 // import AddressPrint from "../components/AddressPrint";
 
-import {    Typography} from "@mui/material";
+import { Typography } from "@mui/material";
 
-
-const PrintTribute = ({formValues}) => {
-
+const PrintTribute = ({ formValues }) => {
     function IsTributeNewAddressChecked(props) {
         if (formValues.inMemoryNewAddress === true) {
             return (
@@ -34,7 +32,7 @@ const PrintTribute = ({formValues}) => {
         } else {
             return null;
         }
-    }    
+    }
     const Domestic = () => {
         return (
             <>
@@ -122,44 +120,39 @@ const PrintTribute = ({formValues}) => {
     };
     function AddressType(foreignAddress) {
         const isForeign = formValues.tributeForeignAddressCheckbox;
-        if (!isForeign) 
-            return <Domestic />;
-        else
-            return <Foreign />;
+        if (!isForeign) return <Domestic />;
+        else return <Foreign />;
     }
-    return (
-        <>
-            <Row>
-                <Col className="rightLabel">
-                    Tribute{" "}
-                    {formValues.giftTribute}:{" "}
-                    {/* inserts the phrases "In memory of" or "In tribute of" */}
-                </Col>
-                <Col>
-                    <span className="normal">
-                        {/* if the value is "In memory of", then show the deceasedFullName, otherwise show the honoreeFullName */}
-                        {formValues
-                            .giftTribute ===
-                        "In memory of"
-                            ? formValues
-                                    .deceasedFullName
-                            : formValues
-                                    .honoreeFullName}
-                    </span>
-                </Col>
-            </Row>
 
+    if (formValues.tributeChecked) {
+        return (
+            <>
+                <Row>
+                    <Col className="rightLabel">
+                        Tribute {formValues.giftTribute}:{" "}
+                        {/* inserts the phrases "In memory of" or "In tribute of" */}
+                    </Col>
+                    <Col>
+                        <span className="normal">
+                            {/* if the value is "In memory of", then show the deceasedFullName, otherwise show the honoreeFullName */}
+                            {formValues.giftTribute === "In memory of"
+                                ? formValues.deceasedFullName
+                                : formValues.honoreeFullName}
+                        </span>
+                    </Col>
+                </Row>
 
-            <Row className="resultItems">
-                <Col>
-                <IsTributeNewAddressChecked />
-                <AddressType />                
-                </Col>
-            </Row>
-
-            
-        </>
-    );                
-}
+                <Row className="resultItems">
+                    <Col>
+                        <IsTributeNewAddressChecked />
+                        <AddressType />
+                    </Col>
+                </Row>
+            </>
+        );
+    } else {
+        return <></>;
+    }
+};
 
 export default PrintTribute;

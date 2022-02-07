@@ -22,13 +22,17 @@ export default function GiftTribute({
     checked,
 }) {
     const [visible, setvisible] = useState(false);
-    const handleChange = () => {
-        setvisible(!visible);
+
+    const handleChange = (event) => {
+        setvisible(event.target.checked);
+        setValue("designation.tributeChecked", event.target.checked); // set the rect hook element appropriately
     };
 
-    const [visibleTribute, setvisibleTribute] = useState(false);
-    const handleChangeTribute = (event) => {
-        setvisibleTribute(!visibleTribute);
+    const [isMemorial, setisMemorial] = useState(false);
+
+    const handleMemHon = (event) => {
+        setisMemorial(event.target.value === "In memory of");
+        //setValue("designation.tributeChecked", event.target.checked); // set the rect hook element appropriately
     };
 
     // const [visibleAddressToggle, setvisibleAddressToggle] = useState(false);
@@ -55,7 +59,7 @@ export default function GiftTribute({
                             checked={checked}
                             control={
                                 <Checkbox
-                                    {...register("tribute")}
+                                    {...register("tributeChecked")}
                                     placeholder="Check if this gift is a tribute"
                                     onChange={handleChange}
                                 />
@@ -70,7 +74,7 @@ export default function GiftTribute({
                                 aria-labelledby="campus-Location"
                                 defaultValue="In memory of"
                                 name="gift-tribute-radio-buttons-group"
-                                onChange={handleChangeTribute}
+                                onChange={handleMemHon}
                             >
                                 <Row className="mb-0">
                                     <Col xs={6} md={2} style={divStyle}>
@@ -97,7 +101,7 @@ export default function GiftTribute({
                                     </Col>
                                 </Row>
                                 <Row className="mb-0">
-                                    {!visibleTribute ? (
+                                    {!isMemorial ? (
                                         <>
                                             <Col xs={12}>
                                                 <Row className="mb-0">
