@@ -6,10 +6,15 @@ export function parseNum(num) {
     return newValue;
 }
 export function formatAmount(amount) {
-    if (Math.floor(amount) !== amount) {
-        amount = amount.toFixed(2);
+    if (isNaN(amount)) {
+        amount = 0
     }
-
+    else {
+        amount = parseFloat(amount)
+        if (Math.floor(amount) !== amount) {
+            amount = amount.toFixed(2);
+        }
+    }
     return amount;
 }
 

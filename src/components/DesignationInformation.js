@@ -84,7 +84,7 @@ export default function DesignationInformaiton({
 
     return (
         <>
-            <ul>
+            <ul className="list-group mb-4">
                 {fields.map((item, index) => {
                     var newDesigChecked = getValues(
                         `designation[${index}].newDesignationRequestedChecked`
@@ -94,7 +94,7 @@ export default function DesignationInformaiton({
                     );
 
                     return (
-                        <li key={item.id}>
+                        <li className="list-group-item pt-3" key={item.id}>
                             <Typography variant="h5" component="h3">
                                 Designation Information
                             </Typography>
