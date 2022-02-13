@@ -1,4 +1,5 @@
 @import url(/node_modules/bootstrap-print-css/css/bootstrap-print.min.css);
+@import url(PrintStyles.css);
 nav {
     display: flex;
     justify-content: space-around;
@@ -58,6 +59,7 @@ span.lineUp,
     @media only screen and (min-device-width: 600px) {
         justify-content: flex-end;
         text-align: right;
+        min-width: 300px !important;
     }
     @media only print {
         justify-content: flex-start;
@@ -132,6 +134,7 @@ label#mui-11-label {
 .dollarAmount {
     input {
         text-align: right;
+        padding-right: 0.25rem;
     }
 }
 
@@ -147,14 +150,16 @@ label#mui-11-label {
 
 .hideForPrint {
     @media only screen and (min-device-width: 600px) {
-        display: none;
+        display: flex;
     }
     @media only print {
+        display: none;
     }
 }
 
 .singular-offset {
     display: flex;
+    justify-content: flex-end;
     .colOne {
         min-width: 50%;
     }
@@ -163,16 +168,11 @@ label#mui-11-label {
     }
 }
 
-.aDesignation.list-group-item {
-    .row :nth-child(odd) {
-        background: #ccc;
-    }
-    // @media only print {
-    //     background-color: #ccc;
-    // }
-}
-
 // fix for width on gift total on cashprint
 .giftTotal {
     min-width: 100px;
+}
+
+.d-print-table-row {
+    display: flex;
 }

@@ -6,12 +6,12 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         const isChecked = formValues.donorUnknown;
         if (isChecked === true)
             return (
-                <Row>
-                    <Col className="rightLabel">Known donor:</Col>
-                    <Col>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Known donor:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">This is an unknown donor</span>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             );
         else return null;
     }
@@ -20,12 +20,12 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         const isChecked = formValues.newDonor;
         if (isChecked === true)
             return (
-                <Row>
-                    <Col className="rightLabel">Is this a new donor? :</Col>
-                    <Col>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Is this a new donor? :</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">Yes</span>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             );
         else return null;
     }
@@ -34,12 +34,12 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         const isChecked = formValues.newAddress;
         if (isChecked === true)
             return (
-                <Row>
-                    <Col className="rightLabel">Is this a new address? :</Col>
-                    <Col>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Is this a new address? :</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">Yes</span>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             );
         else return null;
     }
@@ -47,38 +47,38 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     const Domestic = () => {
         return (
             <>
-                <Row>
-                    <Col className="rightLabel">Address:</Col>
-                    <Col>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Address:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorDomesticAddress}
                         </span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="rightLabel">City:</Col>
-                    <Col>
+                    </div>
+                </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">City:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorDomesticAddressCity}
                         </span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="rightLabel">State:</Col>
-                    <Col>
+                    </div>
+                </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">State:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorDomesticAddressState}
                         </span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="rightLabel">Zip:</Col>
-                    <Col>
+                    </div>
+                </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Zip:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorDomesticAddressZipCode}
                         </span>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </>
         );
     };
@@ -86,46 +86,46 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     const Foreign = () => {
         return (
             <>
-                <Row>
-                    <Col className="rightLabel">Address:</Col>
-                    <Col>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Address:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorForeignAddress}
                         </span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="rightLabel">City:</Col>
-                    <Col>
+                    </div>
+                </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">City:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorForeignAddressCity}
                         </span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="rightLabel">Province/Region:</Col>
-                    <Col>
+                    </div>
+                </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Province/Region:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorForeignAddressProvinceRegion}
                         </span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="rightLabel">Country:</Col>
-                    <Col>
+                    </div>
+                </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Country:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorForeignAddressCountry}
                         </span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="rightLabel">Postal Code:</Col>
-                    <Col>
+                    </div>
+                </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Postal Code:</div>
+                    <div className="d-print-table-cell">
                         <span className="normal">
                             {formValues.donorDomesticAddressZipCode}
                         </span>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </>
         );
     };
@@ -142,126 +142,126 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
     return (
         <>
-            <Row className="resultItems">
-                <Col sm={12} md={6}>
-                    <Row>
-                        <Col className="rightLabel">Campus: </Col>
-                        <Col>
+            <div className="resultItems d-print-table-row">
+                <div className="d-print-table-cell">
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Campus:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.campusLocation}
                             </span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="rightLabel">Contact full name:</Col>
-                        <Col>
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Contact full name:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.contactFullName}
                             </span>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
 
-                    <Row>
-                        <Col className="rightLabel">Phone:</Col>
-                        <Col>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Phone:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.contactPhone}
                             </span>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
 
-                    <Row>
-                        <Col className="rightLabel">Contact email:</Col>
-                        <Col>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Contact email:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.contactEmail}
                             </span>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
 
-                    <Row>
-                        <Col className="rightLabel">College name:</Col>
-                        <Col>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">College name:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.collegeName}
                             </span>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
 
-                    <Row>
-                        <Col className="rightLabel">
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">
                             Contact department name:
-                        </Col>
-                        <Col>
+                        </div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.departmentName}
                             </span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="rightLabel">Donation date:</Col>
-                        <Col>
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Donation date:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.donationDate}
                             </span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="rightLabel">Prepared by:</Col>
-                        <Col>
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Prepared by:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.preparedBy}
                             </span>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
 
                     {formValues.unitReferenceNumber ? (
-                        <Row>
-                            <Col className="rightLabel">
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">
                                 Unit reference number:
-                            </Col>
-                            <Col>
+                            </div>
+                            <div className="d-print-table-cell">
                                 <span className="normal">
                                     {formValues.unitReferenceNumber}
                                 </span>
-                            </Col>
-                        </Row>
+                            </div>
+                        </div>
                     ) : null}
-                </Col>
+                </div>
 
-                <Col sm={12} md={6}>
-                    <Row>
-                        <Col className="rightLabel">TED constituent ID:</Col>
-                        <Col>
+                <div className="d-print-table-cell">
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">TED constituent ID:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.tedConstituentId}
                             </span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="rightLabel">
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel min-cell">
                             Organization/Donor name:
-                        </Col>
-                        <Col>
+                        </div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.organizationDonorName}
                             </span>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                     <AddressType />
                     <DonorUnknownCheckBox />
                     <NewDonorCheckBox />
                     <NewAddressCheckBox />
-                    <Row>
-                        <Col className="rightLabel">Contact/Publicity:</Col>
-                        <Col>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Contact/Publicity:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.publicityCode}
                             </span>
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

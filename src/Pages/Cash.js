@@ -142,7 +142,7 @@ export default function Cash(props) {
         <>
             <Instructions />
             <FormProvider>
-                <Container>
+                <Container className="pb-4">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Button onClick={fillButton}>Fill</Button>
                         <DepartmentCampus

@@ -112,19 +112,36 @@ const CashPrint = (props) => {
                                 </Col>
                             </Row>
                         </Row>
-                        <Row className="resultItems">
+                        <Row className="resultItems ">
                             <Col>
                                 <Typography variant="h4" component="h1">
                                     Donor cash transmittal
                                 </Typography>
                             </Col>
                         </Row>
-
-                        <Row className="resultItems">
+                        <Container>
+                            <Row className="hideForPrint">
+                                <Col className="d-flex justify-content-around">
+                                    <button
+                                        onClick={() => {
+                                            navigate("/cash");
+                                        }}
+                                    >
+                                        Back
+                                    </button>
+                                </Col>
+                                <Col className="d-flex justify-content-around">
+                                    <button onClick={handlePrint}>
+                                        Print Document
+                                    </button>
+                                </Col>
+                            </Row>
+                        </Container>
+                        <div className="resultItems d-print-table-row">
                             <PrintContactAndDonorInfo
                                 formValues={props.formValues}
                             />
-                        </Row>
+                        </div>
                         <Row className="resultItems">
                             <Col>
                                 <PrintTribute formValues={props.formValues} />
@@ -146,22 +163,6 @@ const CashPrint = (props) => {
                     </Container>
                 </div>
             </ThemeProvider>
-            <Container>
-                <Row>
-                    <Col>
-                        <button
-                            onClick={() => {
-                                navigate("/cash");
-                            }}
-                        >
-                            Back
-                        </button>
-                    </Col>
-                    <Col>
-                        <button onClick={handlePrint}>Print this out!</button>
-                    </Col>
-                </Row>
-            </Container>
         </>
     );
 };

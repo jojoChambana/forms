@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACZ,OAAO,EAAE,IAAI;CAChB;;AACD,AAAA,EAAE,CAAC;EACC,UAAU,EAAE,MAAM;CACrB;;AACD,AAAA,mBAAmB,CAAC;EAChB,KAAK,EAAE,KAAK;EACZ,YAAY,EAAE,IAAI;CACrB;;AAED,AAAA,WAAW,CAAC;EACR,KAAK,EAAE,gBAAgB;EACvB,eAAe,EAAE,mBAAmB;CACvC",
+    "sources": [
+        "PrintStyles.scss"
+    ],
+    "names": [],
+    "file": "PrintStyles.css"
+}
