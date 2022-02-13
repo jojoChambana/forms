@@ -17,64 +17,176 @@ import PrintOneOpportunity from "./PrintOneOpportunity";
 import { formatAmount } from "../HelperFunctions";
 
 const PrintOneDesignation = ({ oneDesignation, index }) => {
+    const rowStyle = {
+        marginBottom: 0,
+    };
     return (
-        <ListGroupItem
-            className="aDesignation"
-            key={"designation" + index}
-            // className="col-sm-12 col-md-6"
-        >
-            <>
-                <div className="designationNumber">
-                    Designation# {index + 1}{" "}
-                </div>
-                <div className="designationId">
-                    {oneDesignation.newDesignationRequestedChecked
-                        ? "New Designation Requested.  Contact: " +
-                          oneDesignation.departmentContact +
-                          "   " +
-                          oneDesignation.departmentContactEmail
-                        : "Designation ID: " + oneDesignation.tedDesignationId}
-                </div>
-                <div className="designationTitle">
-                    Designation Title: {oneDesignation.tedDesignationTitle}
-                </div>
-                <div className="designationGiftAmount">
-                    Gift Amount:{" "}
-                    {formatAmount(oneDesignation.designationGiftAmount)}
-                </div>
-                <div className="designationNonGiftAmount">
-                    {oneDesignation.nonGiftPortionChecked
-                        ? "Non-Gift Amount: " +
-                          formatAmount(
-                              oneDesignation.designationNonGiftAmount
-                          ) +
-                          "   Total: " +
-                          formatAmount(oneDesignation.designationTotalAmount)
-                        : " "}
-                </div>
-                <div className="designationPledgeId">
-                    {oneDesignation.pledgeRevenueId !== ""
-                        ? "Pledge Revenue ID: " + oneDesignation.pledgeRevenueId
-                        : " "}
-                </div>
-                <div className="designationOpportunity">
-                    {oneDesignation.associatedOpportunityChecked ? (
-                        <PrintOneOpportunity
-                            oneDesignation={oneDesignation}
-                            index={index}
-                        />
+        <>
+            <div className="resultItems">
+                <ListGroupItem
+                    className="aDesignation"
+                    key={"designation" + index}
+                >
+                    <Row>
+                        <Col>
+                            <div className="singular-offset">
+                                <div className="colOne rightLabel">
+                                    <span>Designation#:</span>
+                                </div>
+                                <div className="colOne">
+                                    <span className="normal">{index + 1} </span>
+                                </div>
+                            </div>
+                            <Row style={rowStyle} className="resultItems">
+                                {oneDesignation.newDesignationRequestedChecked ? (
+                                    <div className="singular-offset">
+                                        <div className="colOne rightLabel">
+                                            {
+                                                "New Designation Requested. Contact: "
+                                            }
+                                        </div>
+                                        <div className="colOne">
+                                            <span className="normal">
+                                                {oneDesignation.departmentContact +
+                                                    " " +
+                                                    oneDesignation.departmentContactEmail}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="singular-offset">
+                                        <div className="colOne rightLabel">
+                                            {"Designation ID: "}
+                                        </div>
+                                        <div className="colOne">
+                                            <span className="normal">
+                                                {
+                                                    oneDesignation.tedDesignationId
+                                                }
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+                            </Row>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <div className="singular-offset">
+                            <div className="colOne rightLabel">
+                                Designation Title:
+                            </div>
+                            <div className="colOne ">
+                                <span className="normal">
+                                    {oneDesignation.tedDesignationTitle}
+                                </span>
+                            </div>
+                        </div>
+                    </Row>
+
+                    <Row>
+                        <div className="singular-offset">
+                            <div className="colOne rightLabel">
+                                Gift Amount:
+                            </div>
+                            <div className="colOne ">
+                                <span className="normal">
+                                    {formatAmount(
+                                        oneDesignation.designationGiftAmount
+                                    )}
+                                </span>
+                            </div>
+                        </div>
+                    </Row>
+
+                    {oneDesignation.nonGiftPortionChecked ? (
+                        <>
+                            <Row>
+                                <div className="singular-offset">
+                                    <div className="colOne rightLabel">
+                                        Non-Gift Amount:{" "}
+                                    </div>
+                                    <div className="colOne ">
+                                        <span className="normal">
+                                            {formatAmount(
+                                                oneDesignation.designationNonGiftAmount
+                                            )}
+                                        </span>
+                                    </div>
+                                </div>
+                            </Row>
+                            <Row>
+                                <div className="singular-offset">
+                                    <div className="colOne rightLabel">
+                                        Total:{" "}
+                                    </div>
+                                    <div className="colOne ">
+                                        <span className="normal">
+                                            {formatAmount(
+                                                oneDesignation.designationTotalAmount
+                                            )}
+                                        </span>
+                                    </div>
+                                </div>
+                            </Row>
+                        </>
                     ) : (
                         " "
                     )}
-                </div>
-                <div className="designationComments">
-                    {oneDesignation.designationAdditionalComments !== ""
-                        ? "Comments: " +
-                          oneDesignation.designationAdditionalComments
-                        : " "}
-                </div>
-            </>
-        </ListGroupItem>
+
+                    {oneDesignation.pledgeRevenueId !== "" ? (
+                        <>
+                            <Row>
+                                <div className="singular-offset">
+                                    <div className="colOne rightLabel">
+                                        Pledge Revenue ID:
+                                    </div>
+                                    <div className="colOne ">
+                                        <span className="normal">
+                                            {oneDesignation.pledgeRevenueId}
+                                        </span>
+                                    </div>
+                                </div>
+                            </Row>
+                        </>
+                    ) : (
+                        " "
+                    )}
+
+                    <>
+                        {oneDesignation.associatedOpportunityChecked ? (
+                            <PrintOneOpportunity
+                                oneDesignation={oneDesignation}
+                                index={index}
+                            />
+                        ) : (
+                            " "
+                        )}
+                    </>
+                    <>
+                        {oneDesignation.designationAdditionalComments !== "" ? (
+                            <Row>
+                                <div className="singular-offset">
+                                    <div className="colOne rightLabel">
+                                        Comments:
+                                    </div>
+                                    <div className="colOne ">
+                                        <span className="normal">
+                                            <span className="normal">
+                                                {
+                                                    oneDesignation.designationAdditionalComments
+                                                }
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </Row>
+                        ) : (
+                            " "
+                        )}
+                    </>
+                </ListGroupItem>
+            </div>
+        </>
     );
 };
 export default PrintOneDesignation;

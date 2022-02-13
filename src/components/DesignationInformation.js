@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
+import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
 import GiftAssociatedOpportunity from "./GiftAssociatedOpportunity";
 import { Controller, useFieldArray } from "react-hook-form";
 import {
@@ -18,7 +19,7 @@ import {
 import CurrencyFormat from "react-currency-format";
 import NumberFormat from "react-number-format";
 
-export default function DesignationInformaiton({
+export default function DesignationInformation({
     register,
     control,
     setValue,
@@ -139,19 +140,23 @@ export default function DesignationInformaiton({
                                     <Col>
                                         {/* only show the 'delete Designation' button if there is more than one item being shown */}
                                         {designationCount > 1 ? (
-                                            <Button
-                                                placeholder="Delete Designation"
-                                                label="Delete Designation"
-                                                onClick={() => {
-                                                    remove(index);
-                                                    calcFinalTotals(
-                                                        fields,
-                                                        setValue
-                                                    );
-                                                }}
-                                            >
-                                                Delete Designation
-                                            </Button>
+                                            <div className="end-align">
+                                                <Button
+                                                    placeholder="Delete Designation"
+                                                    label="Delete Designation"
+                                                    className="addButtonIcon mt-3"
+                                                    onClick={() => {
+                                                        remove(index);
+                                                        calcFinalTotals(
+                                                            fields,
+                                                            setValue
+                                                        );
+                                                    }}
+                                                >
+                                                    Delete Designation{" "}
+                                                    <MdDeleteForever />
+                                                </Button>
+                                            </div>
                                         ) : (
                                             <></>
                                         )}
@@ -231,7 +236,7 @@ export default function DesignationInformaiton({
                                             required
                                             inputProps={{
                                                 inputMode: "numeric",
-                                                pattern: "[0-9]*",
+                                                pattern: "[0-9]+(.[0-9][0-9])",
                                             }}
                                             {...register(
                                                 `designation.${index}.designationGiftAmount`
@@ -330,7 +335,7 @@ export default function DesignationInformaiton({
                             </Row>
                             {/* pledge revenue  */}
                             <Row>
-                                <Col xs={12} md={4}>
+                                <Col xs={12} md={4} className="offset-md-2">
                                     <TextField
                                         {...register(
                                             `designation.${index}.pledgeRevenueId`
@@ -366,17 +371,20 @@ export default function DesignationInformaiton({
                 })}
             </ListGroup>
             {/* the Add Designation button at the end */}
-            <Row>
+            <Row className="addButton">
                 <Col xs={6} md={3}>
-                    <Button
-                        placeholder="Add Designation"
-                        label="Add Designation"
-                        onClick={() => {
-                            append({ ...newDesignation() });
-                        }}
-                    >
-                        Add Designation
-                    </Button>
+                    <div className="end-align">
+                        <Button
+                            placeholder="Add Designation"
+                            label="Add Designation"
+                            className="addButtonIcon"
+                            onClick={() => {
+                                append({ ...newDesignation() });
+                            }}
+                        >
+                            Add Designation <MdNoteAdd />
+                        </Button>
+                    </div>
                 </Col>
             </Row>
         </>

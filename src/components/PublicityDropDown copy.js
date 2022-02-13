@@ -49,7 +49,7 @@ export default function PublicityDropDown({ register, formValues, setValue }) {
                         value={formValues.publicityCode}
                         label="Publicity Code"
                         onChange={handleChange}
-                        // {...register("publicityCode")}
+                        {...register("publicityCode")}
                     >
                         <MenuItem value={"No Restrictions"}>
                             No Restrictions

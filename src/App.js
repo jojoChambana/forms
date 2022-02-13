@@ -36,7 +36,7 @@ function App() {
         contactEmail: "", // ContactInformation.js
         collegeName: "", // ContactInformation.js
 
-        campusLocation: "", // DepartmentCampus.js
+        campusLocation: "Urbana", // DepartmentCampus.js
         designationAdditionalComments: "", //DesignationInformation.js
         newDesignationRequested: "", //DesignationInformation.js
         departmentContactEmail: "", //DesignationInformation.js
@@ -74,7 +74,7 @@ function App() {
         pledgeRevenueId: "", // GiftAccociatedPledge.js
         giftAmount: 0,
 
-        tribute: "", // GiftTribute.js
+        tributeChecked: false, // GiftTribute.js
         giftTribute: "", // GiftTribute.js
         tedconstituentID: "", // GiftTribute.js
         deceasedFullName: "", // GiftTribute.js
@@ -97,7 +97,7 @@ function App() {
         tedConstituentD: "", // NonGiftPortion.js
         nonGiftAmount: 0, // NonGiftPortion.js
 
-        publicityCode: "", // publicityDropDown.js
+        publicityCode: "No Restrictions", // publicityDropDown.js
 
         tedDonorUnknown: "", // TedOrgDonor.js
         tedConstituentID: "", // TedOrgDonor.js

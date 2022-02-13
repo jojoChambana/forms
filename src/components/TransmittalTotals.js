@@ -48,6 +48,7 @@ export default function TransmittalTotals({ register, setValue, watch }) {
                     <div className="dollarAmount">
                         <Input
                             disabled
+                            defaultValue={0}
                             label="Gift Total"
                             {...register("giftTotal")}
                         />

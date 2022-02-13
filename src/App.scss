@@ -54,9 +54,13 @@ span.lineUp,
 span.lineUp,
 .lineUp {
     display: flex;
-    @media only screen and (min-device-width: 768px) {
+    justify-content: flex-start;
+    @media only screen and (min-device-width: 600px) {
         justify-content: flex-end;
         text-align: right;
+    }
+    @media only print {
+        justify-content: flex-start;
     }
 }
 .resultItems {
@@ -67,6 +71,11 @@ span.lineUp,
     .results {
         display: flex;
         align-items: center;
+    }
+    @media screen and (max-width: 600px) {
+        .row {
+            margin-bottom: 0.5em;
+        }
     }
 }
 
@@ -104,4 +113,66 @@ label#mui-11-label {
 
 .addressSpace {
     margin-left: 0.05rem;
+}
+
+.addButton {
+    justify-content: flex-end;
+}
+
+.addButtonIcon {
+    display: flex;
+    align-items: center;
+}
+
+.end-align {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dollarAmount {
+    input {
+        text-align: right;
+    }
+}
+
+.desigColTitle {
+    @media only screen and (max-device-width: 600px) {
+        margin-left: 0em;
+    }
+    @media only print {
+        margin-bottom: 0;
+    }
+    margin-left: 5em;
+}
+
+.hideForPrint {
+    @media only screen and (min-device-width: 600px) {
+        display: none;
+    }
+    @media only print {
+    }
+}
+
+.singular-offset {
+    display: flex;
+    .colOne {
+        min-width: 50%;
+    }
+    .rightLabel {
+        padding-right: 1.25em;
+    }
+}
+
+.aDesignation.list-group-item {
+    .row :nth-child(odd) {
+        background: #ccc;
+    }
+    // @media only print {
+    //     background-color: #ccc;
+    // }
+}
+
+// fix for width on gift total on cashprint
+.giftTotal {
+    min-width: 100px;
 }

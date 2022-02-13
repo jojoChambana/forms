@@ -12,24 +12,60 @@ import { Row, Col } from "react-bootstrap";
 // import PrintForeign from "../components/PrintForeign";
 // import AddressPrint from "../components/AddressPrint";
 
-import {    Typography} from "@mui/material";
-import { formatAmount} from '../HelperFunctions'
+import { parseNum } from "../HelperFunctions";
 
-
-const PrintTotals = ({formValues}) => {
+const PrintTotals = ({ formValues }) => {
     function nonGiftAmount() {
-        if (formValues.nonGiftTotal > 0) { 
-            return <><div>Non-Gift Total: {formatAmount(formValues.nonGiftTotal)}</div><div>Overall Total: {formatAmount(formValues.overallTotal)}</div></>
-        }
-        else
-            return <></>
+        console.log(formValues.nonGiftTotal);
+        if (parseNum(formValues.nonGiftTotal) > 0) {
+            return (
+                <>
+                    {/* <div>Non-Gift Total: {formValues.nonGiftTotal}</div> */}
+                    {/* <div>Overall Total: {formValues.overallTotal}</div> */}
+
+                    <Row>
+                        <div className="singular-offset">
+                            <div className="colOne rightLabel">
+                                Non-Gift Total:
+                            </div>
+                            <div className="colOne">
+                                <span className="normal">
+                                    {formValues.nonGiftTotal}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="singular-offset">
+                            <div className="colOne rightLabel">
+                                Overall Total:
+                            </div>
+                            <div className="colOne">
+                                <span className="normal">
+                                    {formValues.nonGiftTotal}
+                                </span>
+                            </div>
+                        </div>
+                    </Row>
+                </>
+            );
+        } else return <></>;
     }
 
     return (
         <>
-        <div>Gift Total: {formatAmount(formValues.giftTotal)}</div>
-        {nonGiftAmount()}
+            <Row>
+                <div className="singular-offset">
+                    <div className="colOne rightLabel giftTotal">
+                        <span className="giftTotal">Gift Total:</span>
+                    </div>
+                    <div className="colOne">
+                        <span className="normal">{formValues.giftTotal}</span>
+                    </div>
+                </div>
+
+                <div>{nonGiftAmount()}</div>
+            </Row>
         </>
-    );            
-}
+    );
+};
 export default PrintTotals;

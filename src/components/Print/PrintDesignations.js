@@ -18,17 +18,19 @@ import PrintOneDesignation from "./PrintOneDesignation";
 const PrintDesignations = ({ formValues }) => {
     return (
         <>
-            {formValues.designation.map((item, index) => {
-                return (
-                    <ListGroup className="col-sm-12 col-md-6">
-                        <PrintOneDesignation
-                            oneDesignation={item}
-                            index={index}
-                            key={"oneDesig" + index}
-                        />
-                    </ListGroup>
-                );
-            })}
+            <ListGroup>
+                {formValues.designation.map((item, index) => {
+                    return (
+                        <>
+                            <PrintOneDesignation
+                                oneDesignation={item}
+                                index={index}
+                                key={"oneDesig" + index}
+                            />
+                        </>
+                    );
+                })}
+            </ListGroup>
         </>
     );
 };

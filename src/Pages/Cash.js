@@ -15,48 +15,7 @@ import DesignationInformation from "../components/DesignationInformation";
 import TotalDonationAmount from "../components/TotalDonationAmount";
 import TransmittalTotals from "../components/TransmittalTotals";
 
-// import * as yup from "yup";
-// import { useCallback } from 'react';
-
-// const useYupValidationResolver = validationSchema =>
-//     useCallback(
-//         async data => {
-//             try {
-//                 const values = await validationSchema.validate(data, {
-//                     abortEarly: false
-//                 });
-
-//                 return {
-//                     values,
-//                     errors: {}
-//                 };
-//             } catch (errors) {
-//                 return {
-//                     values: {},
-//                     errors: errors.inner.reduce(
-//                         (allErrors, currentError) => ({
-//                             ...allErrors,
-//                             [currentError.path]: {
-//                                 type: currentError.type ?? "validation",
-//                                 message: currentError.message
-//                             }
-//                         }),
-//                         {}
-//                     )
-//                 };
-//             }
-//         },
-//         [validationSchema]
-//     );
-
-// const validationSchema = yup.object({
-//     contactFullName: yup.string().required("Required"),
-//     contactPhone: yup.string({ pattern: /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/i }).required("Required")
-// });
-
 export default function Cash(props) {
-    // const resolver = useYupValidationResolver(validationSchema);
-    // const { register, control, setValue, watch, formState: { errors }, handleSubmit, data } = useForm({
     const {
         register,
         control,
@@ -67,24 +26,23 @@ export default function Cash(props) {
         handleSubmit,
     } = useForm({
         defaultValues: props.formValues,
-        // resolver,
         mode: "onChange",
     });
 
     const navigate = useNavigate();
 
     const { totalDonationAmount, setTotalDonationAmount } = useState(0);
-    // const { opportunityAmount, setOpportunityAmount } = useState(0);
-    // const { designationGiftAmount, designationAmount } = useState();
 
     function removeEmptyFields(data) {}
 
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
+        // console.log("before navigate");
         navigate("/cashprint");
-        console.table(data);
-        console.log(data.designation);
+        // console.table(data);
+        // console.log(data.designation);
+        // console.log("I have arrived");
     };
 
     const fillButton = () => {
@@ -111,7 +69,6 @@ export default function Cash(props) {
         setValue("donorDomesticAddressZipCode", "61111");
 
         setValue("donorForeignAddressCheckbox", false);
-        console.table(props.formValues);
 
         setValue("donorForeignAddress", "1234 Main St.");
         setValue("donorForeignAddressCity", "Berlin");
@@ -119,7 +76,7 @@ export default function Cash(props) {
         setValue("donorForeignAddressCountry", "Germany");
         setValue("donorForeignAddressPostalCode", 80331);
 
-        setValue("publicityCode", "no restrictions");
+        setValue("publicityCode", "No Restrictions");
 
         setValue("tribute", false);
 
@@ -188,7 +145,11 @@ export default function Cash(props) {
                 <Container>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Button onClick={fillButton}>Fill</Button>
-                        <DepartmentCampus register={register} />
+                        <DepartmentCampus
+                            getValues={getValues}
+                            setValue={setValue}
+                        />
+
                         <ContactInformation
                             errors={errors}
                             register={register}
@@ -210,7 +171,9 @@ export default function Cash(props) {
                         />
                         <PublicityDropDown
                             errors={errors}
+                            setValue={setValue}
                             register={register}
+                            formValues={props.formValues}
                         />
                         {/* <TotalDonationAmount
                             errors={errors}

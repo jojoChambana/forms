@@ -1,17 +1,29 @@
+export function formatAmount(amount) {
+    return parseNum(amount).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+}
+
 export function parseNum(num) {
+    if (typeof num === "string") {
+        num = num.replace("$", "").replace(",", "");
+    }
     let newValue = parseFloat(num);
-    // console.log(num);
-    if (isNaN(newValue)) newValue = 0;
+    //console.log(newValue);
+    if (isNaN(newValue)) {
+        newValue = 0.0;
+    }
 
     return newValue;
 }
-export function formatAmount(amount) {
+
+export function formatAmount2(amount) {
     if (isNaN(amount)) {
-        amount = 0
-    }
-    else {
-        amount = parseFloat(amount)
-        if (Math.floor(amount) !== amount) {
+        amount = 0;
+    } else {
+        amount = parseFloat(amount);
+        if (Math.floor(amount / 100) !== amount) {
             amount = amount.toFixed(2);
         }
     }

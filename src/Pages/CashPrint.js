@@ -132,8 +132,16 @@ const CashPrint = (props) => {
                             <Col></Col>
                         </Row>
                         <Row className="theDesignationResults">
-                            <PrintDesignations formValues={props.formValues} />
-                            <PrintTotals formValues={props.formValues} />
+                            <Col className="p-0">
+                                <PrintDesignations
+                                    formValues={props.formValues}
+                                />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <PrintTotals formValues={props.formValues} />
+                            </Col>
                         </Row>
                     </Container>
                 </div>

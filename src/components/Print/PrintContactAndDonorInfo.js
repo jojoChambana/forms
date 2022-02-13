@@ -1,21 +1,48 @@
-// import {
-//     Container,
-//     createTheme,
-//     Grid,
-//     ThemeProvider,
-//     Typography,
-// } from "@mui/material";
-// import { useReactToPrint } from "react-to-print";
-// import { useNavigate } from "react-router-dom";
+import { Typography } from "@mui/material";
 import { Row, Col } from "react-bootstrap";
-// import { useRef } from "react";
-// import PrintForeign from "../components/PrintForeign";
-// import AddressPrint from "../components/AddressPrint";
-
 
 const PrintContactAndDonorInfo = ({ formValues }) => {
+    function DonorUnknownCheckBox() {
+        const isChecked = formValues.donorUnknown;
+        if (isChecked === true)
+            return (
+                <Row>
+                    <Col className="rightLabel">Known donor:</Col>
+                    <Col>
+                        <span className="normal">This is an unknown donor</span>
+                    </Col>
+                </Row>
+            );
+        else return null;
+    }
 
+    function NewDonorCheckBox() {
+        const isChecked = formValues.newDonor;
+        if (isChecked === true)
+            return (
+                <Row>
+                    <Col className="rightLabel">Is this a new donor? :</Col>
+                    <Col>
+                        <span className="normal">Yes</span>
+                    </Col>
+                </Row>
+            );
+        else return null;
+    }
 
+    function NewAddressCheckBox() {
+        const isChecked = formValues.newAddress;
+        if (isChecked === true)
+            return (
+                <Row>
+                    <Col className="rightLabel">Is this a new address? :</Col>
+                    <Col>
+                        <span className="normal">Yes</span>
+                    </Col>
+                </Row>
+            );
+        else return null;
+    }
 
     const Domestic = () => {
         return (
@@ -104,25 +131,19 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     };
     function AddressType(foreignAddress) {
         const isForeign = formValues.donorForeignAddressCheckbox;
-        if (!isForeign) 
-            return <Domestic />;
-        else
-            return <Foreign />;
+        if (!isForeign) return <Domestic />;
+        else return <Foreign />;
     }
-    //   ReactDOM.render(
-    //     <AddressType isLoggedIn={false} />,
-    //     document.getElementById('root')
-    //   );
 
-    console.log('before return');
-    console.log(formValues);
-    console.log(formValues.campusLocation);
+    console.log("before return");
+    // console.log(formValues);
+    // console.log(formValues.campusLocation);
+    // console.log(formValues.donorUnknown);
+
     return (
         <>
-
-
             <Row className="resultItems">
-                <Col>
+                <Col sm={12} md={6}>
                     <Row>
                         <Col className="rightLabel">Campus: </Col>
                         <Col>
@@ -132,9 +153,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col className="rightLabel">
-                            Contact full name:
-                        </Col>
+                        <Col className="rightLabel">Contact full name:</Col>
                         <Col>
                             <span className="normal">
                                 {formValues.contactFullName}
@@ -152,9 +171,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                     </Row>
 
                     <Row>
-                        <Col className="rightLabel">
-                            Contact email:
-                        </Col>
+                        <Col className="rightLabel">Contact email:</Col>
                         <Col>
                             <span className="normal">
                                 {formValues.contactEmail}
@@ -163,9 +180,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                     </Row>
 
                     <Row>
-                        <Col className="rightLabel">
-                            College name:
-                        </Col>
+                        <Col className="rightLabel">College name:</Col>
                         <Col>
                             <span className="normal">
                                 {formValues.collegeName}
@@ -184,9 +199,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col className="rightLabel">
-                            Donation date:
-                        </Col>
+                        <Col className="rightLabel">Donation date:</Col>
                         <Col>
                             <span className="normal">
                                 {formValues.donationDate}
@@ -194,9 +207,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col className="rightLabel">
-                            Prepared by:
-                        </Col>
+                        <Col className="rightLabel">Prepared by:</Col>
                         <Col>
                             <span className="normal">
                                 {formValues.preparedBy}
@@ -211,20 +222,16 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                             </Col>
                             <Col>
                                 <span className="normal">
-                                    {
-                                        formValues
-                                            .unitReferenceNumber
-                                    }
+                                    {formValues.unitReferenceNumber}
                                 </span>
                             </Col>
                         </Row>
                     ) : null}
                 </Col>
-                <Col>
+
+                <Col sm={12} md={6}>
                     <Row>
-                        <Col className="rightLabel">
-                            TED constituent ID:
-                        </Col>
+                        <Col className="rightLabel">TED constituent ID:</Col>
                         <Col>
                             <span className="normal">
                                 {formValues.tedConstituentId}
@@ -237,22 +244,26 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         </Col>
                         <Col>
                             <span className="normal">
-                                {
-                                    formValues
-                                        .organizationDonorName
-                                }
+                                {formValues.organizationDonorName}
                             </span>
                         </Col>
                     </Row>
                     <AddressType />
-
-
+                    <DonorUnknownCheckBox />
+                    <NewDonorCheckBox />
+                    <NewAddressCheckBox />
+                    <Row>
+                        <Col className="rightLabel">Contact/Publicity:</Col>
+                        <Col>
+                            <span className="normal">
+                                {formValues.publicityCode}
+                            </span>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
-
-            
         </>
     );
 };
 
-export default PrintContactAndDonorInfo ;
+export default PrintContactAndDonorInfo;
