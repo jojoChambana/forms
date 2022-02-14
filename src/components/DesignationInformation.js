@@ -231,17 +231,29 @@ export default function DesignationInformation({
                                 <Col xs={12} md={2} className="offset-md-2">
                                     <div className="dollarAmount maxWidth">
                                         <TextField
+                                            {...register(
+                                                `designation.${index}.designationGiftAmount`,
+                                                {
+                                                    required: true,
+                                                    pattern:
+                                                        /[0-9]+(.[0-9][0-9])?/i,
+                                                }
+                                            )}
+                                        />
+                                        {/* <TextField
                                             label="Gift Amount"
-                                            placeholder="Gift Amount"
+                                            placeholder="0.00"
                                             required
+                                            error
+                                            helperText="Test"
                                             inputProps={{
                                                 inputMode: "numeric",
-                                                pattern: "[0-9]+(.[0-9][0-9])",
+                                                pattern: "[0-9]+(.[0-9][0-9])?",
                                             }}
                                             {...register(
                                                 `designation.${index}.designationGiftAmount`
                                             )}
-                                        />
+                                        /> */}
                                     </div>
                                 </Col>
 
@@ -306,6 +318,11 @@ export default function DesignationInformation({
                                                         `designation.${index}.designationNonGiftAmount`
                                                     )}
                                                     required
+                                                    inputProps={{
+                                                        inputMode: "numeric",
+                                                        pattern:
+                                                            "[0-9]+(.[0-9][0-9])?",
+                                                    }}
                                                     placeholder="Non-gift Amount"
                                                     label="Non-gift Amount"
                                                     className="maxWidth"
@@ -371,9 +388,9 @@ export default function DesignationInformation({
                 })}
             </ListGroup>
             {/* the Add Designation button at the end */}
-            <Row className="addButton">
+            <Row>
                 <Col xs={6} md={3}>
-                    <div className="end-align">
+                    <div>
                         <Button
                             placeholder="Add Designation"
                             label="Add Designation"

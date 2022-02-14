@@ -98,6 +98,10 @@ export default function GiftAssociatedOpportunity({
                                             `designation.${index}.tedOpportunityAmount`
                                         )}
                                         required
+                                        inputProps={{
+                                            inputMode: "numeric",
+                                            pattern: "[0-9]+(.[0-9][0-9])?",
+                                        }}
                                         placeholder="Opportunity amount"
                                         label="Opportunity amount"
                                         className="maxWidth"

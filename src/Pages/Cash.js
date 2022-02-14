@@ -114,7 +114,7 @@ export default function Cash(props) {
         setValue("designation.0.designationGiftAmount", 3000);
 
         setValue("designation.0.designationNonGiftAmount", 3000);
-        setValue("designation.0.designationTotalAmount", 5000);
+        setValue("designation.0.designationTotalAmount", 3300);
 
         setValue("designation.0.pledgeRevenueId", "9739185");
 

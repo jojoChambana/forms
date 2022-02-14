@@ -55,7 +55,7 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
                         <div class="rightLabel">Plan Name:</div>
                         <div class="d-print-table-cell">
                             <span className="normal">
-                                {/* {oneDesignation.designation.index.tedPlanName} */}
+                                {oneDesignation.tedPlanName}
                             </span>
                         </div>
                     </div>
