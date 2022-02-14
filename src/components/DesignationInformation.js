@@ -4,6 +4,7 @@ import {
     FormGroup,
     TextField,
     Typography,
+    FormHelperText,
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
@@ -16,8 +17,6 @@ import {
     calcFinalTotals,
     newDesignation,
 } from "./HelperFunctions";
-import CurrencyFormat from "react-currency-format";
-import NumberFormat from "react-number-format";
 
 export default function DesignationInformation({
     register,
@@ -231,21 +230,12 @@ export default function DesignationInformation({
                                 <Col xs={12} md={2} className="offset-md-2">
                                     <div className="dollarAmount maxWidth">
                                         <TextField
-                                            {...register(
-                                                `designation.${index}.designationGiftAmount`,
-                                                {
-                                                    required: true,
-                                                    pattern:
-                                                        /[0-9]+(.[0-9][0-9])?/i,
-                                                }
-                                            )}
-                                        />
-                                        {/* <TextField
                                             label="Gift Amount"
                                             placeholder="0.00"
                                             required
-                                            error
-                                            helperText="Test"
+                                            // pattern="/[0-9]+(.[0-9][0-9])?/i"
+
+                                            // helperText="Please enter a valid amount. Do NOT include commas or dollar sign."
                                             inputProps={{
                                                 inputMode: "numeric",
                                                 pattern: "[0-9]+(.[0-9][0-9])?",
@@ -253,7 +243,7 @@ export default function DesignationInformation({
                                             {...register(
                                                 `designation.${index}.designationGiftAmount`
                                             )}
-                                        /> */}
+                                        />
                                     </div>
                                 </Col>
 

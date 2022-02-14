@@ -170,10 +170,8 @@ export default function Cash(props) {
                             prefix="donor"
                         />
                         <PublicityDropDown
-                            errors={errors}
                             setValue={setValue}
-                            register={register}
-                            formValues={props.formValues}
+                            getValues={getValues}
                         />
                         {/* <TotalDonationAmount
                             errors={errors}

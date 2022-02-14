@@ -1,11 +1,12 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
-
-export default function PublicityDropDown({ register, formValues, setValue }) {
+export default function PublicityDropDown({ setValue, getValues }) {
+    // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
+    const [dropDownChanges, setDropDownChanged] = useState(false);
     const handleChange = (event) => {
         setValue("publicityCode", event.target.value);
-
+        setDropDownChanged(!dropDownChanges); // this will trigger a re-render of the page to hide/show elements
         // console.table(event.target.value)
     };
 
@@ -46,7 +47,7 @@ export default function PublicityDropDown({ register, formValues, setValue }) {
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={formValues.publicityCode}
+                        value={getValues("publicityCode")}
                         label="Publicity Code"
                         onChange={handleChange}
                         // {...register("publicityCode")}

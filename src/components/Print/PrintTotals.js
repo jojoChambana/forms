@@ -32,7 +32,7 @@ const PrintTotals = ({ formValues }) => {
                         <div class="rightLabel totals">Overall Total:</div>
                         <div class="d-print-table-cell">
                             <span class="normal">
-                                {formValues.overallGiftTotal}
+                                {formValues.overallTotal}
                             </span>
                         </div>
                     </div>

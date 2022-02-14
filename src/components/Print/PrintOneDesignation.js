@@ -24,7 +24,7 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
         <div>
             <div className="resultItems">
                 <ListGroupItem
-                    className="aDesignation"
+                    className="aDesignation mb-2"
                     key={"designation" + index}
                 >
                     <div className="resultItems row">

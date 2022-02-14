@@ -135,7 +135,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         if (!isForeign) return <Domestic />;
         else return <Foreign />;
     }
-
     console.log("donorUnknownCheckBox", formValues.donorUnknownCheckBox);
 
     return (
@@ -227,7 +226,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         </div>
                     ) : null}
                 </div>
-
                 {/* ============ right column at the top for donor info ============== */}
                 <div className="d-print-table-cell">
                     <DonorUnknownCheckBox />
@@ -254,8 +252,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 </div>
                             </div>
                             <AddressType />
-
-                            <DonorUnknownCheckBox />
                             <NewDonorCheckBox />
                             <NewAddressCheckBox />
                             <div className="d-print-table-row">
