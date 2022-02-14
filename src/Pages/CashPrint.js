@@ -137,7 +137,7 @@ const CashPrint = (props) => {
                                 </Col>
                             </Row>
                         </Container>
-                        <div className="resultItems d-print-table-row">
+                        <div className="resultItems">
                             <PrintContactAndDonorInfo
                                 formValues={props.formValues}
                             />

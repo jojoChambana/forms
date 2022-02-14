@@ -7,14 +7,21 @@ h1 {
 }
 
 .d-print-table-cell {
-  width: 575px;
+  width: 50%;
   padding-left: 1rem;
 }
 
 .rightLabel {
-  width: 200px !important;
   -webkit-box-pack: end !important;
       -ms-flex-pack: end !important;
           justify-content: flex-end !important;
+}
+
+.wrapCellContent {
+  width: 80px;
+}
+
+.totals {
+  width: 195px;
 }
 /*# sourceMappingURL=PrintStyles.css.map */

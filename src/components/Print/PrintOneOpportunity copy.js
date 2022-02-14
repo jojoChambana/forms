@@ -21,72 +21,73 @@ const rowStyle = {
 const PrintOneOpportunity = ({ oneDesignation, index }) => {
     return (
         <>
-            <>
-                <Row>
+            <Row>
+                <div className="singular-offset">
                     <div className="colOne rightLabel">TED Household ID:</div>
                     <div className="colOne ">
                         <span className="normal">
                             {oneDesignation.tedHouseholdId}
                         </span>
                     </div>
-                </Row>
-            </>
-            <Row style={rowStyle}>
-                <Col className="designationOpportunity rightLabel">
-                    TED Household Name:
-                </Col>
-                <Col>
-                    <span className="normal">
-                        {oneDesignation.tedHouseholdName}
-                    </span>
-                </Col>
+                </div>
             </Row>
-            <Row style={rowStyle}>
-                <Col className="designationOpportunity rightLabel">
-                    Plan Name:
-                </Col>
-                <Col>
-                    <span className="normal">
-                        {oneDesignation.tedHouseholdName}{" "}
-                        {/* This needs changed to "designation.0.tedPlanName" */}
-                    </span>
-                </Col>
+
+            <Row>
+                <div className="singular-offset">
+                    <div className="colOne rightLabel">TED Household Name:</div>
+                    <div className="colOne">
+                        <span className="normal">
+                            {oneDesignation.tedHouseholdName}
+                        </span>
+                    </div>
+                </div>
             </Row>
-            {/* <div>TED Household ID: {oneDesignation.tedHouseholdId}</div> */}
-            {/* <div>
-                        TED Household Name: {oneDesignation.tedHouseholdName}
-                    </div> */}
-            {/* <div>Plan Name: {oneDesignation.tedHouseholdName}</div> */}
-            <Row style={rowStyle}>
-                <Col className="designationOpportunity rightLabel">
-                    Opportunity Amount:
-                </Col>
-                <Col>
-                    <span className="normal">
-                        {formatAmount(oneDesignation.tedOpportunityAmount)}
-                    </span>
-                </Col>
+
+            <Row>
+                <div className="singular-offset">
+                    <div className="colOne rightLabel">
+                        Plan Name: <strong> FIX! </strong>
+                    </div>
+                    <div className="colOne">
+                        <span className="normal">
+                            {/* {oneDesignation.designation.{index}.tedPlanName} */}
+                        </span>
+                    </div>
+                </div>
             </Row>
-            <Row style={rowStyle}>
-                <Col className="designationOpportunity rightLabel">
-                    Actual Ask Date:{" "}
-                </Col>
-                <Col>
-                    <span className="normal">
-                        {oneDesignation.actualAskDate}
-                    </span>
-                </Col>
+
+            <Row>
+                <div className="singular-offset">
+                    <div className="colOne rightLabel">Opportunity Amount:</div>
+                    <div className="colOne">
+                        <span className="normal">
+                            {formatAmount(oneDesignation.tedOpportunityAmount)}
+                        </span>
+                    </div>
+                </div>
             </Row>
-            <Row style={rowStyle}>
-                <Col className="designationOpportunity rightLabel">
-                    Primary Plan Manager:
-                </Col>
-                <Col>
-                    <span className="normal">
-                        {" "}
-                        {oneDesignation.primaryPlanManager}
-                    </span>
-                </Col>
+
+            <Row>
+                <div className="singular-offset">
+                    <div className="colOne rightLabel">Actual Ask Date:</div>
+                    <div className="colOne">
+                        <span className="normal">
+                            {oneDesignation.actualAskDate}
+                        </span>
+                    </div>
+                </div>
+            </Row>
+            <Row>
+                <div className="singular-offset">
+                    <div className="colOne rightLabel">
+                        Primary Plan Manager:
+                    </div>
+                    <div className="colOne">
+                        <span className="normal">
+                            {oneDesignation.primaryPlanManager}
+                        </span>
+                    </div>
+                </div>
             </Row>
         </>
     );

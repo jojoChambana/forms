@@ -87,7 +87,7 @@ span.lineUp,
         -ms-flex-pack: end;
             justify-content: flex-end;
     text-align: right;
-    min-width: 300px !important;
+    min-width: 250px !important;
   }
 }
 
@@ -224,7 +224,7 @@ label#mui-11-label {
 }
 
 .singular-offset .colOne {
-  min-width: 50%;
+  width: 50%;
 }
 
 .singular-offset .rightLabel {
@@ -239,5 +239,15 @@ label#mui-11-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.longName {
+  display: block;
+  width: 250px;
+}
+
+.totals {
+  width: 175px;
+  margin-left: 1.25rem;
 }
 /*# sourceMappingURL=App.css.map */

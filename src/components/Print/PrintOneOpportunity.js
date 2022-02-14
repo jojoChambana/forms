@@ -21,74 +21,75 @@ const rowStyle = {
 const PrintOneOpportunity = ({ oneDesignation, index }) => {
     return (
         <>
-            <Row>
-                <div className="singular-offset">
-                    <div className="colOne rightLabel">TED Household ID:</div>
-                    <div className="colOne ">
-                        <span className="normal">
-                            {oneDesignation.tedHouseholdId}
-                        </span>
-                    </div>
-                </div>
-            </Row>
+            <div className="resultItems row">
+                <div className="col">
+                    <div class="d-print-table-cell"></div>
 
-            <Row>
-                <div className="singular-offset">
-                    <div className="colOne rightLabel">TED Household Name:</div>
-                    <div className="colOne">
-                        <span className="normal">
-                            {oneDesignation.tedHouseholdName}
-                        </span>
+                    <div className="d-print-table-row">
+                        <div class="rightLabel">
+                            <strong>Opportunity Details</strong>
+                        </div>
                     </div>
-                </div>
-            </Row>
+                    <br />
+                    <div className="d-print-table-row">
+                        <div class="rightLabel">TED Household ID:</div>
+                        <div class="d-print-table-cell">
+                            <span class="normal">
+                                <span className="normal">
+                                    {oneDesignation.tedHouseholdId}
+                                </span>
+                            </span>
+                        </div>
+                    </div>
 
-            <Row>
-                <div className="singular-offset">
-                    <div className="colOne rightLabel">
-                        Plan Name: <strong> FIX! </strong>
+                    <div className="d-print-table-row">
+                        <div class="rightLabel">TED Household Name:</div>
+                        <div class="d-print-table-cell">
+                            <span className="normal">
+                                {oneDesignation.tedHouseholdName}
+                            </span>
+                        </div>
                     </div>
-                    <div className="colOne">
-                        <span className="normal">
-                            {/* {oneDesignation.designation.{index}.tedPlanName} */}
-                        </span>
-                    </div>
-                </div>
-            </Row>
 
-            <Row>
-                <div className="singular-offset">
-                    <div className="colOne rightLabel">Opportunity Amount:</div>
-                    <div className="colOne">
-                        <span className="normal">
-                            {formatAmount(oneDesignation.tedOpportunityAmount)}
-                        </span>
+                    <div className="d-print-table-row">
+                        <div class="rightLabel">Plan Name:</div>
+                        <div class="d-print-table-cell">
+                            <span className="normal">
+                                {/* {oneDesignation.designation.index.tedPlanName} */}
+                            </span>
+                        </div>
                     </div>
-                </div>
-            </Row>
 
-            <Row>
-                <div className="singular-offset">
-                    <div className="colOne rightLabel">Actual Ask Date:</div>
-                    <div className="colOne">
-                        <span className="normal">
-                            {oneDesignation.actualAskDate}
-                        </span>
+                    <div className="d-print-table-row">
+                        <div class="rightLabel">Opportunity Amount:</div>
+                        <div class="d-print-table-cell">
+                            <span className="normal">
+                                {formatAmount(
+                                    oneDesignation.tedOpportunityAmount
+                                )}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="d-print-table-row">
+                        <div class="rightLabel">Actual Ask Date:</div>
+                        <div class="d-print-table-cell">
+                            <span className="normal longName">
+                                {oneDesignation.actualAskDate}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="d-print-table-row">
+                        <div class="rightLabel">Primary Plan Manager:</div>
+                        <div class="d-print-table-cell">
+                            <span className="normal longName">
+                                {oneDesignation.primaryPlanManager}
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </Row>
-            <Row>
-                <div className="singular-offset">
-                    <div className="colOne rightLabel">
-                        Primary Plan Manager:
-                    </div>
-                    <div className="colOne">
-                        <span className="normal">
-                            {oneDesignation.primaryPlanManager}
-                        </span>
-                    </div>
-                </div>
-            </Row>
+            </div>
         </>
     );
 };

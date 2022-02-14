@@ -32,17 +32,6 @@ export default function TransmittalTotals({ register, setValue, watch }) {
             </Row>
 
             <Row>
-                {/* <Col xs={12} md={2}>
-                    <FormLabel>Gift Total</FormLabel>
-                    <div className="dollarAmount">
-                        <Input
-                            disabled
-                            label="Gift Total"
-                            {...register("giftTotal")}
-                        />
-                    </div>
-                </Col> */}
-
                 <Col xs={12} md={2}>
                     <FormLabel>Gift Total</FormLabel>
                     <div className="dollarAmount">

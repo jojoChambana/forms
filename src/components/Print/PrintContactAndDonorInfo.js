@@ -142,7 +142,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
     return (
         <>
-            <div className="resultItems d-print-table-row">
+            <div className="d-flex">
                 <div className="d-print-table-cell">
                     <div className="d-print-table-row">
                         <div className="rightLabel">Campus:</div>
