@@ -22,29 +22,26 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
     return (
         <>
             <div className="resultItems row">
-                <div className="col">
-                    <div class="d-print-table-cell"></div>
-
-                    <div className="d-print-table-row">
-                        <div class="rightLabel">
+                <div className="d-print-table-row">
+                    <div className="d-print-table-cell d-flex justify-content-center">
+                        <span className="normal">
                             <strong>Opportunity Details</strong>
-                        </div>
+                        </span>
                     </div>
-                    <br />
+                </div>
+                <div className="col">
                     <div className="d-print-table-row">
-                        <div class="rightLabel">TED Household ID:</div>
-                        <div class="d-print-table-cell">
-                            <span class="normal">
-                                <span className="normal">
-                                    {oneDesignation.tedHouseholdId}
-                                </span>
+                        <div className="rightLabel">TED Household ID:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {oneDesignation.tedHouseholdId}
                             </span>
                         </div>
                     </div>
 
                     <div className="d-print-table-row">
-                        <div class="rightLabel">TED Household Name:</div>
-                        <div class="d-print-table-cell">
+                        <div className="rightLabel">TED Household Name:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {oneDesignation.tedHouseholdName}
                             </span>
@@ -52,8 +49,8 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
                     </div>
 
                     <div className="d-print-table-row">
-                        <div class="rightLabel">Plan Name:</div>
-                        <div class="d-print-table-cell">
+                        <div className="rightLabel">Plan Name:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {oneDesignation.tedPlanName}
                             </span>
@@ -61,8 +58,8 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
                     </div>
 
                     <div className="d-print-table-row">
-                        <div class="rightLabel">Opportunity Amount:</div>
-                        <div class="d-print-table-cell">
+                        <div className="rightLabel">Opportunity Amount:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formatAmount(
                                     oneDesignation.tedOpportunityAmount
@@ -72,8 +69,8 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
                     </div>
 
                     <div className="d-print-table-row">
-                        <div class="rightLabel">Actual Ask Date:</div>
-                        <div class="d-print-table-cell">
+                        <div className="rightLabel">Actual Ask Date:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal longName">
                                 {oneDesignation.actualAskDate}
                             </span>
@@ -81,8 +78,8 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
                     </div>
 
                     <div className="d-print-table-row">
-                        <div class="rightLabel">Primary Plan Manager:</div>
-                        <div class="d-print-table-cell">
+                        <div className="rightLabel">Primary Plan Manager:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal longName">
                                 {oneDesignation.primaryPlanManager}
                             </span>

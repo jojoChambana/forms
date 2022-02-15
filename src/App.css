@@ -43,8 +43,7 @@ h3 {
   padding: 0.25rem;
 }
 
-.dollarAmount,
-dateField {
+.dollarAmount .dateField {
   border: solid;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -53,14 +52,21 @@ dateField {
   -o-border-radius: 4px;
 }
 
-.dollarAmount .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root,
-dateField .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+.dollarAmount .dateField .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
   top: -10px;
 }
 
-.dollarAmount fieldset,
-dateField fieldset {
+.dollarAmount .dateField fieldset {
   border: none;
+}
+
+.css-u4tvz2-MuiFormLabel-root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 span.lineUp,
@@ -122,6 +128,7 @@ span.lineUp,
 
 span.normal {
   font-weight: bold;
+  padding-left: 1em;
 }
 
 .headerPrint {
@@ -255,5 +262,30 @@ label#mui-11-label {
   position: absolute;
   left: 165px;
   width: 300px;
+}
+
+.hiddenText {
+  display: none;
+}
+
+.d-print-table-cell.d-flex.justify-content-center {
+  width: 550px;
+  text-align: center;
+}
+
+.justify-col-tribute {
+  position: relative;
+  left: 0em;
+}
+
+.IsTributeNewAddressChecked {
+  position: relative;
+  left: 0em;
+}
+
+.centerColContent {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=App.css.map */

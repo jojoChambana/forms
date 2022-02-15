@@ -13,7 +13,6 @@ import { Col, Row } from "react-bootstrap";
 import "react-phone-number-input/style.css";
 
 import Address from "./Address";
-import PublicityDropDown from "./PublicityDropDown";
 
 export default function GiftTribute({
     errors,
@@ -39,11 +38,6 @@ export default function GiftTribute({
 
     const handleTributeChange = (event) => {
         setValue("tributeChecked", event.target.checked); // set the rect hook element appropriately
-        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-    };
-
-    const handleClickNewAddress = (event) => {
-        setValue("inMemoryNewAddress", event.target.checked); // set the rect hook array element appropriately
         setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
     };
 
@@ -159,15 +153,9 @@ export default function GiftTribute({
                             <Col xs={12} md={4}>
                                 <FormGroup>
                                     <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                checked={getValues(
-                                                    "inMemoryNewAddress"
-                                                )}
-                                                onClick={handleClickNewAddress}
-                                            />
-                                        }
+                                        control={<Checkbox />}
                                         label="New Address"
+                                        {...register("inMemoryNewAddress")}
                                     />
                                 </FormGroup>
                             </Col>

@@ -36,8 +36,13 @@ export function calcFinalTotals(designationArray, setValue) {
 
     for (var d in designationArray) {
         giftTotal += parseNum(designationArray[d].designationGiftAmount);
-        nonGiftTotal += parseNum(designationArray[d].designationNonGiftAmount);
+        if (designationArray[d].nonGiftPortionChecked) {
+            nonGiftTotal += parseNum(
+                designationArray[d].designationNonGiftAmount
+            );
+        }
     }
+
     setValue("giftTotal", formatAmount(giftTotal));
     setValue("nonGiftTotal", formatAmount(nonGiftTotal));
     setValue("overallTotal", formatAmount(giftTotal + nonGiftTotal));

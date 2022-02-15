@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Button, Container } from "@mui/material";
 import React, { useState } from "react";
 import { DevTool } from "@hookform/devtools";
@@ -7,12 +8,9 @@ import NameEmail from "../components/NameEmail";
 import Instructions from "../components/Instructions";
 import DepartmentCampus from "../components/DepartmentCampus";
 import DonorInformation from "../components/DonorInformation";
-import Address from "../components/Address";
 import GiftTribute from "../components/GiftTribute";
-import PublicityDropDown from "../components/PublicityDropDown";
 import { useNavigate } from "react-router-dom";
 import DesignationInformation from "../components/DesignationInformation";
-import TotalDonationAmount from "../components/TotalDonationAmount";
 import TransmittalTotals from "../components/TransmittalTotals";
 
 export default function Cash(props) {
@@ -78,9 +76,9 @@ export default function Cash(props) {
 
         setValue("publicityCode", "No Restrictions");
 
-        setValue("tribute", false);
+        setValue("tributeChecked", false);
 
-        setValue("giftTribute", false); // Check Bill's code pertaining to checkboxes
+        setValue("giftTribute", "In memory of"); // Check Bill's code pertaining to checkboxes
 
         setValue("deceasedFullName", "Dan Doe");
 
@@ -113,8 +111,8 @@ export default function Cash(props) {
         setValue("designation.0.tedDesignationTitle", "The first designation");
         setValue("designation.0.designationGiftAmount", 3000);
 
-        setValue("designation.0.designationNonGiftAmount", 3000);
-        setValue("designation.0.designationTotalAmount", 3300);
+        setValue("designation.0.designationNonGiftAmount", 0);
+        setValue("designation.0.designationTotalAmount", 3000);
 
         setValue("designation.0.pledgeRevenueId", "9739185");
 
@@ -140,6 +138,11 @@ export default function Cash(props) {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>U of I Foundation | Cash Transmittal Form</title>
+                {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+            </Helmet>
             <Instructions />
             <FormProvider>
                 <Container className="pb-4">
@@ -162,23 +165,7 @@ export default function Cash(props) {
                             getValues={getValues}
                             setValue={setValue}
                         />
-                        <Address
-                            errors={errors}
-                            register={register}
-                            setValue={setValue}
-                            getValues={getValues}
-                            prefix="donor"
-                        />
-                        <PublicityDropDown
-                            setValue={setValue}
-                            getValues={getValues}
-                        />
-                        {/* <TotalDonationAmount
-                            errors={errors}
-                            register={register}
-                            amount={totalDonationAmount}
-                            setAmount={setTotalDonationAmount}
-                        /> */}
+
                         <GiftTribute
                             errors={errors}
                             register={register}

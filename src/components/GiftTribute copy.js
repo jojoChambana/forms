@@ -13,7 +13,6 @@ import { Col, Row } from "react-bootstrap";
 import "react-phone-number-input/style.css";
 
 import Address from "./Address";
-import PublicityDropDown from "./PublicityDropDown";
 
 export default function GiftTribute({
     errors,
@@ -39,11 +38,6 @@ export default function GiftTribute({
 
     const handleTributeChange = (event) => {
         setValue("tributeChecked", event.target.checked); // set the rect hook element appropriately
-        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-    };
-
-    const handleClickNewAddress = (event) => {
-        setValue("inMemoryNewAddress", event.target.checked); // set the rect hook array element appropriately
         setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
     };
 
@@ -109,65 +103,53 @@ export default function GiftTribute({
                                         />
                                     </Col>
                                 </Row>
+                                <Row className="mb-0">
+                                    {showInMemoryOf ? (
+                                        <>
+                                            <Col xs={12}>
+                                                <Row className="mb-0">
+                                                    <Col xs={12} md={4}>
+                                                        <TextField
+                                                            placeholder="Deceased Full Name"
+                                                            required
+                                                            name="Deceased"
+                                                            label="Deceased Full Name"
+                                                            {...register(
+                                                                "deceasedFullName"
+                                                            )}
+                                                            className="maxWidth"
+                                                        />
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+                                        </>
+                                    ) : (
+                                        <Col xs={12}>
+                                            <Row className="mb-0">
+                                                <Col xs={12} md={4}>
+                                                    <TextField
+                                                        placeholder="Honoree Full Name"
+                                                        name="Honoree"
+                                                        label="Honoree Full Name"
+                                                        {...register(
+                                                            "honoreeFullName"
+                                                        )}
+                                                        className="maxWidth"
+                                                    />
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                    )}
+                                </Row>
                             </RadioGroup>
-                            <Row className="mb-0">
-                                <Col xs={12}>
-                                    <Row
-                                        className={
-                                            showInMemoryOf
-                                                ? "mb-0"
-                                                : "hiddenText"
-                                        }
-                                    >
-                                        <Col xs={12} md={4}>
-                                            <TextField
-                                                placeholder="Deceased Full Name"
-                                                required={showInMemoryOf}
-                                                name="Deceased"
-                                                label="Deceased Full Name"
-                                                {...register(
-                                                    "deceasedFullName"
-                                                )}
-                                                className="maxWidth"
-                                            />
-                                        </Col>
-                                    </Row>
-                                </Col>
-                                <Col xs={12}>
-                                    <Row
-                                        className={
-                                            showInMemoryOf
-                                                ? "hiddenText"
-                                                : "mb-0"
-                                        }
-                                    >
-                                        <Col xs={12} md={4}>
-                                            <TextField
-                                                placeholder="Honoree Full Name"
-                                                required={!showInMemoryOf}
-                                                name="Honoree"
-                                                label="Honoree Full Name"
-                                                {...register("honoreeFullName")}
-                                                className="maxWidth"
-                                            />
-                                        </Col>
-                                    </Row>
-                                </Col>
-                            </Row>
                         </FormControl>
                         <Row>
                             <Col xs={12} md={4}>
                                 <FormGroup>
                                     <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                checked={getValues(
-                                                    "inMemoryNewAddress"
-                                                )}
-                                                onClick={handleClickNewAddress}
-                                            />
-                                        }
+                                        control={<Checkbox />}
                                         label="New Address"
+                                        {...register("inMemoryNewAddress")}
                                     />
                                 </FormGroup>
                             </Col>

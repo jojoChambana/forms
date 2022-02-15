@@ -78,7 +78,7 @@ const CashPrint = (props) => {
                     <Container>
                         <Row className="headerPrint">
                             <style>
-                                {`@media print {.headerPrint{display: block; .addr{display:flex; justify-content:flex-end !important}}}`}
+                                {`@media print {.headerPrint{display: block; padding-top:2em !important; .addr{display:flex; justify-content:flex-end !important}}}`}
                             </style>
 
                             <Row>
@@ -142,12 +142,8 @@ const CashPrint = (props) => {
                                 formValues={props.formValues}
                             />
                         </div>
-                        <Row className="resultItems">
-                            <Col>
-                                <PrintTribute formValues={props.formValues} />
-                            </Col>
-                            <Col></Col>
-                        </Row>
+                        <PrintTribute formValues={props.formValues} />
+
                         <Row className="theDesignationResults">
                             <Col className="p-0">
                                 <PrintDesignations

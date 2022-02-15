@@ -1,17 +1,11 @@
-import { Typography } from "@mui/material";
-import { Row, Col } from "react-bootstrap";
-
 const PrintContactAndDonorInfo = ({ formValues }) => {
     function DonorUnknownCheckBox() {
         if (formValues.donorUnknownCheckBox === true)
             return (
                 <div className="d-print-table-row">
-                    {/* <div className="rightLabel">Known donor:</div> */}
-
                     <div className="d-print-table-cell">
                         <span className="normal">
-                            Donor is unknown, anonymous <br />
-                            or various cash donors
+                            Donor is unknown, anonymous or various cash donors
                         </span>
                     </div>
                 </div>
@@ -140,9 +134,9 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
     return (
         <>
-            <div className="resultItems d-print-table-row">
+            <div className="resultItems d-flex">
                 {/* ==================== left column at the top for campus/contact info ===================== */}
-                <div className="d-print-table-cell">
+                <div className="d-print-table-cell col">
                     <div className="d-print-table-row">
                         <div className="rightLabel">Campus:</div>
                         <div className="d-print-table-cell">
@@ -229,7 +223,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                 </div>
 
                 {/* ============ right column at the top for donor info ============== */}
-                <div className="d-print-table-cell">
+                <div className="d-print-table-cell col centerColContent">
                     <DonorUnknownCheckBox />
                     {!formValues.donorUnknownCheckBox ? (
                         <>
@@ -255,7 +249,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                             </div>
                             <AddressType />
 
-                            <DonorUnknownCheckBox />
                             <NewDonorCheckBox />
                             <NewAddressCheckBox />
                             <div className="d-print-table-row">

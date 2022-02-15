@@ -15,14 +15,10 @@ export default function DonorInfoCheckBoxes(register) {
                             // Checkbox accepts its value as `checked`
                             // so we need to connect the props here
                             <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={value}
-                                        onChange={onChange}
-                                        {...register("newDonorAddress")}
-                                        id="newDonorAddress"
-                                    />
-                                }
+                                control={<Checkbox checked={value} onChange={onChange}
+                                    {...register("newDonorAddress")}
+                                    id="newDonorAddress"
+                                />}
                                 label="New donor"
                             />
                         )}
@@ -36,12 +32,7 @@ export default function DonorInfoCheckBoxes(register) {
                             // Checkbox accepts its value as `checked`
                             // so we need to connect the props here
                             <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={value}
-                                        onChange={onChange}
-                                    />
-                                }
+                                control={<Checkbox checked={value} onChange={onChange} />}
                                 label="New address"
                             />
                         )}

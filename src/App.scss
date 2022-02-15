@@ -32,8 +32,7 @@ h3 {
     padding: 0.25rem;
 }
 
-.dollarAmount,
-dateField {
+.dollarAmount .dateField {
     .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
         top: -10px;
     }
@@ -46,6 +45,10 @@ dateField {
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+}
+.css-u4tvz2-MuiFormLabel-root {
+    display: flex;
+    justify-content: end;
 }
 span.lineUp,
 .lineUp {
@@ -83,6 +86,7 @@ span.lineUp,
 
 span.normal {
     font-weight: bold;
+    padding-left: 1em;
 }
 
 .headerPrint {
@@ -191,4 +195,27 @@ label#mui-11-label {
     position: absolute;
     left: 165px;
     width: 300px;
+}
+
+.hiddenText {
+    display: none;
+}
+
+.d-print-table-cell.d-flex.justify-content-center {
+    width: 550px;
+    text-align: center;
+}
+
+.justify-col-tribute {
+    position: relative;
+    left: 0em;
+}
+
+.IsTributeNewAddressChecked {
+    position: relative;
+    left: 0em;
+}
+
+.centerColContent {
+    justify-content: center;
 }

@@ -1,27 +1,40 @@
-.hiddenForPrint {
-  display: none;
-}
-
-h1 {
-  text-align: center;
-}
-
-.d-print-table-cell {
-  width: 50%;
-  padding-left: 1rem;
-}
-
-.rightLabel {
-  -webkit-box-pack: end !important;
-      -ms-flex-pack: end !important;
-          justify-content: flex-end !important;
-}
-
-.wrapCellContent {
-  width: 80px;
-}
-
-.totals {
-  width: 195px;
+@media only print {
+  .hiddenForPrint {
+    display: none;
+  }
+  h1 {
+    text-align: center;
+  }
+  .d-print-table-cell {
+    width: 50%;
+    padding-left: 1rem;
+  }
+  .rightLabel {
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
+    width: 300px;
+  }
+  .wrapCellContent {
+    width: 80px;
+  }
+  .totals {
+    width: 195px;
+  }
+  span.normal {
+    padding-left: 0 !important;
+  }
+  .d-print-table-cell.d-flex.justify-content-center {
+    width: 550px;
+    text-align: center;
+  }
+  .justify-col-tribute {
+    position: relative;
+    left: 3em !important;
+  }
+  .IsTributeNewAddressChecked {
+    position: relative;
+    left: 10em !important;
+  }
 }
 /*# sourceMappingURL=PrintStyles.css.map */

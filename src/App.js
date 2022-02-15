@@ -44,7 +44,7 @@ function App() {
         tedDesignationId: "", //DesignationInformation.js
         tedDesignationTitle: "", //DesignationInformation.js
         totalDesignationAmount: "", //DesignationInformation.js
-        newDonorAddress: false, // DonorInfoCheckBoxes.js
+        newDonorAddressCheckBox: false, // DonorInfoCheckBoxes.js
         donorForeignAddressCheckbox: false, //ForeignAddressCheckbox.js,
 
         donorDomesticAddressCity: "", // DomesticAddress.js
@@ -59,7 +59,7 @@ function App() {
         donorForeignAddressProvinceRegion: "",
         donorForeignAddressPostalCode: "",
 
-        donorUnknown: "", // DonorInformation.js
+        donorUnknownCheckBox: "", // DonorInformation.js
         tedConstituentId: "", // DonorInformation.js
         organizationDonorName: "", // DonorInformation.js
         associatedOpportunity: "", // GiftAssociatedOpportunity.js
@@ -75,7 +75,7 @@ function App() {
         giftAmount: 0,
 
         tributeChecked: false, // GiftTribute.js
-        giftTribute: "", // GiftTribute.js
+        giftTribute: "In memory of", // GiftTribute.js
         tedconstituentID: "", // GiftTribute.js
         deceasedFullName: "", // GiftTribute.js
         inMemoryNewAddress: "", // GiftTribute.js

@@ -20,18 +20,18 @@ const PrintTotals = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div class="rightLabel totals">Non-Gift Total:</div>
-                        <div class="d-print-table-cell">
-                            <span class="normal">
+                        <div className="rightLabel totals">Non-Gift Total:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
                                 {formValues.nonGiftTotal}
                             </span>
                         </div>
                     </div>
 
                     <div className="d-print-table-row">
-                        <div class="rightLabel totals">Overall Total:</div>
-                        <div class="d-print-table-cell">
-                            <span class="normal">
+                        <div className="rightLabel totals">Overall Total:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
                                 {formValues.overallTotal}
                             </span>
                         </div>
@@ -44,9 +44,9 @@ const PrintTotals = ({ formValues }) => {
     return (
         <>
             <div className="d-print-table-row">
-                <div class="rightLabel totals">Gift Total:</div>
-                <div class="d-print-table-cell">
-                    <span class="normal">{formValues.giftTotal}</span>
+                <div className="rightLabel totals">Gift Total:</div>
+                <div className="d-print-table-cell">
+                    <span className="normal">{formValues.giftTotal}</span>
                 </div>
             </div>
             <Row>

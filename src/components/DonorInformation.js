@@ -101,7 +101,7 @@ export default function DonorInformation({
                                     />
                                 </Col>
                             </Row>
-                            {/* <Row>
+                            <Row>
                                 <Col>
                                     <Address
                                         errors={errors}
@@ -111,11 +111,11 @@ export default function DonorInformation({
                                         prefix="donor"
                                     />
                                 </Col>
-                            </Row> */}
-                            {/* <PublicityDropDown
+                            </Row>
+                            <PublicityDropDown
                                 setValue={setValue}
                                 getValues={getValues}
-                            /> */}
+                            />
                         </>
                     )}
                 </>
