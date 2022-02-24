@@ -91,7 +91,60 @@ const PrintTribute = ({ formValues }) => {
                 </>
             );
         } else {
-            return null;
+            return (
+                <>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Address:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.acknowledgeeDomesticAddress}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">City:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.acknowledgeeDomesticAddressCity}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">State:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.acknowledgeeDomesticAddressState}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Zip Code:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.acknowledgeeDomesticAddressZipCode}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Email:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.notifyIndividualOrFamilyEmail}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Phone:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.tedTributeAcknowledgedPhone}
+                            </span>
+                        </div>
+                    </div>
+                </>
+            );
         }
     }
 
