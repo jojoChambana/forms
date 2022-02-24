@@ -1,3 +1,6 @@
+import { Typography } from "@mui/material";
+import { Col, Row } from "react-bootstrap";
+
 const PrintContactAndDonorInfo = ({ formValues }) => {
     function DonorUnknownCheckBox() {
         if (formValues.donorUnknownCheckBox === true)
@@ -37,6 +40,25 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                 </div>
             );
         else return null;
+    }
+
+    function UnitReferenceNumber() {
+        if (formValues.unitReferenceNumber > 0)
+            return (
+                <div className="col rightLabel">
+                    Unit reference number:
+                    <span className="normal">
+                        {formValues.unitReferenceNumber}
+                    </span>
+                </div>
+            );
+        else
+            return (
+                <div className="col rightLabel">
+                    &nbsp;
+                    <span className="normal">&nbsp;</span>
+                </div>
+            );
     }
 
     const Domestic = () => {
@@ -130,127 +152,115 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         else return <Foreign />;
     }
 
-    console.log("donorUnknownCheckBox", formValues.donorUnknownCheckBox);
+    // console.log("donorUnknownCheckBox", formValues.donorUnknownCheckBox);
 
     return (
         <>
+            <Row>
+                <Col>
+                    <Typography variant="h5" component="h3">
+                        Contact Information
+                    </Typography>
+                </Col>
+            </Row>
+            <div className="resultItems d-flex">
+                <div id="contactPrint" className="resultItems d-flex flex-wrap">
+                    <div className="col rightLabel">
+                        Campus:
+                        <span className="normal">
+                            {formValues.campusLocation}
+                        </span>
+                    </div>
+                    <div className="col rightLabel">
+                        Contact full name:
+                        <span className="normal">
+                            {formValues.contactFullName}
+                        </span>
+                    </div>
+                    <div className="col rightLabel">
+                        Contact phone:
+                        <span className="normal">
+                            {formValues.contactPhone}
+                        </span>
+                    </div>
+
+                    <div className="col rightLabel">
+                        Contact email:
+                        <span className="normal">
+                            {formValues.contactEmail}
+                        </span>
+                    </div>
+                    <div className="col rightLabel">
+                        College name:
+                        <span className="normal">{formValues.collegeName}</span>
+                    </div>
+                    <div className="col rightLabel">
+                        Department name:
+                        <span className="normal">
+                            {formValues.departmentName}
+                        </span>
+                    </div>
+                    <div id="donationDate" className="col rightLabel">
+                        Date received by department:
+                        <span className="normal">
+                            {formValues.donationDate}
+                        </span>
+                    </div>
+                    <div className="col rightLabel">
+                        Prepared by:
+                        <span className="normal">{formValues.preparedBy}</span>
+                    </div>
+                    <UnitReferenceNumber />
+                </div>
+            </div>
+
+            <Row>
+                <Col>
+                    <Typography variant="h5" component="h3">
+                        Donor Information
+                    </Typography>
+                </Col>
+            </Row>
             <div className="resultItems d-flex">
                 {/* ==================== left column at the top for campus/contact info ===================== */}
-                <div className="d-print-table-cell col">
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Campus:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.campusLocation}
-                            </span>
-                        </div>
-                    </div>
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Contact full name:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.contactFullName}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Phone:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.contactPhone}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Contact email:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.contactEmail}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">College name:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.collegeName}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">
-                            Contact department name:
-                        </div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.departmentName}
-                            </span>
-                        </div>
-                    </div>
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Donation date:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.donationDate}
-                            </span>
-                        </div>
-                    </div>
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Prepared by:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.preparedBy}
-                            </span>
-                        </div>
-                    </div>
-
-                    {formValues.unitReferenceNumber ? (
-                        <div className="d-print-table-row">
-                            <div className="rightLabel">
-                                Unit reference number:
-                            </div>
-                            <div className="d-print-table-cell">
-                                <span className="normal">
-                                    {formValues.unitReferenceNumber}
-                                </span>
-                            </div>
-                        </div>
-                    ) : null}
-                </div>
 
                 {/* ============ right column at the top for donor info ============== */}
                 <div className="d-print-table-cell col centerColContent">
                     <DonorUnknownCheckBox />
                     {!formValues.donorUnknownCheckBox ? (
                         <>
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    TED constituent ID:
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formValues.tedConstituentId}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="d-print-table-row">
-                                <div className="rightLabel min-cell">
-                                    Organization/Donor name:
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formValues.organizationDonorName}
-                                    </span>
-                                </div>
-                            </div>
-                            <AddressType />
+                            <Row>
+                                <Col>
+                                    <AddressType />
+                                </Col>
+                                <Col>
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">
+                                            TED constituent ID:
+                                        </div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                {formValues.tedConstituentId}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel min-cell">
+                                            Organization/Donor name:
+                                        </div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                {
+                                                    formValues.organizationDonorName
+                                                }
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <NewDonorCheckBox />
+                                    <NewAddressCheckBox />
+                                </Col>
+                            </Row>
 
-                            <NewDonorCheckBox />
-                            <NewAddressCheckBox />
                             <div className="d-print-table-row">
                                 <div className="rightLabel">
                                     Contact/Publicity:

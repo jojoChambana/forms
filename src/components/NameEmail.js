@@ -1,5 +1,4 @@
 import { TextField } from "@mui/material";
-import { isToday } from "date-fns";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { ErrorMessage } from "@hookform/error-message";
@@ -28,7 +27,7 @@ export default function NameEmail({ errors, register }) {
             <Col xs={12} md={2}>
                 <TextField
                     {...register("donationDate")}
-                    label="Date"
+                    label="Date received by department"
                     className="dateField"
                     defaultValue={date}
                 />
@@ -43,7 +42,6 @@ export default function NameEmail({ errors, register }) {
                 />
             </Col>
             <Col xs={12} md={4}>
-                {/* <TextField {...register("unitReferenceNumber")} placeholder='Unit reference number' className="maxWidth" label="Unit reference number" /> */}
                 <TextField
                     type="text"
                     placeholder="Unit number"

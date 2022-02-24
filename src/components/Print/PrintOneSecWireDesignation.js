@@ -1,8 +1,7 @@
 import { ListGroupItem } from "react-bootstrap";
-import PrintOneOpportunity from "./PrintOneOpportunity";
 import { formatAmount } from "../HelperFunctions";
 
-const PrintOneDesignation = ({ oneDesignation, index }) => {
+const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
     return (
         <div>
             <div className="resultItems">
@@ -23,36 +22,8 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                         </span>
                                     </div>
                                 </div>
-
-                                {oneDesignation.newDesignationRequestedChecked ? (
-                                    <>
-                                        <div className="d-print-table-row">
-                                            <div className="rightLabel">
-                                                Contact Requested:
-                                            </div>
-                                            <div className="d-print-table-cell">
-                                                <span className="normal">
-                                                    {
-                                                        oneDesignation.departmentContact
-                                                    }
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        <div className="d-print-table-row">
-                                            <div className="rightLabel">
-                                                Email:
-                                            </div>
-                                            <div className="d-print-table-cell">
-                                                <span className="normal">
-                                                    {
-                                                        oneDesignation.departmentContactEmail
-                                                    }
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </>
-                                ) : (
+                                <br />
+                                
                                     <div className="d-print-table-row">
                                         <div className="rightLabel">
                                             Designation ID:
@@ -65,8 +36,6 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                             </span>
                                         </div>
                                     </div>
-                                )}
-
                                 <div className="d-print-table-row">
                                     <div className="rightLabel">
                                         Designation Title:
@@ -90,8 +59,7 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                         </span>
                                     </div>
                                 </div>
-                                {oneDesignation.nonGiftPortionChecked ? (
-                                    <>
+                                
                                         <div className="d-print-table-row">
                                             <div className="rightLabel">
                                                 Non-Gift Amount:
@@ -116,26 +84,6 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                                 </span>
                                             </div>
                                         </div>
-                                    </>
-                                ) : (
-                                    ""
-                                )}
-
-                                {oneDesignation.pledgeRevenueId !== "" ? (
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            Pledge Revenue ID:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {oneDesignation.pledgeRevenueId}
-                                            </span>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    ""
-                                )}
-
                                 {oneDesignation.designationAdditionalComments !==
                                 "" ? (
                                     <div className="d-print-table-row">
@@ -156,58 +104,14 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                     ""
                                 )}
 
-                                {/* <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div> */}
+                              
                             </div>
                         </div>
-                        <div className="col">
-                            <div className="d-print-table-cell">
-                                {oneDesignation.associatedOpportunityChecked ? (
-                                    <PrintOneOpportunity
-                                        oneDesignation={oneDesignation}
-                                        index={index}
-                                    />
-                                ) : (
-                                    " "
-                                )}
-                            </div>
-                        </div>
+                       
                     </div>
                 </ListGroupItem>
             </div>
         </div>
     );
 };
-export default PrintOneDesignation;
+export default PrintOneSecWireDesignation;

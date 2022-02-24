@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 
-export default function DomesticAddress({ errors, register, prefix }) {
+export default function DomesticAddress({ register, prefix }) {
     console.log();
     return (
         <>

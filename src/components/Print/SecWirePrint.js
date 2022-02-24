@@ -9,15 +9,20 @@ import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
-import PrintContactAndDonorInfo from "../components/Print/PrintContactAndDonorInfo";
-import PrintTribute from "../components/Print/PrintTribute";
-import PrintDesignations from "../components/Print/PrintDesignations";
-import PrintTotals from "../components/Print/PrintTotals";
+import PrintContactAndDonorInfo from "../Print/PrintContactAndDonorInfo";
+import PrintSecWireDesignations from "../Print/PrintSecWireDesignations";
+import PrintSecurities from "../Print/PrintSecurities";
+import PrintTotals from "../Print/PrintTotals";
+import {
+    UrbanaAddress,
+    ChicagoAddress,
+    SpringfieldAddress,
+} from "../HelperFunctions";
 
-const CashPrint = (props) => {
+const SecWirePrint = ({ formValues, printSecurities, returnUrl, title }) => {
     const navigate = useNavigate();
     const componentRef = useRef();
-    // console.log(props.formValues.inMemoryNewAddress);
+    // console.log(formValues.inMemoryNewAddress);
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -30,46 +35,6 @@ const CashPrint = (props) => {
             },
         },
     });
-
-    function UrbanaAddress(props) {
-        return (
-            <Typography variant="subtitle2" component="div">
-                University of Illinois at Urbana-Champaign
-                <br />
-                Cash Receipts
-                <br />
-                Harker Hall - M/C 386
-                <br />
-                Urbana, IL 61801
-            </Typography>
-        );
-    }
-
-    function ChicagoAddress(props) {
-        return (
-            <Typography variant="subtitle2" component="div">
-                University of Illinois at Chicago - OVCA
-                <br />
-                SCE 750 S Halsted St. Rm. 550, M/C 100
-                <br />
-                Chicago, IL 60607
-            </Typography>
-        );
-    }
-
-    function SpringfieldAddress(props) {
-        return (
-            <Typography variant="subtitle2" component="div">
-                University of Illinois at Springfield
-                <br />
-                Business and Stewardship
-                <br />
-                One University Plaza - PAC591
-                <br />
-                Springfield, IL 62703
-            </Typography>
-        );
-    }
 
     return (
         <>
@@ -85,11 +50,16 @@ const CashPrint = (props) => {
                                 <Col>
                                     <img
                                         src={
-                                            process.env.PUBLIC_URL +
-                                            "foundation-logo.png"
+                                            process.env.PUBLIC_URL + "logo.svg"
                                         }
-                                        alt="Logo"
+                                        alt="U of I Foundation Logo"
+                                        className="logo"
                                     />
+                                </Col>
+                                <Col className="d-flex align-items-center">
+                                    <Typography variant="h4" component="h1">
+                                        {title} transmittal
+                                    </Typography>
                                 </Col>
                                 <Col>
                                     <Grid
@@ -98,13 +68,13 @@ const CashPrint = (props) => {
                                         justifyContent="flex-end"
                                         alignItems="flex-start"
                                     >
-                                        {props.formValues.campusLocation ===
+                                        {formValues.campusLocation ===
                                         "Urbana" ? (
                                             <UrbanaAddress />
-                                        ) : props.formValues.campusLocation ===
+                                        ) : formValues.campusLocation ===
                                           "Chicago" ? (
                                             <ChicagoAddress />
-                                        ) : props.formValues.campusLocation ===
+                                        ) : formValues.campusLocation ===
                                           "Springfield" ? (
                                             <SpringfieldAddress />
                                         ) : null}
@@ -112,19 +82,17 @@ const CashPrint = (props) => {
                                 </Col>
                             </Row>
                         </Row>
-                        <Row className="resultItems ">
+                        {/* <Row className="resultItems ">
                             <Col>
-                                <Typography variant="h4" component="h1">
-                                    Donor cash transmittal
-                                </Typography>
+                                
                             </Col>
-                        </Row>
+                        </Row> */}
                         <Container>
                             <Row className="hideForPrint">
                                 <Col className="d-flex justify-content-around">
                                     <button
                                         onClick={() => {
-                                            navigate("/cash");
+                                            navigate(returnUrl);
                                         }}
                                     >
                                         Back
@@ -138,22 +106,28 @@ const CashPrint = (props) => {
                             </Row>
                         </Container>
                         <div className="resultItems">
-                            <PrintContactAndDonorInfo
-                                formValues={props.formValues}
-                            />
+                            <PrintContactAndDonorInfo formValues={formValues} />
                         </div>
-                        <PrintTribute formValues={props.formValues} />
 
                         <Row className="theDesignationResults">
                             <Col className="p-0">
-                                <PrintDesignations
-                                    formValues={props.formValues}
+                                <PrintSecWireDesignations
+                                    formValues={formValues}
                                 />
                             </Col>
                         </Row>
+                        {printSecurities ? (
+                            <Row className="theDesignationResults">
+                                <Col className="p-0">
+                                    <PrintSecurities formValues={formValues} />
+                                </Col>
+                            </Row>
+                        ) : (
+                            <></>
+                        )}
                         <Row>
                             <Col>
-                                <PrintTotals formValues={props.formValues} />
+                                <PrintTotals formValues={formValues} />
                             </Col>
                         </Row>
                     </Container>
@@ -163,4 +137,4 @@ const CashPrint = (props) => {
     );
 };
 
-export default CashPrint;
+export default SecWirePrint;

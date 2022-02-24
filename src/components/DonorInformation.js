@@ -14,6 +14,7 @@ export default function DonorInformation({
     register,
     getValues,
     setValue,
+    showAnonymousDonorCheckBox,
 }) {
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
@@ -34,7 +35,7 @@ export default function DonorInformation({
     };
 
     const donorUnknownCheckBox = getValues("donorUnknownCheckBox");
-
+    // console.log("showAnonymousCheckBox", showAnonymousDonorCheckBox);
     return (
         <>
             <Typography variant="h5" component="h3">
@@ -42,17 +43,23 @@ export default function DonorInformation({
             </Typography>
             <Row className="mt-4">
                 <>
-                    <Col xs={12} md={6}>
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={donorUnknownCheckBox}
-                                    onClick={handleClickUnknownDonor}
-                                />
-                            }
-                            label="Donor is unknown, anonymous, or various cash donors"
-                        />
-                    </Col>
+                    {showAnonymousDonorCheckBox ? (
+                        <Col xs={12} md={6}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={getValues(
+                                            "donorUnknownCheckBox"
+                                        )}
+                                        onClick={handleClickUnknownDonor}
+                                    />
+                                }
+                                label="Donor is unknown, anonymous, or various cash donors"
+                            />
+                        </Col>
+                    ) : (
+                        <></>
+                    )}
 
                     <Col xs={12} md={6}>
                         <FormControlLabel
@@ -67,7 +74,7 @@ export default function DonorInformation({
                     </Col>
                     {!donorUnknownCheckBox && (
                         <>
-                            <Row>
+                            <Row className="mb-0">
                                 <Col xs={12} md={6}>
                                     <FormControlLabel
                                         control={
@@ -79,6 +86,7 @@ export default function DonorInformation({
                                             />
                                         }
                                         label="New address"
+                                        {...register("newDonorAddressCheckBox")}
                                     />
                                 </Col>
                             </Row>

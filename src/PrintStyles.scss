@@ -1,4 +1,7 @@
 @media only print {
+    .logo {
+        filter: invert(1);
+    }
     .hiddenForPrint {
         display: none;
     }
@@ -12,7 +15,8 @@
     }
 
     .rightLabel {
-        justify-content: flex-end !important;
+        flex-direction: column;
+        align-items: flex-start;
         width: 300px;
     }
 

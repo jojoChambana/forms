@@ -1,21 +1,24 @@
-import {
-    FormLabel,
-    Input,
-    InputLabel,
-    TextField,
-    Typography,
-} from "@mui/material";
+import { FormLabel, Input, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 // import { useFormContext } from "react-hook-form";
-import { parseNum, formatAmount, calcFinalTotals } from "./HelperFunctions";
+import { calcFinalTotals } from "./HelperFunctions";
 // import TotalDonationAmount from "./TotalDonationAmount";
 
-export default function TransmittalTotals({ register, setValue, watch }) {
+export default function TransmittalTotals({
+    register,
+    setValue,
+    watch,
+    ignoreNonGiftChecked,
+}) {
     useEffect(() => {
         const subscription = watch((values, { name, value }) => {
             if (name.startsWith("designation.")) {
-                calcFinalTotals(values.designation, setValue);
+                calcFinalTotals(
+                    values.designation,
+                    setValue,
+                    ignoreNonGiftChecked
+                );
             }
         });
         return () => subscription.unsubscribe();
@@ -33,7 +36,9 @@ export default function TransmittalTotals({ register, setValue, watch }) {
 
             <Row>
                 <Col xs={12} md={2}>
-                    <FormLabel>Gift Total</FormLabel>
+                    <FormLabel className="dollarAmountLabel">
+                        Gift Total
+                    </FormLabel>
                     <div className="dollarAmount">
                         <Input
                             disabled
@@ -45,7 +50,9 @@ export default function TransmittalTotals({ register, setValue, watch }) {
                 </Col>
 
                 <Col xs={12} md={2}>
-                    <FormLabel>Non-gift Total</FormLabel>
+                    <FormLabel className="dollarAmountLabel">
+                        Non-gift Total
+                    </FormLabel>
                     <div className="dollarAmount">
                         <Input
                             disabled
@@ -56,7 +63,9 @@ export default function TransmittalTotals({ register, setValue, watch }) {
                     </div>
                 </Col>
                 <Col xs={12} md={2}>
-                    <FormLabel>Total Amount</FormLabel>
+                    <FormLabel className="dollarAmountLabel">
+                        Total Amount
+                    </FormLabel>
                     <div className="dollarAmount">
                         <Input
                             disabled

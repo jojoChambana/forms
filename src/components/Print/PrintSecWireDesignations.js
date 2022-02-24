@@ -1,14 +1,14 @@
 import { ListGroup } from "react-bootstrap";
-import PrintOneDesignation from "./PrintOneDesignation";
+import PrintOneSecWireDesignation from "./PrintOneSecWireDesignation";
 
-const PrintDesignations = ({ formValues }) => {
+const PrintSecWireDesignations = ({ formValues }) => {
     return (
         <>
             <ListGroup>
-                {formValues.designation.map((item, index, key) => {
+                {formValues.designation.map((item, index) => {
                     return (
                         <>
-                            <PrintOneDesignation
+                            <PrintOneSecWireDesignation
                                 oneDesignation={item}
                                 index={index}
                                 key={"oneDesig" + index}
@@ -20,4 +20,4 @@ const PrintDesignations = ({ formValues }) => {
         </>
     );
 };
-export default PrintDesignations;
+export default PrintSecWireDesignations;

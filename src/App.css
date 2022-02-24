@@ -1,17 +1,31 @@
 @import url(/node_modules/bootstrap-print-css/css/bootstrap-print.min.css);
 @import url(PrintStyles.css);
+.logo {
+  padding: 1.25rem 0;
+  width: 21rem;
+  height: 4.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   min-height: 10vh;
-  background: #434849;
+  background: #131f33;
   color: white;
+}
+
+nav #navbarSupportedContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 nav #navbarSupportedContent > div > div > h1 {
@@ -20,6 +34,9 @@ nav #navbarSupportedContent > div > div > h1 {
 
 nav #navbarSupportedContent > div > div.active > h1 {
   display: block;
+  font-size: 1.25rem;
+  padding: 2rem 0;
+  margin: 0;
 }
 
 .flexBasis {
@@ -40,6 +57,7 @@ nav #navbarSupportedContent > div > div.active > h1 {
 
 h3 {
   background-color: #ccc;
+  padding: 4px;
   padding: 0.25rem;
 }
 
@@ -60,15 +78,6 @@ h3 {
   border: none;
 }
 
-.css-u4tvz2-MuiFormLabel-root {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-}
-
 span.lineUp,
 .lineUp {
   font-weight: normal;
@@ -81,8 +90,8 @@ span.lineUp,
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 @media only screen and (min-device-width: 600px) {
@@ -102,8 +111,8 @@ span.lineUp,
   span.lineUp,
   .lineUp {
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
 }
 
@@ -116,8 +125,8 @@ span.lineUp,
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 600px) {
@@ -128,7 +137,9 @@ span.lineUp,
 
 span.normal {
   font-weight: bold;
-  padding-left: 1em;
+  padding: 0em 1em;
+  width: 175px;
+  overflow: auto;
 }
 
 .headerPrint {
@@ -142,6 +153,7 @@ span.normal {
 
 .PhoneInput {
   border: solid 1px #cccccc;
+  padding: 14.4px;
   padding: 0.9rem;
   border-radius: 4px;
 }
@@ -155,10 +167,12 @@ span.normal {
 }
 
 label#mui-11-label {
+  top: -12.8px;
   top: -0.8rem;
 }
 
 .addressSpace {
+  margin-left: 0.8px;
   margin-left: 0.05rem;
 }
 
@@ -173,8 +187,8 @@ label#mui-11-label {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .end-align {
@@ -188,7 +202,17 @@ label#mui-11-label {
 
 .dollarAmount input {
   text-align: right;
+  padding-right: 4px;
   padding-right: 0.25rem;
+}
+
+.dollarAmountLabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .desigColTitle {
@@ -255,6 +279,7 @@ label#mui-11-label {
 
 .totals {
   width: 175px;
+  margin-left: 20px;
   margin-left: 1.25rem;
 }
 
@@ -285,7 +310,30 @@ label#mui-11-label {
 
 .centerColContent {
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+#contactPrint {
+  text-align: left;
+}
+
+#contactPrint .rightLabel {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: left;
+  min-width: -webkit-fit-content !important;
+  min-width: -moz-fit-content !important;
+  min-width: fit-content !important;
+  padding: 0.5em;
+}
+
+#contactPrint .col .rightLabel {
+  padding-right: 4rem;
+}
+
+#donationDate {
+  min-width: 22rem !important;
 }
 /*# sourceMappingURL=App.css.map */

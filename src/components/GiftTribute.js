@@ -10,17 +10,18 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { Controller } from "react-hook-form";
+import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 import Address from "./Address";
-import PublicityDropDown from "./PublicityDropDown";
 
 export default function GiftTribute({
     errors,
     register,
     getValues,
     setValue,
-    checked,
+    control,
 }) {
     let giftTribute = getValues("giftTribute");
     if (giftTribute === "") {
@@ -28,8 +29,10 @@ export default function GiftTribute({
         giftTribute = getValues("giftTribute");
     }
     const tributeChecked = getValues("tributeChecked");
-    console.log("tributeChecked", tributeChecked);
-    console.log("giftTribute", giftTribute);
+    // console.log("tributeChecked", tributeChecked);
+    // console.log("giftTribute", giftTribute);
+
+    const notifyIndividualOrFamily = getValues("notifyIndividualOrFamily");
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
@@ -53,10 +56,10 @@ export default function GiftTribute({
         setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
     };
 
-    // const [visibleAddressToggle, setvisibleAddressToggle] = useState(false);
-    // const handleChangeAddressToggle = (event) => {
-    //     setvisibleAddressToggle(!visibleAddressToggle);
-    // };
+    const handleClickNotify = (event) => {
+        setValue("notifyIndividualOrFamily", event.target.checked); // set the rect hook array element appropriately
+        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
+    };
 
     const divStyle = {
         flexBasis: "content",
@@ -110,6 +113,16 @@ export default function GiftTribute({
                                     </Col>
                                 </Row>
                             </RadioGroup>
+                            <Row>
+                                <Col xs={12} md={6}>
+                                    <TextField
+                                        {...register("tedTributeConstituentId")}
+                                        placeholder="TED Constituent ID"
+                                        className="maxWidth"
+                                        label="TED Constituent ID"
+                                    />
+                                </Col>
+                            </Row>
                             <Row className="mb-0">
                                 <Col xs={12}>
                                     <Row
@@ -155,7 +168,7 @@ export default function GiftTribute({
                                 </Col>
                             </Row>
                         </FormControl>
-                        <Row>
+                        <Row className="mb-0">
                             <Col xs={12} md={4}>
                                 <FormGroup>
                                     <FormControlLabel
@@ -167,12 +180,12 @@ export default function GiftTribute({
                                                 onClick={handleClickNewAddress}
                                             />
                                         }
+                                        {...register("inMemoryNewAddress")}
                                         label="New Address"
                                     />
                                 </FormGroup>
                             </Col>
                         </Row>
-
                         <Address
                             errors={errors}
                             register={register}
@@ -180,15 +193,25 @@ export default function GiftTribute({
                             prefix="tribute"
                             setValue={setValue}
                         />
-
                         <Row>
                             <Col xs={12} md={4}>
-                                <TextField
-                                    type="tel"
-                                    placeholder="Designation phone number"
-                                    label="Phone number"
-                                    {...register("designationPhoneNumber")}
-                                    className="maxWidth"
+                                <Controller
+                                    name="designationPhoneNumber"
+                                    control={control}
+                                    render={({
+                                        field: { onChange, value },
+                                    }) => (
+                                        <PhoneInput
+                                            {...register(
+                                                "designationPhoneNumber"
+                                            )}
+                                            placeholder="Phone"
+                                            value={value}
+                                            onChange={onChange}
+                                            defaultCountry="US"
+                                            id="designationPhoneNumber"
+                                        />
+                                    )}
                                 />
                             </Col>
                             <Col xs={12} md={4}>
@@ -201,6 +224,97 @@ export default function GiftTribute({
                                 />
                             </Col>
                         </Row>
+                        <Row className="mb-0">
+                            <Col>
+                                <FormGroup>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked={getValues(
+                                                    "notifyIndividualOrFamily"
+                                                )}
+                                                onClick={handleClickNotify}
+                                            />
+                                        }
+                                        label="Please notify the following individual/family of my gift"
+                                        {...register(
+                                            "notifyIndividualOrFamily"
+                                        )}
+                                    />
+                                </FormGroup>
+                            </Col>
+                        </Row>
+                        {notifyIndividualOrFamily && (
+                            <>
+                                <Row>
+                                    <Col xs={12} md={4}>
+                                        <TextField
+                                            {...register(
+                                                "tedTributeAcknowledgedFirstName"
+                                            )}
+                                            placeholder="Acknowledgee First Name"
+                                            className="maxWidth"
+                                            label="First Name"
+                                        />
+                                    </Col>
+                                    <Col xs={12} md={4}>
+                                        <TextField
+                                            {...register(
+                                                "tedTributeAcknowledgedLastName"
+                                            )}
+                                            placeholder="Acknowledgee Last Name"
+                                            className="maxWidth"
+                                            label="Last Name"
+                                        />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Address
+                                            errors={errors}
+                                            register={register}
+                                            setValue={setValue}
+                                            getValues={getValues}
+                                            prefix="acknowledgee"
+                                        />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={12} md={2}>
+                                        <TextField
+                                            {...register(
+                                                "notifyIndividualOrFamilyEmail"
+                                            )}
+                                            required
+                                            placeholder="Email"
+                                            type="email"
+                                            label="Email"
+                                            className="maxWidth"
+                                        ></TextField>
+                                    </Col>
+                                    <Col>
+                                        <Controller
+                                            name="tedTributeAcknowledgedPhone"
+                                            control={control}
+                                            render={({
+                                                field: { onChange, value },
+                                            }) => (
+                                                <PhoneInput
+                                                    {...register(
+                                                        "tedTributeAcknowledgedPhone"
+                                                    )}
+                                                    placeholder="Phone"
+                                                    value={value}
+                                                    onChange={onChange}
+                                                    defaultCountry="US"
+                                                    id="tedTributeAcknowledgedPhone"
+                                                />
+                                            )}
+                                        />
+                                    </Col>
+                                </Row>
+                            </>
+                        )}
                     </>
                 )}
             </FormGroup>

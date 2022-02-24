@@ -28,7 +28,7 @@ export default function NonGiftPortion({ errors, setValue, register }) {
                         control={
                             <Checkbox
                                 placeholder="Is there a non-gift portion?"
-                                {...register("nonGiftPortion")}
+                                {...register("nonGiftPortionChecked")}
                                 onChange={handleChange}
                             />
                         }
@@ -44,7 +44,7 @@ export default function NonGiftPortion({ errors, setValue, register }) {
                             name="nonGiftTed"
                             placeholder="Non-Gift TED Designation ID"
                             label="Non-gift TED designation ID"
-                            {...register("nonGiftTedId")}
+                            {...register("nonGiftTedIdChecked")}
                             onChange={myHandleChange}
                             className="maxWidth"
                         />

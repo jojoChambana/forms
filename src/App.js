@@ -4,118 +4,31 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cash from "./Pages/Cash";
 import Check from "./Pages/Check";
 import GiftInKind from "./Pages/GiftInKind";
-import Securities from "./Pages/Securities";
+import SecWireDataEntry from "./components/SecWireDataEntry";
+
 import Trust from "./Pages/Trust";
-import Wire from "./Pages/Wire";
-import CashPrint from "./Pages/CashPrint";
-import CheckPrint from "./Pages/CashPrint";
+import SecWirePrint from "./components/Print/SecWirePrint";
+import TrustPrint from "./Pages/TrustPrint";
 import PageNotFound from "./Pages/PageNotFound";
 import Home from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { newDesignation } from "./components/HelperFunctions";
+import {
+    newFormValues,
+    newSecWireFormValues,
+} from "./components/HelperFunctions";
+import CashCheckGIKPrint from "./components/Print/CashCheckGIKPrint";
 
 function App() {
-    var today = new Date();
-    let date =
-        today.getMonth() +
-        1 +
-        "-" +
-        (today.getDate() + 1) +
-        "-" +
-        today.getFullYear();
-    // const onSubmit = data => console.log(data);
-    const theDate = new Date().toLocaleString();
-    const [checkValues, setCheckValues] = useState({});
-
-    const [cashValues, setCashValues] = useState({
-        foreignDonor: "", // Address.js
-
-        contactFullName: "", // ContactInformation.js
-        contactPhone: "", // ContactInformation.js
-        contactEmail: "", // ContactInformation.js
-        collegeName: "", // ContactInformation.js
-
-        campusLocation: "Urbana", // DepartmentCampus.js
-        designationAdditionalComments: "", //DesignationInformation.js
-        newDesignationRequested: "", //DesignationInformation.js
-        departmentContactEmail: "", //DesignationInformation.js
-        departmentContact: "", //DesignationInformation.js
-        tedDesignationId: "", //DesignationInformation.js
-        tedDesignationTitle: "", //DesignationInformation.js
-        totalDesignationAmount: "", //DesignationInformation.js
-        newDonorAddressCheckBox: false, // DonorInfoCheckBoxes.js
-        donorForeignAddressCheckbox: false, //ForeignAddressCheckbox.js,
-
-        donorDomesticAddressCity: "", // DomesticAddress.js
-        donorDomesticAddress: "", // DomesticAddress.js
-        donorDomesticAddressState: "", // DomesticAddress.js
-        donorDomesticAddressZipCode: "", // DomesticAddress.js
-
-        donorDomesticAddressNewAddress: false,
-
-        donorForeignAddressCity: "",
-        donorForeignAddress: "",
-        donorForeignAddressProvinceRegion: "",
-        donorForeignAddressPostalCode: "",
-
-        donorUnknownCheckBox: "", // DonorInformation.js
-        tedConstituentId: "", // DonorInformation.js
-        organizationDonorName: "", // DonorInformation.js
-        associatedOpportunity: "", // GiftAssociatedOpportunity.js
-        tedHouseholdId: "", // GiftAssociatedOpportunity.js
-        tedHouseholdName: "", // GiftAssociatedOpportunity.js
-        tedPlanName: "", // GiftAssociatedOpportunity.js
-        tedOpportunityAmount: "", // GiftAssociatedOpportunity.js
-        actualAskDate: "", // GiftAssociatedOpportunity.js
-        primaryPlanManager: "", // GiftAssociatedOpportunity.js
-
-        giftAssociatedWithPledge: "", // GiftAccociatedPledge.js
-        pledgeRevenueId: "", // GiftAccociatedPledge.js
-        giftAmount: 0,
-
-        tributeChecked: false, // GiftTribute.js
-        giftTribute: "In memory of", // GiftTribute.js
-        tedconstituentID: "", // GiftTribute.js
-        deceasedFullName: "", // GiftTribute.js
-        inMemoryNewAddress: "", // GiftTribute.js
-        inHonorTedID: "", // GiftTribute.js
-        honoreeFullName: "", // GiftTribute.js
-
-        departmentName: "", // NameEmail.js
-        // donationDate: date, // NameEmail.js
-        preparedBy: "", // NameEmail.js
-        unitReferenceNumber: "", // NameEmail.js
-
-        newDonorCheckBox: "", // NewDonor.js
-        designation: [{ ...newDesignation() }],
-        nonGiftPortion: "", // NonGiftPortion.js
-        nonGiftTedId: "", // NonGiftPortion.js
-        giftTedAmount: "", // NonGiftPortion.js
-        nonGiftTedAmount: "", // NonGiftPortion.js
-
-        tedConstituentD: "", // NonGiftPortion.js
-        nonGiftAmount: 0, // NonGiftPortion.js
-
-        publicityCode: "No Restrictions", // publicityDropDown.js
-
-        tedDonorUnknown: "", // TedOrgDonor.js
-        tedConstituentID: "", // TedOrgDonor.js
-
-        // totalDonationAmount: "", // TotalDonationAmount.js
-
-        giftTotals: "", // TransmittalTotals.js
-        nonGiftTotals: "", // TransmittalTotals.js
-        totaldonations: "", // TransmittalTotals.js
-
-        tributeForeignAddressCheckbox: false,
-
-        giftTotal: 0, // TransmittalTotals.js
-        nonGiftTotal: 0, // TransmittalTotals.js
-        overallTotal: 0, // TransmittalTotals.js
-
-        // 62 field or checkboxes on Cash alone!!!!!
-    });
+    // Initializing the form variables for each type of form
+    const [cashValues, setCashValues] = useState(newFormValues());
+    const [checkValues, setCheckValues] = useState(newFormValues());
+    const [giftInKindValues, setGiftInKindValues] = useState(newFormValues());
+    const [securitiesValues, setSecuritiesValues] = useState(
+        newSecWireFormValues()
+    );
+    const [wireValues, setWireValues] = useState(newSecWireFormValues());
+    const [trustValues, setTrustValues] = useState(newFormValues());
 
     return (
         <>
@@ -136,9 +49,15 @@ function App() {
                     <Route
                         exact
                         path="/cashprint"
-                        element={<CashPrint formValues={cashValues} />}
+                        element={
+                            <CashCheckGIKPrint
+                                formValues={cashValues}
+                                returnUrl={"/cash"}
+                                formType={"Cash"}
+                            />
+                        }
                     />
-                    {/* <Route
+                    <Route
                         exact
                         path="/check"
                         element={
@@ -151,13 +70,104 @@ function App() {
                     <Route
                         exact
                         path="/checkprint"
-                        element={<CheckPrint formValues={checkValues} />}
-                    /> */}
-                    <Route path="/gift-in-kind" element={<GiftInKind />} />
+                        element={
+                            <CashCheckGIKPrint
+                                formValues={checkValues}
+                                returnUrl={"/check"}
+                                formType={"Check"}
+                            />
+                        }
+                    />
+                    <Route
+                        exact
+                        path="/giftinkind"
+                        element={
+                            <GiftInKind
+                                formValues={giftInKindValues}
+                                setFormValues={setGiftInKindValues}
+                            />
+                        }
+                    />
+                    <Route
+                        exact
+                        path="/giftinkindprint"
+                        element={
+                            <CashCheckGIKPrint
+                                formValues={giftInKindValues}
+                                returnUrl={"/giftinkind"}
+                                formType={"Gift in Kind"}
+                            />
+                        }
+                    />
 
-                    <Route path="/securities" element={<Securities />} />
-                    <Route path="/wire" element={<Wire />} />
-                    {/* <Route path="/trust" element={<Trust />} /> */}
+                    <Route
+                        exact
+                        path="/securities"
+                        element={
+                            <SecWireDataEntry
+                                formValues={securitiesValues}
+                                setFormValues={setSecuritiesValues}
+                                showSecurities={true}
+                                submitURL={"/securitiesprint"}
+                            />
+                        }
+                    />
+
+                    <Route
+                        exact
+                        path="/securitiesprint"
+                        element={
+                            <SecWirePrint
+                                formValues={securitiesValues}
+                                printSecurities={true}
+                                returnUrl={"/securities"}
+                                title={"Securities"}
+                            />
+                        }
+                    />
+
+                    <Route
+                        exact
+                        path="/wire"
+                        element={
+                            <SecWireDataEntry
+                                formValues={wireValues}
+                                setFormValues={setWireValues}
+                                showSecurities={false}
+                                submitURL={"/wireprint"}
+                            />
+                        }
+                    />
+
+                    <Route
+                        exact
+                        path="/wireprint"
+                        element={
+                            <SecWirePrint
+                                formValues={wireValues}
+                                printSecurities={false}
+                                returnUrl={"/wire"}
+                                title={"Wire"}
+                            />
+                        }
+                    />
+
+                    {/* <Route
+                        exact
+                        path="/trust"
+                        element={
+                            <Trust
+                                formValues={trustValues}
+                                setFormValues={setTrustValues}
+                            />
+                        }
+                    />
+
+                    <Route
+                        exact
+                        path="/trustprint"
+                        element={<TrustPrint formValues={trustValues} />}
+                    /> */}
 
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
