@@ -1,6 +1,7 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { set } from "date-fns";
 import { Col, Row } from "react-bootstrap";
+import { IconContext } from "react-icons/lib";
 
 export function formatAmount(amount) {
     return parseNum(amount).toLocaleString("en-US", {
@@ -347,7 +348,19 @@ export function FillCashCheckGIKForm(setValue) {
     setValue("notifyIndividualOrFamilyEmail", "thejonesfamily@gmail.com");
     setValue("tedTributeAcknowledgedPhone", "(604)-555-5555");
 }
-
+export function SubmitButton() {
+    return (
+        <IconContext.Provider>
+            <Button
+                value={{ className: "addButtonIcon" }}
+                variant="contained"
+                type="submit"
+            >
+                Submit
+            </Button>
+        </IconContext.Provider>
+    );
+}
 export function UrbanaAddress(props) {
     return (
         <Typography variant="subtitle2" component="div">

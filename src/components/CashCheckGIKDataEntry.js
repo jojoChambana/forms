@@ -13,6 +13,7 @@ import TransmittalTotals from "../components/TransmittalTotals";
 import {
     FillCashCheckGIKForm,
     SharedFillForm,
+    SubmitButton,
 } from "../components/HelperFunctions";
 
 const CashCheckGIKDataEntry = ({
@@ -77,7 +78,7 @@ const CashCheckGIKDataEntry = ({
                         setValue={setValue}
                         ignoreNonGiftChecked={false}
                     />
-                    <input type="submit" />
+                    <SubmitButton />
                 </form>
                 <DevTool control={control} /> {/* set up the dev tool */}
             </Container>

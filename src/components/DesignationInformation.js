@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
-import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
+import { MdDelete, MdAdd } from "react-icons/md";
 import GiftAssociatedOpportunity from "./GiftAssociatedOpportunity";
 import { useFieldArray } from "react-hook-form";
 import {
@@ -16,6 +16,7 @@ import {
     calcFinalTotals,
     newDesignation,
 } from "./HelperFunctions";
+import { IconContext } from "react-icons/lib";
 
 export default function DesignationInformation({
     register,
@@ -94,7 +95,11 @@ export default function DesignationInformation({
 
                     return (
                         <ListGroupItem key={item.id}>
-                            <Typography variant="h5" component="h3">
+                            <Typography
+                                variant="h5"
+                                component="h3"
+                                className="mt-3"
+                            >
                                 Designation Information
                             </Typography>
                             <FormGroup>
@@ -151,8 +156,11 @@ export default function DesignationInformation({
                                                         );
                                                     }}
                                                 >
-                                                    Delete Designation{" "}
-                                                    <MdDeleteForever />
+                                                    <IconContext.Provider
+                                                        value={{ size: "2em" }}
+                                                    >
+                                                        <MdDelete />
+                                                    </IconContext.Provider>
                                                 </Button>
                                             </div>
                                         ) : (
@@ -338,7 +346,14 @@ export default function DesignationInformation({
                                 append({ ...newDesignation() });
                             }}
                         >
-                            Add Designation <MdNoteAdd />
+                            <IconContext.Provider
+                                value={{
+                                    size: "2em",
+                                    title: "Add Designation",
+                                }}
+                            >
+                                <MdAdd />
+                            </IconContext.Provider>
                         </Button>
                     </div>
                 </Col>

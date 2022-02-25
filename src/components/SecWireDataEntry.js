@@ -9,7 +9,7 @@ import { DevTool } from "@hookform/devtools";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { SharedFillForm } from "../components/HelperFunctions";
+import { SharedFillForm, SubmitButton } from "../components/HelperFunctions";
 
 export default function SecWireDataEntry({
     formValues,
@@ -83,7 +83,7 @@ export default function SecWireDataEntry({
                             setValue={setValue}
                             ignoreNonGiftChecked={true}
                         />
-                        <input type="submit" />
+                        <SubmitButton />
                     </form>
                     <DevTool control={control} /> {/* set up the dev tool */}
                 </Container>

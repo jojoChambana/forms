@@ -152,7 +152,9 @@ label#mui-11-label {
     margin-left: 0.8px;
     margin-left: 0.05rem;
 }
-
+.btn-primary {
+    background-color: #131f33;
+}
 .addButton {
     justify-content: flex-end;
 }
@@ -164,8 +166,12 @@ label#mui-11-label {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    background-color: #131f33;
 }
-
+.MuiButton-sizeMedium.MuiButton-containedSizeMedium,
+button {
+    background-color: #131f33;
+}
 .end-align {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -177,7 +183,7 @@ label#mui-11-label {
     input {
         text-align: right;
         padding-right: 4px;
-        padding-right: 0.25rem;
+        padding-right: 1rem;
     }
 }
 

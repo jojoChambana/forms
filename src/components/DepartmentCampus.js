@@ -7,8 +7,6 @@ import {
 import React, { useState } from "react";
 
 export default function DepartmentCampus({ getValues, setValue }) {
-    //    console.log('departmentcampus',formValues.campusLocation)
-
     const [radioChanged, setRadioChanged] = useState(false); // needed to force re-render
 
     let radioValue = getValues("campusLocation");
@@ -47,42 +45,6 @@ export default function DepartmentCampus({ getValues, setValue }) {
                     />
                 </RadioGroup>
             </FormControl>
-            {/* <FormControl>
-                <RadioGroup
-                    aria-labelledby="campus-Location"
-                    defaultValue={formValues.campusLocation}
-                >
-                    <Row>
-                        <Col>
-                            <FormControlLabel
-                                value="Urbana"
-                                control={
-                                    <Radio {...register("campusLocation")} />
-                                }
-                                label="Urbana"
-                            />
-                        </Col>
-                        <Col>
-                            <FormControlLabel
-                                value="Chicago"
-                                control={
-                                    <Radio {...register("campusLocation")} />
-                                }
-                                label="Chicago"
-                            />
-                        </Col>
-                        <Col>
-                            <FormControlLabel
-                                value="Springfield"
-                                control={
-                                    <Radio {...register("campusLocation")} />
-                                }
-                                label="Springfield"
-                            />
-                        </Col>
-                    </Row>
-                </RadioGroup>
-            </FormControl> */}
         </>
     );
 }

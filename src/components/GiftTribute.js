@@ -280,19 +280,7 @@ export default function GiftTribute({
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col xs={12} md={2}>
-                                        <TextField
-                                            {...register(
-                                                "notifyIndividualOrFamilyEmail"
-                                            )}
-                                            required
-                                            placeholder="Email"
-                                            type="email"
-                                            label="Email"
-                                            className="maxWidth"
-                                        ></TextField>
-                                    </Col>
-                                    <Col>
+                                    <Col xs={12} md={4}>
                                         <Controller
                                             name="tedTributeAcknowledgedPhone"
                                             control={control}
@@ -311,6 +299,18 @@ export default function GiftTribute({
                                                 />
                                             )}
                                         />
+                                    </Col>
+                                    <Col xs={12} md={4}>
+                                        <TextField
+                                            {...register(
+                                                "notifyIndividualOrFamilyEmail"
+                                            )}
+                                            required
+                                            placeholder="Email"
+                                            type="email"
+                                            label="Email"
+                                            className="maxWidth"
+                                        ></TextField>
                                     </Col>
                                 </Row>
                             </>
