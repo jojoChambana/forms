@@ -1,7 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
-import { set } from "date-fns";
 import { Col, Row } from "react-bootstrap";
-import { IconContext } from "react-icons/lib";
+import { useLocation } from "react-router-dom";
 
 export function formatAmount(amount) {
     return parseNum(amount).toLocaleString("en-US", {
@@ -15,7 +14,6 @@ export function parseNum(num) {
         num = num.replace("$", "").replace(",", "");
     }
     let newValue = parseFloat(num);
-    //console.log(newValue);
     if (isNaN(newValue)) {
         newValue = 0.0;
     }
@@ -91,6 +89,7 @@ export function newSecurity() {
 
 export function newFormValues() {
     return {
+        formType: "",
         contactFullName: "", // ContactInformation.js
         contactPhone: "", // ContactInformation.js
         contactEmail: "", // ContactInformation.js
@@ -120,7 +119,7 @@ export function newFormValues() {
         donorForeignAddressCountry: "",
         donorForeignAddressPostalCode: "",
 
-        donorUnknownCheckBox: "", // DonorInformation.js
+        donorUnknownCheckBox: false, // DonorInformation.js
         tedConstituentId: "", // DonorInformation.js
         organizationDonorName: "", // DonorInformation.js
         associatedOpportunityChecked: "", // GiftAssociatedOpportunity.js
@@ -148,7 +147,7 @@ export function newFormValues() {
         preparedBy: "", // NameEmail.js
         unitReferenceNumber: "", // NameEmail.js
 
-        newDonorCheckBox: "", // NewDonor.js
+        newDonorCheckBox: false, // NewDonor.js
         designation: [{ ...newDesignation() }],
         nonGiftPortionChecked: "", // NonGiftPortion.js
         nonGiftTedId: "", // NonGiftPortion.js
@@ -220,7 +219,7 @@ export function newSecWireFormValues() {
         preparedBy: "", // NameEmail.js
         unitReferenceNumber: "", // NameEmail.js
 
-        newDonorCheckBox: "", // NewDonor.js
+        newDonorCheckBox: false, // NewDonor.js
         designation: [{ ...newDesignation() }],
         security: [{ ...newSecurity() }],
 
@@ -350,17 +349,16 @@ export function FillCashCheckGIKForm(setValue) {
 }
 export function SubmitButton() {
     return (
-        <IconContext.Provider>
-            <Button
-                value={{ className: "addButtonIcon" }}
-                variant="contained"
-                type="submit"
-            >
-                Submit
-            </Button>
-        </IconContext.Provider>
+        <Button
+            value={{ className: "addButtonIcon" }}
+            variant="contained"
+            type="submit"
+        >
+            Submit
+        </Button>
     );
 }
+
 export function UrbanaAddress(props) {
     return (
         <Typography variant="subtitle2" component="div">
@@ -401,7 +399,74 @@ export function SpringfieldAddress(props) {
     );
 }
 
+export function SplitLocation() {
+    //assigning location variable
+    const location = useLocation();
+
+    //destructuring pathname from location
+    const { pathname } = location;
+
+    //Javascript split method to get the name of the path in array
+    const splitLocation = pathname.split("/");
+    return (
+        <>
+            <div className="navLinks">
+                <div className={splitLocation[1] === "cash" ? "active" : ""}>
+                    <h1>Cash Gift Transmittal Form</h1>
+                </div>
+
+                <div
+                    className={splitLocation[1] === "cashprint" ? "active" : ""}
+                >
+                    <h1>Cash Gift Transmittal</h1>
+                </div>
+
+                <div className={splitLocation[1] === "check" ? "active" : ""}>
+                    <h1>Check Gift Transmittal Form</h1>
+                </div>
+
+                <div
+                    className={
+                        splitLocation[1] === "checkprint" ? "active" : ""
+                    }
+                >
+                    <h1>Check Gift Transmittal</h1>
+                </div>
+
+                <div
+                    className={
+                        splitLocation[1] === "giftinkind" ? "active" : ""
+                    }
+                >
+                    <h1>Gift in Kind Transmittal Form</h1>
+                </div>
+
+                <div
+                    className={
+                        splitLocation[1] === "securities" ? "active" : ""
+                    }
+                >
+                    <h1>Securities Gift Transmittal Form</h1>
+                </div>
+
+                <div className={splitLocation[1] === "wire" ? "active" : ""}>
+                    <h1>Wire Transmittal Form</h1>
+                </div>
+
+                <div className={splitLocation[1] === "trust" ? "active" : ""}>
+                    <h1>Trust Gift Transmittal Form</h1>
+                </div>
+            </div>
+        </>
+    );
+}
+
+// export function GetFormType(formType) {
+//     return formType;
+// }
+
 export function PrintCampusAddressSwap({ campusLocation }) {
+    // console.log(GetFormType);
     return (
         <Row className="headerPrint">
             <style>
@@ -415,6 +480,15 @@ export function PrintCampusAddressSwap({ campusLocation }) {
                         alt="U of I Foundation Logo"
                         className="logo"
                     />
+                </Col>
+                <Col className="verticalCenter">
+                    <Typography
+                        variant="h6"
+                        className="printHeader"
+                        component="h1"
+                    >
+                        <SplitLocation />
+                    </Typography>
                 </Col>
                 <Col>
                     <Grid

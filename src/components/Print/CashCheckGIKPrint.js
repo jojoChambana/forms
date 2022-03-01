@@ -1,4 +1,5 @@
 import {
+    Button,
     Container,
     createTheme,
     Grid,
@@ -13,7 +14,7 @@ import PrintContactAndDonorInfo from "./PrintContactAndDonorInfo";
 import PrintTribute from "./PrintTribute";
 import PrintDesignations from "./PrintDesignations";
 import PrintTotals from "./PrintTotals";
-import { PrintCampusAddressSwap } from "../HelperFunctions";
+import { PrintCampusAddressSwap, SplitLocation } from "../HelperFunctions";
 
 const CashCheckGIKPrint = (props) => {
     const navigate = useNavigate();
@@ -39,28 +40,26 @@ const CashCheckGIKPrint = (props) => {
                         <PrintCampusAddressSwap
                             campusLocation={props.formValues.campusLocation}
                         />
-                        <Row className="resultItems ">
-                            <Col>
-                                <Typography variant="h4" component="h1">
-                                    Donor {props.formType} transmittal
-                                </Typography>
-                            </Col>
-                        </Row>
                         <Container>
                             <Row className="hideForPrint">
                                 <Col className="d-flex justify-content-around">
-                                    <button
+                                    <Button
+                                        variant="contained"
+                                        className="buttonClass"
                                         onClick={() => {
                                             navigate(props.returnUrl);
                                         }}
                                     >
                                         Back
-                                    </button>
+                                    </Button>
                                 </Col>
                                 <Col className="d-flex justify-content-around">
-                                    <button onClick={handlePrint}>
+                                    <Button
+                                        variant="contained"
+                                        onClick={handlePrint}
+                                    >
                                         Print Document
-                                    </button>
+                                    </Button>
                                 </Col>
                             </Row>
                         </Container>
@@ -71,13 +70,15 @@ const CashCheckGIKPrint = (props) => {
                         </div>
                         <PrintTribute formValues={props.formValues} />
 
-                        <Row className="theDesignationResults">
+                        <div className="theDesignationResults">
                             <Col className="p-0">
-                                <PrintDesignations
-                                    formValues={props.formValues}
-                                />
+                                <div className="resultItems">
+                                    <PrintDesignations
+                                        formValues={props.formValues}
+                                    />
+                                </div>
                             </Col>
-                        </Row>
+                        </div>
                         <Row>
                             <Col>
                                 <PrintTotals formValues={props.formValues} />

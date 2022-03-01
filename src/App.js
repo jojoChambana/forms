@@ -5,10 +5,7 @@ import Cash from "./Pages/Cash";
 import Check from "./Pages/Check";
 import GiftInKind from "./Pages/GiftInKind";
 import SecWireDataEntry from "./components/SecWireDataEntry";
-
-import Trust from "./Pages/Trust";
 import SecWirePrint from "./components/Print/SecWirePrint";
-import TrustPrint from "./Pages/TrustPrint";
 import PageNotFound from "./Pages/PageNotFound";
 import Home from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,7 +25,7 @@ function App() {
         newSecWireFormValues()
     );
     const [wireValues, setWireValues] = useState(newSecWireFormValues());
-    const [trustValues, setTrustValues] = useState(newFormValues());
+    //const [trustValues, setTrustValues] = useState(newFormValues());
 
     return (
         <>

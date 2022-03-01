@@ -3,18 +3,10 @@ import { NavLink } from "react-router-dom";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { Container } from "@mui/material";
+import { SplitLocation } from "../HelperFunctions";
 
 // import Nav from "react-bootstrap/Nav";
 export const Header = () => {
-    //assigning location variable
-    const location = useLocation();
-
-    //destructuring pathname from location
-    const { pathname } = location;
-
-    //Javascript split method to get the name of the path in array
-    const splitLocation = pathname.split("/");
-
     return (
         <>
             <Navbar>
@@ -27,13 +19,24 @@ export const Header = () => {
                                 className="logo"
                             />
                         </NavLink>
-                        <div className="navLinks">
+                        <SplitLocation />
+                        {/* <div className="navLinks">
                             <div
                                 className={
                                     splitLocation[1] === "cash" ? "active" : ""
                                 }
                             >
                                 <h1>Cash Gift Transmittal Form</h1>
+                            </div>
+
+                            <div
+                                className={
+                                    splitLocation[1] === "cashprint"
+                                        ? "active"
+                                        : ""
+                                }
+                            >
+                                <h1>Cash Gift Transmittal</h1>
                             </div>
 
                             <div
@@ -79,7 +82,7 @@ export const Header = () => {
                             >
                                 <h1>Trust Gift Transmittal Form</h1>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </Container>
             </Navbar>

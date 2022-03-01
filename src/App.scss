@@ -31,6 +31,29 @@ nav {
         margin: 0;
     }
 }
+
+.MuiContainer-root {
+    margin-top: 1em;
+}
+
+.printHeader h1 {
+    display: none;
+}
+
+div.active {
+    display: flex;
+    justify-content: center;
+    h1 {
+        display: block;
+        font-size: 1.5rem;
+        margin: 1em;
+    }
+}
+.verticalCenter {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .flexBasis {
     -ms-flex-preferred-size: content;
     flex-basis: content;
@@ -92,6 +115,9 @@ span.lineUp,
     }
 }
 .resultItems {
+    li {
+        border: none;
+    }
     .row {
         margin-bottom: 0;
     }
@@ -169,7 +195,8 @@ label#mui-11-label {
     background-color: #131f33;
 }
 .MuiButton-sizeMedium.MuiButton-containedSizeMedium,
-button {
+button,
+.buttonClass {
     background-color: #131f33;
 }
 .end-align {
@@ -298,4 +325,8 @@ button {
 
 #donationDate {
     min-width: 22rem !important;
+}
+
+.topBottomMargin {
+    margin: 1em 0;
 }
