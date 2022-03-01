@@ -221,7 +221,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                     </Typography>
                 </Col>
             </Row>
-            <div className="resultItems d-flex" className="topBottomMargin">
+            <div className="resultItems d-flex">
                 {/* ==================== left column at the top for campus/contact info ===================== */}
 
                 {/* ============ right column at the top for donor info ============== */}

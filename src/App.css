@@ -1,11 +1,15 @@
 @import url(/node_modules/bootstrap-print-css/css/bootstrap-print.min.css);
 @import url(PrintStyles.css);
+body {
+  font-family: "Gotham SSm A", "Gotham SSm B";
+}
+
 .logo {
-  padding: 1.25rem 0;
-  width: 21rem;
-  height: 4.5rem;
+  padding: 0;
+  width: 14rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin-bottom: 0.1rem;
 }
 
 nav {
@@ -17,7 +21,7 @@ nav {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: 10vh;
+  min-height: 5vh;
   background: #131f33;
   color: white;
 }
@@ -35,12 +39,20 @@ nav #navbarSupportedContent > div > div > h1 {
 nav #navbarSupportedContent > div > div.active > h1 {
   display: block;
   font-size: 1.25rem;
-  padding: 2rem 0;
-  margin: 0;
+  margin: 0.15em 0em;
 }
 
-.MuiContainer-root {
-  margin-top: 1em;
+.navbar-brand {
+  padding: 0 3rem 0 0.9rem;
+}
+
+.navBar {
+  margin-bottom: 1em;
+}
+
+.navbar {
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
 }
 
 .printHeader h1 {

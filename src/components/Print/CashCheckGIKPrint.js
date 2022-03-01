@@ -1,11 +1,4 @@
-import {
-    Button,
-    Container,
-    createTheme,
-    Grid,
-    ThemeProvider,
-    Typography,
-} from "@mui/material";
+import { Button, Container, createTheme, ThemeProvider } from "@mui/material";
 import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
@@ -14,7 +7,7 @@ import PrintContactAndDonorInfo from "./PrintContactAndDonorInfo";
 import PrintTribute from "./PrintTribute";
 import PrintDesignations from "./PrintDesignations";
 import PrintTotals from "./PrintTotals";
-import { PrintCampusAddressSwap, SplitLocation } from "../HelperFunctions";
+import { PrintCampusAddressSwap } from "../HelperFunctions";
 
 const CashCheckGIKPrint = (props) => {
     const navigate = useNavigate();

@@ -443,18 +443,48 @@ export function SplitLocation() {
 
                 <div
                     className={
+                        splitLocation[1] === "giftinkindprint" ? "active" : ""
+                    }
+                >
+                    <h1>Gift in Kind Transmittal</h1>
+                </div>
+
+                <div
+                    className={
                         splitLocation[1] === "securities" ? "active" : ""
                     }
                 >
                     <h1>Securities Gift Transmittal Form</h1>
                 </div>
 
+                <div
+                    className={
+                        splitLocation[1] === "securitiesprint" ? "active" : ""
+                    }
+                >
+                    <h1>Securities Gift Transmittal</h1>
+                </div>
+
                 <div className={splitLocation[1] === "wire" ? "active" : ""}>
                     <h1>Wire Transmittal Form</h1>
                 </div>
 
+                <div
+                    className={splitLocation[1] === "wireprint" ? "active" : ""}
+                >
+                    <h1>Wire Transmittal</h1>
+                </div>
+
                 <div className={splitLocation[1] === "trust" ? "active" : ""}>
                     <h1>Trust Gift Transmittal Form</h1>
+                </div>
+
+                <div
+                    className={
+                        splitLocation[1] === "trustprint" ? "active" : ""
+                    }
+                >
+                    <h1>Trust Gift Transmittal</h1>
                 </div>
             </div>
         </>
