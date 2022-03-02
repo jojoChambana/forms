@@ -39,7 +39,7 @@ nav #navbarSupportedContent > div > div > h1 {
 nav #navbarSupportedContent > div > div.active > h1 {
   display: block;
   font-size: 1.25rem;
-  margin: 0.15em 0em;
+  margin: 0.3em 0em;
 }
 
 .navbar-brand {
@@ -252,6 +252,25 @@ label#mui-11-label {
 button,
 .buttonClass {
   background-color: #131f33;
+}
+
+.MuiButton-sizeMedium.MuiButton-containedSizeMedium:hover,
+button:hover,
+.buttonClass:hover {
+  background-color: #cccccc;
+}
+
+.btn-check:active + .btn-primary,
+.btn-check:checked + .btn-primary,
+.btn-primary.active,
+.btn-primary:active,
+.show > .btn-primary.dropdown-toggle,
+.btn-primary:hover {
+  background-color: #cccccc;
+}
+
+.btn-primary:hover {
+  border-color: transparent;
 }
 
 .end-align {

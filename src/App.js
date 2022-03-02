@@ -16,6 +16,29 @@ import {
 } from "./components/HelperFunctions";
 import CashCheckGIKPrint from "./components/Print/CashCheckGIKPrint";
 
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/system";
+
+const theme = createTheme({
+    typography: {
+        fontFamily: ["Gotham SSm A", "Gotham SSm B"].join(","),
+    },
+    palette: {
+        primary: {
+            // light: "#757ce8",
+            main: "#131f33",
+            // dark: "#002884",
+            // contrastText: "#fff",
+        },
+        secondary: {
+            // light: "#ff7961",
+            main: "#cccccc",
+            // dark: "#ba000d",
+            // contrastText: "#000",
+        },
+    },
+});
+
 function App() {
     // Initializing the form variables for each type of form
     const [cashValues, setCashValues] = useState(newFormValues());
@@ -28,7 +51,7 @@ function App() {
     //const [trustValues, setTrustValues] = useState(newFormValues());
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <Router>
                 <Header />
                 <Routes>
@@ -169,7 +192,7 @@ function App() {
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </Router>
-        </>
+        </ThemeProvider>
     );
 }
 
