@@ -1,14 +1,16 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
+import { Row } from "react-bootstrap";
 
 export default function Instructions() {
     return (
         <div>
             <Container>
-                <Typography variant="h4" component="h2">
-                    Instructions
-                </Typography>
-
+                <Row>
+                    <Typography variant="h5" component="h2">
+                        Instructions
+                    </Typography>
+                </Row>
                 <Typography variant="body1" gutterBottom>
                     Gifts are to be submitted promptly once received by your
                     department.
