@@ -1,8 +1,12 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
-export default function PublicityDropDown({ setValue, getValues }) {
+import { useFormContext } from "react-hook-form";
+
+export default function PublicityDropDown() {
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
+
+    const { setValue, getValues } = useFormContext();
     const [dropDownChanges, setDropDownChanged] = useState(false);
     const handleChange = (event) => {
         setValue("publicityCode", event.target.value);

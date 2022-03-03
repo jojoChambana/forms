@@ -17,15 +17,7 @@ export default function SecWireDataEntry({
     showSecurities,
     submitURL,
 }) {
-    const {
-        register,
-        control,
-        setValue,
-        getValues,
-        watch,
-        formState: { errors },
-        handleSubmit,
-    } = useForm({
+    const methods = useForm({
         defaultValues: formValues,
         mode: "onChange",
     });
@@ -33,7 +25,7 @@ export default function SecWireDataEntry({
     const navigate = useNavigate();
 
     const fillButton = () => {
-        SharedFillForm(setValue);
+        SharedFillForm(methods.setValue);
     };
     const onSubmit = (data) => {
         setFormValues(data);
@@ -42,50 +34,21 @@ export default function SecWireDataEntry({
 
     return (
         <>
-            <FormProvider>
+            <FormProvider {...methods}>
                 <Container className="pb-4">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={methods.handleSubmit(onSubmit)}>
                         <Button onClick={fillButton}>Fill</Button>
-                        <ContactInformation
-                            errors={errors}
-                            register={register}
-                            control={control}
-                        />
-                        <NameEmail errors={errors} register={register} />
-                        <DonorInformation
-                            errors={errors}
-                            register={register}
-                            getValues={getValues}
-                            setValue={setValue}
-                            showAnonymousDonorCheckBox={false}
-                        />
-                        {showSecurities ? (
-                            <Security
-                                register={register}
-                                control={control}
-                                getValues={getValues}
-                            />
-                        ) : (
-                            <></>
-                        )}
+                        <ContactInformation />
+                        <NameEmail />
+                        <DonorInformation showAnonymousDonorCheckBox={false} />
+                        {showSecurities ? <Security /> : <></>}
 
-                        <SecWireDesignations
-                            register={register}
-                            control={control}
-                            setValue={setValue}
-                            getValues={getValues}
-                            watch={watch}
-                        />
-                        <TransmittalTotals
-                            errors={errors}
-                            register={register}
-                            watch={watch}
-                            setValue={setValue}
-                            ignoreNonGiftChecked={true}
-                        />
+                        <SecWireDesignations />
+                        <TransmittalTotals ignoreNonGiftChecked={true} />
                         <SubmitButton />
                     </form>
-                    <DevTool control={control} /> {/* set up the dev tool */}
+                    <DevTool control={methods.control} />{" "}
+                    {/* set up the dev tool */}
                 </Container>
             </FormProvider>
         </>

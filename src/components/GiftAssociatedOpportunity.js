@@ -5,15 +5,18 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
+import { useFormContext } from "react-hook-form";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-export default function GiftAssociatedOpportunity({
-    register,
-    setValue,
-    getValues,
-    index,
-}) {
+export default function GiftAssociatedOpportunity({ index }) {
+
+    const {
+        register,
+        setValue,
+        getValues
+    } = useFormContext();
+
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false); // we use this to trigger a render operation
 

@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdDelete, MdAdd } from "react-icons/md";
 import GiftAssociatedOpportunity from "./GiftAssociatedOpportunity";
-import { useFieldArray } from "react-hook-form";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import {
     parseNum,
     formatAmount,
@@ -18,13 +18,16 @@ import {
 } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
 
-export default function DesignationInformation({
-    register,
-    control,
-    setValue,
-    getValues,
-    watch,
-}) {
+export default function DesignationInformation() {
+
+    const {
+        register,
+        control,
+        setValue,
+        getValues,
+        watch,
+    } = useFormContext();
+
     // used in building the repeating designation section.  Get the array of object from the 'designation' object in cashValues
     const { fields, append, remove } = useFieldArray({
         control,
@@ -311,12 +314,7 @@ export default function DesignationInformation({
                                 </Col>
                             </Row>
                             {/* opportunity checkbox and all of those fields  */}
-                            <GiftAssociatedOpportunity
-                                register={register}
-                                setValue={setValue}
-                                getValues={getValues}
-                                index={index}
-                            />
+                            <GiftAssociatedOpportunity index={index} />
                             <Row>
                                 <Col sm={12}>
                                     {/* Last is the comments field  */}

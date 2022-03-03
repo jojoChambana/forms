@@ -1,20 +1,12 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import Instructions from "../components/Instructions";
 import { useNavigate } from "react-router-dom";
 
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
 
 export default function Cash(props) {
-    const {
-        register,
-        control,
-        setValue,
-        getValues,
-        watch,
-        formState: { errors },
-        handleSubmit,
-    } = useForm({
+    const methods = useForm({
         defaultValues: props.formValues,
         mode: "onChange",
     });
@@ -37,17 +29,12 @@ export default function Cash(props) {
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
             <Instructions />
+            <FormProvider {...methods}>
             <CashCheckGIKDataEntry
                 onSubmit={onSubmit}
-                getValues={getValues}
-                setValue={setValue}
-                errors={errors}
-                register={register}
-                control={control}
-                watch={watch}
-                handleSubmit={handleSubmit}
                 showAnonymousDonorCheckBox={true}
             />
+            </FormProvider>
         </HelmetProvider>
     );
 }

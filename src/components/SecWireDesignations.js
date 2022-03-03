@@ -6,7 +6,7 @@ import {
 import { useEffect } from "react";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
-import { useFieldArray } from "react-hook-form";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import {
     parseNum,
     formatAmount,
@@ -14,13 +14,16 @@ import {
     newDesignation,
 } from "./HelperFunctions";
 
-export default function SecWireDesignations({
-    register,
-    control,
-    setValue,
-    getValues,
-    watch,
-}) {
+export default function SecWireDesignations() {
+
+    const {
+        register,
+        control,
+        setValue,
+        getValues,
+        watch,
+    } = useFormContext();
+
     // used in building the repeating designation section.  Get the array of object from the 'designation' object in cashValues
     const { fields, append, remove } = useFieldArray({
         control,

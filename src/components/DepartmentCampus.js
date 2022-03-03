@@ -4,11 +4,13 @@ import {
     Radio,
     RadioGroup,
 } from "@mui/material";
+import { useFormContext } from "react-hook-form";
 import React, { useState } from "react";
 
-export default function DepartmentCampus({ getValues, setValue }) {
+export default function DepartmentCampus() {
     const [radioChanged, setRadioChanged] = useState(false); // needed to force re-render
-
+    const { getValues, setValue } = useFormContext();
+    
     let radioValue = getValues("campusLocation");
 
     const handleChange = (event) => {

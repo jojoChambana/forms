@@ -10,19 +10,21 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 import Address from "./Address";
 
-export default function GiftTribute({
-    errors,
-    register,
-    getValues,
-    setValue,
-    control,
-}) {
+export default function GiftTribute() {
+
+    const {
+        register,
+        getValues,
+        setValue,
+        control,
+    } = useFormContext();
+    
     let giftTribute = getValues("giftTribute");
     if (giftTribute === "") {
         setValue("giftTribute", "In memory of");
@@ -186,13 +188,7 @@ export default function GiftTribute({
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <Address
-                            errors={errors}
-                            register={register}
-                            getValues={getValues}
-                            prefix="tribute"
-                            setValue={setValue}
-                        />
+                        <Address prefix="tribute" />
                         <Row>
                             <Col xs={12} md={4}>
                                 <Controller
@@ -270,13 +266,7 @@ export default function GiftTribute({
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <Address
-                                            errors={errors}
-                                            register={register}
-                                            setValue={setValue}
-                                            getValues={getValues}
-                                            prefix="acknowledgee"
-                                        />
+                                        <Address prefix="acknowledgee" />
                                     </Col>
                                 </Row>
                                 <Row>

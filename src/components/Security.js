@@ -5,22 +5,26 @@ import {
 } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
-import {  useFieldArray } from "react-hook-form";
+import {  useFieldArray, useFormContext } from "react-hook-form";
 import { newSecurity} from "./HelperFunctions";
 
-export default function Security({
-    register,
-    control,
-    getValues,
-}) {
+export default function Security() {
+
+    const {
+        register,
+        control,
+        getValues,
+    } = useFormContext();
+    
     // used in building the repeating security section.  Get the array of object from the 'security' object in cashValues
     const { fields, append, remove } = useFieldArray({
         control,
         name: "security",
     });
 
- 
-    var securityCount = getValues("security").length; // used to determine if we should show Delete security buttons
+    var securityCount = 0
+    if (getValues("security") !== undefined)
+         securityCount = getValues("security").length; // used to determine if we should show Delete security buttons
 
     return (
         <>

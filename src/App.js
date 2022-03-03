@@ -6,6 +6,7 @@ import Check from "./Pages/Check";
 import GiftInKind from "./Pages/GiftInKind";
 import SecWireDataEntry from "./components/SecWireDataEntry";
 import SecWirePrint from "./components/Print/SecWirePrint";
+import Trust from "./Pages/Trust";
 import PageNotFound from "./Pages/PageNotFound";
 import Home from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +14,7 @@ import "./App.css";
 import {
     newFormValues,
     newSecWireFormValues,
+    newTrustFormValues,
 } from "./components/HelperFunctions";
 import CashCheckGIKPrint from "./components/Print/CashCheckGIKPrint";
 
@@ -44,11 +46,13 @@ function App() {
     const [cashValues, setCashValues] = useState(newFormValues());
     const [checkValues, setCheckValues] = useState(newFormValues());
     const [giftInKindValues, setGiftInKindValues] = useState(newFormValues());
+    const [trustValues, setTrustValues] = useState(newTrustFormValues());
     const [securitiesValues, setSecuritiesValues] = useState(
         newSecWireFormValues()
     );
     const [wireValues, setWireValues] = useState(newSecWireFormValues());
     //const [trustValues, setTrustValues] = useState(newFormValues());
+    console.table(wireValues);
 
     return (
         <ThemeProvider theme={theme}>
@@ -172,7 +176,7 @@ function App() {
                         }
                     />
 
-                    {/* <Route
+                    <Route
                         exact
                         path="/trust"
                         element={
@@ -183,7 +187,7 @@ function App() {
                         }
                     />
 
-                    <Route
+                    {/* <Route
                         exact
                         path="/trustprint"
                         element={<TrustPrint formValues={trustValues} />}

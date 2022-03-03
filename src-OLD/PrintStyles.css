@@ -1,0 +1,48 @@
+@media only print {
+  .logo {
+    -webkit-filter: invert(1);
+            filter: invert(1);
+  }
+  .hiddenForPrint {
+    display: none;
+  }
+  h1 {
+    text-align: center;
+  }
+  .d-print-table-cell {
+    width: 50%;
+    padding-left: 1rem;
+  }
+  .rightLabel {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 300px;
+  }
+  .wrapCellContent {
+    width: 80px;
+  }
+  .totals {
+    width: 195px;
+  }
+  span.normal {
+    padding-left: 0 !important;
+  }
+  .d-print-table-cell.d-flex.justify-content-center {
+    width: 550px;
+    text-align: center;
+  }
+  .justify-col-tribute {
+    position: relative;
+    left: 3em !important;
+  }
+  .IsTributeNewAddressChecked {
+    position: relative;
+    left: 10em !important;
+  }
+}
+/*# sourceMappingURL=PrintStyles.css.map */

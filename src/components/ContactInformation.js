@@ -2,9 +2,12 @@ import { TextField, Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 import { ErrorMessage } from "@hookform/error-message";
 import PhoneInput from "react-phone-number-input";
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import "react-phone-number-input/style.css";
-export default function DonorInfo({ register, errors, control }) {
+export default function DonorInfo() {
+
+    const { register, errors, control } = useFormContext();
+    
     return (
         <>
             <Row>

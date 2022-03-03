@@ -2,8 +2,9 @@ import { TextField } from "@mui/material";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { ErrorMessage } from "@hookform/error-message";
+import { useFormContext } from "react-hook-form";
 
-export default function NameEmail({ errors, register }) {
+export default function NameEmail() {
     var today = new Date();
     let date =
         today.getMonth() +
@@ -12,6 +13,9 @@ export default function NameEmail({ errors, register }) {
         today.getDate() +
         "-" +
         today.getFullYear();
+    
+    const { formState: { errors }, register } = useFormContext();
+
     return (
         <Row>
             <Col xs={12} md={3}>

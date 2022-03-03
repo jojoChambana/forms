@@ -8,8 +8,8 @@ export default function AddressPrint({ props, prefix, formValues }) {
                 {(() => {
                     // if (formValues.formAddress) {
                     if (eval(`formValues.${prefix}ForeignAddressCheckbox`)) {
-                        console.log("ForeignAddress");
-                        console.log(eval(`formValues.${prefix}ForeignAddress`));
+                        // console.log("ForeignAddress");
+                        // console.log(eval(`formValues.${prefix}ForeignAddress`));
                         return (
                             <>
                                 <Row className="addressSpace">

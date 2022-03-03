@@ -87,6 +87,28 @@ export function newSecurity() {
     };
 }
 
+export function newTrustWire() {
+    return {
+        bankName: "",
+        totalValue: 0,
+    };
+}
+
+export function newTrustCheck() {
+    return {
+        checkNumbers: "",
+        checkTotal: 0,
+    };
+}
+export function newTrustGIK() {
+    return {
+        descriptionOfGift: "",
+        is8283Required: "",
+        testCheckBox: false,
+        giftAmount: 0,
+    };
+}
+
 export function newFormValues() {
     return {
         formType: "",
@@ -103,6 +125,7 @@ export function newFormValues() {
         tedDesignationId: "", //DesignationInformation.js
         tedDesignationTitle: "", //DesignationInformation.js
         totalDesignationAmount: "", //DesignationInformation.js
+        newDonorCheckBox: false, // NewDonor.js
         newDonorAddressCheckBox: false, // DonorInfoCheckBoxes.js
         donorForeignAddressCheckbox: false, //ForeignCheckbox.js,
 
@@ -147,7 +170,6 @@ export function newFormValues() {
         preparedBy: "", // NameEmail.js
         unitReferenceNumber: "", // NameEmail.js
 
-        newDonorCheckBox: false, // NewDonor.js
         designation: [{ ...newDesignation() }],
         nonGiftPortionChecked: "", // NonGiftPortion.js
         nonGiftTedId: "", // NonGiftPortion.js
@@ -192,44 +214,118 @@ export function newFormValues() {
 
 export function newSecWireFormValues() {
     return {
-        foreignDonor: "", // Address.js
-
+        formType: "",
         contactFullName: "", // ContactInformation.js
         contactPhone: "", // ContactInformation.js
         contactEmail: "", // ContactInformation.js
         collegeName: "", // ContactInformation.js
 
+        campusLocation: "Urbana", // DepartmentCampus.js
+        designationAdditionalComments: "", //DesignationInformation.js
+        newDesignationRequestedChecked: "", //DesignationInformation.js
+        departmentContactEmail: "", //DesignationInformation.js
+        departmentContact: "", //DesignationInformation.js
+        tedDesignationId: "", //DesignationInformation.js
+        tedDesignationTitle: "", //DesignationInformation.js
+        totalDesignationAmount: "", //DesignationInformation.js
+        newDonorCheckBox: false, // DonorInfoCheckBoxes.js
+        newDonorAddressCheckBox: false, // DonorInfoCheckBoxes.js
+        donorForeignAddressCheckbox: false, //ForeignCheckbox.js,
+
         donorDomesticAddressCity: "", // DomesticAddress.js
         donorDomesticAddress: "", // DomesticAddress.js
         donorDomesticAddressState: "", // DomesticAddress.js
         donorDomesticAddressZipCode: "", // DomesticAddress.js
+
         donorDomesticAddressNewAddress: false,
 
         donorForeignAddressCity: "",
         donorForeignAddress: "",
         donorForeignAddressProvinceRegion: "",
+        donorForeignAddressCountry: "",
         donorForeignAddressPostalCode: "",
 
         donorUnknownCheckBox: false, // DonorInformation.js
         tedConstituentId: "", // DonorInformation.js
         organizationDonorName: "", // DonorInformation.js
+        associatedOpportunityChecked: "", // GiftAssociatedOpportunity.js
+        tedHouseholdId: "", // GiftAssociatedOpportunity.js
+        tedHouseholdName: "", // GiftAssociatedOpportunity.js
+        tedPlanName: "", // GiftAssociatedOpportunity.js
+        tedOpportunityAmount: "", // GiftAssociatedOpportunity.js
+        actualAskDate: "", // GiftAssociatedOpportunity.js
+        primaryPlanManager: "", // GiftAssociatedOpportunity.js
+
+        giftAssociatedWithPledge: "", // GiftAssociatedPledge.js    ????????????????
+        pledgeRevenueId: "", // GiftAssociatedPledge.js
+        giftAmount: 0,
+
+        tributeChecked: false, // GiftTribute.js
+        giftTribute: "In memory of", // GiftTribute.js
+        tedTributeConstituentId: "", // GiftTribute.js
+        deceasedFullName: "", // GiftTribute.js
+        inMemoryNewAddress: "", // GiftTribute.js
+        inHonorTedID: "", // GiftTribute.js
+        honoreeFullName: "", // GiftTribute.js
 
         departmentName: "", // NameEmail.js
-        // donationDate: date, // NameEmail.js
+        donationDate: "", // NameEmail.js
         preparedBy: "", // NameEmail.js
         unitReferenceNumber: "", // NameEmail.js
 
-        newDonorCheckBox: false, // NewDonor.js
         designation: [{ ...newDesignation() }],
-        security: [{ ...newSecurity() }],
+        nonGiftPortionChecked: "", // NonGiftPortion.js
+        nonGiftTedId: "", // NonGiftPortion.js
+        giftTedAmount: "", // NonGiftPortion.js
+        nonGiftTedAmount: "", // NonGiftPortion.js
+
+        nonGiftAmount: 0, // NonGiftPortion.js
 
         publicityCode: "No Restrictions", // publicityDropDown.js
 
-        // totalDonationAmount: "", // TotalDonationAmount.js
+        tedDonorUnknown: "", // TedOrgDonor.js
+
+        totalDonationAmount: "", // TotalDonationAmount.js
+
+        giftTotals: "", // TransmittalTotals.js
+        nonGiftTotals: "", // TransmittalTotals.js
+        totaldonations: "", // TransmittalTotals.js
+
+        tributeForeignAddressCheckbox: false,
 
         giftTotal: 0, // TransmittalTotals.js
         nonGiftTotal: 0, // TransmittalTotals.js
         overallTotal: 0, // TransmittalTotals.js
+
+        notifyIndividualOrFamily: false,
+        tedTributeAcknowledgedFirstName: "",
+        tedTributeAcknowledgedLastName: "",
+        acknowledgeeDomesticAddress: "",
+        acknowledgeeDomesticAddressCity: "",
+        acknowledgeeDomesticAddressState: "",
+        acknowledgeeDomesticAddressZipCode: "",
+        acknowledgeeForeignAddress: "",
+        acknowledgeeForeignAddressCity: "",
+        acknowledgeeForeignAddressProvinceRegion: "",
+        acknowledgeeForeignAddressCountry: "",
+        acknowledgeeForeignAddressPostalCode: "",
+
+        notifyIndividualOrFamilyEmail: "",
+        tedTributeAcknowledgedPhone: "",
+        security: [{ ...newSecurity() }],
+    };
+}
+
+export function newTrustFormValues() {
+    return {
+        iraDistribution: "",
+        receiptToTrustServices: false,
+        receiptToDevelopmentPrograms: false,
+        receiptToPlannedGiving: false,
+        // security: {},
+        // trustWire: {},
+        // trustCheck: {},
+        // trustGIK: {},
     };
 }
 
@@ -256,7 +352,7 @@ export function SharedFillForm(setValue) {
     setValue("donorDomesticAddressZipCode", "61111");
 
     setValue("donorForeignAddressCheckbox", false);
-
+    setValue("newDonorCheckBox", false);
     setValue("donorForeignAddress", "1234 Main St.");
     setValue("donorForeignAddressCity", "Berlin");
     setValue("donorForeignAddressProvinceRegion", "Bavaria");

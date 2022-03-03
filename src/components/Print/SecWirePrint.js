@@ -1,28 +1,18 @@
-import {
-    Container,
-    createTheme,
-    Grid,
-    ThemeProvider,
-    Typography,
-} from "@mui/material";
+import { Button, Container, createTheme, ThemeProvider } from "@mui/material";
 import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
-import PrintContactAndDonorInfo from "../Print/PrintContactAndDonorInfo";
-import PrintSecWireDesignations from "../Print/PrintSecWireDesignations";
-import PrintSecurities from "../Print/PrintSecurities";
-import PrintTotals from "../Print/PrintTotals";
-import {
-    UrbanaAddress,
-    ChicagoAddress,
-    SpringfieldAddress,
-} from "../HelperFunctions";
+import PrintContactAndDonorInfo from "./PrintContactAndDonorInfo";
+import PrintTribute from "./PrintTribute";
+import PrintTotals from "./PrintTotals";
+import { PrintCampusAddressSwap } from "../HelperFunctions";
+import PrintSecurities from "./PrintSecurities";
+import PrintSecWireDesignations from "./PrintSecWireDesignations";
 
-const SecWirePrint = ({ formValues, printSecurities, returnUrl, title }) => {
+const SecWirePrint = (props) => {
     const navigate = useNavigate();
     const componentRef = useRef();
-    // console.log(formValues.inMemoryNewAddress);
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -41,85 +31,54 @@ const SecWirePrint = ({ formValues, printSecurities, returnUrl, title }) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
-                        <Row className="headerPrint">
-                            <style>
-                                {`@media print {.headerPrint{display: block; padding-top:2em !important; .addr{display:flex; justify-content:flex-end !important}}}`}
-                            </style>
-
-                            <Row>
-                                <Col>
-                                    <img
-                                        src={
-                                            process.env.PUBLIC_URL + "logo.svg"
-                                        }
-                                        alt="U of I Foundation Logo"
-                                        className="logo"
-                                    />
-                                </Col>
-                                <Col className="d-flex align-items-center">
-                                    <Typography variant="h4" component="h1">
-                                        {title} transmittal
-                                    </Typography>
-                                </Col>
-                                <Col>
-                                    <Grid
-                                        container
-                                        direction="row"
-                                        justifyContent="flex-end"
-                                        alignItems="flex-start"
-                                    >
-                                        {formValues.campusLocation ===
-                                        "Urbana" ? (
-                                            <UrbanaAddress />
-                                        ) : formValues.campusLocation ===
-                                          "Chicago" ? (
-                                            <ChicagoAddress />
-                                        ) : formValues.campusLocation ===
-                                          "Springfield" ? (
-                                            <SpringfieldAddress />
-                                        ) : null}
-                                    </Grid>
-                                </Col>
-                            </Row>
-                        </Row>
-                        {/* <Row className="resultItems ">
-                            <Col>
-                                
-                            </Col>
-                        </Row> */}
+                        <PrintCampusAddressSwap
+                            campusLocation={props.formValues.campusLocation}
+                        />
                         <Container>
                             <Row className="hideForPrint">
                                 <Col className="d-flex justify-content-around">
-                                    <button
+                                    <Button
+                                        variant="contained"
+                                        className="buttonClass"
                                         onClick={() => {
-                                            navigate(returnUrl);
+                                            navigate(props.returnUrl);
                                         }}
                                     >
                                         Back
-                                    </button>
+                                    </Button>
                                 </Col>
                                 <Col className="d-flex justify-content-around">
-                                    <button onClick={handlePrint}>
+                                    <Button
+                                        variant="contained"
+                                        onClick={handlePrint}
+                                    >
                                         Print Document
-                                    </button>
+                                    </Button>
                                 </Col>
                             </Row>
                         </Container>
                         <div className="resultItems">
-                            <PrintContactAndDonorInfo formValues={formValues} />
+                            <PrintContactAndDonorInfo
+                                formValues={props.formValues}
+                            />
                         </div>
+                        <PrintTribute formValues={props.formValues} />
 
-                        <Row className="theDesignationResults">
+                        <div className="theDesignationResults">
                             <Col className="p-0">
-                                <PrintSecWireDesignations
-                                    formValues={formValues}
-                                />
+                                <div className="resultItems">
+                                    <PrintSecWireDesignations
+                                        formValues={props.formValues}
+                                    />
+                                </div>
                             </Col>
-                        </Row>
-                        {printSecurities ? (
+                        </div>
+                        {props.printSecurities ? (
                             <Row className="theDesignationResults">
                                 <Col className="p-0">
-                                    <PrintSecurities formValues={formValues} />
+                                    <PrintSecurities
+                                        formValues={props.formValues}
+                                    />
                                 </Col>
                             </Row>
                         ) : (
@@ -127,7 +86,7 @@ const SecWirePrint = ({ formValues, printSecurities, returnUrl, title }) => {
                         )}
                         <Row>
                             <Col>
-                                <PrintTotals formValues={formValues} />
+                                <PrintTotals formValues={props.formValues} />
                             </Col>
                         </Row>
                     </Container>

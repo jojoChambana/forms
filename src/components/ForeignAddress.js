@@ -1,8 +1,11 @@
 import { TextField } from '@mui/material'
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
+import { useFormContext } from "react-hook-form";
 
-export default function ForeignAddress({ errors, register, prefix }) {
+export default function ForeignAddress({ prefix }) {
+
+    const { register } = useFormContext();
 
     return (
         <Row>

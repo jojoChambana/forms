@@ -4,18 +4,15 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
+import { useFormContext } from "react-hook-form";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Address from "./Address";
 import PublicityDropDown from "../components/PublicityDropDown";
 
-export default function DonorInformation({
-    errors,
-    register,
-    getValues,
-    setValue,
-    showAnonymousDonorCheckBox,
-}) {
+export default function DonorInformation({ showAnonymousDonorCheckBox }) {
+    const { register, getValues, setValue } = useFormContext();
+
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
 
@@ -71,6 +68,7 @@ export default function DonorInformation({
                                 />
                             }
                             label="New donor"
+                            {...register("newDonorCheckBox")}
                         />
                     </Col>
                     {!donorUnknownCheckBox && (
@@ -112,19 +110,10 @@ export default function DonorInformation({
                             </Row>
                             <Row>
                                 <Col>
-                                    <Address
-                                        errors={errors}
-                                        register={register}
-                                        setValue={setValue}
-                                        getValues={getValues}
-                                        prefix="donor"
-                                    />
+                                    <Address prefix="donor" />
                                 </Col>
                             </Row>
-                            <PublicityDropDown
-                                setValue={setValue}
-                                getValues={getValues}
-                            />
+                            <PublicityDropDown />
                         </>
                     )}
                 </>

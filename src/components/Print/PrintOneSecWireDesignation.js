@@ -3,7 +3,7 @@ import { formatAmount } from "../HelperFunctions";
 
 const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
     return (
-        <div>
+        <>
             <div className="resultItems">
                 <ListGroupItem
                     className="aDesignation mb-2"
@@ -23,19 +23,17 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                                     </div>
                                 </div>
                                 <br />
-                                
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            Designation ID:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {
-                                                    oneDesignation.tedDesignationId
-                                                }
-                                            </span>
-                                        </div>
+
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">
+                                        Designation ID:
                                     </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {oneDesignation.tedDesignationId}
+                                        </span>
+                                    </div>
+                                </div>
                                 <div className="d-print-table-row">
                                     <div className="rightLabel">
                                         Designation Title:
@@ -59,31 +57,29 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                                         </span>
                                     </div>
                                 </div>
-                                
-                                        <div className="d-print-table-row">
-                                            <div className="rightLabel">
-                                                Non-Gift Amount:
-                                            </div>
-                                            <div className="d-print-table-cell">
-                                                <span className="normal">
-                                                    {formatAmount(
-                                                        oneDesignation.designationNonGiftAmount
-                                                    )}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div className="d-print-table-row">
-                                            <div className="rightLabel">
-                                                Total:
-                                            </div>
-                                            <div className="d-print-table-cell">
-                                                <span className="normal">
-                                                    {formatAmount(
-                                                        oneDesignation.designationTotalAmount
-                                                    )}
-                                                </span>
-                                            </div>
-                                        </div>
+
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">
+                                        Non-Gift Amount:
+                                    </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formatAmount(
+                                                oneDesignation.designationNonGiftAmount
+                                            )}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">Total:</div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formatAmount(
+                                                oneDesignation.designationTotalAmount
+                                            )}
+                                        </span>
+                                    </div>
+                                </div>
                                 {oneDesignation.designationAdditionalComments !==
                                 "" ? (
                                     <div className="d-print-table-row">
@@ -103,15 +99,12 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                                 ) : (
                                     ""
                                 )}
-
-                              
                             </div>
                         </div>
-                       
                     </div>
                 </ListGroupItem>
             </div>
-        </div>
+        </>
     );
 };
 export default PrintOneSecWireDesignation;

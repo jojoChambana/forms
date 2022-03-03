@@ -2,14 +2,12 @@ import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import { useState } from "react";
 import DomesticAddress from "./DomesticAddress";
 import ForeignAddress from "./ForeignAddress";
+import { useFormContext } from "react-hook-form";
 
-export default function Address({
-    errors,
-    register,
-    prefix,
-    setValue,
-    getValues,
-}) {
+export default function Address({ prefix }) {
+
+    const { getValues, setValue, register } = useFormContext();
+
     const [checked, setChecked] = useState(
         getValues(`${prefix}ForeignAddressCheckbox`)
     ); // Get initial value from the checkbox
@@ -51,21 +49,9 @@ export default function Address({
                 />
             </FormGroup>
             {checked ? (
-                <ForeignAddress
-                    errors={errors}
-                    register={register}
-                    prefix={prefix}
-                    getValues={getValues}
-                    setValue={setValue}
-                />
+                <ForeignAddress prefix={prefix} />
             ) : (
-                <DomesticAddress
-                    errors={errors}
-                    register={register}
-                    prefix={prefix}
-                    getValues={getValues}
-                    setValue={setValue}
-                />
+                <DomesticAddress prefix={prefix} />
             )}
         </>
     );

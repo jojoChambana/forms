@@ -1,16 +1,19 @@
 import { FormLabel, Input, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
+import { useFormContext } from "react-hook-form";
+
 // import { useFormContext } from "react-hook-form";
 import { calcFinalTotals } from "./HelperFunctions";
 // import TotalDonationAmount from "./TotalDonationAmount";
 
-export default function TransmittalTotals({
-    register,
-    setValue,
-    watch,
-    ignoreNonGiftChecked,
-}) {
+export default function TransmittalTotals({ ignoreNonGiftChecked }) {
+    const {
+        register,
+        setValue,
+        watch
+    } = useFormContext();
+
     useEffect(() => {
         const subscription = watch((values, { name, value }) => {
             if (name.startsWith("designation.")) {

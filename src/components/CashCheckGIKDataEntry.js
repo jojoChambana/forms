@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import { FormProvider } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { Button } from "@mui/material";
 import { DevTool } from "@hookform/devtools";
 import ContactInformation from "../components/ContactInformation";
@@ -18,71 +18,31 @@ import {
 
 const CashCheckGIKDataEntry = ({
     onSubmit,
-    getValues,
-    setValue,
-    errors,
-    register,
-    control,
-    watch,
-    handleSubmit,
     showAnonymousDonorCheckBox,
 }) => {
+    const {setValue, handleSubmit, control} = useFormContext();
+
     const fillButton = () => {
         FillCashCheckGIKForm(setValue);
         SharedFillForm(setValue);
     };
 
     return (
-        <FormProvider>
             <Container className="pb-4">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Button onClick={fillButton}>Fill</Button>
-                    <DepartmentCampus
-                        getValues={getValues}
-                        setValue={setValue}
-                    />
+                    <DepartmentCampus />
 
-                    <ContactInformation
-                        errors={errors}
-                        register={register}
-                        control={control}
-                    />
-                    <NameEmail errors={errors} register={register} />
-                    <DonorInformation
-                        errors={errors}
-                        register={register}
-                        getValues={getValues}
-                        setValue={setValue}
-                        showAnonymousDonorCheckBox={showAnonymousDonorCheckBox}
-                    />
-
-                    <GiftTribute
-                        errors={errors}
-                        register={register}
-                        control={control}
-                        getValues={getValues}
-                        setValue={setValue}
-                        prefix="tribute"
-                    />
-                    <DesignationInformation
-                        register={register}
-                        control={control}
-                        setValue={setValue}
-                        getValues={getValues}
-                        watch={watch}
-                    />
-                    <TransmittalTotals
-                        errors={errors}
-                        register={register}
-                        watch={watch}
-                        setValue={setValue}
-                        ignoreNonGiftChecked={false}
-                    />
+                    <ContactInformation />
+                    <NameEmail />
+                    <DonorInformation showAnonymousDonorCheckBox={showAnonymousDonorCheckBox} />
+                    <GiftTribute />
+                    <DesignationInformation />
+                    <TransmittalTotals ignoreNonGiftChecked={false} />
                     <SubmitButton />
                 </form>
                 <DevTool control={control} /> {/* set up the dev tool */}
             </Container>
-        </FormProvider>
     );
 };
 
