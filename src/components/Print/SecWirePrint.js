@@ -75,7 +75,7 @@ const SecWirePrint = (props) => {
                         </div>
                         {props.printSecurities ? (
                             <Row className="theDesignationResults">
-                                <Col className="p-0">
+                                <Col>
                                     <PrintSecurities
                                         formValues={props.formValues}
                                     />

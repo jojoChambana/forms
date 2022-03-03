@@ -1,11 +1,7 @@
-import {
-    FormGroup,
-    TextField,
-    Typography,
-} from "@mui/material";
+import { FormGroup, TextField, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
-import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
+import { MdAdd, MdDelete } from "react-icons/md";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import {
     parseNum,
@@ -13,16 +9,10 @@ import {
     calcFinalTotals,
     newDesignation,
 } from "./HelperFunctions";
+import { IconContext } from "react-icons/lib";
 
 export default function SecWireDesignations() {
-
-    const {
-        register,
-        control,
-        setValue,
-        getValues,
-        watch,
-    } = useFormContext();
+    const { register, control, setValue, getValues, watch } = useFormContext();
 
     // used in building the repeating designation section.  Get the array of object from the 'designation' object in cashValues
     const { fields, append, remove } = useFieldArray({
@@ -30,7 +20,6 @@ export default function SecWireDesignations() {
         name: "designation",
     });
 
- 
     var designationCount = getValues("designation").length; // used to determine if we should show Delete Designation buttons
 
     // this is used to recalculate the Total Amount field when each gift or nongift amount is changed
@@ -63,56 +52,30 @@ export default function SecWireDesignations() {
 
     return (
         <>
-            <Typography variant="h5" component="h3">
-                Designation Information
-            </Typography>        
             <ListGroup className="list-group row">
                 {fields.map((item, index) => {
                     return (
-                        <ListGroupItem key={item.id}>
-
-                            <FormGroup>
-                                <Row className="mb-0">
-                                    <Col>
-                                        {/* only show the 'delete Designation' button if there is more than one item being shown */}
-                                        {designationCount > 1 ? (
-                                            <div className="end-align">
-                                                <Button
-                                                    placeholder="Delete Designation"
-                                                    label="Delete Designation"
-                                                    className="addButtonIcon mt-3"
-                                                    onClick={() => {
-                                                        remove(index);
-                                                        calcFinalTotals(
-                                                            fields,
-                                                            setValue
-                                                        );
-                                                    }}
-                                                >
-                                                    Delete Designation{" "}
-                                                    <MdDeleteForever />
-                                                </Button>
-                                            </div>
-                                        ) : (
-                                            <></>
+                        <ListGroupItem key={item.id} className="mb-3">
+                            <Typography
+                                variant="h5"
+                                component="h3"
+                                className="mt-2 mb-3"
+                            >
+                                Designation Information
+                            </Typography>
+                            <Row>
+                                <Col xs={12} md={3} className="offset-md-1">
+                                    <TextField
+                                        {...register(
+                                            `designation.${index}.tedDesignationId`
                                         )}
-                                    </Col>
-                                </Row>
-                            </FormGroup>
-
-                                <Row>
-                                    <Col xs={12} md={3} className="offset-md-2">
-                                        <TextField
-                                            {...register(
-                                                `designation.${index}.tedDesignationId`
-                                            )}
-                                            required
-                                            placeholder="TED Designation ID"
-                                            label="TED Designation ID"
-                                            className="maxWidth"
-                                        />
-                                    </Col>
-                                <Col xs={12} md={6} className="offset-md-2">
+                                        required
+                                        placeholder="TED Designation ID"
+                                        label="TED Designation ID"
+                                        className="maxWidth"
+                                    />
+                                </Col>
+                                <Col xs={12} md={6}>
                                     <TextField
                                         {...register(
                                             `designation.${index}.tedDesignationTitle`
@@ -122,8 +85,45 @@ export default function SecWireDesignations() {
                                         label="Designation Title"
                                         className="maxWidth"
                                     />
-                                     </Col>
-                                <Col xs={12} md={2} className="offset-md-2">
+                                </Col>
+                                <Col xs={2}>
+                                    <FormGroup>
+                                        <Row className="mb-0">
+                                            <Col>
+                                                {/* only show the 'delete Designation' button if there is more than one item being shown */}
+                                                {designationCount > 1 ? (
+                                                    <div className="end-align">
+                                                        <Button
+                                                            placeholder="Delete Designation"
+                                                            label="Delete Designation"
+                                                            className="addButtonIcon mt-1"
+                                                            onClick={() => {
+                                                                remove(index);
+                                                                calcFinalTotals(
+                                                                    fields,
+                                                                    setValue
+                                                                );
+                                                            }}
+                                                        >
+                                                            <IconContext.Provider
+                                                                value={{
+                                                                    size: "2em",
+                                                                }}
+                                                            >
+                                                                <MdDelete />
+                                                            </IconContext.Provider>
+                                                        </Button>
+                                                    </div>
+                                                ) : (
+                                                    <></>
+                                                )}
+                                            </Col>
+                                        </Row>
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={12} md={2} className="offset-md-1">
                                     <div className="dollarAmount maxWidth">
                                         <TextField
                                             label="Gift Amount"
@@ -140,46 +140,37 @@ export default function SecWireDesignations() {
                                     </div>
                                 </Col>
 
-                                        <Col
-                                            xs={12}
-                                            md={2}
-                                            className="offset-md-2"
-                                        >
-                                            <div className="dollarAmount">
-                                                <TextField
-                                                    {...register(
-                                                        `designation.${index}.designationNonGiftAmount`
-                                                    )}
-                                                    required
-                                                    inputProps={{
-                                                        inputMode: "numeric",
-                                                        pattern:
-                                                            "[0-9]+(.[0-9][0-9])?",
-                                                    }}
-                                                    placeholder="Non-gift Amount"
-                                                    label="Non-gift Amount"
-                                                    className="maxWidth"
-                                                />
-                                            </div>
-                                        </Col>
-                                        <Col
-                                            xs={12}
-                                            md={2}
-                                            className="offset-md-2"
-                                        >
-                                            <div className="dollarAmount">
-                                                <TextField
-                                                    disabled
-                                                    {...register(
-                                                        `designation.${index}.designationTotalAmount`
-                                                    )}
-                                                    placeholder="Total Amount"
-                                                    label="Total Amount"
-                                                    className="maxWidth"
-                                                    defaultValue="0"
-                                                />
-                                            </div>
-                                        </Col>
+                                <Col xs={12} md={2} className="offset-md-2">
+                                    <div className="dollarAmount">
+                                        <TextField
+                                            {...register(
+                                                `designation.${index}.designationNonGiftAmount`
+                                            )}
+                                            required
+                                            inputProps={{
+                                                inputMode: "numeric",
+                                                pattern: "[0-9]+(.[0-9][0-9])?",
+                                            }}
+                                            placeholder="Non-gift Amount"
+                                            label="Non-gift Amount"
+                                            className="maxWidth"
+                                        />
+                                    </div>
+                                </Col>
+                                <Col xs={12} md={2} className="offset-md-2">
+                                    <div className="dollarAmount">
+                                        <TextField
+                                            disabled
+                                            {...register(
+                                                `designation.${index}.designationTotalAmount`
+                                            )}
+                                            placeholder="Total Amount"
+                                            label="Total Amount"
+                                            className="maxWidth"
+                                            defaultValue="0"
+                                        />
+                                    </div>
+                                </Col>
                             </Row>
                             <Row>
                                 <Col sm={12}>
@@ -210,7 +201,14 @@ export default function SecWireDesignations() {
                                 append({ ...newDesignation() });
                             }}
                         >
-                            Add Designation <MdNoteAdd />
+                            <IconContext.Provider
+                                value={{
+                                    size: "2em",
+                                    title: "Add Designation",
+                                }}
+                            >
+                                <MdAdd />
+                            </IconContext.Provider>
                         </Button>
                     </div>
                 </Col>

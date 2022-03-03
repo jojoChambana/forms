@@ -1,89 +1,64 @@
-import {
-    FormGroup,
-    TextField,
-    Typography,
-} from "@mui/material";
+import { FormGroup, TextField, Typography } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
-import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
-import {  useFieldArray, useFormContext } from "react-hook-form";
-import { newSecurity} from "./HelperFunctions";
+import { MdNoteAdd, MdDeleteForever, MdDelete, MdAdd } from "react-icons/md";
+import { useFieldArray, useFormContext } from "react-hook-form";
+import {
+    calcFinalTotals,
+    newDesignation,
+    newSecurity,
+} from "./HelperFunctions";
+import { IconContext } from "react-icons/lib";
 
 export default function Security() {
+    const { register, control, getValues } = useFormContext();
 
-    const {
-        register,
-        control,
-        getValues,
-    } = useFormContext();
-    
     // used in building the repeating security section.  Get the array of object from the 'security' object in cashValues
-    const { fields, append, remove } = useFieldArray({
+    const { fields, setValue, append, remove } = useFieldArray({
         control,
         name: "security",
     });
 
-    var securityCount = 0
+    var securityCount = 0;
     if (getValues("security") !== undefined)
-         securityCount = getValues("security").length; // used to determine if we should show Delete security buttons
+        securityCount = getValues("security").length; // used to determine if we should show Delete security buttons
 
     return (
         <>
-            <Typography variant="h5" component="h3">
-            Security Information
-            </Typography>        
             <ListGroup className="list-group row">
                 {fields.map((item, index) => {
-
                     return (
-                        <ListGroupItem key={item.id}>
+                        <ListGroupItem key={item.id} className="mb-3">
+                            <Typography
+                                variant="h5"
+                                component="h3"
+                                className="mt-2 mb-3"
+                            >
+                                Security Information
+                            </Typography>
 
-                            <FormGroup>
-                                <Row className="mb-0">
-                                    <Col>
-                                        {/* only show the 'delete Security' button if there is more than one item being shown */}
-                                        {securityCount > 1 ? (
-                                            <div className="end-align">
-                                                <Button
-                                                    placeholder="Delete Security"
-                                                    label="Delete Security"
-                                                    className="addButtonIcon mt-3"
-                                                    onClick={() => { remove(index); }}
-                                                >
-                                                    Delete Security{" "}
-                                                    <MdDeleteForever />
-                                                </Button>
-                                            </div>
-                                        ) : (
-                                            <></>
-                                        )}
-                                    </Col>
-                                </Row>
-                            </FormGroup>
-
-                                <Row>
-                                    <Col xs={12} md={3} className="offset-md-2">
-                                        <TextField
-                                            {...register(
-                                                `security.${index}.shares`
-                                            )}
-                                            required
-                                            placeholder="Shares"
-                                            label="Shares"
-                                            className="maxWidth"
-                                        />
-                                    </Col>
-                                <Col xs={12} md={6} className="offset-md-2">
+                            <Row>
+                                <Col xs={12} md={2} className="offset-md-1">
                                     <TextField
                                         {...register(
-                                            `security.${index}.name`
+                                            `security.${index}.shares`
                                         )}
+                                        required
+                                        placeholder="Shares"
+                                        label="Shares"
+                                        className="maxWidth"
+                                    />
+                                </Col>
+                                <Col xs={12} md={4}>
+                                    <TextField
+                                        {...register(`security.${index}.name`)}
                                         required
                                         placeholder="Name"
                                         label="Name"
                                         className="maxWidth"
                                     />
-                                     </Col>
-                                     <Col xs={12} md={6} className="offset-md-2">
+                                </Col>
+
+                                <Col xs={12} md={3}>
                                     <TextField
                                         {...register(
                                             `security.${index}.symbol`
@@ -93,9 +68,43 @@ export default function Security() {
                                         label="Symbol"
                                         className="maxWidth"
                                     />
-                                     </Col>
+                                </Col>
 
-                                       
+                                <Col>
+                                    <FormGroup>
+                                        <Row className="mb-0">
+                                            <Col>
+                                                {/* only show the 'delete Security' button if there is more than one item being shown */}
+                                                {securityCount > 1 ? (
+                                                    <div className="end-align">
+                                                        <Button
+                                                            placeholder="Delete Designation"
+                                                            label="Delete Designation"
+                                                            className="addButtonIcon mt-1"
+                                                            onClick={() => {
+                                                                remove(index);
+                                                                calcFinalTotals(
+                                                                    fields,
+                                                                    setValue
+                                                                );
+                                                            }}
+                                                        >
+                                                            <IconContext.Provider
+                                                                value={{
+                                                                    size: "2em",
+                                                                }}
+                                                            >
+                                                                <MdDelete />
+                                                            </IconContext.Provider>
+                                                        </Button>
+                                                    </div>
+                                                ) : (
+                                                    <></>
+                                                )}
+                                            </Col>
+                                        </Row>
+                                    </FormGroup>
+                                </Col>
                             </Row>
                         </ListGroupItem>
                     );
@@ -106,14 +115,21 @@ export default function Security() {
                 <Col xs={6} md={3}>
                     <div>
                         <Button
-                            placeholder="Add Security"
-                            label="Add Security"
+                            placeholder="Add Designation"
+                            label="Add Designation"
                             className="addButtonIcon"
                             onClick={() => {
-                                append({ ...newSecurity() });
+                                append({ ...newDesignation() });
                             }}
                         >
-                            Add Security <MdNoteAdd />
+                            <IconContext.Provider
+                                value={{
+                                    size: "2em",
+                                    title: "Add Designation",
+                                }}
+                            >
+                                <MdAdd />
+                            </IconContext.Provider>
                         </Button>
                     </div>
                 </Col>

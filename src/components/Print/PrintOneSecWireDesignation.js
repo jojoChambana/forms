@@ -1,9 +1,21 @@
-import { ListGroupItem } from "react-bootstrap";
+import { Typography } from "@mui/material";
+import { Col, ListGroupItem, Row } from "react-bootstrap";
 import { formatAmount } from "../HelperFunctions";
 
 const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
     return (
         <>
+            <Row>
+                <Col>
+                    <Typography
+                        variant="h5"
+                        component="h3"
+                        className="mt-3 mb-3"
+                    >
+                        Designation Information
+                    </Typography>
+                </Col>
+            </Row>
             <div className="resultItems">
                 <ListGroupItem
                     className="aDesignation mb-2"
