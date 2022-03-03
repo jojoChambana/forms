@@ -39,7 +39,7 @@ export default function DonorInformation({ showAnonymousDonorCheckBox }) {
             <Typography variant="h5" component="h3">
                 Donor Information
             </Typography>
-            <Row className="mt-4">
+            <Row className="mt-2">
                 <>
                     {showAnonymousDonorCheckBox ? (
                         <Col xs={12} md={6}>

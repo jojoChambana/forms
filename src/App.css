@@ -32,6 +32,15 @@ nav #navbarSupportedContent {
   display: flex;
 }
 
+@media screen and (max-width: 600px) {
+  nav #navbarSupportedContent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 nav #navbarSupportedContent > div > div > h1 {
   display: none;
 }
@@ -425,5 +434,15 @@ button:hover,
 
 .list-group-item + .list-group-item {
   border-top-width: 1px;
+}
+
+@media screen and (max-width: 600px) {
+  div.col-md-2.col-12,
+  div.col-md-3.col-12,
+  div.col-md-4.col-12,
+  div.col-md-5.col-12,
+  div.col-md-6.col-12 {
+    padding-bottom: 1em;
+  }
 }
 /*# sourceMappingURL=App.css.map */
