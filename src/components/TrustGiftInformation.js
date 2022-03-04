@@ -6,6 +6,7 @@ import {
     FormLabel,
     FormControl,
     Button,
+    Container,
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import { Col, Row } from "react-bootstrap";
@@ -38,7 +39,7 @@ export default function TrustGiftInformation({
     };
 
     return (
-        <>
+        <Container>
             <Row>
                 <Col>
                     <FormControl component="fieldset">
@@ -49,6 +50,7 @@ export default function TrustGiftInformation({
                             rules={{ required: true }}
                             control={control}
                             name="iraDistribution"
+                            className="d-flex flex-row"
                             render={({ field }) => (
                                 <RadioGroup {...field}>
                                     <FormControlLabel
@@ -142,6 +144,6 @@ export default function TrustGiftInformation({
             <TrustCheck />
             <TrustGIK />
             <Button onClick={logIt}>Console Log Values</Button>
-        </>
+        </Container>
     );
 }

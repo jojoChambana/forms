@@ -52,18 +52,14 @@ export default function SecWireDesignations() {
 
     return (
         <>
-            <ListGroup className="list-group row">
+            <ListGroup className="list-group">
+                <Typography variant="h5" component="h3" className="mt-2 mb-3">
+                    Designation Information
+                </Typography>
                 {fields.map((item, index) => {
                     return (
                         <ListGroupItem key={item.id} className="mb-3">
-                            <Typography
-                                variant="h5"
-                                component="h3"
-                                className="mt-2 mb-3"
-                            >
-                                Designation Information
-                            </Typography>
-                            <Row>
+                            <Row className="mt-3">
                                 <Col xs={12} md={3} className="offset-md-1">
                                     <TextField
                                         {...register(

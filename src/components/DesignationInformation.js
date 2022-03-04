@@ -19,14 +19,7 @@ import {
 import { IconContext } from "react-icons/lib";
 
 export default function DesignationInformation() {
-
-    const {
-        register,
-        control,
-        setValue,
-        getValues,
-        watch,
-    } = useFormContext();
+    const { register, control, setValue, getValues, watch } = useFormContext();
 
     // used in building the repeating designation section.  Get the array of object from the 'designation' object in cashValues
     const { fields, append, remove } = useFieldArray({

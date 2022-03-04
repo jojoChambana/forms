@@ -1,6 +1,6 @@
 import { ListGroupItem } from "react-bootstrap";
-import { formatAmount } from "../HelperFunctions";
-
+import NumberFormat from "react-number-format";
+import { formatAmount3 } from "../HelperFunctions";
 const PrintOneSecWireSecurity = ({ oneSecurity, index }) => {
     return (
         <>
@@ -23,7 +23,9 @@ const PrintOneSecWireSecurity = ({ oneSecurity, index }) => {
                                 <div className="rightLabel">Shares:</div>
                                 <div className="d-print-table-cell">
                                     <span className="normal">
-                                        {oneSecurity.shares}
+                                        {formatAmount3(oneSecurity.shares)}
+
+                                        {/* {oneSecurity.shares} */}
                                     </span>
                                 </div>
                             </div>
@@ -40,7 +42,7 @@ const PrintOneSecWireSecurity = ({ oneSecurity, index }) => {
                                 <div className="rightLabel">Symbol</div>
                                 <div className="d-print-table-cell">
                                     <span className="normal">
-                                        {formatAmount(oneSecurity.symbol)}
+                                        {oneSecurity.symbol}
                                     </span>
                                 </div>
                             </div>

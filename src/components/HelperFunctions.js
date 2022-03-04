@@ -33,6 +33,15 @@ export function formatAmount2(amount) {
     return amount;
 }
 
+export function formatAmount3(amount) {
+    if (isNaN(amount)) {
+        amount = 0;
+    } else {
+        amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 export function calcFinalTotals(
     designationArray,
     setValue,

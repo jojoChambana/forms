@@ -8,6 +8,7 @@ import {
     newSecurity,
 } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
+import NumberFormat from "react-number-format";
 
 export default function Security() {
     const { register, control, getValues } = useFormContext();
@@ -24,19 +25,14 @@ export default function Security() {
 
     return (
         <>
-            <ListGroup className="list-group row">
+            <Typography variant="h5" component="h3" className="mt-2 mb-3">
+                Security Information
+            </Typography>
+            <ListGroup className="list-group">
                 {fields.map((item, index) => {
                     return (
                         <ListGroupItem key={item.id} className="mb-3">
-                            <Typography
-                                variant="h5"
-                                component="h3"
-                                className="mt-2 mb-3"
-                            >
-                                Security Information
-                            </Typography>
-
-                            <Row>
+                            <Row className="pt-3">
                                 <Col xs={12} md={2} className="offset-md-1">
                                     <TextField
                                         {...register(
@@ -45,7 +41,8 @@ export default function Security() {
                                         required
                                         placeholder="Shares"
                                         label="Shares"
-                                        className="maxWidth"
+                                        className="maxWidth securityShares"
+                                        thousandSeparator={true}
                                     />
                                 </Col>
                                 <Col xs={12} md={4}>

@@ -357,6 +357,9 @@ button,
     margin: 1em 0;
 }
 
+.list-group-item {
+    border-radius: 4px;
+}
 .list-group-item + .list-group-item {
     border-top-width: 1px;
 }
