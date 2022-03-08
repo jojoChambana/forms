@@ -52,7 +52,7 @@ function App() {
     );
     const [wireValues, setWireValues] = useState(newSecWireFormValues());
     //const [trustValues, setTrustValues] = useState(newFormValues());
-    console.table(wireValues);
+    // console.table(wireValues);
 
     return (
         <ThemeProvider theme={theme}>

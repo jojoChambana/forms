@@ -327,14 +327,49 @@ export function newSecWireFormValues() {
 
 export function newTrustFormValues() {
     return {
-        iraDistribution: "",
-        receiptToTrustServices: false,
-        receiptToDevelopmentPrograms: false,
-        receiptToPlannedGiving: false,
-        // security: {},
-        // trustWire: {},
-        // trustCheck: {},
-        // trustGIK: {},
+        trustType: "", // TrustGiftInformation.js
+        dateOfGift: "", // TrustDepartmentInformation.js
+        preparedBy: "", // TrustDepartmentInformation.js
+        datePrepared: "", // TrustDepartmentInformation.js
+        doNotProcessUntilContactedByTrustServices: false, // TrustDepartmentInformation.js
+
+        newDonorCheckBox: false, // DonorInformation.js
+        newDonorAddressCheckBox: false, // DonorInformation.js
+        donorUnknownCheckBox: false, // DonorInformation.js
+        tedConstituentId: "", // DonorInformation.js
+        organizationDonorName: "", // DonorInformation.js
+
+        donorForeignAddressCheckbox: false, //Address.js,
+
+        donorDomesticAddressCity: "", // Address.js
+        donorDomesticAddress: "", // Address.js
+        donorDomesticAddressState: "", // Address.js
+        donorDomesticAddressZipCode: "", // Address.js
+
+        donorDomesticAddressNewAddress: false,
+
+        donorForeignAddressCity: "", // Address.js
+        donorForeignAddress: "", // Address.js
+        donorForeignAddressProvinceRegion: "", // Address.js
+        donorForeignAddressCountry: "", // Address.js
+        donorForeignAddressPostalCode: "", // Address.js
+
+        doNotAddSpousePartnerToReceipt: false, // SpousePartnerInformation.js
+        doNotGiveSpousePartnerCredit: false, // SpousePartnerInformation.js
+        spousePartnerTedConstituentId: "", // SpousePartnerInformation.js
+        spousePartnerOrganizationDonorName: "", // SpousePartnerInformation.js
+
+        iraDistribution: "", // TrustIRADIstribution.js.  fdefault to '' so it forces the user to select 'Yes' or 'No'
+        receiptToTrustServices: false, // TrustReceiptTo.js
+        receiptToDevelopmentPrograms: false, // TrustReceiptTo.js
+        receiptToPlannedGiving: false, // TrustReceiptTo.js
+        receiptToPlannedGivingName: "", // TrustReceiptTo.js
+        noReceiptNecessary: false, // TrustGiftInformation.js
+        security: [], // Security.js
+        trustWire: [], // TrustWire.js
+        trustCheck: [], // TrustCheck.js
+        trustGIK: [], // trustGIK.js
+        otherInformation: "", // TrustOtherInformation.js
     };
 }
 

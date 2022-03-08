@@ -1,19 +1,11 @@
-import {
-    FormGroup,
-    TextField,
-    Typography,
-} from "@mui/material";
+import { FormGroup, TextField, Typography } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
-import {  useFieldArray, useFormContext } from "react-hook-form";
-import { newTrustCheck} from "./HelperFunctions";
+import { useFieldArray, useFormContext } from "react-hook-form";
+import { newTrustCheck } from "./HelperFunctions";
 
 export default function TrustCheck() {
-    
-    const {
-        register,
-        control
-    } = useFormContext();
+    const { register, control } = useFormContext();
 
     // used in building the repeating trustCheck section.  Get the array of object from the 'trustCheck' object in cashValues
     const { fields, append, remove } = useFieldArray({
@@ -28,14 +20,12 @@ export default function TrustCheck() {
     return (
         <>
             <Typography variant="h5" component="h3">
-            Check Information
-            </Typography>        
+                Check Information
+            </Typography>
             <ListGroup className="list-group row">
                 {fields.map((item, index) => {
-
                     return (
                         <ListGroupItem key={item.id}>
-
                             <FormGroup>
                                 <Row className="mb-0">
                                     <Col>
@@ -44,28 +34,29 @@ export default function TrustCheck() {
                                                 placeholder="Delete Check"
                                                 label="Delete Check"
                                                 className="addButtonIcon mt-3"
-                                                onClick={() => { remove(index); }}
+                                                onClick={() => {
+                                                    remove(index);
+                                                }}
                                             >
-                                                Delete Check{" "}
-                                                <MdDeleteForever />
+                                                Delete Check <MdDeleteForever />
                                             </Button>
                                         </div>
                                     </Col>
                                 </Row>
                             </FormGroup>
 
-                                <Row>
-                                    <Col xs={12} md={3} className="offset-md-2">
-                                        <TextField
-                                            {...register(
-                                                `trustCheck.${index}.bankName`
-                                            )}
-                                            required
-                                            placeholder="Check Number(s)"
-                                            label="Check Number(s)"
-                                            className="maxWidth"
-                                        />
-                                    </Col>
+                            <Row>
+                                <Col xs={12} md={3} className="offset-md-2">
+                                    <TextField
+                                        {...register(
+                                            `trustCheck.${index}.bankName`
+                                        )}
+                                        required
+                                        placeholder="Check Number(s)"
+                                        label="Check Number(s)"
+                                        className="maxWidth"
+                                    />
+                                </Col>
                                 <Col xs={12} md={6} className="offset-md-2">
                                     <TextField
                                         {...register(
@@ -79,8 +70,7 @@ export default function TrustCheck() {
                                         label="Check Total"
                                         required
                                     />
-                                     </Col>
-                                       
+                                </Col>
                             </Row>
                         </ListGroupItem>
                     );

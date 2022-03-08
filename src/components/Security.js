@@ -1,16 +1,11 @@
 import { FormGroup, TextField, Typography } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
-import { MdNoteAdd, MdDeleteForever, MdDelete, MdAdd } from "react-icons/md";
+import { MdDelete, MdAdd } from "react-icons/md";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import {
-    calcFinalTotals,
-    newDesignation,
-    newSecurity,
-} from "./HelperFunctions";
+import { calcFinalTotals, newDesignation } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
-import NumberFormat from "react-number-format";
 
-export default function Security() {
+export default function Security({ alwaysShowSecurtityDeleteButtons }) {
     const { register, control, getValues } = useFormContext();
 
     // used in building the repeating security section.  Get the array of object from the 'security' object in cashValues
@@ -72,7 +67,8 @@ export default function Security() {
                                         <Row className="mb-0">
                                             <Col>
                                                 {/* only show the 'delete Security' button if there is more than one item being shown */}
-                                                {securityCount > 1 ? (
+                                                {securityCount > 1 ||
+                                                alwaysShowSecurtityDeleteButtons ? (
                                                     <div className="end-align">
                                                         <Button
                                                             placeholder="Delete Designation"

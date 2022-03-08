@@ -16,21 +16,6 @@ export default function DonorInformation({ showAnonymousDonorCheckBox }) {
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
 
-    const handleClickUnknownDonor = (event) => {
-        setValue("donorUnknownCheckBox", event.target.checked); // set the rect hook array element appropriately
-        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-    };
-
-    const handleClickNewAddress = (event) => {
-        setValue("newDonorAddressCheckBox", event.target.checked); // set the rect hook array element appropriately
-        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-    };
-
-    const handleClickNewDonor = (event) => {
-        setValue("newDonorCheckBox", event.target.checked); // set the rect hook array element appropriately
-        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-    };
-
     const donorUnknownCheckBox = getValues("donorUnknownCheckBox");
     // console.log("showAnonymousCheckBox", showAnonymousDonorCheckBox);
 
@@ -49,7 +34,15 @@ export default function DonorInformation({ showAnonymousDonorCheckBox }) {
                                         checked={getValues(
                                             "donorUnknownCheckBox"
                                         )}
-                                        onClick={handleClickUnknownDonor}
+                                        onClick={(event) => {
+                                            setValue(
+                                                "donorUnknownCheckBox",
+                                                event.target.checked
+                                            ); // set the rect hook array element appropriately
+                                            setaCheckboxChanged(
+                                                !aCheckboxChanged
+                                            ); // this will trigger a re-render of the page to hide/show elements
+                                        }}
                                     />
                                 }
                                 label="Donor is unknown, anonymous, or various cash donors"
@@ -64,11 +57,16 @@ export default function DonorInformation({ showAnonymousDonorCheckBox }) {
                             control={
                                 <Checkbox
                                     checked={getValues("newDonorCheckBox")}
-                                    onClick={handleClickNewDonor}
+                                    onClick={(event) => {
+                                        setValue(
+                                            "newDonorCheckBox",
+                                            event.target.checked
+                                        ); // set the rect hook array element appropriately
+                                        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
+                                    }}
                                 />
                             }
                             label="New donor"
-                            {...register("newDonorCheckBox")}
                         />
                     </Col>
                     {!donorUnknownCheckBox && (
@@ -81,30 +79,37 @@ export default function DonorInformation({ showAnonymousDonorCheckBox }) {
                                                 checked={getValues(
                                                     "newDonorAddressCheckBox"
                                                 )}
-                                                onClick={handleClickNewAddress}
+                                                onClick={(event) => {
+                                                    setValue(
+                                                        "newDonorAddressCheckBox",
+                                                        event.target.checked
+                                                    ); // set the rect hook array element appropriately
+                                                    setaCheckboxChanged(
+                                                        !aCheckboxChanged
+                                                    ); // this will trigger a re-render of the page to hide/show elements
+                                                }}
                                             />
                                         }
                                         label="New address"
-                                        {...register("newDonorAddressCheckBox")}
                                     />
                                 </Col>
                             </Row>
                             <Row>
-                                <Col xs={12} md={6}>
-                                    <TextField
-                                        {...register("tedConstituentId")}
-                                        required
-                                        placeholder="TED Constituent ID"
-                                        className="maxWidth"
-                                        label="TED Constituent ID"
-                                    />
-                                </Col>
-                                <Col xs={12} md={6}>
+                                <Col xs={12} md={4}>
                                     <TextField
                                         {...register("organizationDonorName")}
                                         placeholder="Organization/Donor Name"
+                                        required
                                         className="maxWidth"
                                         label="Organization/Donor name"
+                                    />
+                                </Col>
+                                <Col xs={12} md={3}>
+                                    <TextField
+                                        {...register("tedConstituentId")}
+                                        placeholder="TED Constituent ID"
+                                        className="maxWidth"
+                                        label="TED Constituent ID"
                                     />
                                 </Col>
                             </Row>

@@ -1,22 +1,15 @@
-import {
-    FormGroup,
-    TextField,
-    Typography,
-} from "@mui/material";
+import { FormGroup, TextField, Typography } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
-import {  useFieldArray, useFormContext } from "react-hook-form";
-import { newTrustWire} from "./HelperFunctions";
+import { useFieldArray, useFormContext } from "react-hook-form";
+import { newTrustWire } from "./HelperFunctions";
 
 export default function TrustWire() {
     // used in building the repeating trustWire section.  Get the array of object from the 'trustWire' object in cashValues
- 
-    const {
-        register,
-        control
-    } = useFormContext();
 
-   const { fields, append, remove } = useFieldArray({
+    const { register, control } = useFormContext();
+
+    const { fields, append, remove } = useFieldArray({
         control,
         name: "trustWire",
     });
@@ -28,14 +21,12 @@ export default function TrustWire() {
     return (
         <>
             <Typography variant="h5" component="h3">
-            Wire Information
-            </Typography>        
+                Wire Information
+            </Typography>
             <ListGroup className="list-group row">
                 {fields.map((item, index) => {
-
                     return (
                         <ListGroupItem key={item.id}>
-
                             <FormGroup>
                                 <Row className="mb-0">
                                     <Col>
@@ -44,28 +35,29 @@ export default function TrustWire() {
                                                 placeholder="Delete Wire"
                                                 label="Delete Wire"
                                                 className="addButtonIcon mt-3"
-                                                onClick={() => { remove(index); }}
+                                                onClick={() => {
+                                                    remove(index);
+                                                }}
                                             >
-                                                Delete Wire{" "}
-                                                <MdDeleteForever />
+                                                Delete Wire <MdDeleteForever />
                                             </Button>
                                         </div>
                                     </Col>
                                 </Row>
                             </FormGroup>
 
-                                <Row>
-                                    <Col xs={12} md={3} className="offset-md-2">
-                                        <TextField
-                                            {...register(
-                                                `trustWire.${index}.bankName`
-                                            )}
-                                            required
-                                            placeholder="Bank Name"
-                                            label="Bank Name"
-                                            className="maxWidth"
-                                        />
-                                    </Col>
+                            <Row>
+                                <Col xs={12} md={3} className="offset-md-2">
+                                    <TextField
+                                        {...register(
+                                            `trustWire.${index}.bankName`
+                                        )}
+                                        required
+                                        placeholder="Bank Name"
+                                        label="Bank Name"
+                                        className="maxWidth"
+                                    />
+                                </Col>
                                 <Col xs={12} md={6} className="offset-md-2">
                                     <TextField
                                         {...register(
@@ -79,8 +71,7 @@ export default function TrustWire() {
                                         label="Total Value of Securities"
                                         required
                                     />
-                                     </Col>
-                                       
+                                </Col>
                             </Row>
                         </ListGroupItem>
                     );

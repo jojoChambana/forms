@@ -17,14 +17,8 @@ import "react-phone-number-input/style.css";
 import Address from "./Address";
 
 export default function GiftTribute() {
+    const { register, getValues, setValue, control } = useFormContext();
 
-    const {
-        register,
-        getValues,
-        setValue,
-        control,
-    } = useFormContext();
-    
     let giftTribute = getValues("giftTribute");
     if (giftTribute === "") {
         setValue("giftTribute", "In memory of");
@@ -116,7 +110,7 @@ export default function GiftTribute() {
                                 </Row>
                             </RadioGroup>
                             <Row>
-                                <Col xs={12} md={6}>
+                                <Col xs={12} md={3}>
                                     <TextField
                                         {...register("tedTributeConstituentId")}
                                         placeholder="TED Constituent ID"
@@ -124,49 +118,39 @@ export default function GiftTribute() {
                                         label="TED Constituent ID"
                                     />
                                 </Col>
-                            </Row>
-                            <Row className="mb-0">
-                                <Col xs={12}>
-                                    <Row
-                                        className={
-                                            showInMemoryOf
-                                                ? "mb-0"
-                                                : "hiddenText"
-                                        }
-                                    >
-                                        <Col xs={12} md={4}>
-                                            <TextField
-                                                placeholder="Deceased Full Name"
-                                                required={showInMemoryOf}
-                                                name="Deceased"
-                                                label="Deceased Full Name"
-                                                {...register(
-                                                    "deceasedFullName"
-                                                )}
-                                                className="maxWidth"
-                                            />
-                                        </Col>
-                                    </Row>
+
+                                <Col
+                                    xs={12}
+                                    md={4}
+                                    className={
+                                        showInMemoryOf ? "mb-0" : "hiddenText"
+                                    }
+                                >
+                                    <TextField
+                                        placeholder="Deceased Full Name"
+                                        required={showInMemoryOf}
+                                        name="Deceased"
+                                        label="Deceased Full Name"
+                                        {...register("deceasedFullName")}
+                                        className="maxWidth"
+                                    />
                                 </Col>
-                                <Col xs={12}>
-                                    <Row
-                                        className={
-                                            showInMemoryOf
-                                                ? "hiddenText"
-                                                : "mb-0"
-                                        }
-                                    >
-                                        <Col xs={12} md={4}>
-                                            <TextField
-                                                placeholder="Honoree Full Name"
-                                                required={!showInMemoryOf}
-                                                name="Honoree"
-                                                label="Honoree Full Name"
-                                                {...register("honoreeFullName")}
-                                                className="maxWidth"
-                                            />
-                                        </Col>
-                                    </Row>
+
+                                <Col
+                                    xs={12}
+                                    md={4}
+                                    className={
+                                        showInMemoryOf ? "hiddenText" : "mb-0"
+                                    }
+                                >
+                                    <TextField
+                                        placeholder="Honoree Full Name"
+                                        required={!showInMemoryOf}
+                                        name="Honoree"
+                                        label="Honoree Full Name"
+                                        {...register("honoreeFullName")}
+                                        className="maxWidth"
+                                    />
                                 </Col>
                             </Row>
                         </FormControl>
@@ -190,7 +174,7 @@ export default function GiftTribute() {
                         </Row>
                         <Address prefix="tribute" />
                         <Row>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={3}>
                                 <Controller
                                     name="designationPhoneNumber"
                                     control={control}
@@ -210,7 +194,7 @@ export default function GiftTribute() {
                                     )}
                                 />
                             </Col>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={3}>
                                 <TextField
                                     type="email"
                                     placeholder="Designation email"

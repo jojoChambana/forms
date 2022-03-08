@@ -6,19 +6,22 @@ import {
     FormGroup,
     TextField,
     Typography,
-    Checkbox,
+    FormControl,
     createTheme,
 } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
 import { useFieldArray, useFormContext } from "react-hook-form";
+import { useState } from "react";
 import { newTrustGIK } from "./HelperFunctions";
-import { Controller } from "react-hook-form";
 import { ThemeProvider } from "@emotion/react";
 import { useRef } from "react";
 
 export default function TrustGIK() {
-    const { register, control } = useFormContext();
+    // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
+    const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
+
+    const { register, control, getValues, setValue } = useFormContext();
 
     // used in building the repeating trustGIK section.  Get the array of object from the 'trustGIK' object in cashValues
     const { fields, append, remove } = useFieldArray({
@@ -109,47 +112,39 @@ export default function TrustGIK() {
                                             className="offset-md-2"
                                         >
                                             <FormLabel>
-                                                {" "}
                                                 Is 8283 Required?
                                             </FormLabel>
 
-                                            <Controller
-                                                rules={{ required: true }}
-                                                control={control}
-                                                name={`trustGIK.${index}.is8283Required`}
-                                                render={({ field }) => (
-                                                    <RadioGroup {...field}>
-                                                        <FormControlLabel
-                                                            value="Yes"
-                                                            control={<Radio />}
-                                                            label="Yes"
-                                                        />
-                                                        <FormControlLabel
-                                                            value="No"
-                                                            control={<Radio />}
-                                                            label="No"
-                                                        />
-                                                    </RadioGroup>
-                                                )}
-                                            />
-                                        </Col>
-                                        <Col>
-                                            <Controller
-                                                rules={{ required: true }}
-                                                control={control}
-                                                name={`trustGIK.${index}.testCheckBox`}
-                                                render={({ field }) => (
-                                                    <Checkbox
-                                                        {...field}
-                                                        checked={field.value}
-                                                        onChange={(e) =>
-                                                            field.onChange(
-                                                                e.target.checked
-                                                            )
-                                                        }
+                                            <FormControl>
+                                                <RadioGroup
+                                                    row
+                                                    aria-labelledby={`trustGIK.${index}.is8283Required`}
+                                                    value={getValues(
+                                                        `trustGIK.${index}.is8283Required`
+                                                    )}
+                                                    onChange={(event) => {
+                                                        setValue(
+                                                            `trustGIK.${index}.is8283Required`,
+                                                            event.target.value
+                                                        ); // set the rect hook array element appropriately
+                                                        setaCheckboxChanged(
+                                                            !aCheckboxChanged
+                                                        ); // this will trigger a re-render of the page to hide/show elements
+                                                    }}
+                                                    name="iraDistribution"
+                                                >
+                                                    <FormControlLabel
+                                                        value="Yes"
+                                                        control={<Radio />}
+                                                        label="Yes"
                                                     />
-                                                )}
-                                            />
+                                                    <FormControlLabel
+                                                        value="No"
+                                                        control={<Radio />}
+                                                        label="No"
+                                                    />
+                                                </RadioGroup>
+                                            </FormControl>
                                         </Col>
                                     </Row>
                                 </ListGroupItem>

@@ -41,7 +41,13 @@ export default function SecWireDataEntry({
                         <ContactInformation />
                         <NameEmail />
                         <DonorInformation showAnonymousDonorCheckBox={false} />
-                        {showSecurities ? <Security /> : <></>}
+                        {showSecurities ? (
+                            <Security
+                                alwaysShowSecurtityDeleteButtons={false}
+                            />
+                        ) : (
+                            <></>
+                        )}
 
                         <SecWireDesignations />
                         <TransmittalTotals ignoreNonGiftChecked={true} />

@@ -17,7 +17,7 @@ function NumberFormatCustom(props) {
                     },
                 });
             }}
-            thousandSeparator
+            thousandSeparator={true}
             // isNumericString
         />
     );

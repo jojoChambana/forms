@@ -13,8 +13,11 @@ export default function NameEmail() {
         today.getDate() +
         "-" +
         today.getFullYear();
-    
-    const { formState: { errors }, register } = useFormContext();
+
+    const {
+        formState: { errors },
+        register,
+    } = useFormContext();
 
     return (
         <Row>
@@ -28,11 +31,11 @@ export default function NameEmail() {
                 />
                 <ErrorMessage errors={errors} name="departmentNameError" />
             </Col>
-            <Col xs={12} md={2}>
+            <Col xs={12} md={3}>
                 <TextField
                     {...register("donationDate")}
                     label="Date received by department"
-                    className="dateField"
+                    className="dateField maxWidth"
                     defaultValue={date}
                 />
             </Col>
@@ -45,7 +48,7 @@ export default function NameEmail() {
                     label="Prepared by"
                 />
             </Col>
-            <Col xs={12} md={4}>
+            <Col xs={12} md={3}>
                 <TextField
                     type="text"
                     placeholder="Unit number"

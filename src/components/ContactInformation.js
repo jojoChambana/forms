@@ -5,9 +5,8 @@ import PhoneInput from "react-phone-number-input";
 import { Controller, useFormContext } from "react-hook-form";
 import "react-phone-number-input/style.css";
 export default function DonorInfo() {
-
     const { register, errors, control } = useFormContext();
-    
+
     return (
         <>
             <Row>
@@ -46,7 +45,7 @@ export default function DonorInfo() {
                         />
                     </div>
                 </Col>
-                <Col xs={12} md={2}>
+                <Col xs={12} md={3}>
                     <TextField
                         {...register("contactEmail")}
                         // onChange={(e) => validateEmail(e)}
@@ -57,7 +56,7 @@ export default function DonorInfo() {
                         className="maxWidth"
                     ></TextField>
                 </Col>
-                <Col xs={12} md={4}>
+                <Col xs={12} md={3}>
                     <TextField
                         {...register("collegeName")}
                         required

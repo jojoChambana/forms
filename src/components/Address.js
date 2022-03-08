@@ -5,7 +5,6 @@ import ForeignAddress from "./ForeignAddress";
 import { useFormContext } from "react-hook-form";
 
 export default function Address({ prefix }) {
-
     const { getValues, setValue, register } = useFormContext();
 
     const [checked, setChecked] = useState(
@@ -20,14 +19,14 @@ export default function Address({ prefix }) {
             setChecked(event.target.checked)
         ); // Change value of array in formVariables
 
-        console.log(
-            "handleChange",
-            prefix,
-            event.target.checked,
-            `${prefix}ForeignAddressCheckbox`,
-            getValues(`${prefix}ForeignAddressCheckbox`),
-            getValues("contactFullName")
-        );
+        // console.log(
+        //     "handleChange",
+        //     prefix,
+        //     event.target.checked,
+        //     `${prefix}ForeignAddressCheckbox`,
+        //     getValues(`${prefix}ForeignAddressCheckbox`),
+        //     getValues("contactFullName")
+        // );
 
         //setChecked(event.target.checked); // Change the state value
         // console.log(event.target.checked);

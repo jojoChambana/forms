@@ -18,7 +18,8 @@ export default function Trust(props) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-        navigate("/trustprint");
+        console.table(data);
+        //navigate("/trustprint");
     };
 
     return (
@@ -30,11 +31,11 @@ export default function Trust(props) {
             </Helmet>
             <Instructions />
             <FormProvider {...methods}>
-            <TrustGiftInformation 
-                onSubmit={onSubmit}
-                showAnonymousDonorCheckBox={false} 
-            />
-            </FormProvider>            
+                <TrustGiftInformation
+                    onSubmit={onSubmit}
+                    showAnonymousDonorCheckBox={false}
+                />
+            </FormProvider>
         </>
     );
 }
