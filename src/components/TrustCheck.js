@@ -22,7 +22,7 @@ export default function TrustCheck() {
             <Typography variant="h5" component="h3">
                 Check Information
             </Typography>
-            <ListGroup className="list-group row">
+            <ListGroup className="row">
                 {fields.map((item, index) => {
                     return (
                         <ListGroupItem key={item.id}>

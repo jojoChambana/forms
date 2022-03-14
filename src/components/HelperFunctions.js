@@ -501,15 +501,22 @@ export function SubmitButton() {
 
 export function UrbanaAddress(props) {
     return (
-        <Typography variant="subtitle2" component="div">
-            University of Illinois at Urbana-Champaign
-            <br />
-            Cash Receipts
-            <br />
-            Harker Hall - M/C 386
-            <br />
-            Urbana, IL 61801
-        </Typography>
+        <>
+            <Typography variant="subtitle2" component="div">
+                Hand-deliver this transmittal and cash to:
+            </Typography>
+            <Typography variant="subtitle2" component="div">
+                University of Illinois Urbana-Champaign
+                <br />
+                Cash Receipts
+                <br />
+                Harker Hall - M/C 386
+                <br />
+                1305 West Green Street
+                <br />
+                Urbana, IL 61801
+            </Typography>
+        </>
     );
 }
 
@@ -644,7 +651,7 @@ export function PrintCampusAddressSwap({ campusLocation }) {
             </style>
 
             <Row>
-                <Col>
+                <Col className="d-flex">
                     <img
                         src={process.env.PUBLIC_URL + "logo.svg"}
                         alt="U of I Foundation Logo"

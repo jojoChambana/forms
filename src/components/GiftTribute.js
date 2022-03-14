@@ -64,10 +64,10 @@ export default function GiftTribute() {
 
     return (
         <>
-            <Typography variant="h5" component="h3">
-                Tribute
-            </Typography>
-            <FormGroup>
+            <FormGroup className="row list-group-item pt-4">
+                <Typography variant="h5" component="h3">
+                    Tribute
+                </Typography>
                 <Row className="mb-0">
                     <Col>
                         <FormControlLabel

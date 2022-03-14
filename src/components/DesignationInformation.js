@@ -80,7 +80,7 @@ export default function DesignationInformation() {
 
     return (
         <>
-            <ListGroup className="list-group row">
+            <ListGroup className="row">
                 {fields.map((item, index) => {
                     var newDesigChecked = getValues(
                         `designation[${index}].newDesignationRequestedChecked`

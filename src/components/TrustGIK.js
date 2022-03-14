@@ -46,7 +46,7 @@ export default function TrustGIK() {
                     <Typography variant="h5" component="h3">
                         Gift in Kind Information
                     </Typography>
-                    <ListGroup className="list-group row">
+                    <ListGroup className="row">
                         {fields.map((item, index) => {
                             return (
                                 <ListGroupItem key={item.id}>

@@ -52,7 +52,7 @@ export default function SecWireDesignations() {
 
     return (
         <>
-            <ListGroup className="list-group">
+            <ListGroup>
                 <Typography variant="h5" component="h3" className="mt-2 mb-3">
                     Designation Information
                 </Typography>

@@ -29,6 +29,9 @@ export default function Instructions() {
                     If you have any questions when filling out your gift
                     transmittal contact Gift Administration at 217-333-0675
                 </Typography>
+                <Typography>
+                    Required fields are marked with an asterisk (*).
+                </Typography>
             </Container>
         </div>
     );
