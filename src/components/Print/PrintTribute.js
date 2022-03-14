@@ -10,7 +10,7 @@ const PrintTribute = ({ formValues }) => {
                         <div className="col">
                             <div className="d-flex justify-content-center">
                                 <strong className="normal justify-col-tribute">
-                                    This is a new address
+                                    This is a New Address
                                 </strong>
                             </div>
                         </div>
@@ -30,7 +30,7 @@ const PrintTribute = ({ formValues }) => {
                         <div className="rightLabel">Location:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">
-                                This is a foreign address
+                                This is a Foreign Address
                             </span>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ const PrintTribute = ({ formValues }) => {
     }
 
     function NotifyIndividualOrFamily(props) {
-        if (formValues.notifyIndividualOrFamily === true) {
+        if (formValues.notifyIndividualOrFamily === "Please notify the individual/family below") {
             return (
                 <>
                     <div className="resultItems row">
@@ -178,8 +178,30 @@ const PrintTribute = ({ formValues }) => {
                     <IsAcknowledgeeForeignAddressCheckboxChecked />
                 </>
             );
-        } else {
-            return null;
+        } else if (formValues.notifyIndividualOrFamily === "Please notify the person above") {
+            return (
+                <>
+                    <div className="resultItems row">
+                        <div className="col">
+                            <div className="d-flex justify-content-center">
+                                <strong className="normal justify-col-tribute">
+                                    <Typography>
+                                        <strong>
+                                        Please Notify the Person Above
+                                        </strong>
+                                    </Typography>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            );
+        } 
+        
+        else {
+            return (
+                <></>
+            );
         }
     }
 
@@ -189,7 +211,7 @@ const PrintTribute = ({ formValues }) => {
                 <Col>
                     <div className="d-print-table-row">
                         <div className="rightLabel min-cell">
-                            TED constituent ID:
+                            TED Constituent ID:
                         </div>
 
                         <div classname="d-print-table-cell">
@@ -315,7 +337,7 @@ const PrintTribute = ({ formValues }) => {
                         <IsTributeNewAddressChecked />
                         <div className="d-flex justify-content-center">
                             <strong className="normal justify-col-tribute">
-                                This gift is a tribute
+                                This Gift is a Tribute
                             </strong>
                         </div>
                         <div className="d-print-table-cell">
@@ -325,9 +347,9 @@ const PrintTribute = ({ formValues }) => {
                                 </div>
                                 <div className="d-print-table-cell">
                                     <span className="normal">
-                                        {/* if the value is "In memory of", then show the deceasedFullName, otherwise show the honoreeFullName */}
+                                        {/* if the value is "In Memory Of", then show the deceasedFullName, otherwise show the honoreeFullName */}
                                         {formValues.giftTribute ===
-                                        "In memory of"
+                                        "In Memory of"
                                             ? formValues.deceasedFullName
                                             : formValues.honoreeFullName}
                                     </span>

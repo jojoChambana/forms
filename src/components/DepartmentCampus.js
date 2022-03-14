@@ -1,52 +1,19 @@
-import {
-    FormControl,
-    FormControlLabel,
-    Radio,
-    RadioGroup,
-} from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import React, { useState } from "react";
+import { CampusAddress } from "../components/HelperFunctions";
+import RadioButtons from "./RadioButtons"
 
-export default function DepartmentCampus() {
+export default function DepartmentCampus({formType}) {
     const [radioChanged, setRadioChanged] = useState(false); // needed to force re-render
-    const { getValues, setValue } = useFormContext();
+    const { getValues } = useFormContext();
     
-    let radioValue = getValues("campusLocation");
-
-    const handleChange = (event) => {
-        // console.log(event.target.value);
-
-        setValue("campusLocation", event.target.value);
-        setRadioChanged(!radioChanged); // needed to force re-render
-        radioValue = event.target.value;
-    };
     return (
         <>
-            <FormControl>
-                <RadioGroup
-                    row
-                    aria-labelledby="campus-Location"
-                    value={radioValue}
-                    onChange={handleChange}
-                    name="campusLocation"
-                >
-                    <FormControlLabel
-                        value="Urbana"
-                        control={<Radio />}
-                        label="Urbana"
-                    />
-                    <FormControlLabel
-                        value="Chicago"
-                        control={<Radio />}
-                        label="Chicago"
-                    />
-                    <FormControlLabel
-                        value="Springfield"
-                        control={<Radio />}
-                        label="Springfield"
-                    />
-                </RadioGroup>
-            </FormControl>
+            <RadioButtons variableName="campusLocation" values={["Urbana-Champaign","Chicago","Springfield"]} radioChangedFlag={radioChanged} setRadioChangedFlag={setRadioChanged} />
+            <CampusAddress
+                            campusLocation={getValues("campusLocation")}
+                            formType={formType}
+                        />            
         </>
     );
 }

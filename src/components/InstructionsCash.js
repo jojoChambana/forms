@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 import React from "react";
 import { Row } from "react-bootstrap";
 
-export default function Instructions() {
+export default function InstructionsCash() {
     return (
         <div>
             <Container>
@@ -29,8 +29,8 @@ export default function Instructions() {
                     If you have any questions when filling out your gift
                     transmittal contact Gift Administration at 217-333-0675
                 </Typography>
-                <Typography>
-                    Required fields are marked with an asterisk (*).
+                <Typography variant="body1" gutterBottom>
+                    Required fields are marked with an *.
                 </Typography>
             </Container>
         </div>

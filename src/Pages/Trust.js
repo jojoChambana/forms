@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
-import Instructions from "../components/Instructions";
 import { useNavigate } from "react-router-dom";
 
-import TrustGiftInformation from "../components/TrustGiftInformation";
+import TrustDataEntry from "../components/TrustDataEntry";
 
 export default function Trust(props) {
     const methods = useForm({
@@ -29,13 +28,12 @@ export default function Trust(props) {
                 <title>U of I Foundation | Trust Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <Instructions />
             <FormProvider {...methods}>
-                <TrustGiftInformation
-                    onSubmit={onSubmit}
-                    showAnonymousDonorCheckBox={false}
-                />
-            </FormProvider>
+            <TrustDataEntry 
+                onSubmit={onSubmit}
+                showAnonymousDonorCheckBox={false} 
+            />
+            </FormProvider>            
         </>
     );
 }

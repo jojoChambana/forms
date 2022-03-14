@@ -4,7 +4,7 @@ import DomesticAddress from "./DomesticAddress";
 import ForeignAddress from "./ForeignAddress";
 import { useFormContext } from "react-hook-form";
 
-export default function Address({ prefix }) {
+export default function Address({ prefix, isRequired = true}) {
     const { getValues, setValue, register } = useFormContext();
 
     const [checked, setChecked] = useState(
@@ -43,14 +43,14 @@ export default function Address({ prefix }) {
                             onChange={handleChange}
                         />
                     }
-                    label="Check for foreign address"
+                    label="Check for Foreign Address"
                     checked={checked}
                 />
             </FormGroup>
             {checked ? (
-                <ForeignAddress prefix={prefix} />
+                <ForeignAddress prefix={prefix} isRequired={isRequired} />
             ) : (
-                <DomesticAddress prefix={prefix} />
+                <DomesticAddress prefix={prefix} isRequired={isRequired} />
             )}
         </>
     );

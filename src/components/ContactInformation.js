@@ -21,9 +21,9 @@ export default function DonorInfo() {
                     <TextField
                         {...register("contactFullName")}
                         required
-                        placeholder="Contact full name"
+                        placeholder="Contact Full Name"
                         className="maxWidth"
-                        label="Contact full name"
+                        label="Contact Full Name"
                     />
                     <ErrorMessage errors={errors} name="singleErrorInput" />
                 </Col>
@@ -60,8 +60,8 @@ export default function DonorInfo() {
                     <TextField
                         {...register("collegeName")}
                         required
-                        placeholder="College name"
-                        label="College name"
+                        placeholder="College Name"
+                        label="College Name"
                         className="maxWidth"
                     />
                 </Col>

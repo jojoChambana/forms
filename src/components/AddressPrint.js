@@ -95,7 +95,7 @@ export default function AddressPrint({ props, prefix, formValues }) {
                                         variant="formCat"
                                         className="lineUp"
                                     >
-                                        Domestic city:
+                                        Domestic City:
                                     </Typography>
                                 </Col>
                                 <Col className="results">
@@ -119,7 +119,7 @@ export default function AddressPrint({ props, prefix, formValues }) {
                                         variant="formCat"
                                         className="lineUp"
                                     >
-                                        Domestic state:
+                                        Domestic State:
                                     </Typography>
                                 </Col>
                                 <Col className="results">

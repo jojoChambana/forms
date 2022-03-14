@@ -7,7 +7,7 @@ import PrintContactAndDonorInfo from "./PrintContactAndDonorInfo";
 import PrintTribute from "./PrintTribute";
 import PrintDesignations from "./PrintDesignations";
 import PrintTotals from "./PrintTotals";
-import { PrintCampusAddressSwap } from "../HelperFunctions";
+import { PrintCampusAddressSwap, CampusAddress } from "../HelperFunctions";
 
 const CashCheckGIKPrint = (props) => {
     const navigate = useNavigate();
@@ -16,7 +16,6 @@ const CashCheckGIKPrint = (props) => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-
     const theme = createTheme({
         typography: {
             formCat: {
@@ -32,6 +31,7 @@ const CashCheckGIKPrint = (props) => {
                     <Container>
                         <PrintCampusAddressSwap
                             campusLocation={props.formValues.campusLocation}
+                            formType={props.formType}
                         />
                         <Container>
                             <Row className="hideForPrint">
@@ -56,6 +56,9 @@ const CashCheckGIKPrint = (props) => {
                                 </Col>
                             </Row>
                         </Container>
+                        <CampusAddress campusLocation={props.formValues.campusLocation}
+                            formType={props.formType} />
+
                         <div className="resultItems">
                             <PrintContactAndDonorInfo
                                 formValues={props.formValues}

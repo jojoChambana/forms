@@ -14,6 +14,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
+
 import Address from "./Address";
 
 export default function GiftTribute() {
@@ -21,19 +22,19 @@ export default function GiftTribute() {
 
     let giftTribute = getValues("giftTribute");
     if (giftTribute === "") {
-        setValue("giftTribute", "In memory of");
+        setValue("giftTribute", "In Memory Of");
         giftTribute = getValues("giftTribute");
     }
     const tributeChecked = getValues("tributeChecked");
     // console.log("tributeChecked", tributeChecked);
     // console.log("giftTribute", giftTribute);
 
-    const notifyIndividualOrFamily = getValues("notifyIndividualOrFamily");
+    //const notifyIndividualOrFamily = getValues("notifyIndividualOrFamily");
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
     const [showInMemoryOf, setShowInMemoryOf] = useState(
-        giftTribute === "In memory of"
+        giftTribute === "In Memory Of"
     );
 
     const handleTributeChange = (event) => {
@@ -48,35 +49,49 @@ export default function GiftTribute() {
 
     const handleMemHon = (event) => {
         setValue("giftTribute", event.target.value); // set the rect hook element appropriately
-        setShowInMemoryOf(event.target.value === "In memory of");
+
+        // if we just switched to 'In memory of' and the radio button we are about to hide is selected, se;ect a differemt radio button
+        if ((event.target.value === "In Memory Of") && (getValues("notifyIndividualOrFamily") === C_NOTIFY_PERSON_ABOVE))
+            setValue("notifyIndividualOrFamily",C_DO_NOT_SEND)
         setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
+        setShowInMemoryOf(event.target.value === "In Memory Of");
     };
 
-    const handleClickNotify = (event) => {
-        setValue("notifyIndividualOrFamily", event.target.checked); // set the rect hook array element appropriately
-        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-    };
+    // const handleClickNotify = (event) => {
+    //     setValue("notifyIndividualOrFamily", event.target.checked); // set the rect hook array element appropriately
+    //     setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
+    // };
 
+    const handleNotificationChange = (event) => {
+        // console.log(event.target.value);
+
+        setValue("notifyIndividualOrFamily", event.target.value);
+        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
+    };    
     const divStyle = {
         flexBasis: "content",
         msFlexPreferredSize: "content",
     };
+    
+    const C_NOTIFY_PERSON_ABOVE = "Please Notify the Person Above";
+    const C_DO_NOT_SEND = "Do Not Send a Notification";
+    const C_NOTIFY_IND_FAMILY_BELOW = "Please Notify the Individual/Family Below";
 
     return (
         <>
-            <FormGroup className="row list-group-item pt-4">
-                <Typography variant="h5" component="h3">
-                    Tribute
-                </Typography>
+            <Typography variant="h5" component="h3">
+                Tribute
+            </Typography>
+            <FormGroup>
                 <Row className="mb-0">
                     <Col>
                         <FormControlLabel
-                            label="Check if this gift is a tribute"
+                            label="Check if this Gift is a Tribute"
                             defaultValue={false}
                             checked={tributeChecked}
                             control={
                                 <Checkbox
-                                    placeholder="Check if this gift is a tribute"
+                                    placeholder="Check if this Gift is a Tribute"
                                     onChange={handleTributeChange}
                                 />
                             }
@@ -95,16 +110,16 @@ export default function GiftTribute() {
                                 <Row className="mb-0">
                                     <Col xs={6} md={2} style={divStyle}>
                                         <FormControlLabel
-                                            value="In memory of"
+                                            value="In Memory Of"
                                             control={<Radio />}
-                                            label="In memory of"
+                                            label="In Memory Of"
                                         />
                                     </Col>
                                     <Col xs={6} md={2} style={divStyle}>
                                         <FormControlLabel
                                             value="In honor Of"
                                             control={<Radio />}
-                                            label="In honor of"
+                                            label="In Honor Of"
                                         />
                                     </Col>
                                 </Row>
@@ -172,7 +187,8 @@ export default function GiftTribute() {
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <Address prefix="tribute" />
+                        {/* We only want the address to be required if 'In honor of' is selected */}
+                        <Address prefix="tribute" isRequired={!showInMemoryOf}/>
                         <Row>
                             <Col xs={12} md={3}>
                                 <Controller
@@ -197,7 +213,7 @@ export default function GiftTribute() {
                             <Col xs={12} md={3}>
                                 <TextField
                                     type="email"
-                                    placeholder="Designation email"
+                                    placeholder="Designation Email"
                                     label="Email"
                                     {...register("designationEmail")}
                                     className="maxWidth"
@@ -206,7 +222,7 @@ export default function GiftTribute() {
                         </Row>
                         <Row className="mb-0">
                             <Col>
-                                <FormGroup>
+                                {/* <FormGroup>
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -221,10 +237,38 @@ export default function GiftTribute() {
                                             "notifyIndividualOrFamily"
                                         )}
                                     />
-                                </FormGroup>
+                                </FormGroup> */}
+
+                                <FormControl>
+                                    <RadioGroup
+                                        row
+                                        aria-labelledby="campus-Location"
+                                        value={getValues("notifyIndividualOrFamily")}
+                                        onChange={handleNotificationChange}
+                                        name="campusLocation"
+                                    >
+                                        <FormControlLabel
+                                            value={C_DO_NOT_SEND}
+                                            control={<Radio />}
+                                            label={C_DO_NOT_SEND}
+                                        />
+                                        <FormControlLabel
+                                            value={C_NOTIFY_IND_FAMILY_BELOW}
+                                            control={<Radio />}
+                                            label={C_NOTIFY_IND_FAMILY_BELOW}
+                                        />
+                                        {!showInMemoryOf && 
+                                            <FormControlLabel
+                                                value={C_NOTIFY_PERSON_ABOVE}
+                                                control={<Radio />}
+                                                label={C_NOTIFY_PERSON_ABOVE}
+                                            />
+                                        }
+                                    </RadioGroup>
+                                </FormControl>                                
                             </Col>
                         </Row>
-                        {notifyIndividualOrFamily && (
+                        {(getValues("notifyIndividualOrFamily") === C_NOTIFY_IND_FAMILY_BELOW) && (
                             <>
                                 <Row>
                                     <Col xs={12} md={4}>
@@ -235,6 +279,7 @@ export default function GiftTribute() {
                                             placeholder="Acknowledgee First Name"
                                             className="maxWidth"
                                             label="First Name"
+                                            required
                                         />
                                     </Col>
                                     <Col xs={12} md={4}>
@@ -245,6 +290,7 @@ export default function GiftTribute() {
                                             placeholder="Acknowledgee Last Name"
                                             className="maxWidth"
                                             label="Last Name"
+                                            required
                                         />
                                     </Col>
                                 </Row>
@@ -279,7 +325,6 @@ export default function GiftTribute() {
                                             {...register(
                                                 "notifyIndividualOrFamilyEmail"
                                             )}
-                                            required
                                             placeholder="Email"
                                             type="email"
                                             label="Email"

@@ -5,13 +5,13 @@ import {
     Checkbox,
 } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import { useState } from "react";
 
 import "react-phone-number-input/style.css";
 
 export default function TrustDepartmentInformation({ trustType }) {
-    const { register, getValues, setValue } = useFormContext();
+    const { register, getValues, setValue, control } = useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
@@ -30,17 +30,17 @@ export default function TrustDepartmentInformation({ trustType }) {
                     <TextField
                         {...register("dateOfGift")}
                         required
-                        placeholder="Date of gift"
+                        placeholder="Date of Gift"
                         className="maxWidth"
-                        label="Date of gift"
+                        label="Date of Gift"
                     />
                 </Col>
                 <Col xs={12} md={4}>
                     <TextField
                         {...register("preparedBy")}
                         required
-                        placeholder="Prepared by"
-                        label="Prepared by"
+                        placeholder="Prepared By"
+                        label="Prepared By"
                         className="maxWidth"
                     />
                 </Col>
@@ -48,12 +48,23 @@ export default function TrustDepartmentInformation({ trustType }) {
                     <TextField
                         {...register("datePrepared")}
                         required
-                        placeholder="Date prepared"
+                        placeholder="Date Prepared"
                         className="maxWidth"
-                        label="Date prepared"
+                        label="Date Prepared"
                     />
                 </Col>
             </Row>
+            <Row>
+                <Col xs={12} md={6}>
+                    <Controller
+                        name={"sourceCode"}
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                        <TextField onChange={onChange} value={value} label="Source Code" className="maxWidth" />
+                        )}
+                    />                               
+                </Col>
+            </Row>    
             {(trustType === "Estate" || trustType === "Life Income") && (
                 <Row>
                     <Col xs={12} md={6}>
@@ -73,11 +84,12 @@ export default function TrustDepartmentInformation({ trustType }) {
                                     }}
                                 />
                             }
-                            label="Do not process until contacted by Trust Services"
+                            label="Do Not Process Until Contacted by Trust Services"
                         />
                     </Col>
                 </Row>
             )}
+
         </>
     );
 }

@@ -20,7 +20,8 @@ export default function TrustReceiptTo({ trustType }) {
                 <Col>
                     <FormLabel component="legend">Receipt To: </FormLabel>
                 </Col>
-
+            </Row>
+            <Row>
                 {/* Trust Services Checkbox*/}
                 <Col xs={12} md={6}>
                     <FormControlLabel
@@ -88,17 +89,14 @@ export default function TrustReceiptTo({ trustType }) {
                                 label="Planned Giving"
                             />
                         </Col>
-                        {getValues("receiptToPlannedGiving") && (
-                            <Col xs={12} md={6}>
-                                <TextField
-                                    {...register("receiptToPlannedGivingName")}
-                                    required
-                                    placeholder="Receipt to planned giving name"
-                                    className="maxWidth"
-                                    label="Receipt to planned giving name"
-                                />
-                            </Col>
-                        )}
+                        <Col xs={12} md={6}>
+                            <TextField
+                                {...register("receiptToOther")}
+                                placeholder="Receipt to Other"
+                                className="maxWidth"
+                                label="Receipt to Other"
+                            />
+                        </Col>
                     </>
                 )}
                 {trustType === "Estate" && (
@@ -117,7 +115,7 @@ export default function TrustReceiptTo({ trustType }) {
                                     }}
                                 />
                             }
-                            label="No receipt necessary per Trust Services"
+                            label="No Receipt Necessary per Trust Services"
                         />
                     </Col>
                 )}

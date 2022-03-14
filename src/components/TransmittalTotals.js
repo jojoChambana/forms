@@ -4,10 +4,10 @@ import { Col, Row } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
 // import { useFormContext } from "react-hook-form";
-import { calcFinalTotals } from "./HelperFunctions";
+import { calcFinalTotals, calcGIKTotals } from "./HelperFunctions";
 // import TotalDonationAmount from "./TotalDonationAmount";
 
-export default function TransmittalTotals({ ignoreNonGiftChecked }) {
+export default function TransmittalTotals({ ignoreNonGiftChecked, showGIKTotal = false }) {
     const {
         register,
         setValue,
@@ -23,6 +23,11 @@ export default function TransmittalTotals({ ignoreNonGiftChecked }) {
                     ignoreNonGiftChecked
                 );
             }
+            if (name.startsWith("giftInKind.")) {
+                calcGIKTotals(
+                    values.giftInKind,
+                    setValue);
+            }            
         });
         return () => subscription.unsubscribe();
     });
@@ -78,6 +83,21 @@ export default function TransmittalTotals({ ignoreNonGiftChecked }) {
                         />
                     </div>
                 </Col>
+                {showGIKTotal && 
+                    <Col xs={12} md={2}>
+                        <FormLabel className="dollarAmountLabel">
+                            Gift in Kind Total
+                        </FormLabel>
+                        <div className="dollarAmount">
+                            <Input
+                                disabled
+                                htmlFor="Gift in Kind Total"
+                                label="Gift in Kind Total"
+                                {...register("gikTotal")}
+                            />
+                        </div>
+                    </Col>
+                }                
             </Row>
         </div>
     );

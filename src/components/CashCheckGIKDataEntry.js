@@ -10,6 +10,8 @@ import DonorInformation from "../components/DonorInformation";
 import GiftTribute from "../components/GiftTribute";
 import DesignationInformation from "../components/DesignationInformation";
 import TransmittalTotals from "../components/TransmittalTotals";
+import GiftInKindInformation from "../components/GiftInKindInformation";
+
 import {
     FillCashCheckGIKForm,
     SharedFillForm,
@@ -19,6 +21,7 @@ import {
 const CashCheckGIKDataEntry = ({
     onSubmit,
     showAnonymousDonorCheckBox,
+    formType
 }) => {
     const {setValue, handleSubmit, control} = useFormContext();
 
@@ -31,14 +34,15 @@ const CashCheckGIKDataEntry = ({
             <Container className="pb-4">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Button onClick={fillButton}>Fill</Button>
-                    <DepartmentCampus />
-
+                    <DepartmentCampus formType={formType} />
                     <ContactInformation />
                     <NameEmail />
                     <DonorInformation showAnonymousDonorCheckBox={showAnonymousDonorCheckBox} />
+                    {(formType === "GiftInKind") && 
+                        <GiftInKindInformation alwaysShowDeleteButtons={false} />}
                     <GiftTribute />
                     <DesignationInformation />
-                    <TransmittalTotals ignoreNonGiftChecked={false} />
+                    <TransmittalTotals ignoreNonGiftChecked={false} showGIKTotal={(formType === "GiftInKind")} />
                     <SubmitButton />
                 </form>
                 <DevTool control={control} /> {/* set up the dev tool */}

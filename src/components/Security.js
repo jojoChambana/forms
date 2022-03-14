@@ -23,7 +23,7 @@ export default function Security({ alwaysShowSecurtityDeleteButtons }) {
             <Typography variant="h5" component="h3" className="mt-2 mb-3">
                 Security Information
             </Typography>
-            <ListGroup>
+            <ListGroup className="list-group">
                 {fields.map((item, index) => {
                     return (
                         <ListGroupItem key={item.id} className="mb-3">

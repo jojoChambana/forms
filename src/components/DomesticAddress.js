@@ -2,7 +2,7 @@ import { TextField } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
-export default function DomesticAddress({ prefix }) {
+export default function DomesticAddress({ prefix, isRequired }) {
 
     const { register } = useFormContext();
 
@@ -12,7 +12,7 @@ export default function DomesticAddress({ prefix }) {
                 <Col xs={12} md={3}>
                     <TextField
                         {...register(`${prefix}DomesticAddress`)}
-                        required
+                        required={isRequired}
                         placeholder="Address"
                         className="maxWidth"
                         label="Address"
@@ -22,7 +22,7 @@ export default function DomesticAddress({ prefix }) {
                 <Col xs={12} md={3}>
                     <TextField
                         {...register(`${prefix}DomesticAddressCity`)}
-                        required
+                        required={isRequired}
                         id={`${prefix}DomesticAddressCity`}
                         label="City"
                         className="maxWidth"
@@ -31,7 +31,7 @@ export default function DomesticAddress({ prefix }) {
                 <Col xs={12} md={2}>
                     <TextField
                         {...register(`${prefix}DomesticAddressState`)}
-                        required
+                        required={isRequired}
                         id={`${prefix}DomesticAddressState`}
                         label="State"
                         className="maxWidth"
@@ -40,7 +40,7 @@ export default function DomesticAddress({ prefix }) {
                 <Col xs={12} md={2}>
                     <TextField
                         {...register(`${prefix}DomesticAddressZipCode`)}
-                        required
+                        required={isRequired}
                         id={`${prefix}DomesticAddressZipCode`}
                         label="Zip Code"
                         className="maxWidth"

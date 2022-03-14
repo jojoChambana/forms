@@ -172,42 +172,42 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         </span>
                     </div>
                     <div className="col rightLabel">
-                        Contact full name:
+                        Contact Full Name:
                         <span className="normal">
                             {formValues.contactFullName}
                         </span>
                     </div>
                     <div className="col rightLabel">
-                        Contact phone:
+                        Contact Phone:
                         <span className="normal">
                             {formValues.contactPhone}
                         </span>
                     </div>
 
                     <div className="col rightLabel">
-                        Contact email:
+                        Contact Email:
                         <span className="normal">
                             {formValues.contactEmail}
                         </span>
                     </div>
                     <div className="col rightLabel">
-                        College name:
+                        College Name:
                         <span className="normal">{formValues.collegeName}</span>
                     </div>
                     <div className="col rightLabel">
-                        Department name:
+                        Department Name:
                         <span className="normal">
                             {formValues.departmentName}
                         </span>
                     </div>
                     <div id="donationDate" className="col rightLabel">
-                        Date received by department:
+                        Date Received by Department:
                         <span className="normal">
                             {formValues.donationDate}
                         </span>
                     </div>
                     <div className="col rightLabel">
-                        Prepared by:
+                        Prepared By:
                         <span className="normal">{formValues.preparedBy}</span>
                     </div>
                     <UnitReferenceNumber />
@@ -236,7 +236,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 <Col>
                                     <div className="d-print-table-row">
                                         <div className="rightLabel">
-                                            TED constituent ID:
+                                            TED Constituent ID:
                                         </div>
                                         <div className="d-print-table-cell">
                                             <span className="normal">
@@ -246,7 +246,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                     </div>
                                     <div className="d-print-table-row">
                                         <div className="rightLabel min-cell">
-                                            Organization/Donor name:
+                                            Organization/Donor Name:
                                         </div>
                                         <div className="d-print-table-cell">
                                             <span className="normal">

@@ -41,7 +41,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                 <Row className="mb-0">
                     <Col>
                         <FormControlLabel
-                            label="Check if this gift is associated with an opportunity"
+                            label="Check if This Gift is Associated with an Opportunity"
                             control={
                                 <Checkbox
                                     placeholder="Is this gift associated with an opportunity"
@@ -76,8 +76,8 @@ export default function GiftAssociatedOpportunity({ index }) {
                                         `designation.${index}.tedHouseholdName`
                                     )}
                                     required
-                                    placeholder="Household name"
-                                    label="Household name"
+                                    placeholder="Household Name"
+                                    label="Household Name"
                                     className="maxWidth"
                                 />
                             </Col>
@@ -89,8 +89,8 @@ export default function GiftAssociatedOpportunity({ index }) {
                                         `designation.${index}.tedPlanName`
                                     )}
                                     required
-                                    placeholder="Plan name"
-                                    label="Plan name"
+                                    placeholder="Plan Name"
+                                    label="Plan Name"
                                     className="maxWidth"
                                 />
                             </Col>
@@ -105,8 +105,8 @@ export default function GiftAssociatedOpportunity({ index }) {
                                             inputMode: "numeric",
                                             pattern: "[0-9]+(.[0-9][0-9])?",
                                         }}
-                                        placeholder="Opportunity amount"
-                                        label="Opportunity amount"
+                                        placeholder="Opportunity Amount"
+                                        label="Opportunity Amount"
                                         className="maxWidth"
                                     />
                                 </div>
@@ -119,8 +119,8 @@ export default function GiftAssociatedOpportunity({ index }) {
                                         `designation.${index}.actualAskDate`
                                     )}
                                     required
-                                    placeholder="Actual ask date"
-                                    label="Actual ask date"
+                                    placeholder="Actual Ask Date"
+                                    label="Actual Ask Date"
                                     className="maxWidth"
                                 />
                             </Col>
@@ -130,8 +130,8 @@ export default function GiftAssociatedOpportunity({ index }) {
                                         `designation.${index}.primaryPlanManager`
                                     )}
                                     required
-                                    placeholder="Primary plan manager name"
-                                    label="Primary plan manager name"
+                                    placeholder="Primary Plan Manager Name"
+                                    label="Primary Plan Manager Name"
                                     className="maxWidth"
                                 />
                             </Col>

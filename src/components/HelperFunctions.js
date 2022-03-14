@@ -49,7 +49,6 @@ export function calcFinalTotals(
 ) {
     let giftTotal = 0;
     let nonGiftTotal = 0;
-
     for (var d in designationArray) {
         giftTotal += parseNum(designationArray[d].designationGiftAmount);
         if (ignoreNonGiftChecked || designationArray[d].nonGiftPortionChecked) {
@@ -62,6 +61,18 @@ export function calcFinalTotals(
     setValue("giftTotal", formatAmount(giftTotal));
     setValue("nonGiftTotal", formatAmount(nonGiftTotal));
     setValue("overallTotal", formatAmount(giftTotal + nonGiftTotal));
+}
+
+export function calcGIKTotals(
+    gikArray,
+    setValue
+) {
+    let gikTotal = 0;
+    for (var d in gikArray) {
+        gikTotal += parseNum(gikArray[d].giftValue);
+    }
+
+    setValue("gikTotal", formatAmount(gikTotal));
 }
 
 export function newDesignation() {
@@ -109,15 +120,20 @@ export function newTrustCheck() {
         checkTotal: 0,
     };
 }
-export function newTrustGIK() {
+export function newGiftInKind() {
     return {
         descriptionOfGift: "",
-        is8283Required: "",
-        testCheckBox: false,
-        giftAmount: 0,
+        giftValue: 0,
     };
 }
-
+export function newTrustBeneficiary() {
+    return {
+        lastName: "",
+        firstName: "",
+        tedConstituentID: "",
+        dateOfBirth: "",
+    };
+}
 export function newFormValues() {
     return {
         formType: "",
@@ -126,7 +142,7 @@ export function newFormValues() {
         contactEmail: "", // ContactInformation.js
         collegeName: "", // ContactInformation.js
 
-        campusLocation: "Urbana", // DepartmentCampus.js
+        campusLocation: "Urbana-Champaign", // DepartmentCampus.js
         designationAdditionalComments: "", //DesignationInformation.js
         newDesignationRequestedChecked: "", //DesignationInformation.js
         departmentContactEmail: "", //DesignationInformation.js
@@ -167,10 +183,10 @@ export function newFormValues() {
         giftAmount: 0,
 
         tributeChecked: false, // GiftTribute.js
-        giftTribute: "In memory of", // GiftTribute.js
+        giftTribute: "In Memory Of", // GiftTribute.js
         tedTributeConstituentId: "", // GiftTribute.js
         deceasedFullName: "", // GiftTribute.js
-        inMemoryNewAddress: "", // GiftTribute.js
+        inMemoryNewAddress: false, // GiftTribute.js
         inHonorTedID: "", // GiftTribute.js
         honoreeFullName: "", // GiftTribute.js
 
@@ -178,7 +194,9 @@ export function newFormValues() {
         donationDate: "", // NameEmail.js
         preparedBy: "", // NameEmail.js
         unitReferenceNumber: "", // NameEmail.js
+        sourceCode: "", // NameEmail.js
 
+        giftInKind: [{ ...newGiftInKind() }],          // giftInKind.js
         designation: [{ ...newDesignation() }],
         nonGiftPortionChecked: "", // NonGiftPortion.js
         nonGiftTedId: "", // NonGiftPortion.js
@@ -202,8 +220,9 @@ export function newFormValues() {
         giftTotal: 0, // TransmittalTotals.js
         nonGiftTotal: 0, // TransmittalTotals.js
         overallTotal: 0, // TransmittalTotals.js
+        gikTotal: 0, // TransmittalTotals.js     
 
-        notifyIndividualOrFamily: false,
+        notifyIndividualOrFamily: "Do not send a notification",
         tedTributeAcknowledgedFirstName: "",
         tedTributeAcknowledgedLastName: "",
         acknowledgeeDomesticAddress: "",
@@ -229,7 +248,7 @@ export function newSecWireFormValues() {
         contactEmail: "", // ContactInformation.js
         collegeName: "", // ContactInformation.js
 
-        campusLocation: "Urbana", // DepartmentCampus.js
+        campusLocation: "Urbana-Champaign", // DepartmentCampus.js
         designationAdditionalComments: "", //DesignationInformation.js
         newDesignationRequestedChecked: "", //DesignationInformation.js
         departmentContactEmail: "", //DesignationInformation.js
@@ -270,10 +289,10 @@ export function newSecWireFormValues() {
         giftAmount: 0,
 
         tributeChecked: false, // GiftTribute.js
-        giftTribute: "In memory of", // GiftTribute.js
+        giftTribute: "In Memory Of", // GiftTribute.js
         tedTributeConstituentId: "", // GiftTribute.js
         deceasedFullName: "", // GiftTribute.js
-        inMemoryNewAddress: "", // GiftTribute.js
+        inMemoryNewAddress: false, // GiftTribute.js
         inHonorTedID: "", // GiftTribute.js
         honoreeFullName: "", // GiftTribute.js
 
@@ -281,6 +300,7 @@ export function newSecWireFormValues() {
         donationDate: "", // NameEmail.js
         preparedBy: "", // NameEmail.js
         unitReferenceNumber: "", // NameEmail.js
+        sourceCode: "", // NameEmail.js
 
         designation: [{ ...newDesignation() }],
         nonGiftPortionChecked: "", // NonGiftPortion.js
@@ -305,8 +325,9 @@ export function newSecWireFormValues() {
         giftTotal: 0, // TransmittalTotals.js
         nonGiftTotal: 0, // TransmittalTotals.js
         overallTotal: 0, // TransmittalTotals.js
+        gikTotal: 0, // TransmittalTotals.js     
 
-        notifyIndividualOrFamily: false,
+        notifyIndividualOrFamily: "Do not send a notification",
         tedTributeAcknowledgedFirstName: "",
         tedTributeAcknowledgedLastName: "",
         acknowledgeeDomesticAddress: "",
@@ -325,13 +346,70 @@ export function newSecWireFormValues() {
     };
 }
 
+export function newTrustDeferredFormValues() {
+    return {
+        donorUnknownCheckBox: false,        // DonorInformation.js
+        newDonorCheckBox: false,            // DonorInformation.js
+        newDonorAddressCheckBox: false,     // DonorInformation.js
+        donorForeignAddressCheckbox: false, // DonorInformation.js
+        organizationDonorName: "",          // DonorInformation.js
+        tedConstituentId: "",               // DonorInformation.js
+		donorPhone: "",                     // DonorInformation.js
+        donorDOB: "",                       // DonorInformation.js
+
+        donorDomesticAddressCity: "",       // DomesticAddress.js
+        donorDomesticAddress: "",           // DomesticAddress.js
+        donorDomesticAddressState: "",      // DomesticAddress.js
+        donorDomesticAddressZipCode: "",        // DomesticAddress.js
+
+        donorDomesticAddressNewAddress: false,
+
+        donorForeignAddressCity: "",
+        donorForeignAddress: "",
+        donorForeignAddressProvinceRegion: "",
+        donorForeignAddressCountry: "",
+        donorForeignAddressPostalCode: "",
+
+        spousePartnerTedConstituentId: "",      // SpousePartnerInformation.js
+        spousePartnerOrganizationDonorName: "", // SpousePartnerInformation.js
+        spousePartnerPhone: "",                 // SpousePartnerInformation.js
+        spousePartnerDOB: "",                   // SpousePartnerInformation.js
+
+        trustCommitmentType: "Irrevocable Held by UIF", // TrustTypeOfCommitment.js
+        heldByUIFChoice: "",                    // TrustTypeOfCommitment.js
+        heldByOthersChoice: "",                 // TrustTypeOfCommitment.js
+        revocableChoice: "",                    // TrustTypeOfCommitment.js
+
+
+        dateOfCommitment: "",                   // TrustDeferredGiftInformation.js
+        estimatedDollarValue: "",                // TrustDeferredGiftInformation.js
+        newTotalIfIncreaseDecrease: "",         // TrustDeferredGiftInformation.js
+        estateReviewDate: "",                   // TrustDeferredGiftInformation.js
+        expectedMaturityYear: "",               // TrustDeferredGiftInformation.js
+        increaseDecreasePrior: "",              // TrustDeferredGiftInformation.js
+        jointLifeGift: "",			            // TrustDeferredGiftInformation.js
+        eventualDesignationOfPG: "",			// TrustDeferredGiftInformation.js
+        endowment: "",			                // TrustDeferredGiftInformation.js
+        fundAgreement: "",		            	// TrustDeferredGiftInformation.js
+        documentation: "",			            // TrustDeferredGiftInformation.js
+        basisForDeterminingValue: "",			// TrustDeferredGiftInformation.js
+        planOpportunity: "",			        // TrustDeferredGiftInformation.js
+        responsiblePerson: "",			        // TrustDeferredGiftInformation.js
+        trustName: "",			                // TrustDeferredGiftInformation.js
+        lifeIncomeDesignation: "",			    // TrustDeferredGiftInformation.js
+
+        trustBeneficiary: [{ ...newTrustBeneficiary() }], // TrustBeneficiary.js
+    }
+}
+
 export function newTrustFormValues() {
     return {
-        trustType: "", // TrustGiftInformation.js
-        dateOfGift: "", // TrustDepartmentInformation.js
-        preparedBy: "", // TrustDepartmentInformation.js
-        datePrepared: "", // TrustDepartmentInformation.js
-        doNotProcessUntilContactedByTrustServices: false, // TrustDepartmentInformation.js
+        trustType: "",         // TrustDataEntry.js
+        dateOfGift: "",        // TrustDepartmentInformation.js
+        preparedBy: "",        // TrustDepartmentInformation.js
+        datePrepared: "",      // TrustDepartmentInformation.js
+        doNotProcessUntilContactedByTrustServices: false,              // TrustDepartmentInformation.js
+        sourceCode: "", // TrustDepartmentInformation.js
 
         newDonorCheckBox: false, // DonorInformation.js
         newDonorAddressCheckBox: false, // DonorInformation.js
@@ -341,35 +419,39 @@ export function newTrustFormValues() {
 
         donorForeignAddressCheckbox: false, //Address.js,
 
-        donorDomesticAddressCity: "", // Address.js
-        donorDomesticAddress: "", // Address.js
-        donorDomesticAddressState: "", // Address.js
-        donorDomesticAddressZipCode: "", // Address.js
+        donorDomesticAddressCity: "",       // Address.js
+        donorDomesticAddress: "",           // Address.js
+        donorDomesticAddressState: "",      // Address.js
+        donorDomesticAddressZipCode: "",    // Address.js
 
         donorDomesticAddressNewAddress: false,
 
-        donorForeignAddressCity: "", // Address.js
-        donorForeignAddress: "", // Address.js
-        donorForeignAddressProvinceRegion: "", // Address.js
-        donorForeignAddressCountry: "", // Address.js
-        donorForeignAddressPostalCode: "", // Address.js
+        donorForeignAddressCity: "",        // Address.js
+        donorForeignAddress: "",            // Address.js
+        donorForeignAddressProvinceRegion: "",  // Address.js
+        donorForeignAddressCountry: "",     // Address.js
+        donorForeignAddressPostalCode: "",  // Address.js
 
-        doNotAddSpousePartnerToReceipt: false, // SpousePartnerInformation.js
-        doNotGiveSpousePartnerCredit: false, // SpousePartnerInformation.js
-        spousePartnerTedConstituentId: "", // SpousePartnerInformation.js
+        doNotAddSpousePartnerToReceipt: false,  // SpousePartnerInformation.js
+        doNotGiveSpousePartnerCredit: false,    // SpousePartnerInformation.js
+        spousePartnerTedConstituentId: "",      // SpousePartnerInformation.js
         spousePartnerOrganizationDonorName: "", // SpousePartnerInformation.js
 
-        iraDistribution: "", // TrustIRADIstribution.js.  fdefault to '' so it forces the user to select 'Yes' or 'No'
-        receiptToTrustServices: false, // TrustReceiptTo.js
-        receiptToDevelopmentPrograms: false, // TrustReceiptTo.js
-        receiptToPlannedGiving: false, // TrustReceiptTo.js
-        receiptToPlannedGivingName: "", // TrustReceiptTo.js
-        noReceiptNecessary: false, // TrustGiftInformation.js
-        security: [], // Security.js
-        trustWire: [], // TrustWire.js
-        trustCheck: [], // TrustCheck.js
-        trustGIK: [], // trustGIK.js
-        otherInformation: "", // TrustOtherInformation.js
+        iraDistribution: "",                    // TrustIRADIstribution.js.  fdefault to '' so it forces the user to select 'Yes' or 'No'
+        receiptToTrustServices: false,          // TrustReceiptTo.js
+        receiptToDevelopmentPrograms: false,    // TrustReceiptTo.js
+        receiptToPlannedGiving: false,          // TrustReceiptTo.js
+        receiptToOther: "",                     // TrustReceiptTo.js
+        noReceiptNecessary: false,              // TrustDataEntry.js
+
+        bankNumber: "25",                       // TrustBankNumber.js
+        security: [],                           // Security.js
+        trustWire: [],                          // TrustWire.js
+        trustCheck: [],                         // TrustCheck.js
+        giftInKind: [],                           // giftInKind.js
+        designation: [{ ...newDesignation() }], // DesignationInformation.js
+        otherInformation: "",                   // TrustOtherInformation.js
+        is8283Required: false,                  // TrustOtherInformation.js
     };
 }
 
@@ -409,6 +491,9 @@ export function SharedFillForm(setValue) {
     setValue("designation.0.tedDesignationTitle", "The first designation");
     setValue("designation.0.designationGiftAmount", 3000);
 
+    setValue("giftInKind.0.descriptionOfGift", "The first gift in kind");
+    setValue("giftInKind.0.giftValue", "3000");
+
     setValue("designation.0.designationNonGiftAmount", 0);
     setValue("designation.0.designationTotalAmount", 3000);
 
@@ -425,14 +510,14 @@ export function FillCashCheckGIKForm(setValue) {
 
     setValue("tributeChecked", false);
 
-    setValue("giftTribute", "In memory of");
+    setValue("giftTribute", "In Memory Of");
 
     setValue("deceasedFullName", "Dan Doe");
 
     setValue("tributeForeignAddressCheckbox", false);
     setValue("inMemoryNewAddress", false);
 
-    setValue("inMemoryNewAddress", "3215 Tandy");
+  //  setValue("inMemoryNewAddress", "3215 Tandy");
 
     setValue("inHonorTedID", "679856");
     setValue("honoreeFullName", "");
@@ -487,6 +572,61 @@ export function FillCashCheckGIKForm(setValue) {
     setValue("notifyIndividualOrFamilyEmail", "thejonesfamily@gmail.com");
     setValue("tedTributeAcknowledgedPhone", "(604)-555-5555");
 }
+
+export function FillTrustDeferredForm(setValue) {
+     setValue("donorPhone", "312-555-1212");
+     setValue("donorDOB", "1-1-1990");
+     setValue("donorDomesticAddressNewDonor", false);
+     setValue("donorDomesticAddressNewAddress", false);
+     setValue("tedConstituentId", "4567788");
+     setValue("organizationDonorName", "Bob Jones");
+ 
+     setValue("donorDomesticAddress", "2112 S. Rush St.");
+     setValue("donorDomesticAddressCity", "Chicago");
+     setValue("donorDomesticAddressState", "IL");
+     setValue("donorDomesticAddressZipCode", "61111");
+ 
+     setValue("donorForeignAddressCheckbox", false);
+     setValue("newDonorCheckBox", false);
+     setValue("donorForeignAddress", "1234 Main St.");
+     setValue("donorForeignAddressCity", "Berlin");
+     setValue("donorForeignAddressProvinceRegion", "Bavaria");
+     setValue("donorForeignAddressCountry", "Germany");
+     setValue("donorForeignAddressPostalCode", 80331);
+ 
+     setValue("publicityCode", "No Restrictions");
+
+     setValue("spousePartnerTedConstituentId", "3542354");
+     setValue("spousePartnerOrganizationDonorName", "Susan Jones");
+     setValue("spousePartnerPhone", "312-444-3345");
+     setValue("spousePartnerDOB", "2-1-1989");
+     setValue("trustCommitmentType", "Irrevocable Held by UIF");
+     setValue("heldByUIFChoice", "Charitable remainder annuity trust");
+     setValue("heldByOthersChoice", "Charitable gift annuity");
+     setValue("revocableChoice", "Retirement Plan");
+     setValue("dateOfCommitment", "3-1-2022");
+     setValue("estimatedDollarValue", "10000");
+     setValue("newTotalIfIncreaseDecrease", "20000");
+     setValue("estateReviewDate", "1-1-2022");
+     setValue("expectedMaturityYear", "2042");
+     setValue("increaseDecreasePrior", "Yes");
+     setValue("jointLifeGift", "Yes");
+     setValue("eventualDesignationOfPG", "Eventual Designation Text");
+     setValue("endowment", "No");
+     setValue("fundAgreement", "UIF existing");
+     setValue("documentation", "Documentation Text");
+     setValue("basisForDeterminingValue", "Basis for Determining Value Text");
+     setValue("planOpportunity", "Plan/Opportunity text");
+     setValue("responsiblePerson", "Responsible PErson Text");
+     setValue("trustName", "Trust Name Text");
+     setValue("lifeIncomeDesignation", "Life Income Designation Text");
+     
+     setValue("trustBeneficiary.0.lastName", "Smith");
+     setValue("trustBeneficiary.0.firstName", "Frank");
+     setValue("trustBeneficiary.0.tedConstituentID", "543435435");
+     setValue("trustBeneficiary.0.dateOfBirth","3-1-2010");     
+}
+
 export function SubmitButton() {
     return (
         <Button
@@ -499,31 +639,28 @@ export function SubmitButton() {
     );
 }
 
-export function UrbanaAddress(props) {
+export function UrbanaAddress({headerLine}) {
     return (
-        <>
-            <Typography variant="subtitle2" component="div">
-                Hand-deliver this transmittal and cash to:
-            </Typography>
-            <Typography variant="subtitle2" component="div">
-                University of Illinois Urbana-Champaign
-                <br />
-                Cash Receipts
-                <br />
-                Harker Hall - M/C 386
-                <br />
-                1305 West Green Street
-                <br />
-                Urbana, IL 61801
-            </Typography>
-        </>
+        <Typography variant="subtitle2" component="div">
+            {headerLine}< br />
+            University of Illinois Urbana-Champaign
+            <br />
+            Cash Receipts
+            <br />
+            Harker Hall - M/C 386
+            <br />
+            1305 West Green Street
+            <br />
+            Urbana, IL 61801
+        </Typography>
     );
 }
 
-export function ChicagoAddress(props) {
+export function ChicagoAddress({headerLine}) {
     return (
         <Typography variant="subtitle2" component="div">
-            University of Illinois at Chicago - OVCA
+            {headerLine}< br />
+            University of Illinois Chicago - OVCA
             <br />
             SCE 750 S Halsted St. Rm. 550, M/C 100
             <br />
@@ -532,10 +669,11 @@ export function ChicagoAddress(props) {
     );
 }
 
-export function SpringfieldAddress(props) {
+export function SpringfieldAddress({headerLine}) {
     return (
         <Typography variant="subtitle2" component="div">
-            University of Illinois at Springfield
+            {headerLine}< br />
+            University of Illinois Springfield
             <br />
             Business and Stewardship
             <br />
@@ -626,6 +764,9 @@ export function SplitLocation() {
                     <h1>Trust Gift Transmittal Form</h1>
                 </div>
 
+                <div className={splitLocation[1] === "trustdeferred" ? "active" : ""}>
+                    <h1>Trust Deferred Gift Transmittal Form</h1>
+                </div>
                 <div
                     className={
                         splitLocation[1] === "trustprint" ? "active" : ""
@@ -642,8 +783,8 @@ export function SplitLocation() {
 //     return formType;
 // }
 
-export function PrintCampusAddressSwap({ campusLocation }) {
-    // console.log(GetFormType);
+export function PrintCampusAddressSwap({ campusLocation, formType }) {
+
     return (
         <Row className="headerPrint">
             <style>
@@ -651,7 +792,7 @@ export function PrintCampusAddressSwap({ campusLocation }) {
             </style>
 
             <Row>
-                <Col className="d-flex">
+                <Col>
                     <img
                         src={process.env.PUBLIC_URL + "logo.svg"}
                         alt="U of I Foundation Logo"
@@ -674,16 +815,27 @@ export function PrintCampusAddressSwap({ campusLocation }) {
                         justifyContent="flex-end"
                         alignItems="flex-start"
                     >
-                        {campusLocation === "Urbana" ? (
-                            <UrbanaAddress />
-                        ) : campusLocation === "Chicago" ? (
-                            <ChicagoAddress />
-                        ) : campusLocation === "Springfield" ? (
-                            <SpringfieldAddress />
-                        ) : null}
+                        <CampusAddress campusLocation={campusLocation} formType={formType} />
                     </Grid>
                 </Col>
             </Row>
         </Row>
     );
+}
+
+export function CampusAddress({ campusLocation, formType }) {
+    var headerLine = "Submit this Transmittal and Gift to:"
+    if (formType === "Cash" )
+        headerLine = "Hand-deliver this Transmittal and Cash to:"
+    return (
+        <>
+        {campusLocation === "Urbana-Champaign" ? (
+            <UrbanaAddress headerLine={headerLine} />
+        ) : campusLocation === "Chicago" ? (
+            <ChicagoAddress headerLine={headerLine} />
+        ) : campusLocation === "Springfield" ? (
+            <SpringfieldAddress headerLine={headerLine} />
+        ) : null}   
+        </>
+        );
 }

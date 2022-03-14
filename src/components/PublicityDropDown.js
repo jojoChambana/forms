@@ -1,6 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
 export default function PublicityDropDown() {
@@ -15,32 +15,30 @@ export default function PublicityDropDown() {
     };
 
     return (
-        <Row>
-            <Col xs={12} md={3}>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                        Publicity Code
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={getValues("publicityCode")}
-                        label="Publicity Code"
-                        onChange={handleChange}
-                    >
-                        <MenuItem value={"No Restrictions"}>
-                            No Restrictions
-                        </MenuItem>
-                        <MenuItem value={"No Personal Contact"}>
-                            No Personal Contact
-                        </MenuItem>
-                        <MenuItem value={"No Contact/Publicity"}>
-                            No Contact/Publicity
-                        </MenuItem>
-                        <MenuItem value={"Anonymous"}>Anonymous</MenuItem>
-                    </Select>
-                </FormControl>
-            </Col>
-        </Row>
+        <Col xs={12} md={3}>
+            <FormControl fullWidth>
+                <InputLabel id="publicityCodeLabel">
+                    Publicity Code
+                </InputLabel>
+                <Select
+                    labelId="dpublicityCode"
+                    id="publicityCode"
+                    value={getValues("publicityCode")}
+                    label="Publicity Code"
+                    onChange={handleChange}
+                >
+                    <MenuItem value={"No Restrictions"}>
+                        No Restrictions
+                    </MenuItem>
+                    <MenuItem value={"No Personal Contact"}>
+                        No Personal Contact
+                    </MenuItem>
+                    <MenuItem value={"No Contact/Publicity"}>
+                        No Contact/Publicity
+                    </MenuItem>
+                    <MenuItem value={"Anonymous"}>Anonymous</MenuItem>
+                </Select>
+            </FormControl>
+        </Col>
     );
 }

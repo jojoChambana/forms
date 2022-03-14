@@ -3,7 +3,7 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { useFormContext } from "react-hook-form";
 
-export default function ForeignAddress({ prefix }) {
+export default function ForeignAddress({ prefix, isRequired }) {
 
     const { register } = useFormContext();
 
@@ -12,7 +12,7 @@ export default function ForeignAddress({ prefix }) {
             <Col xs={12} md={3}>
                 <TextField
                     {...register(`${prefix}ForeignAddress`)}
-                    required
+                    required={isRequired}
                     id="donorForeignAddress"
                     label="Address"
                     className="maxWidth"
@@ -21,7 +21,7 @@ export default function ForeignAddress({ prefix }) {
             <Col xs={12} md={3}>
                 <TextField
                     {...register(`${prefix}ForeignAddressCity`)}
-                    required
+                    required={isRequired}
                     id={`${prefix}ForeignAddressCity`}
                     label="City"
                     className="maxWidth"
@@ -30,7 +30,7 @@ export default function ForeignAddress({ prefix }) {
             <Col xs={12} md={2}>
                 <TextField
                     {...register(`${prefix}ForeignAddressProvinceRegion`)}
-                    required
+                    required={isRequired}
                     id={`${prefix}ForeignAddressProvinceRegion`}
                     label="Province/Region"
                     className="maxWidth"
@@ -39,7 +39,7 @@ export default function ForeignAddress({ prefix }) {
             <Col xs={12} md={2}>
                 <TextField
                     {...register(`${prefix}ForeignAddressCountry`)}
-                    required
+                    required={isRequired}
                     id={`${prefix}ForeignAddressCountry`}
                     label="Country"
                     className="maxWidth"
@@ -48,7 +48,7 @@ export default function ForeignAddress({ prefix }) {
             <Col xs={12} md={2}>
                 <TextField
                     {...register(`${prefix}ForeignAddressPostalCode`)}
-                    required
+                    required={isRequired}
                     id={(`${prefix}ForeignAddressCountry`)}
                     label="Postal Code"
                     className="maxWidth"

@@ -1,11 +1,10 @@
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
-import InstructionsCash from "../components/InstructionsCash";
 import { useNavigate } from "react-router-dom";
 
-import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
+import TrustDeferredDataEntry from "../components/TrustDeferredDataEntry";
 
-export default function Cash(props) {
+export default function TrustDeferred(props) {
     const methods = useForm({
         defaultValues: props.formValues,
         mode: "onChange",
@@ -18,24 +17,24 @@ export default function Cash(props) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-        navigate("/cashprint");
+        console.table(data);
+        console.log(data.trustBeneficiary);
+        //navigate("/trustdeferredprint");
     };
 
     return (
-        <HelmetProvider>
+        <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>U of I Foundation | Cash Transmittal Form</title>
+                <title>U of I Foundation | Trust Deferred Transmittal Form </title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsCash />
             <FormProvider {...methods}>
-            <CashCheckGIKDataEntry
+            <TrustDeferredDataEntry 
                 onSubmit={onSubmit}
-                showAnonymousDonorCheckBox={true}
-                formType="Cash"
+                showAnonymousDonorCheckBox={false} 
             />
-            </FormProvider>
-        </HelmetProvider>
+            </FormProvider>            
+        </>
     );
 }
