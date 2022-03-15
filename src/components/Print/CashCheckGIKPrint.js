@@ -1,4 +1,10 @@
-import { Button, Container, createTheme, ThemeProvider } from "@mui/material";
+import {
+    Button,
+    Grid,
+    Container,
+    createTheme,
+    ThemeProvider,
+} from "@mui/material";
 import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
@@ -56,8 +62,21 @@ const CashCheckGIKPrint = (props) => {
                                 </Col>
                             </Row>
                         </Container>
-                        <CampusAddress campusLocation={props.formValues.campusLocation}
-                            formType={props.formType} />
+                        <Grid
+                            container
+                            direction="row"
+                            justifyContent="center"
+                            textAlign="center"
+                        >
+                            <Row className="hideForPrint">
+                                <CampusAddress
+                                    campusLocation={
+                                        props.formValues.campusLocation
+                                    }
+                                    formType={props.formType}
+                                />
+                            </Row>
+                        </Grid>
 
                         <div className="resultItems">
                             <PrintContactAndDonorInfo

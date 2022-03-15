@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 import TrustDeferredDataEntry from "../components/TrustDeferredDataEntry";
 
@@ -9,8 +8,6 @@ export default function TrustDeferred(props) {
         defaultValues: props.formValues,
         mode: "onChange",
     });
-
-    const navigate = useNavigate();
 
     function removeEmptyFields(data) {}
 
@@ -26,15 +23,17 @@ export default function TrustDeferred(props) {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>U of I Foundation | Trust Deferred Transmittal Form </title>
+                <title>
+                    U of I Foundation | Trust Deferred Transmittal Form{" "}
+                </title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
             <FormProvider {...methods}>
-            <TrustDeferredDataEntry 
-                onSubmit={onSubmit}
-                showAnonymousDonorCheckBox={false} 
-            />
-            </FormProvider>            
+                <TrustDeferredDataEntry
+                    onSubmit={onSubmit}
+                    showAnonymousDonorCheckBox={false}
+                />
+            </FormProvider>
         </>
     );
 }

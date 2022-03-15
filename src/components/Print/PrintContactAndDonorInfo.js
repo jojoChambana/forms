@@ -61,6 +61,23 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
             );
     }
 
+    function SourceCode() {
+        if (formValues.unitReferenceNumber > 0)
+            return (
+                <div className="col rightLabel">
+                    Source Code:
+                    <span className="normal">{formValues.sourceCode}</span>
+                </div>
+            );
+        else
+            return (
+                <div className="col rightLabel">
+                    &nbsp;
+                    <span className="normal">&nbsp;</span>
+                </div>
+            );
+    }
+
     const Domestic = () => {
         return (
             <>
@@ -211,6 +228,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         <span className="normal">{formValues.preparedBy}</span>
                     </div>
                     <UnitReferenceNumber />
+                    <SourceCode />
                 </div>
             </div>
 
@@ -227,6 +245,24 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                 {/* ============ right column at the top for donor info ============== */}
                 <div className="d-print-table-cell col centerColContent">
                     <DonorUnknownCheckBox />
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">TED Constituent ID:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.tedConstituentId}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel min-cell">
+                            Organization/Donor Name:
+                        </div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.organizationDonorName}
+                            </span>
+                        </div>
+                    </div>
                     {!formValues.donorUnknownCheckBox ? (
                         <>
                             <Row>
@@ -234,28 +270,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                     <AddressType />
                                 </Col>
                                 <Col>
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            TED Constituent ID:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {formValues.tedConstituentId}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel min-cell">
-                                            Organization/Donor Name:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {
-                                                    formValues.organizationDonorName
-                                                }
-                                            </span>
-                                        </div>
-                                    </div>
                                     <NewDonorCheckBox />
                                     <NewAddressCheckBox />
                                 </Col>

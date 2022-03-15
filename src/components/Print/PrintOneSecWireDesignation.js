@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import { Col, ListGroupItem, Row } from "react-bootstrap";
+import { ListGroupItem } from "react-bootstrap";
 import { formatAmount } from "../HelperFunctions";
 
 const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {

@@ -1,8 +1,9 @@
 import { FormGroup, TextField, Typography } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
-import { MdNoteAdd, MdDeleteForever } from "react-icons/md";
+import { MdDelete, MdAdd } from "react-icons/md";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { newTrustWire } from "./HelperFunctions";
+import { IconContext } from "react-icons";
 
 export default function TrustWire() {
     // used in building the repeating trustWire section.  Get the array of object from the 'trustWire' object in cashValues
@@ -20,64 +21,71 @@ export default function TrustWire() {
 
     return (
         <>
-            <Typography variant="h5" component="h3">
+            <Typography
+                variant="h5"
+                component="h3"
+                className="mt-2 mr-0 mb-2 ml-0"
+            >
                 Wire Information
             </Typography>
-            <ListGroup className="list-group row">
+            <ListGroup className="row">
                 {fields.map((item, index) => {
                     return (
-                        <ListGroupItem key={item.id}>
+                        <ListGroupItem key={item.id} className="mt-3">
                             <FormGroup>
-                                <Row className="mb-0">
+                                <Row className="mt-2 mr-0 mb-2 ml-0">
+                                    <Col xs={12} md={3}>
+                                        <TextField
+                                            {...register(
+                                                `trustWire.${index}.bankName`
+                                            )}
+                                            required
+                                            placeholder="Bank Name"
+                                            label="Bank Name"
+                                            className="maxWidth"
+                                        />
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <TextField
+                                            {...register(
+                                                `trustWire.${index}.totalValue`
+                                            )}
+                                            inputProps={{
+                                                inputMode: "numeric",
+                                                pattern: "[0-9]+(.[0-9][0-9])?",
+                                            }}
+                                            placeholder="0.00"
+                                            label="Total Value of Securities"
+                                            required
+                                        />
+                                    </Col>
                                     <Col>
                                         <div className="end-align">
                                             <Button
                                                 placeholder="Delete Wire"
                                                 label="Delete Wire"
-                                                className="addButtonIcon mt-3"
+                                                className="addButtonIcon mt-1"
                                                 onClick={() => {
                                                     remove(index);
                                                 }}
                                             >
-                                                Delete Wire <MdDeleteForever />
+                                                <IconContext.Provider
+                                                    value={{
+                                                        size: "2em",
+                                                    }}
+                                                >
+                                                    <MdDelete />
+                                                </IconContext.Provider>
                                             </Button>
                                         </div>
                                     </Col>
                                 </Row>
                             </FormGroup>
-
-                            <Row>
-                                <Col xs={12} md={3} className="offset-md-2">
-                                    <TextField
-                                        {...register(
-                                            `trustWire.${index}.bankName`
-                                        )}
-                                        required
-                                        placeholder="Bank Name"
-                                        label="Bank Name"
-                                        className="maxWidth"
-                                    />
-                                </Col>
-                                <Col xs={12} md={6} className="offset-md-2">
-                                    <TextField
-                                        {...register(
-                                            `trustWire.${index}.totalValue`
-                                        )}
-                                        inputProps={{
-                                            inputMode: "numeric",
-                                            pattern: "[0-9]+(.[0-9][0-9])?",
-                                        }}
-                                        placeholder="0.00"
-                                        label="Total Value of Securities"
-                                        required
-                                    />
-                                </Col>
-                            </Row>
                         </ListGroupItem>
                     );
                 })}
             </ListGroup>
-            {/* the Add Wire button at the end */}
+
             <Row>
                 <Col xs={6} md={3}>
                     <div>
@@ -89,7 +97,14 @@ export default function TrustWire() {
                                 append({ ...newTrustWire() });
                             }}
                         >
-                            Add Wire <MdNoteAdd />
+                            <IconContext.Provider
+                                value={{
+                                    size: "2em",
+                                    title: "Add Wire",
+                                }}
+                            >
+                                <MdAdd />
+                            </IconContext.Provider>
                         </Button>
                     </div>
                 </Col>

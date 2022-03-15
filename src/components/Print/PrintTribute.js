@@ -149,7 +149,10 @@ const PrintTribute = ({ formValues }) => {
     }
 
     function NotifyIndividualOrFamily(props) {
-        if (formValues.notifyIndividualOrFamily === "Please notify the individual/family below") {
+        if (
+            formValues.notifyIndividualOrFamily ===
+            "Please notify the individual/family below"
+        ) {
             return (
                 <>
                     <div className="resultItems row">
@@ -178,7 +181,10 @@ const PrintTribute = ({ formValues }) => {
                     <IsAcknowledgeeForeignAddressCheckboxChecked />
                 </>
             );
-        } else if (formValues.notifyIndividualOrFamily === "Please notify the person above") {
+        } else if (
+            formValues.notifyIndividualOrFamily ===
+            "Please notify the person above"
+        ) {
             return (
                 <>
                     <div className="resultItems row">
@@ -187,7 +193,7 @@ const PrintTribute = ({ formValues }) => {
                                 <strong className="normal justify-col-tribute">
                                     <Typography>
                                         <strong>
-                                        Please Notify the Person Above
+                                            Please Notify the Person Above
                                         </strong>
                                     </Typography>
                                 </strong>
@@ -196,12 +202,8 @@ const PrintTribute = ({ formValues }) => {
                     </div>
                 </>
             );
-        } 
-        
-        else {
-            return (
-                <></>
-            );
+        } else {
+            return <></>;
         }
     }
 
@@ -214,7 +216,7 @@ const PrintTribute = ({ formValues }) => {
                             TED Constituent ID:
                         </div>
 
-                        <div classname="d-print-table-cell">
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.tedTributeConstituentId}
                             </span>
@@ -335,11 +337,28 @@ const PrintTribute = ({ formValues }) => {
                 <div className="resultItems row">
                     <Col>
                         <IsTributeNewAddressChecked />
-                        <div className="d-flex justify-content-center">
-                            <strong className="normal justify-col-tribute">
-                                This Gift is a Tribute
-                            </strong>
+                        {/* <div>
+                            <Row>
+                                <Col>&nbsp;</Col>
+                                <Col>
+                                    <strong className="normal justify-col-tribute">
+                                        This Gift is a Tribute
+                                    </strong>
+                                </Col>
+                            </Row>
+                        </div> */}
+
+                        <div className="d-print-table-cell">
+                            <div className="d-print-table-row">
+                                <div className="d-print-table-cell">&nbsp;</div>
+                                <div className="rightLabel justify-col-tribute">
+                                    This Gift is a Tribute
+                                </div>
+                            </div>
+                            <AddressType />
                         </div>
+
+                        <TedTributeConstituentId />
                         <div className="d-print-table-cell">
                             <div className="d-print-table-row">
                                 <div className="rightLabel">
@@ -373,7 +392,6 @@ const PrintTribute = ({ formValues }) => {
                         </div>
                     </div> */}
                     <Col>
-                        <TedTributeConstituentId />
                         <NotifyIndividualOrFamily />
                     </Col>
                 </div>

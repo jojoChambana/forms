@@ -3,8 +3,9 @@ import { useState } from "react";
 import DomesticAddress from "./DomesticAddress";
 import ForeignAddress from "./ForeignAddress";
 import { useFormContext } from "react-hook-form";
+import { Row } from "react-bootstrap";
 
-export default function Address({ prefix, isRequired = true}) {
+export default function Address({ prefix, isRequired = true }) {
     const { getValues, setValue, register } = useFormContext();
 
     const [checked, setChecked] = useState(
@@ -34,24 +35,26 @@ export default function Address({ prefix, isRequired = true}) {
 
     return (
         <>
-            <FormGroup>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            {...register(`${prefix}ForeignAddressCheckbox`)}
-                            id={`${prefix}ForeignAddressCheckbox`}
-                            onChange={handleChange}
-                        />
-                    }
-                    label="Check for Foreign Address"
-                    checked={checked}
-                />
-            </FormGroup>
-            {checked ? (
-                <ForeignAddress prefix={prefix} isRequired={isRequired} />
-            ) : (
-                <DomesticAddress prefix={prefix} isRequired={isRequired} />
-            )}
+            <Row className="p-0">
+                <FormGroup>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                {...register(`${prefix}ForeignAddressCheckbox`)}
+                                id={`${prefix}ForeignAddressCheckbox`}
+                                onChange={handleChange}
+                            />
+                        }
+                        label="Check for Foreign Address"
+                        checked={checked}
+                    />
+                </FormGroup>
+                {checked ? (
+                    <ForeignAddress prefix={prefix} isRequired={isRequired} />
+                ) : (
+                    <DomesticAddress prefix={prefix} isRequired={isRequired} />
+                )}
+            </Row>
         </>
     );
 }

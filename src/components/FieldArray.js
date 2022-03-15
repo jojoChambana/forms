@@ -98,7 +98,7 @@ export default function Fields({ control, register }) {
                                 )}
 
                                 <Row>
-                                    <Col xs={12} md={6} className="offset-md-1">
+                                    <Col xs={12} md={6}>
                                         <TextField
                                             {...register(
                                                 `tedDesignationTitle.${index}.desigTitle`

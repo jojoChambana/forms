@@ -146,7 +146,9 @@ export default function DesignationInformation() {
                                                     onClick={() => {
                                                         remove(index);
                                                         calcFinalTotals(
-                                                            getValues("designation"),
+                                                            getValues(
+                                                                "designation"
+                                                            ),
                                                             setValue
                                                         );
                                                     }}
@@ -171,11 +173,7 @@ export default function DesignationInformation() {
                             {newDesigChecked ? (
                                 <>
                                     <Row>
-                                        <Col
-                                            xs={12}
-                                            md={3}
-                                            className="offset-md-1"
-                                        >
+                                        <Col xs={12} md={3}>
                                             <TextField
                                                 {...register(
                                                     `designation.${index}.departmentContactEmail`
@@ -202,11 +200,7 @@ export default function DesignationInformation() {
                                 </>
                             ) : (
                                 <Row>
-                                    <Col
-                                        xs={12}
-                                        md={3}
-                                        className="offset-md-1"
-                                    >
+                                    <Col xs={12} md={3}>
                                         {/* <TextField
                                             {...register(
                                                 `designation.${index}.tedDesignationId`
@@ -216,19 +210,27 @@ export default function DesignationInformation() {
                                             label="TED Designation ID"
                                             className="maxWidth"
                                         /> */}
-                                            <Controller
-                                                name={`designation.${index}.tedDesignationId`}
-                                                control={control}
-                                                render={({ field: { onChange, value } }) => (
-                                                <TextField onChange={onChange} value={value} label="TED Designation ID" required className="maxWidth" />
-                                                )}
-                                            />                                         
+                                        <Controller
+                                            name={`designation.${index}.tedDesignationId`}
+                                            control={control}
+                                            render={({
+                                                field: { onChange, value },
+                                            }) => (
+                                                <TextField
+                                                    onChange={onChange}
+                                                    value={value}
+                                                    label="TED Designation ID"
+                                                    required
+                                                    className="maxWidth"
+                                                />
+                                            )}
+                                        />
                                     </Col>
                                 </Row>
                             )}
                             {/* designation title */}
                             <Row>
-                                <Col xs={12} md={6} className="offset-md-1">
+                                <Col xs={12} md={6}>
                                     {/* <TextField
                                         {...register(
                                             `designation.${index}.tedDesignationTitle`
@@ -241,15 +243,23 @@ export default function DesignationInformation() {
                                     <Controller
                                         name={`designation.${index}.tedDesignationTitle`}
                                         control={control}
-                                        render={({ field: { onChange, value } }) => (
-                                        <TextField onChange={onChange} value={value} label="Designation Title" className="maxWidth" required />
+                                        render={({
+                                            field: { onChange, value },
+                                        }) => (
+                                            <TextField
+                                                onChange={onChange}
+                                                value={value}
+                                                label="Designation Title"
+                                                className="maxWidth"
+                                                required
+                                            />
                                         )}
-                                    />                                             
+                                    />
                                 </Col>
                             </Row>
                             {/* Gift Amount */}
                             <Row>
-                                <Col xs={12} md={2} className="offset-md-1">
+                                <Col xs={12} md={2}>
                                     <div className="dollarAmount maxWidth">
                                         <TextField
                                             label="Gift Amount"
@@ -257,8 +267,7 @@ export default function DesignationInformation() {
                                             required
                                             inputProps={{
                                                 inputMode: "numeric",
-                                                pattern:
-                                                    "[0-9]+(.[0-9][0-9])?",
+                                                pattern: "[0-9]+(.[0-9][0-9])?",
                                             }}
                                             {...register(
                                                 `designation.${index}.designationGiftAmount`
@@ -270,11 +279,7 @@ export default function DesignationInformation() {
                                 {/* Only show nongift and total if nongift is checked */}
                                 {nonGiftChecked && (
                                     <>
-                                        <Col
-                                            xs={12}
-                                            md={2}
-                                            className="offset-md-1"
-                                        >
+                                        <Col xs={12} md={2}>
                                             <div className="dollarAmount">
                                                 <TextField
                                                     {...register(
@@ -282,8 +287,7 @@ export default function DesignationInformation() {
                                                     )}
                                                     required
                                                     inputProps={{
-                                                        inputMode:
-                                                            "numeric",
+                                                        inputMode: "numeric",
                                                         pattern:
                                                             "[0-9]+(.[0-9][0-9])?",
                                                     }}
@@ -293,11 +297,7 @@ export default function DesignationInformation() {
                                                 />
                                             </div>
                                         </Col>
-                                        <Col
-                                            xs={12}
-                                            md={2}
-                                            className="offset-md-1"
-                                        >
+                                        <Col xs={12} md={2}>
                                             <div className="dollarAmount">
                                                 <TextField
                                                     disabled
@@ -316,7 +316,7 @@ export default function DesignationInformation() {
                             </Row>
                             {/* pledge revenue  */}
                             <Row>
-                                <Col xs={12} md={4} className="offset-md-1">
+                                <Col xs={12} md={4}>
                                     <TextField
                                         {...register(
                                             `designation.${index}.pledgeRevenueId`

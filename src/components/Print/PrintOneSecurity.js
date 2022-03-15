@@ -1,5 +1,4 @@
 import { ListGroupItem } from "react-bootstrap";
-import NumberFormat from "react-number-format";
 import { formatAmount3 } from "../HelperFunctions";
 const PrintOneSecWireSecurity = ({ oneSecurity, index }) => {
     return (

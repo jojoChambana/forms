@@ -4,12 +4,15 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
-import { useFormContext,Controller } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-export default function SpousePartnerInformation({showCheckBoxes = true, showPhoneAndDOB = false}) {
+export default function SpousePartnerInformation({
+    showCheckBoxes = true,
+    showPhoneAndDOB = false,
+}) {
     const { register, getValues, setValue, control } = useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
@@ -21,7 +24,7 @@ export default function SpousePartnerInformation({showCheckBoxes = true, showPho
                 Spouse/Partner Information
             </Typography>
             {showCheckBoxes && (
-                <Row className="mt-2">
+                <Row className="mt-2s">
                     <Col xs={12} md={6}>
                         <FormControlLabel
                             control={
@@ -62,7 +65,7 @@ export default function SpousePartnerInformation({showCheckBoxes = true, showPho
                     </Col>
                 </Row>
             )}
-            <Row>
+            <Row className="mt-3">
                 <Col xs={12} md={4}>
                     <TextField
                         {...register("spousePartnerOrganizationDonorName")}
@@ -80,7 +83,7 @@ export default function SpousePartnerInformation({showCheckBoxes = true, showPho
                         label="TED Constituent ID"
                     />
                 </Col>
-          </Row>
+            </Row>
             {showPhoneAndDOB && (
                 <Row>
                     <Col xs={12} md={3}>
@@ -104,11 +107,10 @@ export default function SpousePartnerInformation({showCheckBoxes = true, showPho
                             {...register("spousePartnerDOB")}
                             label="Date of Birth"
                             className="dateField maxWidth"
-                            />
-                        </Col>                            
-                        </Row>
-                    )}
-
+                        />
+                    </Col>
+                </Row>
+            )}
         </>
     );
 }

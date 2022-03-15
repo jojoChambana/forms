@@ -1,14 +1,16 @@
 @import url(/node_modules/bootstrap-print-css/css/bootstrap-print.min.css);
 @import url(PrintStyles.css);
 body {
-  font-family: "Gotham SSm A", "Gotham SSm B";
+  font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif !important;
 }
 
 .logo {
   padding: 0;
+  width: 224px;
   width: 14rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin-bottom: 1.6px;
   margin-bottom: 0.1rem;
 }
 
@@ -36,8 +38,8 @@ nav #navbarSupportedContent {
   nav #navbarSupportedContent {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -47,11 +49,13 @@ nav #navbarSupportedContent > div > div > h1 {
 
 nav #navbarSupportedContent > div > div.active > h1 {
   display: block;
+  font-size: 20px;
   font-size: 1.25rem;
   margin: 0.3em 0em;
 }
 
 .navbar-brand {
+  padding: 0 48px 0 14.4px;
   padding: 0 3rem 0 0.9rem;
 }
 
@@ -73,12 +77,13 @@ div.active {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 div.active h1 {
   display: block;
+  font-size: 24px;
   font-size: 1.5rem;
   margin: 1em;
 }
@@ -88,12 +93,12 @@ div.active h1 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .flexBasis {
@@ -114,6 +119,7 @@ div.active h1 {
 
 h3 {
   background-color: #ccc;
+  padding: 4px;
   padding: 4px;
   padding: 0.25rem;
 }
@@ -156,8 +162,8 @@ span.lineUp,
   span.lineUp,
   .lineUp {
     -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     text-align: right;
     min-width: 250px !important;
   }
@@ -215,6 +221,7 @@ span.normal {
 .PhoneInput {
   border: solid 1px #cccccc;
   padding: 14.4px;
+  padding: 14.4px;
   padding: 0.9rem;
   border-radius: 4px;
 }
@@ -227,12 +234,8 @@ span.normal {
   border: none;
 }
 
-label#mui-11-label {
-  top: -12.8px;
-  top: -0.8rem;
-}
-
 .addressSpace {
+  margin-left: 0.8px;
   margin-left: 0.8px;
   margin-left: 0.05rem;
 }
@@ -243,8 +246,8 @@ label#mui-11-label {
 
 .addButton {
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .addButtonIcon {
@@ -287,13 +290,14 @@ button:hover,
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .dollarAmount input {
   text-align: right;
   padding-right: 4px;
+  padding-right: 16px;
   padding-right: 1rem;
 }
 
@@ -302,8 +306,8 @@ button:hover,
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .desigColTitle {
@@ -341,8 +345,8 @@ button:hover,
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .singular-offset .colOne {
@@ -370,6 +374,7 @@ button:hover,
 
 .totals {
   width: 175px;
+  margin-left: 20px;
   margin-left: 20px;
   margin-left: 1.25rem;
 }
@@ -411,8 +416,8 @@ button:hover,
 
 #contactPrint .rightLabel {
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   text-align: left;
   min-width: -webkit-fit-content !important;
   min-width: -moz-fit-content !important;
@@ -421,10 +426,12 @@ button:hover,
 }
 
 #contactPrint .col .rightLabel {
+  padding-right: 64px;
   padding-right: 4rem;
 }
 
 #donationDate {
+  min-width: 352px !important;
   min-width: 22rem !important;
 }
 
@@ -448,5 +455,15 @@ button:hover,
   div.col-md-6.col-12 {
     padding-bottom: 1em;
   }
+}
+
+.campusAddress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 90px;
 }
 /*# sourceMappingURL=App.css.map */

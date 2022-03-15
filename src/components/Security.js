@@ -23,12 +23,12 @@ export default function Security({ alwaysShowSecurtityDeleteButtons }) {
             <Typography variant="h5" component="h3" className="mt-2 mb-3">
                 Security Information
             </Typography>
-            <ListGroup className="list-group">
+            <ListGroup>
                 {fields.map((item, index) => {
                     return (
                         <ListGroupItem key={item.id} className="mb-3">
                             <Row className="pt-3">
-                                <Col xs={12} md={2} className="offset-md-1">
+                                <Col xs={12} md={2}>
                                     <TextField
                                         {...register(
                                             `security.${index}.shares`

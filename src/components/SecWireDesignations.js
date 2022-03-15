@@ -52,7 +52,7 @@ export default function SecWireDesignations() {
 
     return (
         <>
-            <ListGroup className="list-group">
+            <ListGroup>
                 <Typography variant="h5" component="h3" className="mt-2 mb-3">
                     Designation Information
                 </Typography>
@@ -60,7 +60,7 @@ export default function SecWireDesignations() {
                     return (
                         <ListGroupItem key={item.id} className="mb-3">
                             <Row className="mt-3">
-                                <Col xs={12} md={3} className="offset-md-1">
+                                <Col xs={12} md={3}>
                                     <TextField
                                         {...register(
                                             `designation.${index}.tedDesignationId`
@@ -119,7 +119,7 @@ export default function SecWireDesignations() {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col xs={12} md={2} className="offset-md-1">
+                                <Col xs={12} md={2}>
                                     <div className="dollarAmount maxWidth">
                                         <TextField
                                             label="Gift Amount"
@@ -136,7 +136,7 @@ export default function SecWireDesignations() {
                                     </div>
                                 </Col>
 
-                                <Col xs={12} md={2} className="offset-md-2">
+                                <Col xs={12} md={2}>
                                     <div className="dollarAmount">
                                         <TextField
                                             {...register(
@@ -153,7 +153,7 @@ export default function SecWireDesignations() {
                                         />
                                     </div>
                                 </Col>
-                                <Col xs={12} md={2} className="offset-md-2">
+                                <Col xs={12} md={2}>
                                     <div className="dollarAmount">
                                         <TextField
                                             disabled

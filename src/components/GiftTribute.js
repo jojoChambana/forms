@@ -14,7 +14,6 @@ import { Controller, useFormContext } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
-
 import Address from "./Address";
 
 export default function GiftTribute() {
@@ -51,8 +50,11 @@ export default function GiftTribute() {
         setValue("giftTribute", event.target.value); // set the rect hook element appropriately
 
         // if we just switched to 'In memory of' and the radio button we are about to hide is selected, se;ect a differemt radio button
-        if ((event.target.value === "In Memory Of") && (getValues("notifyIndividualOrFamily") === C_NOTIFY_PERSON_ABOVE))
-            setValue("notifyIndividualOrFamily",C_DO_NOT_SEND)
+        if (
+            event.target.value === "In Memory Of" &&
+            getValues("notifyIndividualOrFamily") === C_NOTIFY_PERSON_ABOVE
+        )
+            setValue("notifyIndividualOrFamily", C_DO_NOT_SEND);
         setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
         setShowInMemoryOf(event.target.value === "In Memory Of");
     };
@@ -67,23 +69,24 @@ export default function GiftTribute() {
 
         setValue("notifyIndividualOrFamily", event.target.value);
         setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-    };    
+    };
     const divStyle = {
         flexBasis: "content",
         msFlexPreferredSize: "content",
     };
-    
+
     const C_NOTIFY_PERSON_ABOVE = "Please Notify the Person Above";
     const C_DO_NOT_SEND = "Do Not Send a Notification";
-    const C_NOTIFY_IND_FAMILY_BELOW = "Please Notify the Individual/Family Below";
+    const C_NOTIFY_IND_FAMILY_BELOW =
+        "Please Notify the Individual/Family Below";
 
     return (
         <>
-            <Typography variant="h5" component="h3">
-                Tribute
-            </Typography>
-            <FormGroup>
-                <Row className="mb-0">
+            <FormGroup className="row list-group-item pt-4">
+                <Typography variant="h5" component="h3">
+                    Tribute
+                </Typography>
+                <Row className="mb-0 p-0">
                     <Col>
                         <FormControlLabel
                             label="Check if this Gift is a Tribute"
@@ -169,7 +172,7 @@ export default function GiftTribute() {
                                 </Col>
                             </Row>
                         </FormControl>
-                        <Row className="mb-0">
+                        <Row className="mb-0 p-0">
                             <Col xs={12} md={4}>
                                 <FormGroup>
                                     <FormControlLabel
@@ -188,8 +191,11 @@ export default function GiftTribute() {
                             </Col>
                         </Row>
                         {/* We only want the address to be required if 'In honor of' is selected */}
-                        <Address prefix="tribute" isRequired={!showInMemoryOf}/>
-                        <Row>
+                        <Address
+                            prefix="tribute"
+                            isRequired={!showInMemoryOf}
+                        />
+                        <Row className="p-0">
                             <Col xs={12} md={3}>
                                 <Controller
                                     name="designationPhoneNumber"
@@ -220,7 +226,7 @@ export default function GiftTribute() {
                                 />
                             </Col>
                         </Row>
-                        <Row className="mb-0">
+                        <Row className="mb-0 p-0">
                             <Col>
                                 {/* <FormGroup>
                                     <FormControlLabel
@@ -243,7 +249,9 @@ export default function GiftTribute() {
                                     <RadioGroup
                                         row
                                         aria-labelledby="campus-Location"
-                                        value={getValues("notifyIndividualOrFamily")}
+                                        value={getValues(
+                                            "notifyIndividualOrFamily"
+                                        )}
                                         onChange={handleNotificationChange}
                                         name="campusLocation"
                                     >
@@ -257,20 +265,21 @@ export default function GiftTribute() {
                                             control={<Radio />}
                                             label={C_NOTIFY_IND_FAMILY_BELOW}
                                         />
-                                        {!showInMemoryOf && 
+                                        {!showInMemoryOf && (
                                             <FormControlLabel
                                                 value={C_NOTIFY_PERSON_ABOVE}
                                                 control={<Radio />}
                                                 label={C_NOTIFY_PERSON_ABOVE}
                                             />
-                                        }
+                                        )}
                                     </RadioGroup>
-                                </FormControl>                                
+                                </FormControl>
                             </Col>
                         </Row>
-                        {(getValues("notifyIndividualOrFamily") === C_NOTIFY_IND_FAMILY_BELOW) && (
+                        {getValues("notifyIndividualOrFamily") ===
+                            C_NOTIFY_IND_FAMILY_BELOW && (
                             <>
-                                <Row>
+                                <Row className="p-0">
                                     <Col xs={12} md={4}>
                                         <TextField
                                             {...register(
@@ -294,12 +303,12 @@ export default function GiftTribute() {
                                         />
                                     </Col>
                                 </Row>
-                                <Row>
+                                <Row className="p-0">
                                     <Col>
                                         <Address prefix="acknowledgee" />
                                     </Col>
                                 </Row>
-                                <Row>
+                                <Row className="p-0">
                                     <Col xs={12} md={4}>
                                         <Controller
                                             name="tedTributeAcknowledgedPhone"

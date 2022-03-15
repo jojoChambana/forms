@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 import TrustDataEntry from "../components/TrustDataEntry";
 
@@ -9,8 +8,6 @@ export default function Trust(props) {
         defaultValues: props.formValues,
         mode: "onChange",
     });
-
-    const navigate = useNavigate();
 
     function removeEmptyFields(data) {}
 
@@ -29,11 +26,11 @@ export default function Trust(props) {
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
             <FormProvider {...methods}>
-            <TrustDataEntry 
-                onSubmit={onSubmit}
-                showAnonymousDonorCheckBox={false} 
-            />
-            </FormProvider>            
+                <TrustDataEntry
+                    onSubmit={onSubmit}
+                    showAnonymousDonorCheckBox={false}
+                />
+            </FormProvider>
         </>
     );
 }
