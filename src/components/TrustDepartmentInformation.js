@@ -44,7 +44,7 @@ export default function TrustDepartmentInformation({ trustType }) {
                         className="maxWidth"
                     />
                 </Col>
-                <Col xs={12} md={3}>
+                <Col xs={12} md={2}>
                     <TextField
                         {...register("datePrepared")}
                         required
@@ -53,18 +53,22 @@ export default function TrustDepartmentInformation({ trustType }) {
                         label="Date Prepared"
                     />
                 </Col>
-            </Row>
-            <Row>
-                <Col xs={12} md={6}>
+                <Col xs={12} md={2}>
                     <Controller
                         name={"sourceCode"}
                         control={control}
                         render={({ field: { onChange, value } }) => (
-                        <TextField onChange={onChange} value={value} label="Source Code" className="maxWidth" />
+                            <TextField
+                                onChange={onChange}
+                                value={value}
+                                label="Source Code"
+                                className="maxWidth"
+                            />
                         )}
-                    />                               
+                    />
                 </Col>
-            </Row>    
+            </Row>
+
             {(trustType === "Estate" || trustType === "Life Income") && (
                 <Row>
                     <Col xs={12} md={6}>
@@ -89,7 +93,6 @@ export default function TrustDepartmentInformation({ trustType }) {
                     </Col>
                 </Row>
             )}
-
         </>
     );
 }

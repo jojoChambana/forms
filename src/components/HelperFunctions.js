@@ -462,7 +462,8 @@ export function SharedFillForm(setValue) {
     setValue("departmentName", "English");
     setValue("donationDate", "02-10-2022");
     setValue("preparedBy", "Ted Logan");
-    setValue("unitReferenceNumber", "");
+    setValue("unitReferenceNumber", "321");
+    setValue("sourceCode", "14028472984");
 
     setValue("donorDomesticAddressNewDonor", false);
     setValue("donorDomesticAddressNewAddress", false);
@@ -498,6 +499,10 @@ export function SharedFillForm(setValue) {
         "designation.0.designationAdditionalComments",
         "This is a designation additional comment"
     );
+
+    setValue("security.0.shares", "400");
+    setValue("security.0.name", "Apple");
+    setValue("security.0.symbol", "APPL");
 }
 
 export function FillCashCheckGIKForm(setValue) {
@@ -628,7 +633,6 @@ export function FillTrustForm(setValue) {
     setValue("dateOfGift", "3-22-2021");
     setValue("preparedBy", "Tony Danza");
     setValue("datePrepared", "3-21-2021");
-    setValue("sourceCode", "14028472984");
     setValue("newDonorCheckBox", false);
     setValue("newDonorAddressCheckBox", false);
     setValue("organizationDonorName", "Bob Dobbs");
@@ -659,45 +663,37 @@ export function FillTrustForm(setValue) {
     setValue("receiptToOther", "John Townsend");
 
     setValue("trustWire.0.bankName", "PNC");
-    setValue("trustWire.0.totalValue", "3,000");
+    setValue("trustWire.0.totalValue", "3000");
 
     setValue("trustCheck.0.bankName", "564532487");
-    setValue("trustCheck.0.checkTotal", "5,000");
+    setValue("trustCheck.0.checkTotal", "5000");
 
     setValue("otherInformation", "None");
 
-    setValue("OpportunityCheckbox.0", false);
+    setValue("designation.0.associatedOpportunityChecked", true);
 
     setValue("designation.0.tedHouseholdId", "342309842309");
     setValue("designation.0.tedHouseholdName", "The Thompson Family");
     setValue("designation.0.tedPlanName", "T-Plan");
-    setValue("designation.0.tedOpportunityAmount", "1,000");
+    setValue("designation.0.tedOpportunityAmount", "1000");
     setValue("designation.0.actualAskDate", "3-19-2021");
     setValue("designation.0.primaryPlanManager", "Daniel Peters");
 
-    // setValue("heldByOthersChoice", "Charitable gift annuity");
-    // setValue("revocableChoice", "Retirement Plan");
-    // setValue("dateOfCommitment", "3-1-2022");
-    // setValue("estimatedDollarValue", "10000");
-    // setValue("newTotalIfIncreaseDecrease", "20000");
-    // setValue("estateReviewDate", "1-1-2022");
-    // setValue("expectedMaturityYear", "2042");
-    // setValue("increaseDecreasePrior", "Yes");
-    // setValue("jointLifeGift", "Yes");
-    // setValue("eventualDesignationOfPG", "Eventual Designation Text");
-    // setValue("endowment", "No");
-    // setValue("fundAgreement", "UIF existing");
-    // setValue("documentation", "Documentation Text");
-    // setValue("basisForDeterminingValue", "Basis for Determining Value Text");
-    // setValue("planOpportunity", "Plan/Opportunity text");
-    // setValue("responsiblePerson", "Responsible PErson Text");
-    // setValue("trustName", "Trust Name Text");
-    // setValue("lifeIncomeDesignation", "Life Income Designation Text");
+    setValue("designation.0.newDesignationRequestedChecked", false);
+    setValue("designation.0.nonGiftPortionChecked", false);
 
-    // setValue("trustBeneficiary.0.lastName", "Smith");
-    // setValue("trustBeneficiary.0.firstName", "Frank");
-    // setValue("trustBeneficiary.0.tedConstituentID", "543435435");
-    // setValue("trustBeneficiary.0.dateOfBirth","3-1-2010");
+    setValue("designation.0.departmentContactEmail", "email@department.com");
+    setValue("designation.0.departmentContact", "William Smith");
+    setValue("designation.0.pledgeRevenueId", "4095683454");
+
+    setValue("doNotProcessUntilContactedByTrustServices", false);
+
+    setValue("noReceiptNecessary", false);
+
+    setValue("designation.0.newDesignationRequestedChecked", false);
+    setValue("designation.0.nonGiftPortionChecked", false);
+
+    setValue("designation.0.associatedOpportunityChecked", false);
 }
 
 export function SubmitButton() {
@@ -714,7 +710,7 @@ export function SubmitButton() {
 
 export function UrbanaAddress({ headerLine }) {
     return (
-        <Typography variant="subtitle2" component="div">
+        <Typography variant="subtitle2" component="div" className="mb-2">
             {headerLine}
             <br />
             University of Illinois Urbana-Champaign
@@ -746,7 +742,7 @@ export function CheckAddress({ headerLine }) {
 
 export function ChicagoAddress({ headerLine }) {
     return (
-        <Typography variant="subtitle2" component="div">
+        <Typography variant="subtitle2" component="div" className="mb-2">
             {headerLine}
             <br />
             University of Illinois Chicago - OVCA
@@ -760,7 +756,7 @@ export function ChicagoAddress({ headerLine }) {
 
 export function SpringfieldAddress({ headerLine }) {
     return (
-        <Typography variant="subtitle2" component="div">
+        <Typography variant="subtitle2" component="div" className="mb-2">
             {headerLine}
             <br />
             University of Illinois Springfield
@@ -885,13 +881,13 @@ export function PrintCampusAddressSwap({ campusLocation, formType }) {
             </style>
 
             <Row>
-                <Col>
+                <div className="d-flex col ">
                     <img
                         src={process.env.PUBLIC_URL + "logo.svg"}
                         alt="U of I Foundation Logo"
                         className="logo"
                     />
-                </Col>
+                </div>
                 <Col className="verticalCenter">
                     <Typography
                         variant="h6"

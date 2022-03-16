@@ -29,9 +29,13 @@ export default function GiftAssociatedOpportunity({ index }) {
     );
     return (
         <>
-            <Typography variant="h5" component="h3">
-                Opportunity
-            </Typography>
+            <Row className="pt-2">
+                <Col>
+                    <Typography variant="h5" component="h3">
+                        Opportunity
+                    </Typography>
+                </Col>
+            </Row>
             <FormGroup>
                 <Row className="mb-0">
                     <Col>
@@ -54,7 +58,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                 {initCheckValue && (
                     <>
                         <Row>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={3}>
                                 <TextField
                                     {...register(
                                         `designation.${index}.tedHouseholdId`
@@ -65,7 +69,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                                     className="maxWidth"
                                 />
                             </Col>
-                            <Col xs={12} md={8}>
+                            <Col xs={12} md={4}>
                                 <TextField
                                     {...register(
                                         `designation.${index}.tedHouseholdName`
@@ -78,7 +82,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                             </Col>
                         </Row>
                         <Row>
-                            <Col xs={12} md={8}>
+                            <Col xs={12} md={3}>
                                 <TextField
                                     {...register(
                                         `designation.${index}.tedPlanName`
@@ -89,7 +93,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                                     className="maxWidth"
                                 />
                             </Col>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={3}>
                                 <div className="dollarAmount">
                                     <TextField
                                         {...register(
@@ -108,7 +112,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                             </Col>
                         </Row>
                         <Row>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={3}>
                                 <TextField
                                     {...register(
                                         `designation.${index}.actualAskDate`
@@ -119,7 +123,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                                     className="maxWidth"
                                 />
                             </Col>
-                            <Col xs={12} md={6}>
+                            <Col xs={12} md={4}>
                                 <TextField
                                     {...register(
                                         `designation.${index}.primaryPlanManager`

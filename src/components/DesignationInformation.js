@@ -201,15 +201,6 @@ export default function DesignationInformation() {
                             ) : (
                                 <Row>
                                     <Col xs={12} md={3}>
-                                        {/* <TextField
-                                            {...register(
-                                                `designation.${index}.tedDesignationId`
-                                            )}
-                                            required
-                                            placeholder="TED Designation ID"
-                                            label="TED Designation ID"
-                                            className="maxWidth"
-                                        /> */}
                                         <Controller
                                             name={`designation.${index}.tedDesignationId`}
                                             control={control}

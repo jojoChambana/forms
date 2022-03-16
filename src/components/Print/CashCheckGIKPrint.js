@@ -41,42 +41,47 @@ const CashCheckGIKPrint = (props) => {
                         />
                         <Container>
                             <Row className="hideForPrint">
-                                <Col className="d-flex justify-content-around">
-                                    <Button
-                                        variant="contained"
-                                        className="buttonClass"
-                                        onClick={() => {
-                                            navigate(props.returnUrl);
-                                        }}
+                                <>
+                                    <Col>
+                                        <Button
+                                            variant="contained"
+                                            className="buttonClass"
+                                            onClick={() => {
+                                                navigate(props.returnUrl);
+                                            }}
+                                        >
+                                            Back
+                                        </Button>
+                                    </Col>
+                                    <div className="d-flex col justify-content-center">
+                                        <Button
+                                            variant="contained"
+                                            onClick={handlePrint}
+                                        >
+                                            Print Document
+                                        </Button>
+                                    </div>
+                                </>
+
+                                <Col>
+                                    <Grid
+                                        container
+                                        direction="row"
+                                        justifyContent="end"
                                     >
-                                        Back
-                                    </Button>
-                                </Col>
-                                <Col className="d-flex justify-content-around">
-                                    <Button
-                                        variant="contained"
-                                        onClick={handlePrint}
-                                    >
-                                        Print Document
-                                    </Button>
+                                        <Row className="hideForPrint mb-0">
+                                            <CampusAddress
+                                                campusLocation={
+                                                    props.formValues
+                                                        .campusLocation
+                                                }
+                                                formType={props.formType}
+                                            />
+                                        </Row>
+                                    </Grid>
                                 </Col>
                             </Row>
                         </Container>
-                        <Grid
-                            container
-                            direction="row"
-                            justifyContent="center"
-                            textAlign="center"
-                        >
-                            <Row className="hideForPrint">
-                                <CampusAddress
-                                    campusLocation={
-                                        props.formValues.campusLocation
-                                    }
-                                    formType={props.formType}
-                                />
-                            </Row>
-                        </Grid>
 
                         <div className="resultItems">
                             <PrintContactAndDonorInfo

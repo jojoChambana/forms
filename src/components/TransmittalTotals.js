@@ -7,12 +7,11 @@ import { useFormContext } from "react-hook-form";
 import { calcFinalTotals, calcGIKTotals } from "./HelperFunctions";
 // import TotalDonationAmount from "./TotalDonationAmount";
 
-export default function TransmittalTotals({ ignoreNonGiftChecked, showGIKTotal = false }) {
-    const {
-        register,
-        setValue,
-        watch
-    } = useFormContext();
+export default function TransmittalTotals({
+    ignoreNonGiftChecked,
+    showGIKTotal = false,
+}) {
+    const { register, setValue, watch } = useFormContext();
 
     useEffect(() => {
         const subscription = watch((values, { name, value }) => {
@@ -24,17 +23,15 @@ export default function TransmittalTotals({ ignoreNonGiftChecked, showGIKTotal =
                 );
             }
             if (name.startsWith("giftInKind.")) {
-                calcGIKTotals(
-                    values.giftInKind,
-                    setValue);
-            }            
+                calcGIKTotals(values.giftInKind, setValue);
+            }
         });
         return () => subscription.unsubscribe();
     });
 
     return (
         <div>
-            <Row>
+            <Row className="pt-2 pb-2">
                 <Col>
                     <Typography variant="h5" component="h3">
                         Transmittal Totals
@@ -83,7 +80,7 @@ export default function TransmittalTotals({ ignoreNonGiftChecked, showGIKTotal =
                         />
                     </div>
                 </Col>
-                {showGIKTotal && 
+                {showGIKTotal && (
                     <Col xs={12} md={2}>
                         <FormLabel className="dollarAmountLabel">
                             Gift in Kind Total
@@ -97,7 +94,7 @@ export default function TransmittalTotals({ ignoreNonGiftChecked, showGIKTotal =
                             />
                         </div>
                     </Col>
-                }                
+                )}
             </Row>
         </div>
     );

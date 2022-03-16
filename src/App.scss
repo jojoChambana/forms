@@ -296,6 +296,8 @@ button,
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        align-items: center;
+        text-align: left;
     }
     @media only print {
         display: none;
@@ -352,7 +354,6 @@ button,
 
 .d-print-table-cell.d-flex.justify-content-center {
     width: 550px;
-    text-align: center;
 }
 
 .justify-col-tribute {
@@ -425,4 +426,8 @@ div.col-md-6.col-12 {
     -ms-flex-align: center;
     align-items: center;
     min-height: 90px;
+}
+
+.backButton {
+    margin-right: 2em;
 }

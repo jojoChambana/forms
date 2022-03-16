@@ -337,17 +337,6 @@ const PrintTribute = ({ formValues }) => {
                 <div className="resultItems row">
                     <Col>
                         <IsTributeNewAddressChecked />
-                        {/* <div>
-                            <Row>
-                                <Col>&nbsp;</Col>
-                                <Col>
-                                    <strong className="normal justify-col-tribute">
-                                        This Gift is a Tribute
-                                    </strong>
-                                </Col>
-                            </Row>
-                        </div> */}
-
                         <div className="d-print-table-cell">
                             <div className="d-print-table-row">
                                 <div className="d-print-table-cell">&nbsp;</div>
@@ -377,20 +366,6 @@ const PrintTribute = ({ formValues }) => {
                             <AddressType />
                         </div>
                     </Col>
-                    {/* <div className="col">
-                        <div className="d-print-table-cell">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    TED constituent ID:
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formValues.tedTributeConstituentId}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
                     <Col>
                         <NotifyIndividualOrFamily />
                     </Col>
