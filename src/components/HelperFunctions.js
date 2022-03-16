@@ -339,6 +339,7 @@ export function newSecWireFormValues() {
 
         notifyIndividualOrFamilyEmail: "",
         tedTributeAcknowledgedPhone: "",
+        seeAttachedSecuritiesListCheckbox: false,
         security: [{ ...newSecurity() }],
     };
 }
@@ -382,10 +383,10 @@ export function newTrustDeferredFormValues() {
         newTotalIfIncreaseDecrease: "", // TrustDeferredGiftInformation.js
         estateReviewDate: "", // TrustDeferredGiftInformation.js
         expectedMaturityYear: "", // TrustDeferredGiftInformation.js
-        increaseDecreasePrior: "", // TrustDeferredGiftInformation.js
-        jointLifeGift: "", // TrustDeferredGiftInformation.js
+        increaseDecreasePrior: "No", // TrustDeferredGiftInformation.js
+        jointLifeGift: "No", // TrustDeferredGiftInformation.js
         eventualDesignationOfPG: "", // TrustDeferredGiftInformation.js
-        endowment: "", // TrustDeferredGiftInformation.js
+        endowment: "No", // TrustDeferredGiftInformation.js
         fundAgreement: "", // TrustDeferredGiftInformation.js
         documentation: "", // TrustDeferredGiftInformation.js
         basisForDeterminingValue: "", // TrustDeferredGiftInformation.js
@@ -433,7 +434,7 @@ export function newTrustFormValues() {
         spousePartnerTedConstituentId: "", // SpousePartnerInformation.js
         spousePartnerOrganizationDonorName: "", // SpousePartnerInformation.js
 
-        iraDistribution: "", // TrustIRADIstribution.js.  fdefault to '' so it forces the user to select 'Yes' or 'No'
+        iraDistribution: "No", // TrustIRADIstribution.js.
         receiptToTrustServices: false, // TrustReceiptTo.js
         receiptToDevelopmentPrograms: false, // TrustReceiptTo.js
         receiptToPlannedGiving: false, // TrustReceiptTo.js
@@ -447,7 +448,7 @@ export function newTrustFormValues() {
         giftInKind: [], // giftInKind.js
         designation: [{ ...newDesignation() }], // DesignationInformation.js
         otherInformation: "", // TrustOtherInformation.js
-        is8283Required: false, // TrustOtherInformation.js
+        is8283Required: "No", // TrustOtherInformation.js
     };
 }
 
@@ -623,6 +624,82 @@ export function FillTrustDeferredForm(setValue) {
     setValue("trustBeneficiary.0.dateOfBirth", "3-1-2010");
 }
 
+export function FillTrustForm(setValue) {
+    setValue("dateOfGift", "3-22-2021");
+    setValue("preparedBy", "Tony Danza");
+    setValue("datePrepared", "3-21-2021");
+    setValue("sourceCode", "14028472984");
+    setValue("newDonorCheckBox", false);
+    setValue("newDonorAddressCheckBox", false);
+    setValue("organizationDonorName", "Bob Dobbs");
+    setValue("tedConstituentId", "8675309");
+    setValue("donorDomesticAddress", "11000 Lower Wacker Drive");
+    setValue("donorDomesticAddressCity", "Chicago");
+    setValue("donorDomesticAddressState", "IL");
+    setValue("donorDomesticAddressZipCode", "61111");
+
+    setValue("donorForeignAddressCheckbox", false);
+    setValue("donorForeignAddress", "1234 Main St.");
+    setValue("donorForeignAddressCity", "Berlin");
+    setValue("donorForeignAddressProvinceRegion", "Bavaria");
+    setValue("donorForeignAddressCountry", "Germany");
+    setValue("donorForeignAddressPostalCode", 80331);
+
+    setValue("publicityCode", "Anonymous");
+
+    setValue("doNotAddSpousePartnerToReceipt", false);
+    setValue("doNotGiveSpousePartnerCredit", false);
+    setValue("spousePartnerOrganizationDonorName", "The Hen House");
+    setValue("spousePartnerTedConstituentId", "35944651");
+    setValue("iraDistribution", "No");
+
+    setValue("receiptToTrustServices", false);
+    setValue("receiptToPlannedGiving", false);
+    setValue("receiptToDevelopmentPrograms", false);
+    setValue("receiptToOther", "John Townsend");
+
+    setValue("trustWire.0.bankName", "PNC");
+    setValue("trustWire.0.totalValue", "3,000");
+
+    setValue("trustCheck.0.bankName", "564532487");
+    setValue("trustCheck.0.checkTotal", "5,000");
+
+    setValue("otherInformation", "None");
+
+    setValue("OpportunityCheckbox.0", false);
+
+    setValue("designation.0.tedHouseholdId", "342309842309");
+    setValue("designation.0.tedHouseholdName", "The Thompson Family");
+    setValue("designation.0.tedPlanName", "T-Plan");
+    setValue("designation.0.tedOpportunityAmount", "1,000");
+    setValue("designation.0.actualAskDate", "3-19-2021");
+    setValue("designation.0.primaryPlanManager", "Daniel Peters");
+
+    // setValue("heldByOthersChoice", "Charitable gift annuity");
+    // setValue("revocableChoice", "Retirement Plan");
+    // setValue("dateOfCommitment", "3-1-2022");
+    // setValue("estimatedDollarValue", "10000");
+    // setValue("newTotalIfIncreaseDecrease", "20000");
+    // setValue("estateReviewDate", "1-1-2022");
+    // setValue("expectedMaturityYear", "2042");
+    // setValue("increaseDecreasePrior", "Yes");
+    // setValue("jointLifeGift", "Yes");
+    // setValue("eventualDesignationOfPG", "Eventual Designation Text");
+    // setValue("endowment", "No");
+    // setValue("fundAgreement", "UIF existing");
+    // setValue("documentation", "Documentation Text");
+    // setValue("basisForDeterminingValue", "Basis for Determining Value Text");
+    // setValue("planOpportunity", "Plan/Opportunity text");
+    // setValue("responsiblePerson", "Responsible PErson Text");
+    // setValue("trustName", "Trust Name Text");
+    // setValue("lifeIncomeDesignation", "Life Income Designation Text");
+
+    // setValue("trustBeneficiary.0.lastName", "Smith");
+    // setValue("trustBeneficiary.0.firstName", "Frank");
+    // setValue("trustBeneficiary.0.tedConstituentID", "543435435");
+    // setValue("trustBeneficiary.0.dateOfBirth","3-1-2010");
+}
+
 export function SubmitButton() {
     return (
         <Button
@@ -640,29 +717,44 @@ export function UrbanaAddress({ headerLine }) {
         <Typography variant="subtitle2" component="div">
             {headerLine}
             <br />
-            University of Illinois Urbana-Champaign, Cash Receipts
+            University of Illinois Urbana-Champaign
             <br />
-            Harker Hall - M/C 386, 1305 West Green Street, Urbana, IL 61801
+            Cash Receipts
+            <br />
+            Harker Hall - M/C 386
+            <br />
+            1305 West Green Street
+            <br />
+            Urbana, IL 61801
+        </Typography>
+    );
+}
+
+export function CheckAddress({ headerLine }) {
+    return (
+        <Typography variant="subtitle2" component="div">
+            {headerLine}
+            <br />
+            University of Illinois Foundation
+            <br />
+            P.O. Box 734500
+            <br />
+            Chicago, IL 60673-4500
         </Typography>
     );
 }
 
 export function ChicagoAddress({ headerLine }) {
     return (
-        <>
-            {/* <Typography variant="subtitle2" component="div">
-                Hand-deliver this transmittal and cash to:
-            </Typography> */}
-            <Typography variant="subtitle2" component="div">
-                {headerLine}
-                <br />
-                University of Illinois at Chicago - OVCA
-                <br />
-                SCE 750 S. Halsted St. Rm. 550, M/C 100
-                <br />
-                Chicago, IL 60607
-            </Typography>
-        </>
+        <Typography variant="subtitle2" component="div">
+            {headerLine}
+            <br />
+            University of Illinois Chicago - OVCA
+            <br />
+            SCE 750 S Halsted St. Rm. 550, M/C 100
+            <br />
+            Chicago, IL 60607
+        </Typography>
     );
 }
 
@@ -671,9 +763,13 @@ export function SpringfieldAddress({ headerLine }) {
         <Typography variant="subtitle2" component="div">
             {headerLine}
             <br />
-            University of Illinois Springfield, Business and Stewardship
+            University of Illinois Springfield
             <br />
-            One University Plaza - PAC591, Springfield, IL 62703
+            Business and Stewardship
+            <br />
+            One University Plaza - PAC591
+            <br />
+            Springfield, IL 62703
         </Typography>
     );
 }
@@ -789,7 +885,7 @@ export function PrintCampusAddressSwap({ campusLocation, formType }) {
             </style>
 
             <Row>
-                <Col className="d-flex">
+                <Col>
                     <img
                         src={process.env.PUBLIC_URL + "logo.svg"}
                         alt="U of I Foundation Logo"
@@ -827,17 +923,17 @@ export function CampusAddress({ campusLocation, formType }) {
     var headerLine = "Submit this Transmittal and Gift to:";
     if (formType === "Cash")
         headerLine = "Hand-deliver this Transmittal and Cash to:";
-    return (
+    return formType === "Check" ? (
+        <CheckAddress headerLine={headerLine} />
+    ) : (
         <>
-            <Row className="campusAddress">
-                {campusLocation === "Urbana-Champaign" ? (
-                    <UrbanaAddress headerLine={headerLine} />
-                ) : campusLocation === "Chicago" ? (
-                    <ChicagoAddress headerLine={headerLine} />
-                ) : campusLocation === "Springfield" ? (
-                    <SpringfieldAddress headerLine={headerLine} />
-                ) : null}
-            </Row>
+            {campusLocation === "Urbana-Champaign" ? (
+                <UrbanaAddress headerLine={headerLine} />
+            ) : campusLocation === "Chicago" ? (
+                <ChicagoAddress headerLine={headerLine} />
+            ) : campusLocation === "Springfield" ? (
+                <SpringfieldAddress headerLine={headerLine} />
+            ) : null}
         </>
     );
 }

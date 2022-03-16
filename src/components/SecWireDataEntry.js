@@ -43,7 +43,8 @@ export default function SecWireDataEntry({
                         <DonorInformation showAnonymousDonorCheckBox={false} />
                         {showSecurities ? (
                             <Security
-                                alwaysShowSecurtityDeleteButtons={false}
+                                alwaysShowSecurityDeleteButtons={false}
+                                showSeeAttached={true}
                             />
                         ) : (
                             <></>
@@ -58,5 +59,5 @@ export default function SecWireDataEntry({
                 </Container>
             </FormProvider>
         </>
-    );
+    )
 }

@@ -10,12 +10,7 @@ import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
 export default function GiftAssociatedOpportunity({ index }) {
-
-    const {
-        register,
-        setValue,
-        getValues
-    } = useFormContext();
+    const { register, setValue, getValues } = useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false); // we use this to trigger a render operation
@@ -49,7 +44,7 @@ export default function GiftAssociatedOpportunity({ index }) {
                                         `designation.${index}.associatedOpportunityChecked`
                                     )}
                                     onChange={handleChange}
-                                    name={`OpprtunityCheckbox.${index}`}
+                                    name={`OpportunityCheckbox.${index}`}
                                     checked={initCheckValue}
                                 />
                             }

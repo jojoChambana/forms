@@ -1,5 +1,4 @@
 import {
-    Button,
     RadioGroup,
     Radio,
     FormControlLabel,
@@ -9,6 +8,7 @@ import {
 import { useFormContext } from "react-hook-form";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import Security from "./Security";
 import TrustWire from "./TrustWire";
 import TrustCheck from "./TrustCheck";
 import GiftInKindInformation from "./GiftInKindInformation";
@@ -21,9 +21,11 @@ import TrustOtherInformation from "./TrustOtherInformation";
 import TrustBankNumber from "./TrustBankNumber";
 import DesignationInformation from "../components/DesignationInformation";
 import TransmittalTotals from "../components/TransmittalTotals";
+
 import { DevTool } from "@hookform/devtools";
 
-import { SubmitButton, FillTrustForm, SharedFillForm } from "./HelperFunctions";
+import { SubmitButton, FillTrustForm } from "./HelperFunctions";
+import { Button } from "bootstrap";
 
 export default function TrustDataEntry({
     onSubmit,
@@ -34,18 +36,17 @@ export default function TrustDataEntry({
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
 
+    const fillButton = () => {
+        FillTrustForm(setValue);
+        setaCheckboxChanged(!aCheckboxChanged);
+    };
+
     function OtherTrustTypeSelected() {
         return (
             getValues("trustType") !== "Deferred Gift Only" &&
             getValues("trustType") !== ""
         );
     }
-
-    const fillButton = () => {
-        FillTrustForm(setValue);
-        SharedFillForm(setValue);
-        setaCheckboxChanged(!aCheckboxChanged);
-    };
 
     return (
         <Container className="pb-4">
@@ -139,7 +140,10 @@ export default function TrustDataEntry({
                             <TrustBankNumber />
                         )}
                         <TrustReceiptTo trustType={getValues("trustType")} />
-                        {/* <Security alwaysShowSecurtityDeleteButtons={true} /> */}
+                        <Security
+                            alwaysShowSecurityDeleteButtons={true}
+                            showSeeAttached={false}
+                        />
                         <TrustWire />
                         <TrustCheck />
                         <GiftInKindInformation alwaysShowDeleteButtons={true} />
