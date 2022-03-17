@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
+import { Navigate } from "react-router-dom";
 
 import TrustDataEntry from "../components/TrustDataEntry";
 
@@ -15,7 +16,7 @@ export default function Trust(props) {
         removeEmptyFields(data);
         props.setFormValues(data);
         console.table(data);
-        //navigate("/trustprint");
+        Navigate("/trustprint");
     };
 
     return (

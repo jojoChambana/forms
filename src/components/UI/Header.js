@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { SplitLocation } from "../HelperFunctions";
 
-// import Nav from "react-bootstrap/Nav";
 export const Header = () => {
     return (
         <>

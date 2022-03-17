@@ -16,12 +16,13 @@ import {
     newFormValues,
     newSecWireFormValues,
     newTrustFormValues,
-    newTrustDeferredFormValues
+    newTrustDeferredFormValues,
 } from "./components/HelperFunctions";
 import CashCheckGIKPrint from "./components/Print/CashCheckGIKPrint";
 
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/system";
+import TrustPrint from "./components/Print/TrustPrint";
 
 const theme = createTheme({
     typography: {
@@ -49,13 +50,15 @@ function App() {
     const [checkValues, setCheckValues] = useState(newFormValues());
     const [giftInKindValues, setGiftInKindValues] = useState(newFormValues());
     const [trustValues, setTrustValues] = useState(newTrustFormValues());
-    const [trustDeferredValues, setTrustDeferredValues] = useState(newTrustDeferredFormValues());
+    const [trustDeferredValues, setTrustDeferredValues] = useState(
+        newTrustDeferredFormValues()
+    );
     const [securitiesValues, setSecuritiesValues] = useState(
         newSecWireFormValues()
     );
     const [wireValues, setWireValues] = useState(newSecWireFormValues());
     //const [trustValues, setTrustValues] = useState(newFormValues());
-//    console.table(wireValues);
+    //    console.table(wireValues);
 
     return (
         <ThemeProvider theme={theme}>
@@ -186,6 +189,20 @@ function App() {
                             <Trust
                                 formValues={trustValues}
                                 setFormValues={setTrustValues}
+                                submitURL={"/trustprint"}
+                            />
+                        }
+                    />
+
+                    <Route
+                        exact
+                        path="/trustprint"
+                        element={
+                            <TrustPrint
+                                formValues={trustValues}
+                                showSecurities={false}
+                                returnUrl={"/trust"}
+                                title={"Trust"}
                             />
                         }
                     />
@@ -200,11 +217,6 @@ function App() {
                             />
                         }
                     />
-                    {/* <Route
-                        exact
-                        path="/trustprint"
-                        element={<TrustPrint formValues={trustValues} />}
-                    /> */}
 
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
