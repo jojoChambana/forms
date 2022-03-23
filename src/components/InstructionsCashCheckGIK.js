@@ -1,8 +1,8 @@
 import { Container, Typography } from "@mui/material";
-import React from "react";
 import { Row } from "react-bootstrap";
+import { List, ListItem, ListItemText } from "@mui/material";
 
-export default function InstructionsCash() {
+export default function InstructionsCashCheckGIK() {
     return (
         <div>
             <Container>
@@ -32,6 +32,17 @@ export default function InstructionsCash() {
                 <Typography variant="body1" gutterBottom>
                     Required fields are marked with an *.
                 </Typography>
+                <List>
+                    <ListItem>
+                        <ListItemText primary="Fill out a separate transmittal based on the type of gift" />
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText primary="Include any and all documentation associated with the gift(s)" />
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText primary="All transmittal are one donor per transmittal" />
+                    </ListItem>
+                </List>
             </Container>
         </div>
     );

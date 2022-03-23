@@ -218,6 +218,16 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         </span>
                     </div>
                     <div id="donationDate" className="col rightLabel">
+                        Date of Gift:
+                        <span className="normal">{formValues.dateOfGift}</span>
+                    </div>
+                    <div id="donationDate" className="col rightLabel">
+                        Date of Prepared:
+                        <span className="normal">
+                            {formValues.datePrepared}
+                        </span>
+                    </div>
+                    <div id="donationDate" className="col rightLabel">
                         Date Received by Department:
                         <span className="normal">
                             {formValues.donationDate}

@@ -210,7 +210,7 @@ export default function DesignationInformation() {
                                                 <TextField
                                                     onChange={onChange}
                                                     value={value}
-                                                    label="TED Designation ID!"
+                                                    label="TED Designation ID"
                                                     required
                                                     className="maxWidth"
                                                 />
@@ -222,15 +222,6 @@ export default function DesignationInformation() {
                             {/* designation title */}
                             <Row>
                                 <Col xs={12} md={6}>
-                                    {/* <TextField
-                                        {...register(
-                                            `designation.${index}.tedDesignationTitle`
-                                        )}
-                                        required
-                                        placeholder="Designation Title"
-                                        label="Designation Title"
-                                        className="maxWidth"
-                                    /> */}
                                     <Controller
                                         name={`designation.${index}.tedDesignationTitle`}
                                         control={control}

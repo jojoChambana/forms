@@ -431,3 +431,14 @@ div.col-md-6.col-12 {
 .backButton {
     margin-right: 2em;
 }
+
+.submitRow {
+    padding-top: 1em;
+    padding-right: 1em;
+    .displayContents {
+        display: contents;
+    }
+    .theSubmit {
+        max-height: fit-content;
+    }
+}

@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import InstructionsSecWire from "../components/InstructionsSecWire";
 
 import TrustDeferredDataEntry from "../components/TrustDeferredDataEntry";
 
@@ -11,12 +13,14 @@ export default function TrustDeferred(props) {
 
     function removeEmptyFields(data) {}
 
+    const navigate = useNavigate();
+
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
         console.table(data);
-        console.log(data.trustBeneficiary);
-        //navigate("/trustdeferredprint");
+        //console.log(data.trustBeneficiary);
+        navigate("/transmittal/trustdeferredprint");
     };
 
     return (
@@ -28,6 +32,7 @@ export default function TrustDeferred(props) {
                 </title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
+            <InstructionsSecWire />
             <FormProvider {...methods}>
                 <TrustDeferredDataEntry
                     onSubmit={onSubmit}

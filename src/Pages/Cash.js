@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useForm, FormProvider } from "react-hook-form";
-import InstructionsCash from "../components/InstructionsCash";
+import InstructionsCashCheckGIK from "../components/InstructionsCashCheckGIK";
 import { useNavigate } from "react-router-dom";
 
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
@@ -18,7 +18,7 @@ export default function Cash(props) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-        navigate("/cashprint");
+        navigate("/transmittal/cashprint");
     };
 
     return (
@@ -28,13 +28,13 @@ export default function Cash(props) {
                 <title>U of I Foundation | Cash Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsCash />
+            <InstructionsCashCheckGIK />
             <FormProvider {...methods}>
-            <CashCheckGIKDataEntry
-                onSubmit={onSubmit}
-                showAnonymousDonorCheckBox={true}
-                formType="Cash"
-            />
+                <CashCheckGIKDataEntry
+                    onSubmit={onSubmit}
+                    showAnonymousDonorCheckBox={true}
+                    formType="Cash"
+                />
             </FormProvider>
         </HelmetProvider>
     );

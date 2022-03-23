@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import InstructionsSecWire from "../components/InstructionsSecWire";
 
 import TrustDataEntry from "../components/TrustDataEntry";
 
@@ -12,11 +13,13 @@ export default function Trust(props) {
 
     function removeEmptyFields(data) {}
 
+    const navigate = useNavigate();
+
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
         console.table(data);
-        Navigate("/trustprint");
+        navigate("/transmittal/trustprint");
     };
 
     return (
@@ -26,6 +29,7 @@ export default function Trust(props) {
                 <title>U of I Foundation | Trust Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
+            <InstructionsSecWire />
             <FormProvider {...methods}>
                 <TrustDataEntry
                     onSubmit={onSubmit}

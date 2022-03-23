@@ -10,6 +10,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { SharedFillForm, SubmitButton } from "../components/HelperFunctions";
+import InstructionsSecWire from "./InstructionsSecWire";
 
 export default function SecWireDataEntry({
     formValues,
@@ -34,6 +35,7 @@ export default function SecWireDataEntry({
 
     return (
         <>
+            <InstructionsSecWire />
             <FormProvider {...methods}>
                 <Container className="pb-4">
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -59,5 +61,5 @@ export default function SecWireDataEntry({
                 </Container>
             </FormProvider>
         </>
-    )
+    );
 }

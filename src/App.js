@@ -65,10 +65,10 @@ function App() {
             <Router>
                 <Header />
                 <Routes>
-                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/transmittal/" element={<Home />} />
                     <Route
                         exact
-                        path="/cash"
+                        path="/transmittal/cash"
                         element={
                             <Cash
                                 formValues={cashValues}
@@ -78,7 +78,7 @@ function App() {
                     />
                     <Route
                         exact
-                        path="/cashprint"
+                        path="/transmittal/cashprint"
                         element={
                             <CashCheckGIKPrint
                                 formValues={cashValues}
@@ -89,7 +89,7 @@ function App() {
                     />
                     <Route
                         exact
-                        path="/check"
+                        path="/transmittal/check"
                         element={
                             <Check
                                 formValues={checkValues}
@@ -99,18 +99,18 @@ function App() {
                     />
                     <Route
                         exact
-                        path="/checkprint"
+                        path="/transmittal/checkprint"
                         element={
                             <CashCheckGIKPrint
                                 formValues={checkValues}
-                                returnUrl={"/check"}
+                                returnUrl={"/transmittal/check"}
                                 formType={"Check"}
                             />
                         }
                     />
                     <Route
                         exact
-                        path="/giftinkind"
+                        path="/transmittal/giftinkind"
                         element={
                             <GiftInKind
                                 formValues={giftInKindValues}
@@ -120,11 +120,11 @@ function App() {
                     />
                     <Route
                         exact
-                        path="/giftinkindprint"
+                        path="/transmittal/giftinkindprint"
                         element={
                             <CashCheckGIKPrint
                                 formValues={giftInKindValues}
-                                returnUrl={"/giftinkind"}
+                                returnUrl={"/transmittal/giftinkind"}
                                 formType={"Gift in Kind"}
                             />
                         }
@@ -132,25 +132,25 @@ function App() {
 
                     <Route
                         exact
-                        path="/securities"
+                        path="/transmittal/securities"
                         element={
                             <SecWireDataEntry
                                 formValues={securitiesValues}
                                 setFormValues={setSecuritiesValues}
                                 showSecurities={true}
-                                submitURL={"/securitiesprint"}
+                                submitURL={"/transmittal/securitiesprint"}
                             />
                         }
                     />
 
                     <Route
                         exact
-                        path="/securitiesprint"
+                        path="/transmittal/securitiesprint"
                         element={
                             <SecWirePrint
                                 formValues={securitiesValues}
                                 printSecurities={true}
-                                returnUrl={"/securities"}
+                                returnUrl={"/transmittal/securities"}
                                 title={"Securities"}
                             />
                         }
@@ -158,25 +158,25 @@ function App() {
 
                     <Route
                         exact
-                        path="/wire"
+                        path="/transmittal/wire"
                         element={
                             <SecWireDataEntry
                                 formValues={wireValues}
                                 setFormValues={setWireValues}
                                 showSecurities={false}
-                                submitURL={"/wireprint"}
+                                submitURL={"/transmittal/wireprint"}
                             />
                         }
                     />
 
                     <Route
                         exact
-                        path="/wireprint"
+                        path="/transmittal/wireprint"
                         element={
                             <SecWirePrint
                                 formValues={wireValues}
                                 printSecurities={false}
-                                returnUrl={"/wire"}
+                                returnUrl={"/transmittal/wire"}
                                 title={"Wire"}
                             />
                         }
@@ -184,24 +184,24 @@ function App() {
 
                     <Route
                         exact
-                        path="/trust"
+                        path="/transmittal/trust"
                         element={
                             <Trust
                                 formValues={trustValues}
                                 setFormValues={setTrustValues}
-                                submitURL={"/trustprint"}
+                                submitURL={"/transmittal/trustprint"}
                             />
                         }
                     />
 
                     <Route
                         exact
-                        path="/trustprint"
+                        path="/transmittal/trustprint"
                         element={
                             <TrustPrint
                                 formValues={trustValues}
                                 showSecurities={false}
-                                returnUrl={"/trust"}
+                                returnUrl={"/transmittal/trust"}
                                 title={"Trust"}
                             />
                         }
@@ -209,11 +209,24 @@ function App() {
 
                     <Route
                         exact
-                        path="/trustdeferred"
+                        path="/transmittal/trustdeferred"
                         element={
                             <TrustDeferred
                                 formValues={trustDeferredValues}
                                 setFormValues={setTrustDeferredValues}
+                            />
+                        }
+                    />
+
+                    <Route
+                        exact
+                        path="/transmittal/trustdeferredprint"
+                        element={
+                            <TrustPrint
+                                formValues={trustValues}
+                                showSecurities={false}
+                                returnUrl={"/transmittal/trustdeferred"}
+                                title={"Trust"}
                             />
                         }
                     />

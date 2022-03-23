@@ -89,7 +89,7 @@ const TrustPrint = (props) => {
                                 <Col className="d-flex justify-content-around">
                                     <button
                                         onClick={() => {
-                                            navigate("/cash");
+                                            navigate("/transmittal/trust");
                                         }}
                                     >
                                         Back

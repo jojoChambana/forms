@@ -22,8 +22,7 @@ import TrustBankNumber from "./TrustBankNumber";
 import DesignationInformation from "../components/DesignationInformation";
 import TransmittalTotals from "../components/TransmittalTotals";
 import { DevTool } from "@hookform/devtools";
-
-import { SubmitButton, FillTrustForm, SharedFillForm } from "./HelperFunctions";
+import { FillTrustForm, SharedFillForm, SubmitButton } from "./HelperFunctions";
 
 export default function TrustDataEntry({
     onSubmit,

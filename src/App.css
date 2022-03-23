@@ -473,4 +473,19 @@ button:hover,
 .backButton {
   margin-right: 2em;
 }
+
+.submitRow {
+  padding-top: 1em;
+  padding-right: 1em;
+}
+
+.submitRow .displayContents {
+  display: contents;
+}
+
+.submitRow .theSubmit {
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
 /*# sourceMappingURL=App.css.map */

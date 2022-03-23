@@ -14,6 +14,7 @@ import PrintTribute from "./PrintTribute";
 import PrintDesignations from "./PrintDesignations";
 import PrintTotals from "./PrintTotals";
 import { PrintCampusAddressSwap, CampusAddress } from "../HelperFunctions";
+import PrintSpousalPartner from "./PrintSpousalPartner";
 
 const TrustPrint = (props) => {
     const navigate = useNavigate();
@@ -94,6 +95,15 @@ const TrustPrint = (props) => {
                             <Col className="p-0">
                                 <div className="resultItems">
                                     <PrintDesignations
+                                        formValues={props.formValues}
+                                    />
+                                </div>
+                            </Col>
+                        </div>
+                        <div className="theDesignationResults">
+                            <Col className="p-0">
+                                <div className="resultItems">
+                                    <PrintSpousalPartner
                                         formValues={props.formValues}
                                     />
                                 </div>

@@ -4,26 +4,46 @@ import { Col, Row } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
 // import { useFormContext } from "react-hook-form";
-import { calcFinalTotals, calcGIKTotals } from "./HelperFunctions";
+import { calcFinalTotals, calcGIKTotals, parseNum } from "./HelperFunctions";
 // import TotalDonationAmount from "./TotalDonationAmount";
 
 export default function TransmittalTotals({
     ignoreNonGiftChecked,
     showGIKTotal = false,
+    setShowBalanceProblemMessage = undefined,
 }) {
-    const { register, setValue, watch } = useFormContext();
+    const { register, setValue, watch, getValues } = useFormContext();
 
     useEffect(() => {
         const subscription = watch((values, { name, value }) => {
+            let totalsChanged = false;
             if (name.startsWith("designation.")) {
                 calcFinalTotals(
                     values.designation,
                     setValue,
                     ignoreNonGiftChecked
                 );
+                totalsChanged = true;
             }
             if (name.startsWith("giftInKind.")) {
                 calcGIKTotals(values.giftInKind, setValue);
+                totalsChanged = true;
+            }
+            if (totalsChanged && showGIKTotal) {
+                console.log(
+                    parseNum(getValues("gikTotal")),
+                    parseNum(getValues("overallTotal"))
+                );
+                if (
+                    parseNum(getValues("gikTotal")) !==
+                    parseNum(getValues("overallTotal"))
+                ) {
+                    setShowBalanceProblemMessage(true);
+                    console.log(true);
+                } else {
+                    setShowBalanceProblemMessage(false);
+                    console.log(false);
+                }
             }
         });
         return () => subscription.unsubscribe();
