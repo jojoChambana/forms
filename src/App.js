@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Header } from "./components/UI/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import Cash from "./Pages/Cash";
 import Check from "./Pages/Check";
 import GiftInKind from "./Pages/GiftInKind";
@@ -10,7 +12,6 @@ import Trust from "./Pages/Trust";
 import TrustDeferred from "./Pages/TrustDeferred";
 import PageNotFound from "./Pages/PageNotFound";
 import Home from "./Pages/Home";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import {
     newFormValues,
@@ -23,11 +24,8 @@ import CashCheckGIKPrint from "./components/Print/CashCheckGIKPrint";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/system";
 import TrustPrint from "./components/Print/TrustPrint";
-
+import TrustDeferredPrint from "./components/Print/TrustDeferredPrint";
 const theme = createTheme({
-    typography: {
-        fontFamily: ["Gotham SSm A", "Gotham SSm B"].join(","),
-    },
     palette: {
         primary: {
             // light: "#757ce8",
@@ -57,184 +55,185 @@ function App() {
         newSecWireFormValues()
     );
     const [wireValues, setWireValues] = useState(newSecWireFormValues());
-    //const [trustValues, setTrustValues] = useState(newFormValues());
-    //    console.table(wireValues);
 
     return (
-        <ThemeProvider theme={theme}>
-            <Router>
-                <Header />
-                <Routes>
-                    <Route exact path="/transmittal/" element={<Home />} />
-                    <Route
-                        exact
-                        path="/transmittal/cash"
-                        element={
-                            <Cash
-                                formValues={cashValues}
-                                setFormValues={setCashValues}
-                            />
-                        }
-                    />
-                    <Route
-                        exact
-                        path="/transmittal/cashprint"
-                        element={
-                            <CashCheckGIKPrint
-                                formValues={cashValues}
-                                returnUrl={"/cash"}
-                                formType={"Cash"}
-                            />
-                        }
-                    />
-                    <Route
-                        exact
-                        path="/transmittal/check"
-                        element={
-                            <Check
-                                formValues={checkValues}
-                                setFormValues={setCheckValues}
-                            />
-                        }
-                    />
-                    <Route
-                        exact
-                        path="/transmittal/checkprint"
-                        element={
-                            <CashCheckGIKPrint
-                                formValues={checkValues}
-                                returnUrl={"/transmittal/check"}
-                                formType={"Check"}
-                            />
-                        }
-                    />
-                    <Route
-                        exact
-                        path="/transmittal/giftinkind"
-                        element={
-                            <GiftInKind
-                                formValues={giftInKindValues}
-                                setFormValues={setGiftInKindValues}
-                            />
-                        }
-                    />
-                    <Route
-                        exact
-                        path="/transmittal/giftinkindprint"
-                        element={
-                            <CashCheckGIKPrint
-                                formValues={giftInKindValues}
-                                returnUrl={"/transmittal/giftinkind"}
-                                formType={"Gift in Kind"}
-                            />
-                        }
-                    />
+        <>
+            <ThemeProvider theme={theme}>
+                <Router>
+                    <Header />
+                    <Routes>
+                        <Route exact path="/" element={<Home />} />
+                        <Route
+                            exact
+                            path="/cash"
+                            element={
+                                <Cash
+                                    formValues={cashValues}
+                                    setFormValues={setCashValues}
+                                />
+                            }
+                        />
+                        <Route
+                            exact
+                            path="/cashprint"
+                            element={
+                                <CashCheckGIKPrint
+                                    formValues={cashValues}
+                                    returnUrl={"/cash"}
+                                    formType={"Cash"}
+                                />
+                            }
+                        />
+                        <Route
+                            exact
+                            path="/check"
+                            element={
+                                <Check
+                                    formValues={checkValues}
+                                    setFormValues={setCheckValues}
+                                />
+                            }
+                        />
+                        <Route
+                            exact
+                            path="/checkprint"
+                            element={
+                                <CashCheckGIKPrint
+                                    formValues={checkValues}
+                                    returnUrl={"/check"}
+                                    formType={"Check"}
+                                />
+                            }
+                        />
+                        <Route
+                            exact
+                            path="/giftinkind"
+                            element={
+                                <GiftInKind
+                                    formValues={giftInKindValues}
+                                    setFormValues={setGiftInKindValues}
+                                />
+                            }
+                        />
+                        <Route
+                            exact
+                            path="/giftinkindprint"
+                            element={
+                                <CashCheckGIKPrint
+                                    formValues={giftInKindValues}
+                                    returnUrl={"/giftinkind"}
+                                    formType={"Gift in Kind"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/securities"
-                        element={
-                            <SecWireDataEntry
-                                formValues={securitiesValues}
-                                setFormValues={setSecuritiesValues}
-                                showSecurities={true}
-                                submitURL={"/transmittal/securitiesprint"}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/securities"
+                            element={
+                                <SecWireDataEntry
+                                    formValues={securitiesValues}
+                                    setFormValues={setSecuritiesValues}
+                                    showSecurities={true}
+                                    submitURL={"/securitiesprint"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/securitiesprint"
-                        element={
-                            <SecWirePrint
-                                formValues={securitiesValues}
-                                printSecurities={true}
-                                returnUrl={"/transmittal/securities"}
-                                title={"Securities"}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/securitiesprint"
+                            element={
+                                <SecWirePrint
+                                    formValues={securitiesValues}
+                                    printSecurities={true}
+                                    returnUrl={"/securities"}
+                                    title={"Securities"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/wire"
-                        element={
-                            <SecWireDataEntry
-                                formValues={wireValues}
-                                setFormValues={setWireValues}
-                                showSecurities={false}
-                                submitURL={"/transmittal/wireprint"}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/wire"
+                            element={
+                                <SecWireDataEntry
+                                    formValues={wireValues}
+                                    setFormValues={setWireValues}
+                                    showSecurities={false}
+                                    submitURL={"/wireprint"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/wireprint"
-                        element={
-                            <SecWirePrint
-                                formValues={wireValues}
-                                printSecurities={false}
-                                returnUrl={"/transmittal/wire"}
-                                title={"Wire"}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/wireprint"
+                            element={
+                                <SecWirePrint
+                                    formValues={wireValues}
+                                    printSecurities={false}
+                                    returnUrl={"/wire"}
+                                    title={"Wire"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/trust"
-                        element={
-                            <Trust
-                                formValues={trustValues}
-                                setFormValues={setTrustValues}
-                                submitURL={"/transmittal/trustprint"}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/trust"
+                            element={
+                                <Trust
+                                    formValues={trustValues}
+                                    setFormValues={setTrustValues}
+                                    submitURL={"/trustprint"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/trustprint"
-                        element={
-                            <TrustPrint
-                                formValues={trustValues}
-                                showSecurities={false}
-                                returnUrl={"/transmittal/trust"}
-                                title={"Trust"}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/trustprint"
+                            element={
+                                <TrustPrint
+                                    formValues={trustValues}
+                                    showSecurities={false}
+                                    returnUrl={"/trust"}
+                                    title={"Trust"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/trustdeferred"
-                        element={
-                            <TrustDeferred
-                                formValues={trustDeferredValues}
-                                setFormValues={setTrustDeferredValues}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/trustdeferred"
+                            element={
+                                <TrustDeferred
+                                    formValues={trustDeferredValues}
+                                    setFormValues={setTrustDeferredValues}
+                                    submitURL={"/trustdeferredprint"}
+                                />
+                            }
+                        />
 
-                    <Route
-                        exact
-                        path="/transmittal/trustdeferredprint"
-                        element={
-                            <TrustPrint
-                                formValues={trustValues}
-                                showSecurities={false}
-                                returnUrl={"/transmittal/trustdeferred"}
-                                title={"Trust"}
-                            />
-                        }
-                    />
+                        <Route
+                            exact
+                            path="/trustdeferredprint"
+                            element={
+                                <TrustDeferredPrint
+                                    formValues={trustDeferredValues}
+                                    showSecurities={false}
+                                    returnUrl={"/trustdeferred"}
+                                    title={"Trust"}
+                                />
+                            }
+                        />
 
-                    <Route path="*" element={<PageNotFound />} />
-                </Routes>
-            </Router>
-        </ThemeProvider>
+                        <Route path="*" element={<PageNotFound />} />
+                    </Routes>
+                </Router>
+            </ThemeProvider>
+        </>
     );
 }
 

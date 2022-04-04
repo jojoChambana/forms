@@ -18,6 +18,9 @@ export default function InstructionsSecWire() {
                     memo explaining the nature of the change or problem. The
                     GPSSO will coordinate the appropriate changes in CRM.
                 </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Required fields are marked with an *.
+                </Typography>
             </Container>
         </div>
     );

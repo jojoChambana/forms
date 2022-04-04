@@ -30,19 +30,13 @@ export default function TransmittalTotals({
                 totalsChanged = true;
             }
             if (totalsChanged && showGIKTotal) {
-                console.log(
-                    parseNum(getValues("gikTotal")),
-                    parseNum(getValues("overallTotal"))
-                );
                 if (
                     parseNum(getValues("gikTotal")) !==
                     parseNum(getValues("overallTotal"))
                 ) {
                     setShowBalanceProblemMessage(true);
-                    console.log(true);
                 } else {
                     setShowBalanceProblemMessage(false);
-                    console.log(false);
                 }
             }
         });

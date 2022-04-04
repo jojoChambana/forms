@@ -2,6 +2,22 @@ import { ListGroupItem } from "react-bootstrap";
 import { formatAmount } from "../HelperFunctions";
 
 const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
+    function NonGift() {
+        if (oneDesignation.designationNonGiftAmount)
+            return (
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Non-Gift Amount:</div>
+                    <div className="d-print-table-cell">
+                        <span className="normal">
+                            {formatAmount(
+                                oneDesignation.designationNonGiftAmount
+                            )}
+                        </span>
+                    </div>
+                </div>
+            );
+        else return null;
+    }
     return (
         <>
             <div className="resultItems">
@@ -12,18 +28,6 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                     <div className="resultItems row">
                         <div className="col">
                             <div className="d-print-table-cell">
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        Designation#:{" "}
-                                    </div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {index + 1}{" "}
-                                        </span>
-                                    </div>
-                                </div>
-                                <br />
-
                                 <div className="d-print-table-row">
                                     <div className="rightLabel">
                                         Designation ID:
@@ -57,19 +61,7 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                                         </span>
                                     </div>
                                 </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        Non-Gift Amount:
-                                    </div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {formatAmount(
-                                                oneDesignation.designationNonGiftAmount
-                                            )}
-                                        </span>
-                                    </div>
-                                </div>
+                                <NonGift />
                                 <div className="d-print-table-row">
                                     <div className="rightLabel">Total:</div>
                                     <div className="d-print-table-cell">
@@ -87,7 +79,7 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                                             Comments:
                                         </div>
                                         <div className="d-print-table-cell">
-                                            <div className="wrapCellContent">
+                                            <div>
                                                 <span className="normal longName">
                                                     {
                                                         oneDesignation.designationAdditionalComments

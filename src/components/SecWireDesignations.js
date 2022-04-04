@@ -127,7 +127,6 @@ export default function SecWireDesignations() {
                                             required
                                             inputProps={{
                                                 inputMode: "numeric",
-                                                pattern: "[0-9]+(.[0-9][0-9])?",
                                             }}
                                             {...register(
                                                 `designation.${index}.designationGiftAmount`

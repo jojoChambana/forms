@@ -11,25 +11,25 @@ const Links = () => {
                 m: 1,
             }}
         >
-            <Link href="/transmittal/cash" underline="none">
+            <Link href="/cash" underline="none">
                 Cash
             </Link>
-            <Link href="/transmittal/check" underline="none">
+            <Link href="/check" underline="none">
                 Check
             </Link>
-            <Link href="/transmittal/giftinkind" underline="none">
+            <Link href="/giftinkind" underline="none">
                 Gift in Kind
             </Link>
-            <Link href="/transmittal/securities" underline="none">
+            <Link href="/securities" underline="none">
                 Securities
             </Link>
-            <Link href="/transmittal/wire" underline="none">
+            <Link href="/wire" underline="none">
                 Wire
             </Link>
-            <Link href="/transmittal/trust" underline="none">
+            <Link href="/trust" underline="none">
                 Trust
             </Link>
-            <Link href="/transmittal/trustdeferred" underline="none">
+            <Link href="/trustdeferred" underline="none">
                 Trust Deferred
             </Link>
         </Box>

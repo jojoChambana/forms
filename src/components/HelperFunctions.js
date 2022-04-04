@@ -453,7 +453,7 @@ export function newTrustFormValues() {
 }
 
 export function SharedFillForm(setValue) {
-    setValue("campusLocation", "Chicago");
+    // setValue("campusLocation", "Chicago");
 
     setValue("contactFullName", "Thomas Jones");
     setValue("contactPhone", "(555)-867-5309");
@@ -825,7 +825,10 @@ export function SplitLocation() {
                         splitLocation[1] === "securities" ? "active" : ""
                     }
                 >
-                    <h1>Securities Gift Transmittal Form</h1>
+                    <h1>
+                        Securities Gift Transmittal Form{" "}
+                        <span>*(UIF Only)</span>
+                    </h1>
                 </div>
 
                 <div
@@ -833,21 +836,35 @@ export function SplitLocation() {
                         splitLocation[1] === "securitiesprint" ? "active" : ""
                     }
                 >
-                    <h1>Securities Gift Transmittal</h1>
+                    <h1>
+                        Securities Gift Transmittal <span>*(UIF Only)</span>
+                    </h1>
                 </div>
 
                 <div className={splitLocation[1] === "wire" ? "active" : ""}>
-                    <h1>Wire Transmittal Form</h1>
+                    <h1>
+                        Wire Transmittal Form <span>*(UIF Only)</span>
+                    </h1>
                 </div>
 
                 <div
                     className={splitLocation[1] === "wireprint" ? "active" : ""}
                 >
-                    <h1>Wire Transmittal</h1>
+                    <h1>
+                        Wire Transmittal <span>*(UIF Only)</span>
+                    </h1>
                 </div>
 
                 <div className={splitLocation[1] === "trust" ? "active" : ""}>
                     <h1>Trust Gift Transmittal Form</h1>
+                </div>
+
+                <div
+                    className={
+                        splitLocation[1] === "trustprint" ? "active" : ""
+                    }
+                >
+                    <h1>Trust Gift Transmittal</h1>
                 </div>
 
                 <div
@@ -857,12 +874,15 @@ export function SplitLocation() {
                 >
                     <h1>Trust Deferred Gift Transmittal Form</h1>
                 </div>
+
                 <div
                     className={
-                        splitLocation[1] === "trustprint" ? "active" : ""
+                        splitLocation[1] === "trustdeferredprint"
+                            ? "active"
+                            : ""
                     }
                 >
-                    <h1>Trust Gift Transmittal</h1>
+                    <h1>Trust Deferred Gift Transmittal</h1>
                 </div>
             </div>
         </>
@@ -883,7 +903,7 @@ export function PrintCampusAddressSwap({ campusLocation, formType }) {
             <Row>
                 <div className="d-flex col ">
                     <img
-                        src={process.env.PUBLIC_URL + "logo.svg"}
+                        src={process.env.PUBLIC_URL + "/logo.svg"}
                         alt="U of I Foundation Logo"
                         className="logo"
                     />
@@ -909,6 +929,38 @@ export function PrintCampusAddressSwap({ campusLocation, formType }) {
                             formType={formType}
                         />
                     </Grid>
+                </Col>
+            </Row>
+        </Row>
+    );
+}
+
+export function PrintCampusAddressSwapNoHeaderAddress({
+    campusLocation,
+    formType,
+}) {
+    return (
+        <Row className="headerPrint">
+            <style>
+                {`@media print {.headerPrint{display: block; padding-top:2em !important; .addr{display:flex; justify-content:flex-end !important}}}`}
+            </style>
+
+            <Row>
+                <div className="d-flex col ">
+                    <img
+                        src={process.env.PUBLIC_URL + "/logo.svg"}
+                        alt="U of I Foundation Logo"
+                        className="logo"
+                    />
+                </div>
+                <Col className="verticalCenter">
+                    <Typography
+                        variant="h6"
+                        className="printHeader"
+                        component="h1"
+                    >
+                        <SplitLocation />
+                    </Typography>
                 </Col>
             </Row>
         </Row>

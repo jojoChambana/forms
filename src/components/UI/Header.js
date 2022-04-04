@@ -9,9 +9,9 @@ export const Header = () => {
             <Navbar>
                 <>
                     <div id="navbarSupportedContent">
-                        <NavLink to="/transmittal/" className="navbar-brand">
+                        <NavLink to="/" className="navbar-brand">
                             <img
-                                src={process.env.PUBLIC_URL + "/./logo.svg"}
+                                src={process.env.PUBLIC_URL + "/logo.svg"}
                                 alt="U of I Foundation Logo"
                                 className="logo"
                             />

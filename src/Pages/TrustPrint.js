@@ -50,7 +50,7 @@ const TrustPrint = (props) => {
                                 <Col>
                                     <img
                                         src={
-                                            process.env.PUBLIC_URL + "logo.svg"
+                                            process.env.PUBLIC_URL + "/logo.svg"
                                         }
                                         alt="U of I Foundation Logo"
                                         className="logo"
@@ -65,7 +65,7 @@ const TrustPrint = (props) => {
                                     >
                                         {props.formValues.campusLocation ===
                                         "Urbana" ? (
-                                            <UrbanaAddress />
+                                            <UrbanaAddress required />
                                         ) : props.formValues.campusLocation ===
                                           "Chicago" ? (
                                             <ChicagoAddress />
@@ -89,7 +89,7 @@ const TrustPrint = (props) => {
                                 <Col className="d-flex justify-content-around">
                                     <button
                                         onClick={() => {
-                                            navigate("/transmittal/trust");
+                                            navigate("/trust");
                                         }}
                                     >
                                         Back

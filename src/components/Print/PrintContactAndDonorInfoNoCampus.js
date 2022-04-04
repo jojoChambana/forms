@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 
-const PrintContactAndDonorInfo = ({ formValues }) => {
+const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     function DonorUnknownCheckBox() {
         if (formValues.donorUnknownCheckBox === true)
             return (
@@ -221,17 +221,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         else return <Foreign />;
     }
 
-    // console.log("donorUnknownCheckBox", formValues.donorUnknownCheckBox);
-    function CampusShow() {
-        if (formValues.campusLocation !== null)
-            return (
-                <div className="col rightLabel">
-                    Campus:
-                    <span className="normal">{formValues.campusLocation}</span>
-                </div>
-            );
-        else return null;
-    }
     return (
         <>
             <Row>
@@ -248,7 +237,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                         id="contactPrint"
                         className="resultItems d-flex flex-wrap"
                     >
-                        <CampusShow />
                         <div className="col rightLabel">
                             Contact Full Name:
                             <span className="normal">
@@ -372,4 +360,4 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     );
 };
 
-export default PrintContactAndDonorInfo;
+export default PrintContactAndDonorInfoNoCampus;

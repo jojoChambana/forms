@@ -3,12 +3,16 @@ import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
-import PrintContactAndDonorInfo from "./PrintContactAndDonorInfo";
 import PrintTribute from "./PrintTribute";
 import PrintTotals from "./PrintTotals";
-import { PrintCampusAddressSwap } from "../HelperFunctions";
+import {
+    PrintCampusAddressSwap,
+    PrintCampusAddressSwapNoHeaderAddress,
+} from "../HelperFunctions";
+
 import PrintSecurities from "./PrintSecurities";
 import PrintSecWireDesignations from "./PrintSecWireDesignations";
+import PrintContactAndDonorInfoNoCampus from "./PrintContactAndDonorInfoNoCampus";
 
 const SecWirePrint = (props) => {
     const navigate = useNavigate();
@@ -31,7 +35,7 @@ const SecWirePrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
-                        <PrintCampusAddressSwap
+                        <PrintCampusAddressSwapNoHeaderAddress
                             campusLocation={props.formValues.campusLocation}
                         />
                         <Container>
@@ -58,12 +62,32 @@ const SecWirePrint = (props) => {
                             </Row>
                         </Container>
                         <div className="resultItems">
-                            <PrintContactAndDonorInfo
+                            <PrintContactAndDonorInfoNoCampus
                                 formValues={props.formValues}
                             />
                         </div>
                         <PrintTribute formValues={props.formValues} />
 
+                        {props.printSecurities ? (
+                            <>
+                                <Row className="theDesignationResults">
+                                    <Col>
+                                        <PrintSecurities
+                                            formValues={props.formValues}
+                                        />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <PrintTotals
+                                            formValues={props.formValues}
+                                        />
+                                    </Col>
+                                </Row>
+                            </>
+                        ) : (
+                            <></>
+                        )}
                         <div className="theDesignationResults">
                             <Col className="p-0">
                                 <div className="resultItems">
@@ -73,17 +97,6 @@ const SecWirePrint = (props) => {
                                 </div>
                             </Col>
                         </div>
-                        {props.printSecurities ? (
-                            <Row className="theDesignationResults">
-                                <Col>
-                                    <PrintSecurities
-                                        formValues={props.formValues}
-                                    />
-                                </Col>
-                            </Row>
-                        ) : (
-                            <></>
-                        )}
                         <Row>
                             <Col>
                                 <PrintTotals formValues={props.formValues} />

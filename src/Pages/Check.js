@@ -4,6 +4,7 @@ import InstructionsCashCheckGIK from "../components/InstructionsCashCheckGIK";
 import { useNavigate } from "react-router-dom";
 
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
+import InstructionsCheck from "../components/InstructionsCheck";
 
 export default function Check(props) {
     const methods = useForm({
@@ -18,7 +19,7 @@ export default function Check(props) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-        navigate("/transmittal/checkprint");
+        navigate("/checkprint");
     };
 
     return (
@@ -28,7 +29,7 @@ export default function Check(props) {
                 <title>U of I Foundation | Check Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsCashCheckGIK />
+            <InstructionsCheck />
             <FormProvider {...methods}>
                 <CashCheckGIKDataEntry
                     onSubmit={onSubmit}

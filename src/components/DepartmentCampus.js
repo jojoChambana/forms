@@ -1,19 +1,25 @@
 import { useFormContext } from "react-hook-form";
 import React, { useState } from "react";
 import { CampusAddress } from "../components/HelperFunctions";
-import RadioButtons from "./RadioButtons"
+import RadioButtons from "./RadioButtons";
 
-export default function DepartmentCampus({formType}) {
+export default function DepartmentCampus({ formType }) {
     const [radioChanged, setRadioChanged] = useState(false); // needed to force re-render
     const { getValues } = useFormContext();
-    
+
     return (
         <>
-            <RadioButtons variableName="campusLocation" values={["Urbana-Champaign","Chicago","Springfield"]} radioChangedFlag={radioChanged} setRadioChangedFlag={setRadioChanged} />
+            <RadioButtons
+                variableName="campusLocation"
+                required={true}
+                values={["Urbana-Champaign", "Chicago", "Springfield"]}
+                radioChangedFlag={radioChanged}
+                setRadioChangedFlag={setRadioChanged}
+            />
             <CampusAddress
-                            campusLocation={getValues("campusLocation")}
-                            formType={formType}
-                        />            
+                campusLocation={getValues("campusLocation")}
+                formType={formType}
+            />
         </>
     );
 }

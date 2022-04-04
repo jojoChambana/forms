@@ -4,15 +4,19 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
-import { useFormContext,Controller } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Address from "./Address";
 import PublicityDropDown from "../components/PublicityDropDown";
 
-export default function DonorInformation({ showAnonymousDonorCheckBox, showPhoneAndDOB = false }) {
-    const { register, getValues, setValue, control } = useFormContext();
+
+export default function DonorInformation({
+    showAnonymousDonorCheckBox,
+    showPhoneAndDOB = false,
+}) {
+    const { register, getValues, setValue, control, formValues } = useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
@@ -120,36 +124,41 @@ export default function DonorInformation({ showAnonymousDonorCheckBox, showPhone
                                 </Col>
                             </Row>
                             <Row>
-                            <PublicityDropDown />
-                            {showPhoneAndDOB && (
-                                <>
-                            <Col xs={12} md={3}>
-                                <Controller
-                                    name="phone-input"
-                                    control={control}
-                                    render={({ field: { onChange, value } }) => (
-                                        <PhoneInput
-                                            {...register("donorPhone")}
-                                            placeholder="Phone"
-                                            value={value}
-                                            onChange={onChange}
-                                            defaultCountry="US"
-                                            id="phone-input"
-                                        />
-                                    )}
-                                />
-                            </Col>
-                            <Col xs={12} md={3}>
-                                <TextField
-                                    {...register("donorDOB")}
-                                    label="Date of Birth"
-                                    className="dateField maxWidth"
-                                    />
-                             </Col>                            
-                             </>
-                            )}
+                                <PublicityDropDown />
+                                
+                                {showPhoneAndDOB && (
+                                    <>
+                                        <Col xs={12} md={3}>
+                                            <Controller
+                                                name="phone-input"
+                                                control={control}
+                                                render={({
+                                                    field: { onChange, value },
+                                                }) => (
+                                                    <PhoneInput
+                                                        {...register(
+                                                            "donorPhone"
+                                                        )}
+                                                        placeholder="Phone"
+                                                        value={value}
+                                                        onChange={onChange}
+                                                        defaultCountry="US"
+                                                        id="phone-input"
+                                                    />
+                                                )}
+                                            />
+                                        </Col>
+                                        <Col xs={12} md={3}>
+                                            <TextField
+                                                {...register("donorDOB")}
+                                                label="Date of Birth"
+                                                className="dateField maxWidth"
+                                            />
+                                        </Col>
+                                    </>
+                                )}
                             </Row>
-                    </>
+                        </>
                     )}
                 </>
             </Row>

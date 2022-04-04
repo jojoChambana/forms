@@ -4,29 +4,37 @@ import {
     Typography,
     Checkbox,
     FormControlLabel,
-} from "@mui/material"
+} from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdDelete, MdAdd } from "react-icons/md";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { calcFinalTotals, newDesignation } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
-import { useState } from "react"
+import { useState } from "react";
 
-export default function Security({ alwaysShowSecurityDeleteButtons, showSeeAttached  }) {
-    const { register, control, getValues, setValue: formSetValue } = useFormContext()
+export default function Security({
+    alwaysShowSecurityDeleteButtons,
+    showSeeAttached,
+}) {
+    const {
+        register,
+        control,
+        getValues,
+        setValue: formSetValue,
+    } = useFormContext();
 
     // used in building the repeating security section.  Get the array of object from the 'security' object in cashValues
     const { fields, setValue, append, remove } = useFieldArray({
         control,
         name: "security",
-    })
+    });
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
-    const [aCheckboxChanged, setaCheckboxChanged] = useState(false)
+    const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
 
-    var securityCount = 0
+    var securityCount = 0;
     if (getValues("security") !== undefined)
-        securityCount = getValues("security").length // used to determine if we should show Delete security buttons
+        securityCount = getValues("security").length; // used to determine if we should show Delete security buttons
 
     return (
         <>
@@ -40,13 +48,12 @@ export default function Security({ alwaysShowSecurityDeleteButtons, showSeeAttac
                             checked={getValues(
                                 "seeAttachedSecuritiesListCheckbox"
                             )}
-                            onClick={ event =>
-                            {
+                            onClick={(event) => {
                                 formSetValue(
                                     "seeAttachedSecuritiesListCheckbox",
                                     event.target.checked
-                                ) // set the rect hook array element appropriately
-                                setaCheckboxChanged(!aCheckboxChanged) // this will trigger a re-render of the page to hide/show elements
+                                ); // set the rect hook array element appropriately
+                                setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
                             }}
                         />
                     }
@@ -73,7 +80,7 @@ export default function Security({ alwaysShowSecurityDeleteButtons, showSeeAttac
                                                 placeholder="Shares"
                                                 label="Shares"
                                                 className="maxWidth securityShares"
-                                                thousandSeparator={true}
+                                                thousandseparator="true"
                                             />
                                         </Col>
                                         <Col xs={12} md={4}>
@@ -115,11 +122,11 @@ export default function Security({ alwaysShowSecurityDeleteButtons, showSeeAttac
                                                                     onClick={() => {
                                                                         remove(
                                                                             index
-                                                                        )
+                                                                        );
                                                                         calcFinalTotals(
                                                                             fields,
                                                                             setValue
-                                                                        )
+                                                                        );
                                                                     }}
                                                                 >
                                                                     <IconContext.Provider
@@ -140,7 +147,7 @@ export default function Security({ alwaysShowSecurityDeleteButtons, showSeeAttac
                                         </Col>
                                     </Row>
                                 </ListGroupItem>
-                            )
+                            );
                         })}
                     </ListGroup>
                     {/* the Add Security button at the end */}
@@ -152,7 +159,7 @@ export default function Security({ alwaysShowSecurityDeleteButtons, showSeeAttac
                                     label="Add Designation"
                                     className="addButtonIcon"
                                     onClick={() => {
-                                        append({ ...newDesignation() })
+                                        append({ ...newDesignation() });
                                     }}
                                 >
                                     <IconContext.Provider
@@ -170,5 +177,5 @@ export default function Security({ alwaysShowSecurityDeleteButtons, showSeeAttac
                 </>
             )}
         </>
-    )
+    );
 }

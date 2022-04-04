@@ -49,7 +49,7 @@ export default function PrintSpousalPartner({ formValues }) {
     }
     return (
         <>
-            <Row>
+            <Row className="mt-2">
                 <Col>
                     <Typography variant="h5" component="h3">
                         Spousal/Partner Information
@@ -58,7 +58,7 @@ export default function PrintSpousalPartner({ formValues }) {
             </Row>
             <DoNotAddSpousePartnerToReceipt />
             <DoNotGiveAddSpousePartnerCredit />
-            <div className="d-print-table-row">
+            <div className="d-print-table-row mt-2">
                 <Col>
                     <div className="d-print-table-cell">
                         <span>Organization/Donor Name: </span>

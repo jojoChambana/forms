@@ -3,22 +3,31 @@ import { formatAmount } from "../HelperFunctions";
 import { ListGroupItem } from "react-bootstrap";
 
 const PrintOneDesignation = ({ oneDesignation, index }) => {
+    function NonGift() {
+        if (oneDesignation.designationNonGiftAmount)
+            return (
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Non-Gift Amount:</div>
+                    <div className="d-print-table-cell">
+                        <span className="normal">
+                            {formatAmount(
+                                oneDesignation.designationNonGiftAmount
+                            )}
+                        </span>
+                    </div>
+                </div>
+            );
+        else return null;
+    }
     return (
         <div className="resultItems">
             <ListGroupItem
                 className="aDesignation mb-2"
                 key={"designation" + index}
             >
-                <div className="resultItems row">
+                <div className="resultItems row" style={{ paddingLeft: "0em" }}>
                     <div className="col">
                         <div className="d-print-table-cell">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">Designation#: </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">{index + 1} </span>
-                                </div>
-                            </div>
-
                             {oneDesignation.newDesignationRequestedChecked ? (
                                 <>
                                     <div className="d-print-table-row">
@@ -81,18 +90,8 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                             </div>
                             {oneDesignation.nonGiftPortionChecked ? (
                                 <>
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            Non-Gift Amount:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {formatAmount(
-                                                    oneDesignation.designationNonGiftAmount
-                                                )}
-                                            </span>
-                                        </div>
-                                    </div>
+                                    <NonGift />
+
                                     <div className="d-print-table-row">
                                         <div className="rightLabel">Total:</div>
                                         <div className="d-print-table-cell">
@@ -140,41 +139,6 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                             ) : (
                                 ""
                             )}
-
-                            {/* <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div>
-
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">On the Left</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal"></span>
-                                    </div>
-                                </div> */}
                         </div>
                     </div>
                     <div className="col">

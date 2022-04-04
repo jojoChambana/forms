@@ -1,4 +1,4 @@
-import { ListGroupItem } from "react-bootstrap";
+import { Col, ListGroupItem, Row } from "react-bootstrap";
 import { formatAmount3 } from "../HelperFunctions";
 const PrintOneSecWireSecurity = ({ oneSecurity, index }) => {
     return (
@@ -8,45 +8,34 @@ const PrintOneSecWireSecurity = ({ oneSecurity, index }) => {
                 key={"security" + index}
             >
                 <div className="resultItems row">
-                    <div className="col">
-                        <div className="d-print-table-cell">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">Security#: </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">{index + 1} </span>
-                                </div>
-                            </div>
-                            <br />
+                    <Row>
+                        <Col>
+                            <Row>
+                                <Col style={{ textAlign: "end" }}>Shares: </Col>
+                                <Col className="heavyFont">
+                                    {formatAmount3(oneSecurity.shares)}
 
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">Shares:</div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formatAmount3(oneSecurity.shares)}
-
-                                        {/* {oneSecurity.shares} */}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">Name:</div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {oneSecurity.name}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">Symbol</div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {oneSecurity.symbol}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    {/* {oneSecurity.shares} */}
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <Row>
+                                <Col style={{ textAlign: "end" }}>Name:</Col>
+                                <Col className="heavyFont">
+                                    {oneSecurity.name}
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <Row>
+                                <Col style={{ textAlign: "end" }}>Symbol:</Col>
+                                <Col className="heavyFont">
+                                    {oneSecurity.symbol}
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
                 </div>
             </ListGroupItem>
         </>

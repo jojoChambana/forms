@@ -4,6 +4,7 @@ import InstructionsCashCheckGIK from "../components/InstructionsCashCheckGIK";
 import { useNavigate } from "react-router-dom";
 
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
+import InstructionsCash from "../components/InstructionsCash";
 
 export default function Cash(props) {
     const methods = useForm({
@@ -18,7 +19,7 @@ export default function Cash(props) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-        navigate("/transmittal/cashprint");
+        navigate("/cashprint");
     };
 
     return (
@@ -28,7 +29,7 @@ export default function Cash(props) {
                 <title>U of I Foundation | Cash Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsCashCheckGIK />
+            <InstructionsCash />
             <FormProvider {...methods}>
                 <CashCheckGIKDataEntry
                     onSubmit={onSubmit}

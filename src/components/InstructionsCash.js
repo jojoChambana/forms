@@ -1,8 +1,8 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Link, Typography } from "@mui/material";
 import { Row } from "react-bootstrap";
 import { List, ListItem, ListItemText } from "@mui/material";
 
-export default function InstructionsCashCheckGIK() {
+export default function InstructionsCash() {
     return (
         <div>
             <Container>
@@ -31,9 +31,16 @@ export default function InstructionsCashCheckGIK() {
                 </Typography>
 
                 <Typography variant="body1" gutterBottom>
-                    Instructions on how to complete this form are here. If you
-                    have any questions when filling out your gift transmittal
-                    contact Gift Administration at 217-333-0675
+                    Instructions on how to complete this form are{" "}
+                    <Link
+                        href="https://d1vy0qa05cdjr5.cloudfront.net/e75b2f22-8ebc-4f95-ad4a-f08ed296445e/Resources/How to Submit Gifts Using the Gift Transmittal Form.pdf"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        here
+                    </Link>
+                    . If you have any questions when filling out your gift
+                    transmittal contact Gift Administration at 217-333-0675
                 </Typography>
 
                 <Typography variant="body1" gutterBottom>

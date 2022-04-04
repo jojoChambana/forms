@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
 import { parseNum } from "../components/HelperFunctions";
+import InstructionsGIK from "../components/InstructionsGIK";
 
 export default function GiftInKind(props, errorDisplay) {
     const methods = useForm({
@@ -21,7 +22,7 @@ export default function GiftInKind(props, errorDisplay) {
         props.setFormValues(data);
 
         if (parseNum(data.gikTotal) === parseNum(data.overallTotal)) {
-            navigate("/transmittal/giftinkindprint");
+            navigate("/giftinkindprint");
         }
     };
 
@@ -32,7 +33,7 @@ export default function GiftInKind(props, errorDisplay) {
                 <title>U of I Foundation | Gift in Kind Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsCashCheckGIK />
+            <InstructionsGIK />
             <FormProvider {...methods}>
                 <CashCheckGIKDataEntry
                     showAnonymousDonorCheckBox={false}

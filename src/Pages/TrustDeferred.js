@@ -19,8 +19,8 @@ export default function TrustDeferred(props) {
         removeEmptyFields(data);
         props.setFormValues(data);
         console.table(data);
-        //console.log(data.trustBeneficiary);
-        navigate("/transmittal/trustdeferredprint");
+        console.log("Hello");
+        navigate("/trustdeferredprint");
     };
 
     return (
@@ -32,7 +32,7 @@ export default function TrustDeferred(props) {
                 </title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsSecWire />
+            {/* <InstructionsSecWire /> */}
             <FormProvider {...methods}>
                 <TrustDeferredDataEntry
                     onSubmit={onSubmit}

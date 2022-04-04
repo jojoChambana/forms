@@ -9,7 +9,7 @@ export default function DonorInfo() {
 
     return (
         <>
-            <Row className="mt-3">
+            <Row className="mt-3 mb-3">
                 <Col>
                     <Typography variant="h5" component="h3">
                         Contact Information

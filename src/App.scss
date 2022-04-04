@@ -1,7 +1,40 @@
 @import url(/node_modules/bootstrap-print-css/css/bootstrap-print.min.css);
 @import url(PrintStyles.css);
-body {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p,
+span,
+input,
+label,
+div,
+button {
     font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif !important;
+}
+
+h1 > span {
+    position: relative;
+    left: 2em;
+}
+
+.heavyFont {
+    font-weight: bold;
+}
+#root {
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
+li {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 .logo {
     padding: 0;
@@ -330,9 +363,10 @@ button,
     display: flex;
 }
 
-.longName {
+.normal.longName {
     display: block;
-    width: 250px;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .totals {
@@ -440,5 +474,16 @@ div.col-md-6.col-12 {
     }
     .theSubmit {
         max-height: fit-content;
+    }
+}
+
+.indent-list {
+    position: relative;
+    left: 2em;
+    li {
+        left: 0px;
+        div {
+            padding-right: 2em;
+        }
     }
 }
