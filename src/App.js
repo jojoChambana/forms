@@ -43,6 +43,7 @@ const theme = createTheme({
 });
 
 function App() {
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
     // Initializing the form variables for each type of form
     const [cashValues, setCashValues] = useState(newFormValues());
     const [checkValues, setCheckValues] = useState(newFormValues());

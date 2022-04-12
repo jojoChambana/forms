@@ -11,12 +11,12 @@ import { Col, Row } from "react-bootstrap";
 import Address from "./Address";
 import PublicityDropDown from "../components/PublicityDropDown";
 
-
 export default function DonorInformation({
     showAnonymousDonorCheckBox,
     showPhoneAndDOB = false,
 }) {
-    const { register, getValues, setValue, control, formValues } = useFormContext();
+    const { register, getValues, setValue, control, formValues } =
+        useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
@@ -57,25 +57,29 @@ export default function DonorInformation({
                         <></>
                     )}
 
-                    <Col xs={12} md={6}>
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={getValues("newDonorCheckBox")}
-                                    onClick={(event) => {
-                                        setValue(
-                                            "newDonorCheckBox",
-                                            event.target.checked
-                                        ); // set the rect hook array element appropriately
-                                        setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-                                    }}
-                                />
-                            }
-                            label="New Donor"
-                        />
-                    </Col>
                     {!donorUnknownCheckBox && (
                         <>
+                            <Col xs={12} md={6}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            checked={getValues(
+                                                "newDonorCheckBox"
+                                            )}
+                                            onClick={(event) => {
+                                                setValue(
+                                                    "newDonorCheckBox",
+                                                    event.target.checked
+                                                ); // set the rect hook array element appropriately
+                                                setaCheckboxChanged(
+                                                    !aCheckboxChanged
+                                                ); // this will trigger a re-render of the page to hide/show elements
+                                            }}
+                                        />
+                                    }
+                                    label="New Donor"
+                                />
+                            </Col>
                             <Row className="mb-0">
                                 <Col xs={12} md={6}>
                                     <FormControlLabel
@@ -125,7 +129,7 @@ export default function DonorInformation({
                             </Row>
                             <Row>
                                 <PublicityDropDown />
-                                
+
                                 {showPhoneAndDOB && (
                                     <>
                                         <Col xs={12} md={3}>

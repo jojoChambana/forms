@@ -14,6 +14,7 @@ import PrintTribute from "./PrintTribute";
 import PrintDesignations from "./PrintDesignations";
 import PrintTotals from "./PrintTotals";
 import { PrintCampusAddressSwap, CampusAddress } from "../HelperFunctions";
+import PrintGIKs from "./PrintGIKs";
 
 const CashCheckGIKPrint = (props) => {
     const navigate = useNavigate();
@@ -69,7 +70,10 @@ const CashCheckGIKPrint = (props) => {
                                         direction="row"
                                         justifyContent="end"
                                     >
-                                        <Row className="hideForPrint mb-0">
+                                        <Row
+                                            className="hideForPrint mb-0"
+                                            // style={{ textAlign: "end" }}
+                                        >
                                             <CampusAddress
                                                 campusLocation={
                                                     props.formValues
@@ -88,6 +92,17 @@ const CashCheckGIKPrint = (props) => {
                                 formValues={props.formValues}
                             />
                         </div>
+                        <Row>
+                            <Col>
+                                <PrintTotals
+                                    formValues={props.formValues}
+                                    showGIKTotal={
+                                        props.formType === "Gift in Kind"
+                                    }
+                                />
+                            </Col>
+                        </Row>
+
                         <PrintTribute formValues={props.formValues} />
 
                         <div className="theDesignationResults">
@@ -99,11 +114,49 @@ const CashCheckGIKPrint = (props) => {
                                 </div>
                             </Col>
                         </div>
+
+                        <div className="theDesignationResults">
+                            <Col className="p-0">
+                                <div className="resultItems">
+                                    <PrintGIKs formValues={props.formValues} />
+                                </div>
+                            </Col>
+                        </div>
+
                         <Row>
                             <Col>
-                                <PrintTotals formValues={props.formValues} />
+                                <PrintTotals
+                                    formValues={props.formValues}
+                                    showGIKTotal={
+                                        props.formType === "Gift in Kind"
+                                    }
+                                />
                             </Col>
                         </Row>
+                        <Container>
+                            <Row className="hiddenForPrint">
+                                <Col>
+                                    <Button
+                                        variant="contained"
+                                        className="buttonClass"
+                                        onClick={() => {
+                                            navigate(props.returnUrl);
+                                        }}
+                                    >
+                                        Back
+                                    </Button>
+                                </Col>
+
+                                <Col className="d-flex col justify-content-end">
+                                    <Button
+                                        variant="contained"
+                                        onClick={handlePrint}
+                                    >
+                                        Print Document
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Container>
                     </Container>
                 </div>
             </ThemeProvider>

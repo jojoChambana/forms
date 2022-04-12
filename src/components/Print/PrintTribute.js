@@ -151,7 +151,7 @@ const PrintTribute = ({ formValues }) => {
     function NotifyIndividualOrFamily(props) {
         if (
             formValues.notifyIndividualOrFamily ===
-            "Please notify the individual/family below"
+            "Please Notify the Individual/Family Below"
         ) {
             return (
                 <>
@@ -182,8 +182,7 @@ const PrintTribute = ({ formValues }) => {
                 </>
             );
         } else if (
-            formValues.notifyIndividualOrFamily ===
-            "Please notify the person above"
+            formValues.notifyIndividualOrFamily === "Do Not Send a Notification"
         ) {
             return (
                 <>
@@ -193,7 +192,7 @@ const PrintTribute = ({ formValues }) => {
                                 <strong className="normal justify-col-tribute">
                                     <Typography>
                                         <strong>
-                                            Please Notify the Person Above
+                                            Do not send a notification
                                         </strong>
                                     </Typography>
                                 </strong>
@@ -224,13 +223,7 @@ const PrintTribute = ({ formValues }) => {
                     </div>
                 </Col>
             );
-        else
-            return (
-                <div className="col rightLabel">
-                    &nbsp;
-                    <span className="normal">&nbsp;</span>
-                </div>
-            );
+        else return null;
     }
 
     const Domestic = () => {
@@ -324,52 +317,76 @@ const PrintTribute = ({ formValues }) => {
         else return <Foreign />;
     }
 
+    function HonorOrDeceased() {
+        if (formValues.giftTribute === "In Memory Of") {
+            return formValues.deceasedFullName;
+        } else return formValues.honoreeFullName;
+    }
+
     if (formValues.tributeChecked) {
         return (
             <>
-                <Row className="pt-1">
+                <Row className="mt-3">
                     <Col>
                         <Typography variant="h5" component="h3">
                             Tribute Information
                         </Typography>
                     </Col>
                 </Row>
-                <div className="resultItems row">
-                    <Col>
-                        <IsTributeNewAddressChecked />
-                        <div className="d-print-table-cell">
+                <Col
+                    style={{
+                        border: "1px solid rgba(0, 0, 0, 0.125)",
+                        borderRadius: "4px",
+                    }}
+                >
+                    <div className="resultItems row">
+                        <Col>
+                            <IsTributeNewAddressChecked />
+                            {/* <div className="d-print-table-cell">
                             <div className="d-print-table-row">
                                 <div className="d-print-table-cell">&nbsp;</div>
                                 <div className="rightLabel justify-col-tribute">
                                     This Gift is a Tribute
                                 </div>
                             </div>
-                            <AddressType />
-                        </div>
+                        </div> */}
 
-                        <TedTributeConstituentId />
-                        <div className="d-print-table-cell">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    {formValues.giftTribute}:
+                            <TedTributeConstituentId />
+                            <div className="d-print-table-cell">
+                                <div className="d-print-table-row mt-2">
+                                    <div className="rightLabel">
+                                        {formValues.giftTribute}:
+                                    </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            <HonorOrDeceased />
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {/* if the value is "In Memory Of", then show the deceasedFullName, otherwise show the honoreeFullName */}
-                                        {formValues.giftTribute ===
-                                        "In Memory of"
-                                            ? formValues.deceasedFullName
-                                            : formValues.honoreeFullName}
-                                    </span>
+                                <AddressType />
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">Phone:</div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.designationPhoneNumber}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">Email:</div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.designationEmail}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <AddressType />
-                        </div>
-                    </Col>
-                    <Col>
-                        <NotifyIndividualOrFamily />
-                    </Col>
-                </div>
+                        </Col>
+                        <Col>
+                            <NotifyIndividualOrFamily />
+                        </Col>
+                    </div>
+                </Col>
             </>
         );
     } else {

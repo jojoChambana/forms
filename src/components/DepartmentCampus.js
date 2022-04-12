@@ -9,16 +9,16 @@ export default function DepartmentCampus({ formType }) {
 
     return (
         <>
+            <CampusAddress
+                campusLocation={getValues("campusLocation")}
+                formType={formType}
+            />
             <RadioButtons
                 variableName="campusLocation"
                 required={true}
                 values={["Urbana-Champaign", "Chicago", "Springfield"]}
                 radioChangedFlag={radioChanged}
                 setRadioChangedFlag={setRadioChanged}
-            />
-            <CampusAddress
-                campusLocation={getValues("campusLocation")}
-                formType={formType}
             />
         </>
     );

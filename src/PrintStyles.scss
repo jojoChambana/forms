@@ -9,9 +9,16 @@
     ul,
     li,
     p,
-    span {
+    span,
+    input,
+    label,
+    div,
+    button, table, thead, tr, th, tbody, td {
         font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica,
             sans-serif;
+    }
+    .navbar {
+        display: none;
     }
     .logo {
         filter: invert(1);
@@ -25,14 +32,29 @@
 
     .navLinks > .active h1 {
         margin: 0;
+        display: flex;
+        font-size: inherit;
     }
-
+    .hdrCol{
+        display: flex !important;
+        align-items: center !important;
+    }
     .d-print-table-cell {
         width: 50%;
         padding-left: 1rem;
     }
 
-    .rightLabel {
+    #contactPrint{
+        .rightLabel {
+            justify-content: center !important;
+            span.normal{
+                padding-left: 0.5em !important;
+            }
+        }
+    }
+
+    .d-print-table-row{
+        display:flex !important;
     }
 
     .wrapCellContent {
@@ -58,4 +80,29 @@
         position: relative;
         left: 10em !important;
     }
+
+    .rightLabel, span.lineUp, .lineUp {
+        justify-content: flex-end !important;
+        text-align: right;
+        min-width: 250px !important;
+    }
+
+}
+
+.printTable{
+    display: flex;
+    justify-content: center;
+    table{
+        width: 75%;
+    }
+
+    @-moz-document url-prefix(about:blank) {
+        h3 {
+            background: #cccccc !important;
+        }
+    }
+.hideForScreen{
+    display: none !important;
+}
+
 }

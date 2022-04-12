@@ -23,7 +23,7 @@ const PrintSecWireDesignations = ({ formValues }) => {
                             <PrintOneSecWireDesignation
                                 oneDesignation={item}
                                 index={index}
-                                key={"oneDesig" + index}
+                                // key={"oneDesig" + index}
                             />
                         </>
                     );

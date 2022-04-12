@@ -195,6 +195,8 @@ export function newFormValues() {
 
         giftInKind: [{ ...newGiftInKind() }], // giftInKind.js
         designation: [{ ...newDesignation() }],
+        descriptionOfGift: "",
+        giftValue: "",
         nonGiftPortionChecked: "", // NonGiftPortion.js
         nonGiftTedId: "", // NonGiftPortion.js
         giftTedAmount: "", // NonGiftPortion.js
@@ -341,6 +343,7 @@ export function newSecWireFormValues() {
         tedTributeAcknowledgedPhone: "",
         seeAttachedSecuritiesListCheckbox: false,
         security: [{ ...newSecurity() }],
+        generalComments: "",
     };
 }
 
@@ -503,6 +506,8 @@ export function SharedFillForm(setValue) {
     setValue("security.0.shares", "400");
     setValue("security.0.name", "Apple");
     setValue("security.0.symbol", "APPL");
+
+    setValue("generalComments", "An additional comment for Securities");
 }
 
 export function FillCashCheckGIKForm(setValue) {
@@ -703,7 +708,7 @@ export function SubmitButton() {
             variant="contained"
             type="submit"
         >
-            Submit
+            Print Preview
         </Button>
     );
 }
@@ -901,7 +906,7 @@ export function PrintCampusAddressSwap({ campusLocation, formType }) {
             </style>
 
             <Row>
-                <div className="d-flex col ">
+                <div className="d-flex col hdrCol ">
                     <img
                         src={process.env.PUBLIC_URL + "/logo.svg"}
                         alt="U of I Foundation Logo"
@@ -942,11 +947,11 @@ export function PrintCampusAddressSwapNoHeaderAddress({
     return (
         <Row className="headerPrint">
             <style>
-                {`@media print {.headerPrint{display: block; padding-top:2em !important; .addr{display:flex; justify-content:flex-end !important}}}`}
+                {`@media print {.headerPrint{display: none; padding-top:2em !important; .d-flex{display:flex !important}; .addr{display:flex; justify-content:flex-end !important}}}`}
             </style>
 
             <Row>
-                <div className="d-flex col ">
+                <div className="d-flex col hdrCol">
                     <img
                         src={process.env.PUBLIC_URL + "/logo.svg"}
                         alt="U of I Foundation Logo"
@@ -968,7 +973,7 @@ export function PrintCampusAddressSwapNoHeaderAddress({
 }
 
 export function CampusAddress({ campusLocation, formType }) {
-    var headerLine = "Submit this Transmittal and Gift to:";
+    var headerLine = "Mail this Transmittal and Gift to:";
     if (formType === "Cash")
         headerLine = "Hand-deliver this Transmittal and Cash to:";
     return formType === "Check" ? (
@@ -985,3 +990,35 @@ export function CampusAddress({ campusLocation, formType }) {
         </>
     );
 }
+
+function get_date_format(myDate) {
+    const addZeroIfNeeded = (num) => {
+        return num < 10 ? "0" + num : num.toString();
+    };
+
+    let month = myDate.getMonth() + 1;
+    month = addZeroIfNeeded(month);
+    let day = addZeroIfNeeded(myDate.getDate());
+
+    let year = myDate.getFullYear();
+    let hours = addZeroIfNeeded(myDate.getHours());
+    let mins = addZeroIfNeeded(myDate.getMinutes());
+    let secs = addZeroIfNeeded(myDate.getSeconds());
+
+    return `${year}-${month}-${day} T ${hours}:${mins}:${secs}`;
+}
+function updateTime() {
+    // get the current date
+    let currentDate = new Date();
+    // convert it to "short time" format
+    let t = get_date_format(currentDate);
+    // get the DOM element
+    let root = document.querySelector("#timestamp");
+    // print the formatted date
+    root.textContent = t;
+}
+
+function init() {
+    window.setInterval(updateTime, 1000);
+}
+init();

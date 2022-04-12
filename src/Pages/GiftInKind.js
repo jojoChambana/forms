@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 
 import { useForm, FormProvider } from "react-hook-form";
-import InstructionsCashCheckGIK from "../components/InstructionsCashCheckGIK";
+import InstructionsCheckGIK from "../components/InstructionsCheckGIK";
 import { useNavigate } from "react-router-dom";
 
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
@@ -20,7 +20,8 @@ export default function GiftInKind(props, errorDisplay) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-
+        console.table(data);
+        console.log(data.giftInKind);
         if (parseNum(data.gikTotal) === parseNum(data.overallTotal)) {
             navigate("/giftinkindprint");
         }
@@ -33,7 +34,7 @@ export default function GiftInKind(props, errorDisplay) {
                 <title>U of I Foundation | Gift in Kind Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsGIK />
+            <InstructionsCheckGIK />
             <FormProvider {...methods}>
                 <CashCheckGIKDataEntry
                     showAnonymousDonorCheckBox={false}

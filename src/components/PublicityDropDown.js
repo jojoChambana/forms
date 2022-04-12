@@ -17,9 +17,7 @@ export default function PublicityDropDown() {
     return (
         <Col xs={12} md={3}>
             <FormControl fullWidth>
-                <InputLabel id="publicityCodeLabel">
-                    Publicity Code
-                </InputLabel>
+                <InputLabel id="publicityCodeLabel">Publicity Code</InputLabel>
                 <Select
                     labelId="dpublicityCode"
                     id="publicityCode"
@@ -36,6 +34,7 @@ export default function PublicityDropDown() {
                     <MenuItem value={"No Contact/Publicity"}>
                         No Contact/Publicity
                     </MenuItem>
+                    <MenuItem value={"No Publicity"}>No Publicity</MenuItem>
                     <MenuItem value={"Anonymous"}>Anonymous</MenuItem>
                 </Select>
             </FormControl>

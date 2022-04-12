@@ -4,13 +4,14 @@ import TransmittalTotals from "./TransmittalTotals";
 import ContactInformation from "./ContactInformation";
 import NameEmail from "./NameEmail";
 import DonorInformation from "./DonorInformation";
-import { Button, Container } from "@mui/material";
+import { Button, Container, TextField, Typography } from "@mui/material";
 import { DevTool } from "@hookform/devtools";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { SharedFillForm, SubmitButton } from "../components/HelperFunctions";
 import InstructionsSecWire from "./InstructionsSecWire";
+import { Col, Row } from "react-bootstrap";
 
 export default function SecWireDataEntry({
     formValues,
@@ -30,12 +31,13 @@ export default function SecWireDataEntry({
     };
     const onSubmit = (data) => {
         setFormValues(data);
+        console.table(data);
         navigate(submitURL);
     };
 
     return (
         <>
-            <InstructionsSecWire />
+            {/* <InstructionsSecWire /> */}
             <FormProvider {...methods}>
                 <Container className="pb-4">
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -44,15 +46,35 @@ export default function SecWireDataEntry({
                         <NameEmail />
                         <DonorInformation showAnonymousDonorCheckBox={false} />
                         {showSecurities ? (
-                            <Security
-                                alwaysShowSecurityDeleteButtons={false}
-                                showSeeAttached={true}
-                            />
+                            <>
+                                <Security
+                                    alwaysShowSecurityDeleteButtons={false}
+                                    showSeeAttached={true}
+                                />
+                            </>
                         ) : (
                             <></>
                         )}
 
                         <SecWireDesignations />
+                        <Typography
+                            variant="h5"
+                            component="h3"
+                            className="mt-2 mr-0 mb-3 ml-0"
+                        >
+                            General Comments
+                        </Typography>
+                        <Row className="mb-3">
+                            <Col sm={12}>
+                                {/* Last is the comments field  */}
+                                <TextField
+                                    placeholder="Comments"
+                                    label="Comments"
+                                    {...methods.register("generalComments")}
+                                    className="maxWidth"
+                                />
+                            </Col>
+                        </Row>
                         <TransmittalTotals ignoreNonGiftChecked={true} />
                         <SubmitButton />
                     </form>

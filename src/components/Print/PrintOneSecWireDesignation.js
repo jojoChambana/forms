@@ -5,16 +5,30 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
     function NonGift() {
         if (oneDesignation.designationNonGiftAmount)
             return (
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Non-Gift Amount:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formatAmount(
-                                oneDesignation.designationNonGiftAmount
-                            )}
-                        </span>
+                <>
+                    <div key={"designation" + index}>
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">Non-Gift Amount:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formatAmount(
+                                        oneDesignation.designationNonGiftAmount
+                                    )}
+                                </span>
+                            </div>
+                        </div>
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">Total:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formatAmount(
+                                        oneDesignation.designationTotalAmount
+                                    )}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </>
             );
         else return null;
     }
@@ -24,6 +38,9 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                 <ListGroupItem
                     className="aDesignation mb-2"
                     key={"designation" + index}
+                    style={{
+                        borderRadius: "4px",
+                    }}
                 >
                     <div className="resultItems row">
                         <div className="col">
@@ -62,35 +79,6 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                                     </div>
                                 </div>
                                 <NonGift />
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">Total:</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {formatAmount(
-                                                oneDesignation.designationTotalAmount
-                                            )}
-                                        </span>
-                                    </div>
-                                </div>
-                                {oneDesignation.designationAdditionalComments !==
-                                "" ? (
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            Comments:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <div>
-                                                <span className="normal longName">
-                                                    {
-                                                        oneDesignation.designationAdditionalComments
-                                                    }
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    ""
-                                )}
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ span,
 input,
 label,
 div,
-button {
+button, table, thead, tr, th, tbody, td {
     font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif !important;
 }
 
@@ -56,10 +56,14 @@ nav {
     min-height: 5vh;
     background: #131f33;
     color: white;
+    .navLinks {
+        width: 100%;
+    }
     #navbarSupportedContent {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        width: 100%;
         @media screen and (max-width: 600px) {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
@@ -71,10 +75,13 @@ nav {
         display: none;
     }
     #navbarSupportedContent > div > div.active > h1 {
-        display: block;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 4rem;
         font-size: 20px;
         font-size: 1.25rem;
         margin: 0.3em 0em;
+        width: 100%;
     }
 }
 .navbar-brand {
@@ -100,10 +107,11 @@ div.active {
     -ms-flex-pack: center;
     justify-content: center;
     h1 {
-        display: block;
-        font-size: 24px;
-        font-size: 1.5rem;
-        margin: 1em;
+        // display: block;
+        // font-size: 24px;
+        // font-size: 1.5rem;
+        // margin: 1em;
+        // text-align: justify;
     }
 }
 .verticalCenter {
@@ -207,13 +215,9 @@ span.lineUp,
 span.normal {
     font-weight: bold;
     padding: 0em 1em;
-    width: 200px;
-    overflow: auto;
 }
 
-.headerPrint {
-    display: none;
-}
+
 
 .rdbld {
     font-weight: bold;
@@ -324,6 +328,7 @@ button,
     margin-left: 5em;
 }
 
+
 .hideForPrint {
     @media only screen and (min-device-width: 600px) {
         display: -webkit-box;
@@ -364,9 +369,8 @@ button,
 }
 
 .normal.longName {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
+    display: flex;
+    width: max-content;
 }
 
 .totals {
@@ -487,3 +491,22 @@ div.col-md-6.col-12 {
         }
     }
 }
+.d-print-table-cell.d-flex.justify-content-center{
+    justify-content: center !important;
+}
+
+.printTable{
+    display: flex;
+    justify-content: center;
+    table{
+        width: 75%;
+        td{
+            font-weight: bold;
+        }
+    }
+}
+
+.showForPrint{
+    display: none !important;
+}
+

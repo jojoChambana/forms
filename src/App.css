@@ -14,7 +14,7 @@ span,
 input,
 label,
 div,
-button {
+button, table, thead, tr, th, tbody, td {
   font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif !important;
 }
 
@@ -60,10 +60,15 @@ nav {
   color: white;
 }
 
+nav .navLinks {
+  width: 100%;
+}
+
 nav #navbarSupportedContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 @media screen and (max-width: 600px) {
@@ -80,10 +85,17 @@ nav #navbarSupportedContent > div > div > h1 {
 }
 
 nav #navbarSupportedContent > div > div.active > h1 {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 4rem;
   font-size: 20px;
   font-size: 1.25rem;
   margin: 0.3em 0em;
+  width: 100%;
 }
 
 .navbar-brand {
@@ -111,13 +123,6 @@ div.active {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-}
-
-div.active h1 {
-  display: block;
-  font-size: 24px;
-  font-size: 1.5rem;
-  margin: 1em;
 }
 
 .verticalCenter {
@@ -237,12 +242,6 @@ span.lineUp,
 span.normal {
   font-weight: bold;
   padding: 0em 1em;
-  width: 200px;
-  overflow: auto;
-}
-
-.headerPrint {
-  display: none;
 }
 
 .rdbld {
@@ -404,9 +403,12 @@ button:hover,
 }
 
 .normal.longName {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .totals {
@@ -533,5 +535,32 @@ button:hover,
 
 .indent-list li div {
   padding-right: 2em;
+}
+
+.d-print-table-cell.d-flex.justify-content-center {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.printTable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.printTable table {
+  width: 75%;
+}
+
+.printTable table td {
+  font-weight: bold;
+}
+
+.showForPrint {
+  display: none !important;
 }
 /*# sourceMappingURL=App.css.map */

@@ -35,8 +35,8 @@ const CashCheckGIKDataEntry = ({
     return (
         <Container className="pb-4">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Button onClick={fillButton}>Fill</Button>
                 <DepartmentCampus formType={formType} />
+                <Button onClick={fillButton}>Fill</Button>
                 <ContactInformation />
                 <NameEmail />
                 <DonorInformation

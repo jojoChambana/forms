@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { Link, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { Col, Container, Row } from "react-bootstrap";
+import Instructionslist from "../components/InstructionsList";
 export default function Home() {
     return (
         <>
@@ -48,7 +49,8 @@ export default function Home() {
                         </Col>
                     </Row>
                     <Row>
-                        <div className="indent-list">
+                        <Instructionslist />
+                        {/* <div className="indent-list">
                             <List
                                 sx={{
                                     listStylePosition: "outside",
@@ -86,7 +88,7 @@ export default function Home() {
                                     <ListItemText primary="All transmittals are one donor per transmittal" />
                                 </ListItem>
                             </List>
-                        </div>
+                        </div> */}
                         <Row className="mb-0">
                             <List>
                                 <ListItem>

@@ -60,8 +60,8 @@ export default function DonorInfo() {
                     <TextField
                         {...register("collegeName")}
                         required
-                        placeholder="College Name"
-                        label="College Name"
+                        placeholder="University Name"
+                        label="University Name"
                         className="maxWidth"
                     />
                 </Col>

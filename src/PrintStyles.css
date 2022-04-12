@@ -9,8 +9,15 @@
   ul,
   li,
   p,
-  span {
+  span,
+  input,
+  label,
+  div,
+  button, table, thead, tr, th, tbody, td {
     font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif;
+  }
+  .navbar {
+    display: none;
   }
   .logo {
     -webkit-filter: invert(1);
@@ -24,10 +31,35 @@
   }
   .navLinks > .active h1 {
     margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: inherit;
+  }
+  .hdrCol {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
   }
   .d-print-table-cell {
     width: 50%;
     padding-left: 1rem;
+  }
+  #contactPrint .rightLabel {
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+  #contactPrint .rightLabel span.normal {
+    padding-left: 0.5em !important;
+  }
+  .d-print-table-row {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
   }
   .wrapCellContent {
     width: 80px;
@@ -50,5 +82,35 @@
     position: relative;
     left: 10em !important;
   }
+  .rightLabel, span.lineUp, .lineUp {
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
+    text-align: right;
+    min-width: 250px !important;
+  }
+}
+
+.printTable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.printTable table {
+  width: 75%;
+}
+
+@-moz-document url-prefix(about:blank) {
+  .printTable h3 {
+    background: #cccccc !important;
+  }
+}
+
+.printTable .hideForScreen {
+  display: none !important;
 }
 /*# sourceMappingURL=PrintStyles.css.map */

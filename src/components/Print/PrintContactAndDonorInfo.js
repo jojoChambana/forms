@@ -226,7 +226,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         if (formValues.campusLocation !== null)
             return (
                 <div className="col rightLabel">
-                    Campus:
+                    University:
                     <span className="normal">{formValues.campusLocation}</span>
                 </div>
             );
@@ -242,7 +242,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                 </Col>
             </Row>
             <div style={borderStyles} className="mt-3">
-                <DoNotProcessUntilContacted />
+                {/* <DoNotProcessUntilContacted /> */}
                 <div className="resultItems d-flex">
                     <div
                         id="contactPrint"
@@ -313,58 +313,62 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
                     {/* ============ right column at the top for donor info ============== */}
                     <div
-                        className="d-print-table-cell col centerColContent mt-2"
+                        className="d-print-table-cell col centerColContent mt-3"
                         style={borderStyles}
                     >
                         <DonorUnknownCheckBox />
-                        <Row className="mt-2 mb-2">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    TED Constituent ID:
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formValues.tedConstituentId}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="d-print-table-row">
-                                <div className="rightLabel min-cell">
-                                    Organization/Donor Name:
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formValues.organizationDonorName}
-                                    </span>
-                                </div>
-                            </div>
-                            {!formValues.donorUnknownCheckBox ? (
-                                <>
-                                    <Row>
-                                        <Col>
-                                            <AddressType />
-                                        </Col>
-                                        <Col>
-                                            <NewDonorCheckBox />
-                                            <NewAddressCheckBox />
-                                        </Col>
-                                    </Row>
-
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            Contact/Publicity:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {formValues.publicityCode}
-                                            </span>
-                                        </div>
+                        {formValues.donorUnknownCheckBox === false ? (
+                            <Row className="mt-2 mb-2">
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">
+                                        TED Constituent ID:
                                     </div>
-                                </>
-                            ) : (
-                                " "
-                            )}
-                        </Row>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.tedConstituentId}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel min-cell">
+                                        Organization/Donor Name:
+                                    </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.organizationDonorName}
+                                        </span>
+                                    </div>
+                                </div>
+                            </Row>
+                        ) : (
+                            ""
+                        )}
+                        {!formValues.donorUnknownCheckBox ? (
+                            <>
+                                <Row>
+                                    <Col>
+                                        <AddressType />
+                                    </Col>
+                                    <Col>
+                                        <NewDonorCheckBox />
+                                        <NewAddressCheckBox />
+                                    </Col>
+                                </Row>
+
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">
+                                        Contact/Publicity:
+                                    </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.publicityCode}
+                                        </span>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            " "
+                        )}
                     </div>
                 </div>
             </Row>

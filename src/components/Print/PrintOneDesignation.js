@@ -1,6 +1,6 @@
 import PrintOneOpportunity from "./PrintOneOpportunity";
 import { formatAmount } from "../HelperFunctions";
-import { ListGroupItem } from "react-bootstrap";
+import { Row, Col, ListGroupItem } from "react-bootstrap";
 
 const PrintOneDesignation = ({ oneDesignation, index }) => {
     function NonGift() {
@@ -20,14 +20,27 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
         else return null;
     }
     return (
-        <div className="resultItems">
+        <div className="resultItems" key={"designation" + index}>
             <ListGroupItem
                 className="aDesignation mb-2"
-                key={"designation" + index}
+                style={{
+                    border: "1px solid rgba(0, 0, 0, 0.125)",
+                    borderRadius: "4px",
+                }}
             >
-                <div className="resultItems row" style={{ paddingLeft: "0em" }}>
-                    <div className="col">
-                        <div className="d-print-table-cell">
+                <div style={{ paddingLeft: "0em" }}>
+                    <Row>
+                        <div className="col">
+                            <div className="d-print-table-row">
+                                <div className="rightLabel">Gift Amount: </div>
+                                <div className="d-print-table-cell">
+                                    <span className="normal">
+                                        {formatAmount(
+                                            oneDesignation.designationGiftAmount
+                                        )}
+                                    </span>
+                                </div>
+                            </div>
                             {oneDesignation.newDesignationRequestedChecked ? (
                                 <>
                                     <div className="d-print-table-row">
@@ -78,16 +91,6 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                 </div>
                             </div>
 
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">Gift Amount</div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formatAmount(
-                                            oneDesignation.designationGiftAmount
-                                        )}
-                                    </span>
-                                </div>
-                            </div>
                             {oneDesignation.nonGiftPortionChecked ? (
                                 <>
                                     <NonGift />
@@ -124,8 +127,8 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
 
                             {oneDesignation.designationAdditionalComments !==
                             "" ? (
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">Comments:</div>
+                                <div className="d-print-table-row justify-start">
+                                    <div>Comments:</div>
                                     <div className="d-print-table-cell">
                                         <div className="wrapCellContent">
                                             <span className="normal longName">
@@ -140,9 +143,8 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                 ""
                             )}
                         </div>
-                    </div>
-                    <div className="col">
-                        <div className="d-print-table-cell">
+
+                        <Col>
                             {oneDesignation.associatedOpportunityChecked ? (
                                 <PrintOneOpportunity
                                     oneDesignation={oneDesignation}
@@ -151,8 +153,8 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                             ) : (
                                 " "
                             )}
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 </div>
             </ListGroupItem>
         </div>

@@ -1,4 +1,10 @@
-import { Button, Container, createTheme, ThemeProvider } from "@mui/material";
+import {
+    Button,
+    Container,
+    createTheme,
+    ThemeProvider,
+    Typography,
+} from "@mui/material";
 import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
@@ -66,6 +72,12 @@ const SecWirePrint = (props) => {
                                 formValues={props.formValues}
                             />
                         </div>
+                        <Row className="mt-2 mb-1">
+                            <Col>
+                                <PrintTotals formValues={props.formValues} />
+                            </Col>
+                        </Row>
+
                         <PrintTribute formValues={props.formValues} />
 
                         {props.printSecurities ? (
@@ -77,18 +89,11 @@ const SecWirePrint = (props) => {
                                         />
                                     </Col>
                                 </Row>
-                                <Row>
-                                    <Col>
-                                        <PrintTotals
-                                            formValues={props.formValues}
-                                        />
-                                    </Col>
-                                </Row>
                             </>
                         ) : (
                             <></>
                         )}
-                        <div className="theDesignationResults">
+                        <div className="theDesignationResults mt-0">
                             <Col className="p-0">
                                 <div className="resultItems">
                                     <PrintSecWireDesignations
@@ -97,11 +102,64 @@ const SecWirePrint = (props) => {
                                 </div>
                             </Col>
                         </div>
+
+                        {props.formValues.generalComments ? (
+                            <>
+                                <Row>
+                                    <Col>
+                                        <Typography
+                                            variant="h5"
+                                            component="h3"
+                                            className="mt-2 mr-0 mb-2 ml-0"
+                                        >
+                                            General Comments
+                                        </Typography>
+
+                                        <Col
+                                            style={{
+                                                border: "1px solid rgba(0, 0, 0, 0.125)",
+                                                borderRadius: "4px",
+                                                padding: "2em",
+                                                marginTop: "1em",
+                                            }}
+                                        >
+                                            {props.formValues.generalComments}
+                                        </Col>
+                                    </Col>
+                                </Row>
+                            </>
+                        ) : (
+                            <></>
+                        )}
+
                         <Row>
                             <Col>
                                 <PrintTotals formValues={props.formValues} />
                             </Col>
                         </Row>
+                        <Container>
+                            <Row className="hiddenForPrint">
+                                <Col className="d-flex col justify-content-center">
+                                    <Button
+                                        variant="contained"
+                                        className="buttonClass"
+                                        onClick={() => {
+                                            navigate(props.returnUrl);
+                                        }}
+                                    >
+                                        Back
+                                    </Button>
+                                </Col>
+                                <Col className="d-flex col justify-content-center">
+                                    <Button
+                                        variant="contained"
+                                        onClick={handlePrint}
+                                    >
+                                        Print Document
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Container>
                     </Container>
                 </div>
             </ThemeProvider>

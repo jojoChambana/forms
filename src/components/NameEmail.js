@@ -38,6 +38,7 @@ export default function NameEmail() {
                         label="Date Received by Department"
                         className="dateField maxWidth"
                         defaultValue={date}
+                        required
                     />
                 </Col>
                 <Col xs={12} md={3}>

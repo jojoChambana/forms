@@ -1,18 +1,14 @@
 {
-  "appService.zipIgnorePattern": [
-    "node_modules{,/**}",
-    ".vscode{,/**}"
-  ],
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
   "appService.showBuildDuringDeployPrompt": false,
-  "cSpell.ignoreWords": [
-    "setvisible"
-  ],
+  "cSpell.ignoreWords": ["setvisible"],
   "cSpell.words": [
     "cashprint",
     "checkprint",
     "giftinkind",
     "giftinkindprint",
     "Halsted",
+    "Instructionslist",
     "OVCA",
     "securitiesprint",
     "trustprint"

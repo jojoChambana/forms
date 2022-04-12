@@ -6,7 +6,7 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
             <div className="resultItems row">
                 <div className="d-print-table-row">
                     <div className="d-print-table-cell d-flex justify-content-center">
-                        <span className="normal">
+                        <span className="normal longName">
                             <strong>Opportunity Details</strong>
                         </span>
                     </div>

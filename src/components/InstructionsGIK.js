@@ -43,9 +43,12 @@ export default function InstructionsGIK(props) {
                     If you have any questions when filling out your gift
                     transmittal contact Gift Administration at 217-333-0675
                 </Typography>
-
                 <Typography variant="body1" gutterBottom>
-                    Required fields are marked with an *.
+                    Please do not print from this page. Fill out the form and
+                    click the "Print Preview" button.
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Required fields are marked with an *
                 </Typography>
             </Container>
         </div>

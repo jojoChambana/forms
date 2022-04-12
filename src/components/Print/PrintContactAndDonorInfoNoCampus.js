@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 
 const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     function DonorUnknownCheckBox() {
-        if (formValues.donorUnknownCheckBox === true)
+        if (formValues.donorUnknownCheckBox === false)
             return (
                 <div className="d-print-table-row">
                     <div className="d-print-table-cell">
@@ -19,14 +19,20 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     function NewDonorCheckBox() {
         if (formValues.newDonorCheckBox === true)
             return (
-                <div
-                    class="d-print-table-cell d-flex justify-content-center"
-                    style={{ textAlign: "center" }}
+                <Row
+                    style={{
+                        justifyContent: "flex-end",
+                    }}
                 >
-                    <span class="normal" style={{ width: "300px" }}>
-                        <strong>This is a new donor</strong>
-                    </span>
-                </div>
+                    <div
+                        class="d-print-table-cell d-flex justify-content-center"
+                        style={{ textAlign: "center" }}
+                    >
+                        <span class="normal" style={{ width: "300px" }}>
+                            <strong>This is a new donor</strong>
+                        </span>
+                    </div>
+                </Row>
             );
         else return null;
     }
@@ -34,14 +40,20 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     function NewAddressCheckBox() {
         if (formValues.newDonorAddressCheckBox === true)
             return (
-                <div
-                    class="d-print-table-cell d-flex justify-content-center"
-                    style={{ textAlign: "center" }}
+                <Row
+                    style={{
+                        justifyContent: "flex-end",
+                    }}
                 >
-                    <span class="normal" style={{ width: "300px" }}>
-                        <strong>This is a new address</strong>
-                    </span>
-                </div>
+                    <div
+                        class="d-print-table-cell d-flex justify-content-center"
+                        style={{ textAlign: "center" }}
+                    >
+                        <span class="normal" style={{ width: "300px" }}>
+                            <strong>This is a new address</strong>
+                        </span>
+                    </div>
+                </Row>
             );
         else return null;
     }
@@ -231,8 +243,11 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                 </Col>
             </Row>
             <div style={borderStyles} className="mt-3">
-                <DoNotProcessUntilContacted />
-                <div className="resultItems d-flex">
+                {/* <DoNotProcessUntilContacted /> */}
+                <div
+                    className="resultItems d-flex"
+                    style={{ padding: "0 3em" }}
+                >
                     <div
                         id="contactPrint"
                         className="resultItems d-flex flex-wrap"
@@ -268,7 +283,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                                 {formValues.departmentName}
                             </span>
                         </div>
-                        <DateOfGift />
+                        {/* <DateOfGift /> */}
                         <DatePrepared />
                         <div id="donationDate" className="col rightLabel">
                             Date Received by Department:
@@ -276,13 +291,18 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                                 {formValues.donationDate}
                             </span>
                         </div>
-                        <div className="col rightLabel">
-                            Prepared By:
-                            <span className="normal">
-                                {formValues.preparedBy}
-                            </span>
-                        </div>
+
+                        <Col className="rightLabel">
+                            <div>
+                                Prepared By:
+                                <span className="normal">
+                                    {formValues.preparedBy}
+                                </span>
+                            </div>
+                        </Col>
+
                         <UnitReferenceNumber />
+
                         <SourceCode />
                     </div>
                 </div>
@@ -301,7 +321,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
 
                     {/* ============ right column at the top for donor info ============== */}
                     <div
-                        className="d-print-table-cell col centerColContent mt-2"
+                        className="d-print-table-cell col centerColContent mt-3"
                         style={borderStyles}
                     >
                         <DonorUnknownCheckBox />
@@ -333,8 +353,10 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                                             <AddressType />
                                         </Col>
                                         <Col>
-                                            <NewDonorCheckBox />
-                                            <NewAddressCheckBox />
+                                            <Row>
+                                                <NewDonorCheckBox />
+                                                <NewAddressCheckBox />
+                                            </Row>
                                         </Col>
                                     </Row>
 

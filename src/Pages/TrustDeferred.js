@@ -19,7 +19,6 @@ export default function TrustDeferred(props) {
         removeEmptyFields(data);
         props.setFormValues(data);
         console.table(data);
-        console.log("Hello");
         navigate("/trustdeferredprint");
     };
 

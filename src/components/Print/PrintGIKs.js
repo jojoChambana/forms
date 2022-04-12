@@ -7,50 +7,43 @@ import {
     TableRow,
     Typography,
 } from "@mui/material";
+import React from "react";
 import { Col, ListGroup, Row } from "react-bootstrap";
-import PrintOneSecurity from "./PrintOneSecurity";
+import PrintOneGIK from "./PrintOneGIK";
 
-const PrintSecurities = ({ formValues }) => {
+export default function PrintGIKs({ formValues }) {
     return (
         <>
             <Row>
                 <Col>
                     <Typography variant="h5" component="h3" className="mt-2">
-                        Securities Information
+                        Gift In Kind Information
                     </Typography>
                 </Col>
             </Row>
-            <div
-                className="printTable mt-3 pb-3"
-                style={{
-                    border: "1px solid rgba(0, 0, 0, 0.125)",
-                    borderRadius: "4px",
-                }}
-            >
+            <Paper className="printTable mt-3">
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Shares</TableCell>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Symbol</TableCell>
+                            <TableCell>Description</TableCell>
+                            <TableCell>Gift Value</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {formValues.security.map((item, index) => {
+                        {formValues.giftInKind.map((item, index) => {
                             return (
                                 <>
-                                    <PrintOneSecurity
-                                        oneSecurity={item}
+                                    <PrintOneGIK
+                                        oneGiftInKind={item}
                                         index={index}
-                                        // key={"oneDesig" + index}
+                                        key={"oneGik" + index}
                                     />
                                 </>
                             );
                         })}
                     </TableBody>
                 </Table>
-            </div>
+            </Paper>
         </>
     );
-};
-export default PrintSecurities;
+}

@@ -9,7 +9,7 @@ export default function InstructionsSecWire() {
                         Instructions
                     </Typography>
                 </Row>
-                <Typography variant="body1" gutterBottom>
+                {/* <Typography variant="body1" gutterBottom>
                     Gifts/non-gifts are to be submitted promptly once received
                     in your department. The form should be mailed or
                     hand-delivered (cash) to the address noted on the form.
@@ -17,9 +17,13 @@ export default function InstructionsSecWire() {
                     notices, or replies without checks, etc. to the GPSSO with a
                     memo explaining the nature of the change or problem. The
                     GPSSO will coordinate the appropriate changes in CRM.
+                </Typography> */}
+                <Typography variant="body1" gutterBottom>
+                    Please do not print from this page. Fill out the form and
+                    click the "Print Preview" button.
                 </Typography>
                 <Typography variant="body1" gutterBottom>
-                    Required fields are marked with an *.
+                    Required fields are marked with an *
                 </Typography>
             </Container>
         </div>

@@ -1,10 +1,9 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useForm, FormProvider } from "react-hook-form";
-import InstructionsCashCheckGIK from "../components/InstructionsCashCheckGIK";
+import InstructionsCash from "../components/InstructionsCash";
 import { useNavigate } from "react-router-dom";
 
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
-import InstructionsCash from "../components/InstructionsCash";
 
 export default function Cash(props) {
     const methods = useForm({
