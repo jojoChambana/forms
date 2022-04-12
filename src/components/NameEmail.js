@@ -52,18 +52,11 @@ export default function NameEmail() {
                 </Col>
                 <Col xs={12} md={3}>
                     <TextField
-                        type="text"
                         placeholder="Unit Reference Number"
-                        id="unit-ref"
                         {...register("unitReferenceNumber")}
                         className="maxWidth"
                         label="Unit Reference Number"
                     />
-                    {errors["unit-ref"] && (
-                        <p className="error-message">
-                            Invalid unit reference number
-                        </p>
-                    )}
                 </Col>
             </Row>
             <Row>

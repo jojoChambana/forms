@@ -47,20 +47,22 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     }
 
     function UnitReferenceNumber() {
-        if (formValues.unitReferenceNumber > 0)
+        if (
+            !formValues.unitReferenceNumber === undefined ||
+            formValues.unitReferenceNumber.length === 0
+        )
+            return (
+                <div className="col rightLabel">
+                    <span className="normal">&nbsp;</span>
+                </div>
+            );
+        else
             return (
                 <div className="col rightLabel">
                     Unit reference number:
                     <span className="normal">
                         {formValues.unitReferenceNumber}
                     </span>
-                </div>
-            );
-        else
-            return (
-                <div className="col rightLabel">
-                    &nbsp;
-                    <span className="normal">&nbsp;</span>
                 </div>
             );
     }
@@ -88,12 +90,14 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     }
 
     function SourceCode() {
-        if (formValues.unitReferenceNumber > 0)
+        if (formValues.sourceCode > 0)
             return (
-                <div className="col rightLabel">
-                    Source Code:
-                    <span className="normal">{formValues.sourceCode}</span>
-                </div>
+                <>
+                    <div className="col" style={{ paddingLeft: "0.5em" }}>
+                        Source Code:{" "}
+                        <span className="normal">{formValues.sourceCode}</span>
+                    </div>
+                </>
             );
         else
             return (
@@ -295,8 +299,10 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                             </span>
                         </div>
                         <UnitReferenceNumber />
-                        <SourceCode />
                     </div>
+                </div>
+                <div className="resultItems d-flex flex-wrap">
+                    <SourceCode />
                 </div>
             </div>
             <Row className="mt-3">

@@ -59,20 +59,20 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     }
 
     function UnitReferenceNumber() {
-        if (formValues.unitReferenceNumber > 0)
+        // if (!formValues.unitReferenceNumber === undefined)
+        if (formValues.unitReferenceNumber.length === 0)
+            return (
+                <div className="col rightLabel">
+                    <span className="normal">&nbsp;</span>
+                </div>
+            );
+        else
             return (
                 <div className="col rightLabel">
                     Unit reference number:
                     <span className="normal">
                         {formValues.unitReferenceNumber}
                     </span>
-                </div>
-            );
-        else
-            return (
-                <div className="col rightLabel">
-                    &nbsp;
-                    <span className="normal">&nbsp;</span>
                 </div>
             );
     }
@@ -100,12 +100,14 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     }
 
     function SourceCode() {
-        if (formValues.unitReferenceNumber > 0)
+        if (formValues.sourceCode > 0)
             return (
-                <div className="col rightLabel">
-                    Source Code:
-                    <span className="normal">{formValues.sourceCode}</span>
-                </div>
+                <>
+                    <div className="col" style={{ paddingLeft: "0.5em" }}>
+                        Source Code:{" "}
+                        <span className="normal">{formValues.sourceCode}</span>
+                    </div>
+                </>
             );
         else
             return (
@@ -246,7 +248,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                 {/* <DoNotProcessUntilContacted /> */}
                 <div
                     className="resultItems d-flex"
-                    style={{ padding: "0 3em" }}
+                    style={{ padding: "0 1em" }}
                 >
                     <div
                         id="contactPrint"
@@ -302,7 +304,14 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                         </Col>
 
                         <UnitReferenceNumber />
+                    </div>
+                </div>
 
+                <div className="resultItems d-flex">
+                    <div
+                        className="resultItems d-flex flex-wrap"
+                        style={{ padding: "0 1em" }}
+                    >
                         <SourceCode />
                     </div>
                 </div>

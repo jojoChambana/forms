@@ -55,9 +55,9 @@
     padding-left: 1rem;
   }
   #contactPrint .rightLabel {
-    -webkit-box-pack: center !important;
-        -ms-flex-pack: center !important;
-            justify-content: center !important;
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
   }
   #contactPrint .rightLabel span.normal {
     padding-left: 0.5em !important;
@@ -71,7 +71,7 @@
     width: 80px;
   }
   .totals {
-    width: 195px;
+    width: 295px;
   }
   span.normal {
     padding-left: 0 !important;
@@ -94,6 +94,11 @@
             justify-content: flex-end !important;
     text-align: right;
     min-width: 250px !important;
+  }
+  .gTlabels {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: stretch;
   }
 }
 

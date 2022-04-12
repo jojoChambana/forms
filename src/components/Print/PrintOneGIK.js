@@ -1,5 +1,6 @@
 import React from "react";
 import { TableCell, TableRow } from "@mui/material";
+import { formatAmount } from "../HelperFunctions";
 export default function PrintOneGIK({ oneGiftInKind, index }) {
     console.log("Gift", oneGiftInKind);
     return (
@@ -8,7 +9,7 @@ export default function PrintOneGIK({ oneGiftInKind, index }) {
                 <TableCell component="th" scope="row">
                     {oneGiftInKind.descriptionOfGift}
                 </TableCell>
-                <TableCell>{oneGiftInKind.giftValue}</TableCell>
+                <TableCell>{formatAmount(oneGiftInKind.giftValue)}</TableCell>
             </TableRow>
         </>
     );

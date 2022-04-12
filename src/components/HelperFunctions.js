@@ -465,7 +465,7 @@ export function SharedFillForm(setValue) {
     setValue("departmentName", "English");
     setValue("donationDate", "02-10-2022");
     setValue("preparedBy", "Ted Logan");
-    setValue("unitReferenceNumber", "321");
+    setValue("unitReferenceNumber", "");
     setValue("sourceCode", "14028472984");
 
     setValue("donorDomesticAddressNewDonor", false);
@@ -492,8 +492,8 @@ export function SharedFillForm(setValue) {
     setValue("designation.0.tedDesignationTitle", "The first designation");
     setValue("designation.0.designationGiftAmount", 3000);
 
-    setValue("giftInKind.0.descriptionOfGift", "The first gift in kind");
-    setValue("giftInKind.0.giftValue", "3000");
+    setValue("giftInKind.0.descriptionOfGift", "");
+    setValue("giftInKind.0.giftValue", "");
 
     setValue("designation.0.designationNonGiftAmount", 0);
     setValue("designation.0.designationTotalAmount", 3000);

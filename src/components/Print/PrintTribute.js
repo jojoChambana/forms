@@ -155,7 +155,7 @@ const PrintTribute = ({ formValues }) => {
         ) {
             return (
                 <>
-                    <div className="resultItems row">
+                    <div className="resultItems row mt-2">
                         <div className="col">
                             <div className="d-flex justify-content-center">
                                 <strong className="normal justify-col-tribute">
@@ -186,13 +186,33 @@ const PrintTribute = ({ formValues }) => {
         ) {
             return (
                 <>
-                    <div className="resultItems row">
+                    <div className="resultItems row mt-2">
                         <div className="col">
                             <div className="d-flex justify-content-center">
                                 <strong className="normal justify-col-tribute">
                                     <Typography>
                                         <strong>
                                             Do not send a notification
+                                        </strong>
+                                    </Typography>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            );
+        } else if (
+            formValues.notifyIndividualOrFamily === "Please Notify the Honoree"
+        ) {
+            return (
+                <>
+                    <div className="resultItems row mt-2">
+                        <div className="col">
+                            <div className="d-flex justify-content-center">
+                                <strong className="normal justify-col-tribute">
+                                    <Typography>
+                                        <strong>
+                                            Please Notify the Honoree
                                         </strong>
                                     </Typography>
                                 </strong>

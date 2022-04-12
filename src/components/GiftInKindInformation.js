@@ -9,7 +9,6 @@ export default function GiftInKindInformation({
     alwaysShowDeleteButtons = true,
 }) {
     const { register, control, setValue, getValues } = useFormContext();
-
     // used in building the repeating giftInKind section.  Get the array of object from the 'giftInKind' object in cashValues
     const { fields, append, remove } = useFieldArray({
         control,
@@ -56,10 +55,12 @@ export default function GiftInKindInformation({
                                             required
                                             inputProps={{
                                                 inputMode: "numeric",
-                                                pattern: "[0-9]+(.[0-9][0-9])?",
+                                                pattern:
+                                                    "/(?=.*?)^$?(([1-9]d{0,2}(,d{3})*)|d+)?(.d{1,2})?$/",
                                             }}
                                             placeholder="0"
                                             label="Gift Value (Use $1 if Unknown)"
+                                            toFixed
                                             className="maxWidth"
                                         />
                                     </Col>

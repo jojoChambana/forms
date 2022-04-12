@@ -75,7 +75,7 @@ export default function GiftTribute() {
         msFlexPreferredSize: "content",
     };
 
-    const C_NOTIFY_PERSON_ABOVE = "Please Notify the Person Above";
+    const C_NOTIFY_PERSON_ABOVE = "Please Notify the Honoree";
     const C_DO_NOT_SEND = "Do Not Send a Notification";
     const C_NOTIFY_IND_FAMILY_BELOW =
         "Please Notify the Individual/Family Below";

@@ -116,13 +116,19 @@ const CashCheckGIKPrint = (props) => {
                             </Col>
                         </div>
 
-                        <div className="theDesignationResults">
-                            <Col className="p-0">
-                                <div className="resultItems">
-                                    <PrintGIKs formValues={props.formValues} />
-                                </div>
-                            </Col>
-                        </div>
+                        {props.formType === "Gift in Kind" ? (
+                            <div className="theDesignationResults">
+                                <Col className="p-0">
+                                    <div className="resultItems">
+                                        <PrintGIKs
+                                            formValues={props.formValues}
+                                        />
+                                    </div>
+                                </Col>
+                            </div>
+                        ) : (
+                            " "
+                        )}
 
                         <Row>
                             <Col>

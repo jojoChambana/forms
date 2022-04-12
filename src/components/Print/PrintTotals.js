@@ -1,5 +1,3 @@
-import { Col } from "react-bootstrap";
-
 import { parseNum } from "../HelperFunctions";
 
 const PrintTotals = ({ formValues, showGIKTotal = false }) => {
@@ -7,40 +5,24 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
         if (parseNum(formValues.nonGiftTotal) > 0) {
             return (
                 <>
-                    <Col>
-                        <div
-                            className="d-print-table-row"
-                            style={{ fontWeight: "bold" }}
-                        >
-                            <div className="rightLabel">Non-Gift Total:</div>
-                            <div
-                                className="d-print-table-cell"
-                                style={{ fontWeight: "bold" }}
-                            >
-                                <span
-                                    className="normal"
-                                    style={{ fontWeight: "bold" }}
-                                >
-                                    {formValues.nonGiftTotal}
-                                </span>
-                            </div>
+                    <div className="gTlabels totals">Non-Gift Total:</div>
+                    <div style={{ fontWeight: "bold" }}>
+                        <span className="normal" style={{ fontWeight: "bold" }}>
+                            {formValues.nonGiftTotal}
+                        </span>
+                    </div>
 
-                            <div
-                                className="rightLabel totals"
-                                style={{ fontWeight: "bold" }}
-                            >
-                                Overall Total:
-                            </div>
-                            <div className="d-print-table-cell">
-                                <span
-                                    className="normal"
-                                    style={{ fontWeight: "bold" }}
-                                >
-                                    {formValues.overallTotal}
-                                </span>
-                            </div>
-                        </div>
-                    </Col>
+                    <div
+                        className="gTlabels totals"
+                        style={{ fontWeight: "bold" }}
+                    >
+                        Overall Total:
+                    </div>
+                    <div>
+                        <span className="normal" style={{ fontWeight: "bold" }}>
+                            {formValues.overallTotal}
+                        </span>
+                    </div>
                 </>
             );
         } else return <></>;
@@ -51,27 +33,27 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
             <div className="d-print-table-row mt-3">
                 <>
                     <div
-                        className="rightLabel totals"
+                        className="totals gTlabels"
                         style={{ fontWeight: "bold" }}
                     >
                         Gift Total:
                     </div>
-                    <div className="d-print-table-cell">
+                    <div>
                         <span className="normal">{formValues.giftTotal}</span>
                     </div>
                 </>
-                <Col>
-                    <div>{NonGiftAmount()}</div>
-                </Col>
+
+                {NonGiftAmount()}
+
                 {showGIKTotal && (
                     <>
                         <div
-                            className="rightLabel totals"
+                            className="totals gTlabels"
                             style={{ fontWeight: "bold" }}
                         >
                             Gift in Kind Total:
                         </div>
-                        <div className="d-print-table-cell">
+                        <div>
                             <span
                                 className="normal"
                                 style={{ fontWeight: "bold" }}
