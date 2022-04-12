@@ -202,7 +202,7 @@ export function newFormValues() {
         giftTedAmount: "", // NonGiftPortion.js
         nonGiftTedAmount: "", // NonGiftPortion.js
 
-        nonGiftAmount: 0, // NonGiftPortion.js
+        NonGiftAmount: 0, // NonGiftPortion.js
 
         publicityCode: "No Restrictions", // publicityDropDown.js
 
@@ -307,7 +307,7 @@ export function newSecWireFormValues() {
         giftTedAmount: "", // NonGiftPortion.js
         nonGiftTedAmount: "", // NonGiftPortion.js
 
-        nonGiftAmount: 0, // NonGiftPortion.js
+        NonGiftAmount: 0, // NonGiftPortion.js
 
         publicityCode: "No Restrictions", // publicityDropDown.js
 
@@ -902,7 +902,7 @@ export function PrintCampusAddressSwap({ campusLocation, formType }) {
     return (
         <Row className="headerPrint">
             <style>
-                {`@media print {.headerPrint{display: block; padding-top:2em !important; .addr{display:flex; justify-content:flex-end !important}}}`}
+                {`@media print {.headerPrint{display: block; .addr{display:flex; justify-content:flex-end !important}}}`}
             </style>
 
             <Row>
@@ -947,7 +947,7 @@ export function PrintCampusAddressSwapNoHeaderAddress({
     return (
         <Row className="headerPrint">
             <style>
-                {`@media print {.headerPrint{display: none; padding-top:2em !important; .d-flex{display:flex !important}; .addr{display:flex; justify-content:flex-end !important}}}`}
+                {`@media print {.headerPrint{display: block; padding-top:2em !important; .d-flex{display:flex !important}; .addr{display:flex; justify-content:flex-end !important}}}`}
             </style>
 
             <Row>
@@ -1003,9 +1003,10 @@ function get_date_format(myDate) {
     let year = myDate.getFullYear();
     let hours = addZeroIfNeeded(myDate.getHours());
     let mins = addZeroIfNeeded(myDate.getMinutes());
-    let secs = addZeroIfNeeded(myDate.getSeconds());
+    let ampm = hours >= 12 ? "pm" : "am";
+    // let secs = addZeroIfNeeded(myDate.getSeconds());
 
-    return `${year}-${month}-${day} T ${hours}:${mins}:${secs}`;
+    return `${day}-${month}-${year} - ${hours}:${mins} ${ampm}`;
 }
 function updateTime() {
     // get the current date

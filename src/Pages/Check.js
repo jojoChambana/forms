@@ -1,8 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
-import InstructionsCheckGIK from "../components/InstructionsCheckGIK";
 import { useNavigate } from "react-router-dom";
-
 import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
 import InstructionsCheck from "../components/InstructionsCheck";
 
@@ -29,7 +27,7 @@ export default function Check(props) {
                 <title>U of I Foundation | Check Transmittal Form</title>
                 {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
-            <InstructionsCheckGIK />
+            <InstructionsCheck />
             <FormProvider {...methods}>
                 <CashCheckGIKDataEntry
                     onSubmit={onSubmit}

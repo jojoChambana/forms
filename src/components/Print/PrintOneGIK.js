@@ -1,13 +1,5 @@
 import React from "react";
-import { Col } from "react-bootstrap";
-import {
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-} from "@mui/material";
+import { TableCell, TableRow } from "@mui/material";
 export default function PrintOneGIK({ oneGiftInKind, index }) {
     console.log("Gift", oneGiftInKind);
     return (

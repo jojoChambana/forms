@@ -6,11 +6,10 @@ import NameEmail from "./NameEmail";
 import DonorInformation from "./DonorInformation";
 import { Button, Container, TextField, Typography } from "@mui/material";
 import { DevTool } from "@hookform/devtools";
-import { FormProvider, useForm, useFormContext } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { SharedFillForm, SubmitButton } from "../components/HelperFunctions";
-import InstructionsSecWire from "./InstructionsSecWire";
 import { Col, Row } from "react-bootstrap";
 
 export default function SecWireDataEntry({

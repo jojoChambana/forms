@@ -1,6 +1,5 @@
 import { Container, Link, Typography } from "@mui/material";
 import { Row } from "react-bootstrap";
-import { List, ListItem, ListItemText } from "@mui/material";
 import Instructionslist from "./InstructionsList";
 
 export default function InstructionsCash() {

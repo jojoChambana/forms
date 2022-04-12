@@ -1,9 +1,9 @@
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 import { parseNum } from "../HelperFunctions";
 
 const PrintTotals = ({ formValues, showGIKTotal = false }) => {
-    function nonGiftAmount() {
+    function NonGiftAmount() {
         if (parseNum(formValues.nonGiftTotal) > 0) {
             return (
                 <>
@@ -61,7 +61,7 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                     </div>
                 </>
                 <Col>
-                    <div>{nonGiftAmount()}</div>
+                    <div>{NonGiftAmount()}</div>
                 </Col>
                 {showGIKTotal && (
                     <>

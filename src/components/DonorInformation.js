@@ -15,8 +15,7 @@ export default function DonorInformation({
     showAnonymousDonorCheckBox,
     showPhoneAndDOB = false,
 }) {
-    const { register, getValues, setValue, control, formValues } =
-        useFormContext();
+    const { register, getValues, setValue, control } = useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);

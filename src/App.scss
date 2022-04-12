@@ -106,13 +106,6 @@ div.active {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    h1 {
-        // display: block;
-        // font-size: 24px;
-        // font-size: 1.5rem;
-        // margin: 1em;
-        // text-align: justify;
-    }
 }
 .verticalCenter {
     display: -webkit-box;
@@ -217,7 +210,9 @@ span.normal {
     padding: 0em 1em;
 }
 
-
+.headerPrint {
+    display: none;
+}
 
 .rdbld {
     font-weight: bold;
@@ -506,7 +501,8 @@ div.col-md-6.col-12 {
     }
 }
 
-.showForPrint{
-    display: none !important;
+
+#timestamp{
+    display: none; 
 }
 

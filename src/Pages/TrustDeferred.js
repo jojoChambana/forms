@@ -1,8 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useForm, FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import InstructionsSecWire from "../components/InstructionsSecWire";
-
 import TrustDeferredDataEntry from "../components/TrustDeferredDataEntry";
 
 export default function TrustDeferred(props) {

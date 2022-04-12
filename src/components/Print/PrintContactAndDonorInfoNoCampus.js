@@ -77,16 +77,16 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
             );
     }
 
-    function DateOfGift() {
-        if (formValues.dateOfGift != null)
-            return (
-                <div className="col rightLabel">
-                    Date of Gift:
-                    <span className="normal">{formValues.dateOfGift}</span>
-                </div>
-            );
-        else return null;
-    }
+    // function DateOfGift() {
+    //     if (formValues.dateOfGift != null)
+    //         return (
+    //             <div className="col rightLabel">
+    //                 Date of Gift:
+    //                 <span className="normal">{formValues.dateOfGift}</span>
+    //             </div>
+    //         );
+    //     else return null;
+    // }
 
     function DatePrepared() {
         if (formValues.datePrepared != null)
@@ -116,26 +116,26 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
             );
     }
 
-    const correctPadding = {
-        padding: "1em 0.5em",
-    };
+    // const correctPadding = {
+    //     padding: "1em 0.5em",
+    // };
 
-    function DoNotProcessUntilContacted() {
-        if (formValues.doNotProcessUntilContactedByTrustServices !== false)
-            return (
-                <>
-                    <div className="row mt-1">
-                        <Col style={{ textAlign: "center" }}>
-                            <span className="normal" style={correctPadding}>
-                                Do not process until until donor is contacted by
-                                Trust Services
-                            </span>
-                        </Col>
-                    </div>
-                </>
-            );
-        else return null;
-    }
+    // function DoNotProcessUntilContacted() {
+    //     if (formValues.doNotProcessUntilContactedByTrustServices !== false)
+    //         return (
+    //             <>
+    //                 <div className="row mt-1">
+    //                     <Col style={{ textAlign: "center" }}>
+    //                         <span className="normal" style={correctPadding}>
+    //                             Do not process until until donor is contacted by
+    //                             Trust Services
+    //                         </span>
+    //                     </Col>
+    //                 </div>
+    //             </>
+    //         );
+    //     else return null;
+    // }
 
     const borderStyles = {
         border: "solid 1px rgba(0,0,0,.125)",

@@ -36,6 +36,7 @@ const CashCheckGIKPrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
+                        <div id="timestamp"></div>
                         <PrintCampusAddressSwap
                             campusLocation={props.formValues.campusLocation}
                             formType={props.formType}
@@ -146,7 +147,6 @@ const CashCheckGIKPrint = (props) => {
                                         Back
                                     </Button>
                                 </Col>
-
                                 <Col className="d-flex col justify-content-end">
                                     <Button
                                         variant="contained"

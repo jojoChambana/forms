@@ -11,10 +11,7 @@ import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
 import PrintTribute from "./PrintTribute";
 import PrintTotals from "./PrintTotals";
-import {
-    PrintCampusAddressSwap,
-    PrintCampusAddressSwapNoHeaderAddress,
-} from "../HelperFunctions";
+import { PrintCampusAddressSwapNoHeaderAddress } from "../HelperFunctions";
 
 import PrintSecurities from "./PrintSecurities";
 import PrintSecWireDesignations from "./PrintSecWireDesignations";

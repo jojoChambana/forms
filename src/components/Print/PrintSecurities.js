@@ -1,5 +1,4 @@
 import {
-    Paper,
     Table,
     TableBody,
     TableCell,
@@ -7,7 +6,7 @@ import {
     TableRow,
     Typography,
 } from "@mui/material";
-import { Col, ListGroup, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import PrintOneSecurity from "./PrintOneSecurity";
 
 const PrintSecurities = ({ formValues }) => {

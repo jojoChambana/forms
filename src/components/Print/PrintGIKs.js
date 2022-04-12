@@ -8,7 +8,7 @@ import {
     Typography,
 } from "@mui/material";
 import React from "react";
-import { Col, ListGroup, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import PrintOneGIK from "./PrintOneGIK";
 
 export default function PrintGIKs({ formValues }) {

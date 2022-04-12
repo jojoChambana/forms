@@ -17,6 +17,14 @@
         font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica,
             sans-serif;
     }
+.headerPrint{
+    .row{
+        padding-top: 0 !important;
+    }
+}
+    #timestamp{
+        display: block !important;
+    }
     .navbar {
         display: none;
     }
