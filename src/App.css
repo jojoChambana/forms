@@ -410,12 +410,11 @@ button:hover,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  max-width: 450px;
 }
 
 .totals {
+  width: 175px;
   margin-left: 20px;
   margin-left: 20px;
 }
@@ -430,8 +429,8 @@ button:hover,
   display: none;
 }
 
-.d-print-table-cell.d-flex.justify-content-center {
-  width: 550px;
+.d-print-table-cell {
+  width: 50%;
 }
 
 .justify-col-tribute {
@@ -451,28 +450,21 @@ button:hover,
 }
 
 #contactPrint {
+  padding: 0.5em 0em;
   text-align: left;
 }
 
 #contactPrint .rightLabel {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
-  justify-content: flex-start;
+  justify-content: flex-end;
   text-align: left;
-  min-width: -webkit-fit-content !important;
-  min-width: -moz-fit-content !important;
-  min-width: fit-content !important;
-  padding: 0.5em;
+  min-width: 520px !important;
+  padding: 0 0.5em;
 }
 
-#contactPrint .col .rightLabel {
-  padding-right: 64px;
-  padding-right: 4rem;
-}
-
-#donationDate {
-  min-width: 352px !important;
-  min-width: 22rem !important;
+#contactPrint .rightLabel .normal {
+  width: 250px;
 }
 
 .topBottomMargin {

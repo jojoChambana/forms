@@ -38,6 +38,7 @@ const SecWirePrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
+                        <div id="timestamp"></div>
                         <PrintCampusAddressSwapNoHeaderAddress
                             campusLocation={props.formValues.campusLocation}
                         />
@@ -64,6 +65,7 @@ const SecWirePrint = (props) => {
                                 </Col>
                             </Row>
                         </Container>
+
                         <div className="resultItems">
                             <PrintContactAndDonorInfoNoCampus
                                 formValues={props.formValues}

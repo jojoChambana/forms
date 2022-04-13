@@ -5,12 +5,37 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     function DonorUnknownCheckBox() {
         if (formValues.donorUnknownCheckBox === false)
             return (
+                <div className="d-print-table-cell">
+                    <span
+                        className="normal justify-content-center"
+                        style={{ paddingLeft: "0" }}
+                    >
+                        Donor is unknown, anonymous or various cash donors
+                    </span>
+                </div>
+            );
+        else return null;
+    }
+    function CampusShow() {
+        if (formValues.campusLocation !== null)
+            return (
                 <div className="d-print-table-row">
-                    <div className="d-print-table-cell">
+                    <div className="rightLabel">
+                        University:
                         <span className="normal">
-                            Donor is unknown, anonymous or various cash donors
+                            {formValues.campusLocation}
                         </span>
                     </div>
+                </div>
+            );
+        else return null;
+    }
+    function DateOfGift() {
+        if (formValues.dateOfGift != null)
+            return (
+                <div className="rightLabel">
+                    Date of Gift:
+                    <span className="normal">{formValues.dateOfGift}</span>
                 </div>
             );
         else return null;
@@ -103,8 +128,8 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
         if (formValues.sourceCode > 0)
             return (
                 <>
-                    <div className="col" style={{ paddingLeft: "0.5em" }}>
-                        Source Code:{" "}
+                    <div className="rightLabel">
+                        Source Code:
                         <span className="normal">{formValues.sourceCode}</span>
                     </div>
                 </>
@@ -244,8 +269,8 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                     </Typography>
                 </Col>
             </Row>
-            <div style={borderStyles} className="mt-3">
-                {/* <DoNotProcessUntilContacted /> */}
+            {/* <div style={borderStyles} className="mt-3">
+               
                 <div
                     className="resultItems d-flex"
                     style={{ padding: "0 1em" }}
@@ -285,7 +310,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                                 {formValues.departmentName}
                             </span>
                         </div>
-                        {/* <DateOfGift /> */}
+                        
                         <DatePrepared />
                         <div id="donationDate" className="col rightLabel">
                             Date Received by Department:
@@ -315,6 +340,109 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                         <SourceCode />
                     </div>
                 </div>
+            </div> */}
+
+            <div style={borderStyles} className="mt-3">
+                {/* <DoNotProcessUntilContacted /> */}
+                <div className="resultItems">
+                    <div
+                        id="contactPrint"
+                        className="resultItems d-flex flex-wrap justify-content-center"
+                    >
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <CampusShow />
+                            </div>
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Contact Full Name:
+                                    <span className="normal">
+                                        {formValues.contactFullName}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Contact Phone:
+                                    <span className="normal">
+                                        {formValues.contactPhone}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Contact Email:
+                                    <span className="normal">
+                                        {formValues.contactEmail}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <div className="rightLabel">
+                                    College Name:
+                                    <span
+                                        className="normal"
+                                        style={{
+                                            display: "flex",
+                                            flexWrap: "wrap",
+                                        }}
+                                    >
+                                        {formValues.collegeName}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Department Name:
+                                    <span
+                                        className="normal"
+                                        style={{
+                                            display: "flex",
+                                            flexWrap: "wrap",
+                                        }}
+                                    >
+                                        {formValues.departmentName}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <DateOfGift />
+                            </div>
+                            <div className="col">
+                                <DatePrepared />
+                            </div>
+                        </div>
+                        <div className="d-print-table-row">
+                            <div className="rightLabel" id="donationDate">
+                                Date Received by Department:
+                                <span
+                                    className="normal"
+                                    style={{ textAlign: "left" }}
+                                >
+                                    {formValues.donationDate}
+                                </span>
+                            </div>
+                            <div className="rightLabel">
+                                Prepared By:
+                                <span className="normal">
+                                    {formValues.preparedBy}
+                                </span>
+                            </div>
+                        </div>
+                        <div className="d-print-table-row">
+                            <UnitReferenceNumber />
+                            <SourceCode />
+                        </div>
+                    </div>
+                </div>
             </div>
             <Row className="mt-3">
                 <Col>
@@ -333,7 +461,6 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                         className="d-print-table-cell col centerColContent mt-3"
                         style={borderStyles}
                     >
-                        <DonorUnknownCheckBox />
                         <Row className="mt-2 mb-2">
                             <div className="d-print-table-row">
                                 <div className="rightLabel">
@@ -344,6 +471,8 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                                         {formValues.tedConstituentId}
                                     </span>
                                 </div>
+
+                                <DonorUnknownCheckBox />
                             </div>
                             <div className="d-print-table-row">
                                 <div className="rightLabel min-cell">

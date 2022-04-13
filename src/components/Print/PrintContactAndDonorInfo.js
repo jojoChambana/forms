@@ -52,13 +52,13 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
             formValues.unitReferenceNumber.length === 0
         )
             return (
-                <div className="col rightLabel">
+                <div className="rightLabel">
                     <span className="normal">&nbsp;</span>
                 </div>
             );
         else
             return (
-                <div className="col rightLabel">
+                <div className="rightLabel">
                     Unit reference number:
                     <span className="normal">
                         {formValues.unitReferenceNumber}
@@ -70,7 +70,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function DateOfGift() {
         if (formValues.dateOfGift != null)
             return (
-                <div className="col rightLabel">
+                <div className="rightLabel">
                     Date of Gift:
                     <span className="normal">{formValues.dateOfGift}</span>
                 </div>
@@ -81,7 +81,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function DatePrepared() {
         if (formValues.datePrepared != null)
             return (
-                <div className="col rightLabel">
+                <div className="rightLabel">
                     Date Prepared:
                     <span className="normal">{formValues.datePrepared}</span>
                 </div>
@@ -93,15 +93,15 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         if (formValues.sourceCode > 0)
             return (
                 <>
-                    <div className="col" style={{ paddingLeft: "0.5em" }}>
-                        Source Code:{" "}
+                    <div className="rightLabel">
+                        Source Code:
                         <span className="normal">{formValues.sourceCode}</span>
                     </div>
                 </>
             );
         else
             return (
-                <div className="col rightLabel">
+                <div className="rightLabel">
                     &nbsp;
                     <span className="normal">&nbsp;</span>
                 </div>
@@ -229,9 +229,13 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function CampusShow() {
         if (formValues.campusLocation !== null)
             return (
-                <div className="col rightLabel">
-                    University:
-                    <span className="normal">{formValues.campusLocation}</span>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">
+                        University:
+                        <span className="normal">
+                            {formValues.campusLocation}
+                        </span>
+                    </div>
                 </div>
             );
         else return null;
@@ -247,62 +251,101 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
             </Row>
             <div style={borderStyles} className="mt-3">
                 {/* <DoNotProcessUntilContacted /> */}
-                <div className="resultItems d-flex">
+                <div className="resultItems">
                     <div
                         id="contactPrint"
-                        className="resultItems d-flex flex-wrap"
+                        className="resultItems d-flex flex-wrap justify-content-center"
                     >
-                        <CampusShow />
-                        <div className="col rightLabel">
-                            Contact Full Name:
-                            <span className="normal">
-                                {formValues.contactFullName}
-                            </span>
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <CampusShow />
+                            </div>
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Contact Full Name:
+                                    <span className="normal">
+                                        {formValues.contactFullName}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col rightLabel">
-                            Contact Phone:
-                            <span className="normal">
-                                {formValues.contactPhone}
-                            </span>
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Contact Phone:
+                                    <span className="normal">
+                                        {formValues.contactPhone}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Contact Email:
+                                    <span className="normal">
+                                        {formValues.contactEmail}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="col rightLabel">
-                            Contact Email:
-                            <span className="normal">
-                                {formValues.contactEmail}
-                            </span>
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <div className="rightLabel">
+                                    College Name:
+                                    <span
+                                        className="normal"
+                                        style={{
+                                            display: "flex",
+                                            flexWrap: "wrap",
+                                        }}
+                                    >
+                                        {formValues.collegeName}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Department Name:
+                                    <span
+                                        className="normal"
+                                        style={{
+                                            display: "flex",
+                                            flexWrap: "wrap",
+                                        }}
+                                    >
+                                        {formValues.departmentName}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col rightLabel">
-                            College Name:
-                            <span className="normal">
-                                {formValues.collegeName}
-                            </span>
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <DateOfGift />
+                            </div>
+                            <div className="col">
+                                <DatePrepared />
+                            </div>
                         </div>
-                        <div className="col rightLabel">
-                            Department Name:
-                            <span className="normal">
-                                {formValues.departmentName}
-                            </span>
+                        <div className="d-print-table-row">
+                            <div className="rightLabel" id="donationDate">
+                                Date Received by Department:
+                                <span className="normal">
+                                    {formValues.donationDate}
+                                </span>
+                            </div>
+                            <div className="rightLabel">
+                                Prepared By:
+                                <span className="normal">
+                                    {formValues.preparedBy}
+                                </span>
+                            </div>
                         </div>
-                        <DateOfGift />
-                        <DatePrepared />
-                        <div id="donationDate" className="col rightLabel">
-                            Date Received by Department:
-                            <span className="normal">
-                                {formValues.donationDate}
-                            </span>
+                        <div className="d-print-table-row">
+                            <UnitReferenceNumber />
+                            <SourceCode />
                         </div>
-                        <div className="col rightLabel">
-                            Prepared By:
-                            <span className="normal">
-                                {formValues.preparedBy}
-                            </span>
-                        </div>
-                        <UnitReferenceNumber />
                     </div>
-                </div>
-                <div className="resultItems d-flex flex-wrap">
-                    <SourceCode />
                 </div>
             </div>
             <Row className="mt-3">

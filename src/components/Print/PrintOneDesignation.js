@@ -127,8 +127,8 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
 
                             {oneDesignation.designationAdditionalComments !==
                             "" ? (
-                                <div className="d-print-table-row justify-start">
-                                    <div>Comments:</div>
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">Comments:</div>
                                     <div className="d-print-table-cell">
                                         <div className="wrapCellContent">
                                             <span className="normal longName">

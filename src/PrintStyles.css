@@ -54,11 +54,6 @@
     width: 50%;
     padding-left: 1rem;
   }
-  #contactPrint .rightLabel {
-    -webkit-box-pack: start !important;
-        -ms-flex-pack: start !important;
-            justify-content: flex-start !important;
-  }
   #contactPrint .rightLabel span.normal {
     padding-left: 0.5em !important;
   }
@@ -66,9 +61,6 @@
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
-  }
-  .wrapCellContent {
-    width: 80px;
   }
   .totals {
     width: 295px;

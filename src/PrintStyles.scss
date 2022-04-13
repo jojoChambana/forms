@@ -54,7 +54,7 @@
 
     #contactPrint{
         .rightLabel {
-            justify-content: flex-start !important;
+            
             span.normal{
                 padding-left: 0.5em !important;
             }
@@ -65,9 +65,7 @@
         display:flex !important;
     }
 
-    .wrapCellContent {
-        width: 80px;
-    }
+
 
     .totals {
         width:295px;

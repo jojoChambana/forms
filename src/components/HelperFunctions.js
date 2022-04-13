@@ -700,13 +700,48 @@ export function FillTrustForm(setValue) {
 
     setValue("designation.0.associatedOpportunityChecked", false);
 }
+function get_date_format(myDate) {
+    const addZeroIfNeeded = (num) => {
+        return num < 10 ? "0" + num : num.toString();
+    };
 
+    let month = myDate.getMonth() + 1;
+    month = addZeroIfNeeded(month);
+    let day = addZeroIfNeeded(myDate.getDate());
+
+    let year = myDate.getFullYear();
+    let hours = addZeroIfNeeded(myDate.getHours());
+    let convertHours = hours % 12;
+    let mins = addZeroIfNeeded(myDate.getMinutes());
+    let ampm = hours >= 12 ? "pm" : "am";
+    // let secs = addZeroIfNeeded(myDate.getSeconds());
+
+    return `${month}-${day}-${year} - ${convertHours}:${mins} ${ampm}`;
+}
 export function SubmitButton() {
+    function setTimeStamp() {
+        function updateTime() {
+            // get the current date
+            let currentDate = new Date();
+            // convert it to "short time" format
+            let t = get_date_format(currentDate);
+            // get the DOM element
+            let root = document.querySelector("#timestamp");
+            // print the formatted date
+            root.textContent = t;
+        }
+
+        function init() {
+            window.setInterval(updateTime);
+        }
+        init();
+    }
     return (
         <Button
             value={{ className: "addButtonIcon" }}
             variant="contained"
             type="submit"
+            onClick={setTimeStamp}
         >
             Print Preview
         </Button>
@@ -990,36 +1025,3 @@ export function CampusAddress({ campusLocation, formType }) {
         </>
     );
 }
-
-function get_date_format(myDate) {
-    const addZeroIfNeeded = (num) => {
-        return num < 10 ? "0" + num : num.toString();
-    };
-
-    let month = myDate.getMonth() + 1;
-    month = addZeroIfNeeded(month);
-    let day = addZeroIfNeeded(myDate.getDate());
-
-    let year = myDate.getFullYear();
-    let hours = addZeroIfNeeded(myDate.getHours());
-    let mins = addZeroIfNeeded(myDate.getMinutes());
-    let ampm = hours >= 12 ? "pm" : "am";
-    // let secs = addZeroIfNeeded(myDate.getSeconds());
-
-    return `${day}-${month}-${year} - ${hours}:${mins} ${ampm}`;
-}
-function updateTime() {
-    // get the current date
-    let currentDate = new Date();
-    // convert it to "short time" format
-    let t = get_date_format(currentDate);
-    // get the DOM element
-    let root = document.querySelector("#timestamp");
-    // print the formatted date
-    root.textContent = t;
-}
-
-function init() {
-    window.setInterval(updateTime, 1000);
-}
-init();
