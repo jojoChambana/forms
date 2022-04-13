@@ -5,7 +5,12 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
         if (parseNum(formValues.nonGiftTotal) > 0) {
             return (
                 <>
-                    <div className="gTlabels totals">Non-Gift Total:</div>
+                    <div
+                        className="gTlabels totals"
+                        style={{ fontWeight: "bold" }}
+                    >
+                        Non-Gift Total:
+                    </div>
                     <div style={{ fontWeight: "bold" }}>
                         <span className="normal" style={{ fontWeight: "bold" }}>
                             {formValues.nonGiftTotal}
