@@ -5,30 +5,28 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
     function NonGift() {
         if (oneDesignation.designationNonGiftAmount)
             return (
-                <>
-                    <div key={"designation" + index}>
-                        <div className="d-print-table-row">
-                            <div className="rightLabel">Non-Gift Amount:</div>
-                            <div className="d-print-table-cell">
-                                <span className="normal">
-                                    {formatAmount(
-                                        oneDesignation.designationNonGiftAmount
-                                    )}
-                                </span>
-                            </div>
-                        </div>
-                        <div className="d-print-table-row">
-                            <div className="rightLabel">Total:</div>
-                            <div className="d-print-table-cell">
-                                <span className="normal">
-                                    {formatAmount(
-                                        oneDesignation.designationTotalAmount
-                                    )}
-                                </span>
-                            </div>
+                <div key={"designation" + index}>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Non-Gift Amount:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formatAmount(
+                                    oneDesignation.designationNonGiftAmount
+                                )}
+                            </span>
                         </div>
                     </div>
-                </>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Total:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formatAmount(
+                                    oneDesignation.designationTotalAmount
+                                )}
+                            </span>
+                        </div>
+                    </div>
+                </div>
             );
         else return null;
     }

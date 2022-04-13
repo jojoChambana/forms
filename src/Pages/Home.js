@@ -50,45 +50,6 @@ export default function Home() {
                     </Row>
                     <Row>
                         <Instructionslist />
-                        {/* <div className="indent-list">
-                            <List
-                                sx={{
-                                    listStylePosition: "outside",
-                                }}
-                                className="pt-0"
-                            >
-                                <ListItem
-                                    sx={{
-                                        listStyleType: "disc",
-                                        display: "list-item",
-                                    }}
-                                >
-                                    <ListItemText
-                                        primary="Fill out a separate transmittal based on
-                                        the type of gift"
-                                    />
-                                </ListItem>
-                                <ListItem
-                                    sx={{
-                                        listStyleType: "disc",
-                                        display: "list-item",
-                                    }}
-                                >
-                                    <ListItemText
-                                        primary="Include any and all documentation
-                                        associated with the gift(s)"
-                                    />
-                                </ListItem>
-                                <ListItem
-                                    sx={{
-                                        listStyleType: "disc",
-                                        display: "list-item",
-                                    }}
-                                >
-                                    <ListItemText primary="All transmittals are one donor per transmittal" />
-                                </ListItem>
-                            </List>
-                        </div> */}
                         <Row className="mb-0">
                             <List>
                                 <ListItem>
@@ -265,10 +226,7 @@ export default function Home() {
                                     processed internally at UIF. If you have
                                     questions about security or wire gift types
                                     please contact the Director of Cash Receipts
-                                    at 217-244-0352. If you have any questions
-                                    when filling out your gift transmittal
-                                    please contact Gift Administration at
-                                    217-333-0675."
+                                    at 217-244-0352."
                                     />
                                 </ListItem>
                             </List>
@@ -327,7 +285,7 @@ export default function Home() {
                             </ListItem>
                             <ListItem>
                                 <ListItemText>
-                                    <Link href="/trust">
+                                    <Link href="/trustdeferred">
                                         Deferred Trust Transmittal
                                     </Link>
                                 </ListItemText>

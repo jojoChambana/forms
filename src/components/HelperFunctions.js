@@ -221,7 +221,7 @@ export function newFormValues() {
         overallTotal: 0, // TransmittalTotals.js
         gikTotal: 0, // TransmittalTotals.js
 
-        notifyIndividualOrFamily: "Do not send a notification",
+        notifyIndividualOrFamily: "Do Not Send a Notification",
         tedTributeAcknowledgedFirstName: "",
         tedTributeAcknowledgedLastName: "",
         acknowledgeeDomesticAddress: "",
@@ -242,10 +242,15 @@ export function newFormValues() {
 export function newSecWireFormValues() {
     return {
         formType: "",
-        contactFullName: "", // ContactInformation.js
-        contactPhone: "", // ContactInformation.js
-        contactEmail: "", // ContactInformation.js
-        collegeName: "", // ContactInformation.js
+        dateOfGift: "", // TrustDepartmentInformation.js
+        preparedBy: "", // TrustDepartmentInformation.js
+        datePrepared: "", // TrustDepartmentInformation.js
+        doNotProcessUntilContactedByTrustServices: false, // TrustDepartmentInformation.js
+        sourceCode: "", // TrustDepartmentInformation.js
+        // contactFullName: "", // ContactInformation.js
+        // contactPhone: "", // ContactInformation.js
+        // contactEmail: "", // ContactInformation.js
+        // collegeName: "", // ContactInformation.js
 
         campusLocation: "Urbana-Champaign", // DepartmentCampus.js
         designationAdditionalComments: "", //DesignationInformation.js
@@ -295,11 +300,11 @@ export function newSecWireFormValues() {
         inHonorTedID: "", // GiftTribute.js
         honoreeFullName: "", // GiftTribute.js
 
-        departmentName: "", // NameEmail.js
-        donationDate: "", // NameEmail.js
-        preparedBy: "", // NameEmail.js
-        unitReferenceNumber: "", // NameEmail.js
-        sourceCode: "", // NameEmail.js
+        // departmentName: "", // NameEmail.js
+        // donationDate: "", // NameEmail.js
+        // preparedBy: "", // NameEmail.js
+        // unitReferenceNumber: "", // NameEmail.js
+        // sourceCode: "", // NameEmail.js
 
         designation: [{ ...newDesignation() }],
         nonGiftPortionChecked: "", // NonGiftPortion.js
@@ -326,7 +331,7 @@ export function newSecWireFormValues() {
         overallTotal: 0, // TransmittalTotals.js
         gikTotal: 0, // TransmittalTotals.js
 
-        notifyIndividualOrFamily: "Do not send a notification",
+        notifyIndividualOrFamily: "Do Not Send a Notification",
         tedTributeAcknowledgedFirstName: "",
         tedTributeAcknowledgedLastName: "",
         acknowledgeeDomesticAddress: "",
@@ -467,6 +472,55 @@ export function SharedFillForm(setValue) {
     setValue("preparedBy", "Ted Logan");
     setValue("unitReferenceNumber", "");
     setValue("sourceCode", "14028472984");
+
+    setValue("donorDomesticAddressNewDonor", false);
+    setValue("donorDomesticAddressNewAddress", false);
+    setValue("tedConstituentId", "4567788");
+    setValue("organizationDonorName", "The Jones family");
+
+    setValue("donorDomesticAddress", "2112 S. Rush St.");
+    setValue("donorDomesticAddressCity", "Chicago");
+    setValue("donorDomesticAddressState", "IL");
+    setValue("donorDomesticAddressZipCode", "61111");
+
+    setValue("donorForeignAddressCheckbox", false);
+    setValue("newDonorCheckBox", false);
+    setValue("donorForeignAddress", "1234 Main St.");
+    setValue("donorForeignAddressCity", "Berlin");
+    setValue("donorForeignAddressProvinceRegion", "Bavaria");
+    setValue("donorForeignAddressCountry", "Germany");
+    setValue("donorForeignAddressPostalCode", 80331);
+
+    setValue("publicityCode", "No Restrictions");
+
+    setValue("designation.0.tedDesignationId", "68137");
+    setValue("designation.0.tedDesignationTitle", "The first designation");
+    setValue("designation.0.designationGiftAmount", 3000);
+
+    setValue("giftInKind.0.descriptionOfGift", "");
+    setValue("giftInKind.0.giftValue", "");
+
+    setValue("designation.0.designationNonGiftAmount", 0);
+    setValue("designation.0.designationTotalAmount", 3000);
+
+    setValue(
+        "designation.0.designationAdditionalComments",
+        "This is a designation additional comment"
+    );
+
+    setValue("security.0.shares", "400");
+    setValue("security.0.name", "Apple");
+    setValue("security.0.symbol", "APPL");
+
+    setValue("generalComments", "An additional comment for Securities");
+}
+
+export function SecurtityWireFillForm(setValue) {
+    setValue("sourceCode", "14028472984");
+
+    setValue("dateOfGift", "3-22-2021");
+    setValue("preparedBy", "Tony Danza");
+    setValue("datePrepared", "3-21-2021");
 
     setValue("donorDomesticAddressNewDonor", false);
     setValue("donorDomesticAddressNewAddress", false);
@@ -728,11 +782,13 @@ export function SubmitButton() {
             // get the DOM element
             let root = document.querySelector("#timestamp");
             // print the formatted date
-            root.textContent = t;
+            if (!(root === null)) {
+                root.textContent = t;
+            }
         }
 
         function init() {
-            window.setInterval(updateTime);
+            window.setInterval(updateTime, 60000);
         }
         init();
     }

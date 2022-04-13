@@ -192,7 +192,7 @@ const PrintTribute = ({ formValues }) => {
                                 <strong className="normal justify-col-tribute">
                                     <Typography>
                                         <strong>
-                                            Do not send a notification
+                                            Do Not Send a Notification
                                         </strong>
                                     </Typography>
                                 </strong>
@@ -372,7 +372,10 @@ const PrintTribute = ({ formValues }) => {
                         </div> */}
 
                             <TedTributeConstituentId />
-                            <div className="d-print-table-cell">
+                            <div
+                                className="d-print-table-cell"
+                                style={{ width: "100%" }}
+                            >
                                 <div className="d-print-table-row mt-2">
                                     <div className="rightLabel">
                                         {formValues.giftTribute}:

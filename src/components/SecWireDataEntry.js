@@ -9,8 +9,12 @@ import { DevTool } from "@hookform/devtools";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { SharedFillForm, SubmitButton } from "../components/HelperFunctions";
+import {
+    SubmitButton,
+    SecurtityWireFillForm,
+} from "../components/HelperFunctions";
 import { Col, Row } from "react-bootstrap";
+import TrustDepartmentInformation from "./TrustDepartmentInformation";
 
 export default function SecWireDataEntry({
     formValues,
@@ -26,7 +30,7 @@ export default function SecWireDataEntry({
     const navigate = useNavigate();
 
     const fillButton = () => {
-        SharedFillForm(methods.setValue);
+        SecurtityWireFillForm(methods.setValue);
     };
     const onSubmit = (data) => {
         setFormValues(data);
@@ -41,8 +45,11 @@ export default function SecWireDataEntry({
                 <Container className="pb-4">
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
                         <Button onClick={fillButton}>Fill</Button>
-                        <ContactInformation />
-                        <NameEmail />
+
+                        <TrustDepartmentInformation
+                            trustType={"securityWire"}
+                        />
+
                         <DonorInformation showAnonymousDonorCheckBox={false} />
                         {showSecurities ? (
                             <>

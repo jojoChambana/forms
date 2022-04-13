@@ -56,21 +56,29 @@ export default function PrintSpousalPartner({ formValues }) {
                     </Typography>
                 </Col>
             </Row>
-            <DoNotAddSpousePartnerToReceipt />
-            <DoNotGiveAddSpousePartnerCredit />
-            <div className="d-print-table-row mt-2">
+            <Row>
                 <Col>
-                    <div className="d-print-table-cell">
-                        <span>Organization/Donor Name: </span>
-                        <span className="normal">
-                            {formValues.spousePartnerOrganizationDonorName}
-                        </span>
+                    <div className="d-print-table-row mt-2">
+                        <Col>
+                            <div className="d-print-table-cell">
+                                <span>Organization/Donor Name: </span>
+                                <span className="normal">
+                                    {
+                                        formValues.spousePartnerOrganizationDonorName
+                                    }
+                                </span>
+                            </div>
+                        </Col>
+                        <Col>
+                            <SpousePartnerTedConstituentId />
+                        </Col>
                     </div>
                 </Col>
                 <Col>
-                    <SpousePartnerTedConstituentId />
+                    <DoNotAddSpousePartnerToReceipt />
+                    <DoNotGiveAddSpousePartnerCredit />
                 </Col>
-            </div>
+            </Row>
         </>
     );
 }

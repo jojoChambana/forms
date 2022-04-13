@@ -4,6 +4,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import PhoneInput from "react-phone-number-input";
 import { Controller, useFormContext } from "react-hook-form";
 import "react-phone-number-input/style.css";
+import TrustCheck from "./TrustCheck";
 export default function DonorInfo() {
     const { register, errors, control } = useFormContext();
 
@@ -27,6 +28,7 @@ export default function DonorInfo() {
                     />
                     <ErrorMessage errors={errors} name="singleErrorInput" />
                 </Col>
+
                 <Col xs={12} md={3}>
                     <div>
                         <Controller
@@ -35,8 +37,9 @@ export default function DonorInfo() {
                             render={({ field: { onChange, value } }) => (
                                 <PhoneInput
                                     {...register("contactPhone")}
-                                    placeholder="Phone"
+                                    placeholder="Phone *"
                                     value={value}
+                                    required
                                     onChange={onChange}
                                     defaultCountry="US"
                                     id="phone-input"
@@ -45,6 +48,7 @@ export default function DonorInfo() {
                         />
                     </div>
                 </Col>
+
                 <Col xs={12} md={3}>
                     <TextField
                         {...register("contactEmail")}
@@ -60,8 +64,8 @@ export default function DonorInfo() {
                     <TextField
                         {...register("collegeName")}
                         required
-                        placeholder="University Name"
-                        label="University Name"
+                        placeholder="College Name"
+                        label="College Name"
                         className="maxWidth"
                     />
                 </Col>
