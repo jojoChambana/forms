@@ -14,7 +14,7 @@ function PhoneField({ register }) {
                 {...register("contactPhone")}
                 label="Phone"
                 className="maxWidth"
-                {...register("contactPhone")}
+                // {...register("contactPhone")}
                 variant="outlined"
                 value={phoneCode}
                 defaultCountry={"us"}

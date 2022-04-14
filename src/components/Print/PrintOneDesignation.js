@@ -155,6 +155,11 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                             )}
                         </Col>
                     </Row>
+                    <Row>
+                        <Col>
+                            {oneDesignation.designationAdditionalComments}
+                        </Col>
+                    </Row>
                 </div>
             </ListGroupItem>
         </div>

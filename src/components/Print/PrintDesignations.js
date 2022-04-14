@@ -28,7 +28,7 @@ const PrintDesignations = ({ formValues }) => {
 
     return (
         <>
-            <Row>
+            <Row className="mt-3">
                 <Col>
                     <Typography variant="h5" component="h3">
                         Designation Information

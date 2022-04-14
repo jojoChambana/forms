@@ -32,7 +32,7 @@ export default function PrintSpousalPartner({ formValues }) {
     }
 
     function SpousePartnerTedConstituentId() {
-        if (formValues.spousePartnerTedConstituentId > 0)
+        if (formValues.spousePartnerTedConstituentId.length > 0)
             return (
                 <div className="d-print-table-row">
                     <div className="d-print-table-cell">

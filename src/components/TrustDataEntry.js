@@ -12,7 +12,7 @@ import { Col, Row } from "react-bootstrap";
 import TrustWire from "./TrustWire";
 import TrustCheck from "./TrustCheck";
 import GiftInKindInformation from "./GiftInKindInformation";
-import TrustDepartmentInformation from "./TrustDepartmentInformation";
+import UIFonlyContactInformation from "./UIFonlyContactInformation";
 import DonorInformation from "./DonorInformation";
 import SpousePartnerInformation from "./SpousePartnerInformation";
 import TrustIRADistribution from "./TrustIRADistribution";
@@ -23,6 +23,7 @@ import DesignationInformation from "../components/DesignationInformation";
 import TransmittalTotals from "../components/TransmittalTotals";
 import { DevTool } from "@hookform/devtools";
 import { FillTrustForm, SharedFillForm, SubmitButton } from "./HelperFunctions";
+import GiftTribute from "./GiftTribute";
 
 export default function TrustDataEntry({
     onSubmit,
@@ -121,13 +122,16 @@ export default function TrustDataEntry({
                 </Row>
                 {OtherTrustTypeSelected() && (
                     <>
-                        <TrustDepartmentInformation
+                        <UIFonlyContactInformation
                             trustType={getValues("trustType")}
                         />
                         <DonorInformation showAnonymousDonorCheckBox={false} />
                         {getValues("trustType") !== "Estate" && (
                             <SpousePartnerInformation />
                         )}
+
+                        <GiftTribute />
+
                         <Typography variant="h5" component="h3">
                             Gift Information
                         </Typography>

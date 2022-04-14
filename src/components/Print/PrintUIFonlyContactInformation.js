@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 
-const PrintTrustDepartmentInfo = ({ formValues }) => {
+const PrintUIFonlyContactInformation = ({ formValues }) => {
     function DateOfGift() {
         if (formValues.dateOfGift != null)
             return (
@@ -25,10 +25,10 @@ const PrintTrustDepartmentInfo = ({ formValues }) => {
     }
 
     function SourceCode() {
-        if (formValues.sourceCode > 0)
+        if (formValues.sourceCode.length > 0)
             return (
                 <>
-                    <div className="rightLabel">
+                    <div className="rightLabel overFlowBreakWord">
                         Source Code:
                         <span className="normal">{formValues.sourceCode}</span>
                     </div>
@@ -89,4 +89,4 @@ const PrintTrustDepartmentInfo = ({ formValues }) => {
     );
 };
 
-export default PrintTrustDepartmentInfo;
+export default PrintUIFonlyContactInformation;

@@ -227,7 +227,7 @@ const PrintTribute = ({ formValues }) => {
     }
 
     function TedTributeConstituentId() {
-        if (formValues.tedTributeConstituentId > 0)
+        if (formValues.tedTributeConstituentId.length > 0)
             return (
                 <Col>
                     <div className="d-print-table-row">

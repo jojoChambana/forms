@@ -482,6 +482,13 @@ div.col-md-6.col-12 {
 }
 .d-print-table-cell.d-flex.justify-content-center{
     justify-content: center !important;
+    
+}
+
+.d-print-table-cell{
+    .normal{ 
+        display: block;
+    }
 }
 
 .printTable{
@@ -500,3 +507,8 @@ div.col-md-6.col-12 {
     display: none; 
 }
 
+.overFlowBreakWord{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}

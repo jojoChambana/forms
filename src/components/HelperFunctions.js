@@ -75,6 +75,7 @@ export function calcGIKTotals(gikArray, setValue) {
 export function newDesignation() {
     return {
         newDesignationRequestedChecked: false, // DesignationInformaiton.js
+
         nonGiftPortionChecked: false, // DesignationInformaiton.js
         departmentContactEmail: "", // DesignationInformaiton.js
         departmentContact: "", // DesignationInformaiton.js
@@ -242,11 +243,11 @@ export function newFormValues() {
 export function newSecWireFormValues() {
     return {
         formType: "",
-        dateOfGift: "", // TrustDepartmentInformation.js
-        preparedBy: "", // TrustDepartmentInformation.js
-        datePrepared: "", // TrustDepartmentInformation.js
-        doNotProcessUntilContactedByTrustServices: false, // TrustDepartmentInformation.js
-        sourceCode: "", // TrustDepartmentInformation.js
+        dateOfGift: "", // UIFonlyContactInformation.js
+        preparedBy: "", // UIFonlyContactInformation.js
+        datePrepared: "", // UIFonlyContactInformation.js
+        doNotProcessUntilContactedByTrustServices: false, // UIFonlyContactInformation.js
+        sourceCode: "", // UIFonlyContactInformation.js
         // contactFullName: "", // ContactInformation.js
         // contactPhone: "", // ContactInformation.js
         // contactEmail: "", // ContactInformation.js
@@ -363,6 +364,14 @@ export function newTrustDeferredFormValues() {
         donorPhone: "", // DonorInformation.js
         donorDOB: "", // DonorInformation.js
 
+        tributeChecked: false, // GiftTribute.js
+        giftTribute: "In Memory Of", // GiftTribute.js
+        tedTributeConstituentId: "", // GiftTribute.js
+        deceasedFullName: "", // GiftTribute.js
+        inMemoryNewAddress: false, // GiftTribute.js
+        inHonorTedID: "", // GiftTribute.js
+        honoreeFullName: "", // GiftTribute.js
+
         donorDomesticAddressCity: "", // DomesticAddress.js
         donorDomesticAddress: "", // DomesticAddress.js
         donorDomesticAddressState: "", // DomesticAddress.js
@@ -410,11 +419,19 @@ export function newTrustDeferredFormValues() {
 export function newTrustFormValues() {
     return {
         trustType: "", // TrustDataEntry.js
-        dateOfGift: "", // TrustDepartmentInformation.js
-        preparedBy: "", // TrustDepartmentInformation.js
-        datePrepared: "", // TrustDepartmentInformation.js
-        doNotProcessUntilContactedByTrustServices: false, // TrustDepartmentInformation.js
-        sourceCode: "", // TrustDepartmentInformation.js
+        dateOfGift: "", // UIFonlyContactInformation.js
+        preparedBy: "", // UIFonlyContactInformation.js
+        datePrepared: "", // UIFonlyContactInformation.js
+        doNotProcessUntilContactedByTrustServices: false, // UIFonlyContactInformation.js
+        sourceCode: "", // UIFonlyContactInformation.js
+
+        tributeChecked: false, // GiftTribute.js
+        giftTribute: "In Memory Of", // GiftTribute.js
+        tedTributeConstituentId: "", // GiftTribute.js
+        deceasedFullName: "", // GiftTribute.js
+        inMemoryNewAddress: false, // GiftTribute.js
+        inHonorTedID: "", // GiftTribute.js
+        honoreeFullName: "", // GiftTribute.js
 
         newDonorCheckBox: false, // DonorInformation.js
         newDonorAddressCheckBox: false, // DonorInformation.js
@@ -461,8 +478,6 @@ export function newTrustFormValues() {
 }
 
 export function SharedFillForm(setValue) {
-    // setValue("campusLocation", "Chicago");
-
     setValue("contactFullName", "Thomas Jones");
     setValue("contactPhone", "(555)-867-5309");
     setValue("contactEmail", "tjones@gmail.com");
@@ -788,7 +803,7 @@ export function SubmitButton() {
         }
 
         function init() {
-            window.setInterval(updateTime, 60000);
+            window.setInterval(updateTime);
         }
         init();
     }

@@ -537,6 +537,10 @@ button:hover,
           justify-content: center !important;
 }
 
+.d-print-table-cell .normal {
+  display: block;
+}
+
 .printTable {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -556,5 +560,13 @@ button:hover,
 
 #timestamp {
   display: none;
+}
+
+.overFlowBreakWord {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 /*# sourceMappingURL=App.css.map */

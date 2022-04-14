@@ -12,7 +12,7 @@ import Security from "./Security";
 import TrustWire from "./TrustWire";
 import TrustCheck from "./TrustCheck";
 import GiftInKindInformation from "./GiftInKindInformation";
-import TrustDepartmentInformation from "./TrustDepartmentInformation";
+import UIFonlyContactInformation from "./UIFonlyContactInformation";
 import DonorInformation from "./DonorInformation";
 import SpousePartnerInformation from "./SpousePartnerInformation";
 import TrustIRADistribution from "./TrustIRADistribution";
@@ -123,7 +123,7 @@ export default function TrustDataEntry({
                 </Row>
                 {OtherTrustTypeSelected() && (
                     <>
-                        <TrustDepartmentInformation
+                        <UIFonlyContactInformation
                             trustType={getValues("trustType")}
                         />
                         <DonorInformation showAnonymousDonorCheckBox={false} />

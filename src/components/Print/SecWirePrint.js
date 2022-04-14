@@ -15,7 +15,8 @@ import { PrintCampusAddressSwapNoHeaderAddress } from "../HelperFunctions";
 
 import PrintSecurities from "./PrintSecurities";
 import PrintSecWireDesignations from "./PrintSecWireDesignations";
-import PrintTrustDepartmentInfo from "./PrintTrustDepartmentInfo";
+import PrintUIFonlyContactInformation from "./PrintUIFonlyContactInformation";
+import PrintDonorInformation from "./PrintDonorInformation";
 
 const SecWirePrint = (props) => {
     const navigate = useNavigate();
@@ -67,7 +68,12 @@ const SecWirePrint = (props) => {
                         </Container>
 
                         <div className="resultItems">
-                            <PrintTrustDepartmentInfo
+                            <PrintUIFonlyContactInformation
+                                formValues={props.formValues}
+                            />
+                        </div>
+                        <div className="resultItems">
+                            <PrintDonorInformation
                                 formValues={props.formValues}
                             />
                         </div>

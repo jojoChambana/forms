@@ -10,7 +10,7 @@ import { useState } from "react";
 
 import "react-phone-number-input/style.css";
 
-export default function TrustDepartmentInformation({ trustType }) {
+export default function UIFonlyContactInformation({ trustType }) {
     const { register, getValues, setValue, control } = useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
@@ -21,10 +21,11 @@ export default function TrustDepartmentInformation({ trustType }) {
             <Row>
                 <Col>
                     <Typography variant="h5" component="h3">
-                        Department Information
+                        Contact Information
                     </Typography>
                 </Col>
             </Row>
+            <Row></Row>
             <Row>
                 <Col xs={12} md={3}>
                     <TextField

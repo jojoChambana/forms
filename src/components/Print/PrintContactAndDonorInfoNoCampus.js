@@ -49,11 +49,8 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                         justifyContent: "flex-end",
                     }}
                 >
-                    <div
-                        class="d-print-table-cell d-flex justify-content-center"
-                        style={{ textAlign: "center" }}
-                    >
-                        <span class="normal" style={{ width: "300px" }}>
+                    <div className="d-print-table-cell d-flex" s>
+                        <span className="normal" style={{ width: "300px" }}>
                             <strong>This is a new donor</strong>
                         </span>
                     </div>
@@ -70,11 +67,8 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                         justifyContent: "flex-end",
                     }}
                 >
-                    <div
-                        class="d-print-table-cell d-flex justify-content-center"
-                        style={{ textAlign: "center" }}
-                    >
-                        <span class="normal" style={{ width: "300px" }}>
+                    <div className="d-print-table-cell d-flex justify-content-center">
+                        <span className="normal" style={{ width: "300px" }}>
                             <strong>This is a new address</strong>
                         </span>
                     </div>
@@ -125,12 +119,14 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     }
 
     function SourceCode() {
-        if (formValues.sourceCode > 0)
+        if (formValues.sourceCode.length > 0)
             return (
                 <>
                     <div className="rightLabel">
                         Source Code:
-                        <span className="normal">{formValues.sourceCode}</span>
+                        <span className="normal overFlowBreakWord">
+                            {formValues.sourceCode}
+                        </span>
                     </div>
                 </>
             );
@@ -269,8 +265,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                     </Typography>
                 </Col>
             </Row>
-            {/* <div style={borderStyles} className="mt-3">
-               
+            <div style={borderStyles} className="mt-3">
                 <div
                     className="resultItems d-flex"
                     style={{ padding: "0 1em" }}
@@ -310,7 +305,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                                 {formValues.departmentName}
                             </span>
                         </div>
-                        
+
                         <DatePrepared />
                         <div id="donationDate" className="col rightLabel">
                             Date Received by Department:
@@ -340,7 +335,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                         <SourceCode />
                     </div>
                 </div>
-            </div> */}
+            </div>
 
             <div style={borderStyles} className="mt-3">
                 {/* <DoNotProcessUntilContacted /> */}
@@ -350,9 +345,6 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                         className="resultItems d-flex flex-wrap justify-content-center"
                     >
                         <div className="d-print-table-row">
-                            <div className="col">
-                                <CampusShow />
-                            </div>
                             <div className="col">
                                 <div className="rightLabel">
                                     Contact Full Name:

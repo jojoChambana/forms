@@ -9,6 +9,7 @@ import TrustBeneficiary from "../components/TrustBeneficiary";
 
 import { SubmitButton, FillTrustDeferredForm } from "./HelperFunctions";
 import { DevTool } from "@hookform/devtools";
+import GiftTribute from "./GiftTribute";
 
 export default function TrustDeferredDataEntry({
     onSubmit,
@@ -36,6 +37,7 @@ export default function TrustDeferredDataEntry({
                     showCheckBoxes={false}
                     showPhoneAndDOB={true}
                 />
+                <GiftTribute />
                 <TrustTypeOfCommitment />
                 <TrustDeferredGiftInformation />
                 <TrustBeneficiary />

@@ -76,6 +76,19 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
                                         </span>
                                     </div>
                                 </div>
+
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">
+                                        Designation Comments:
+                                    </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {
+                                                oneDesignation.designationAdditionalComments
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
                                 <NonGift />
                             </div>
                         </div>

@@ -14,7 +14,7 @@ import {
     SecurtityWireFillForm,
 } from "../components/HelperFunctions";
 import { Col, Row } from "react-bootstrap";
-import TrustDepartmentInformation from "./TrustDepartmentInformation";
+import UIFonlyContactInformation from "./UIFonlyContactInformation";
 
 export default function SecWireDataEntry({
     formValues,
@@ -46,9 +46,7 @@ export default function SecWireDataEntry({
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
                         <Button onClick={fillButton}>Fill</Button>
 
-                        <TrustDepartmentInformation
-                            trustType={"securityWire"}
-                        />
+                        <UIFonlyContactInformation trustType={"securityWire"} />
 
                         <DonorInformation showAnonymousDonorCheckBox={false} />
                         {showSecurities ? (
