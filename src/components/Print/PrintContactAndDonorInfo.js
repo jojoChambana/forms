@@ -19,7 +19,10 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function NewDonorCheckBox() {
         if (formValues.newDonorCheckBox === true)
             return (
-                <div className="d-print-table-cell d-flex">
+                <div
+                    className="d-print-table-cell d-flex"
+                    style={{ width: "auto" }}
+                >
                     <span className="normal">
                         <strong>This is a new donor</strong>
                     </span>
@@ -31,7 +34,10 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function NewAddressCheckBox() {
         if (formValues.newDonorAddressCheckBox === true)
             return (
-                <div className="d-print-table-cell d-flex">
+                <div
+                    className="d-print-table-cell d-flex"
+                    style={{ width: "auto" }}
+                >
                     <span className="normal">
                         <strong>This is a new address</strong>
                     </span>
