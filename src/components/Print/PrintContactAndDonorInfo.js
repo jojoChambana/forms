@@ -20,7 +20,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         if (formValues.newDonorCheckBox === true)
             return (
                 <div className="d-print-table-cell d-flex">
-                    <span className="normal" style={{ width: "300px" }}>
+                    <span className="normal">
                         <strong>This is a new donor</strong>
                     </span>
                 </div>
@@ -31,8 +31,8 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function NewAddressCheckBox() {
         if (formValues.newDonorAddressCheckBox === true)
             return (
-                <div className="d-print-table-cell d-flex justify-content-center">
-                    <span className="normal" style={{ width: "300px" }}>
+                <div className="d-print-table-cell d-flex">
+                    <span className="normal">
                         <strong>This is a new address</strong>
                     </span>
                 </div>
@@ -220,20 +220,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     }
 
     // console.log("donorUnknownCheckBox", formValues.donorUnknownCheckBox);
-    function CampusShow() {
-        if (formValues.campusLocation !== null)
-            return (
-                <div className="d-print-table-row">
-                    <div className="rightLabel">
-                        University:
-                        <span className="normal">
-                            {formValues.campusLocation}
-                        </span>
-                    </div>
-                </div>
-            );
-        else return null;
-    }
+
     return (
         <>
             <Row>
@@ -261,9 +248,15 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                             </div>
                             <div className="col">
                                 <div className="rightLabel">
-                                    Contact Email:
-                                    <span className="normal">
-                                        {formValues.contactEmail}
+                                    College Name:
+                                    <span
+                                        className="normal"
+                                        style={{
+                                            display: "flex",
+                                            flexWrap: "wrap",
+                                        }}
+                                    >
+                                        {formValues.collegeName}
                                     </span>
                                 </div>
                             </div>
@@ -279,23 +272,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                             </div>
                             <div className="col">
                                 <div className="rightLabel">
-                                    College Name:
-                                    <span
-                                        className="normal"
-                                        style={{
-                                            display: "flex",
-                                            flexWrap: "wrap",
-                                        }}
-                                    >
-                                        {formValues.collegeName}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="d-print-table-row">
-                            <div className="col">
-                                <div className="rightLabel">
                                     Department Name:
                                     <span
                                         className="normal"
@@ -308,48 +284,44 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                     </span>
                                 </div>
                             </div>
-
-                            <div className="col">
-                                <DateOfGift />
-                            </div>
                         </div>
+
                         <div className="d-print-table-row">
                             <div className="col">
-                                <DatePrepared />
+                                <div className="rightLabel">
+                                    Contact Email:
+                                    <span className="normal">
+                                        {formValues.contactEmail}
+                                    </span>
+                                </div>
                             </div>
-                            <div className="col">
-                                <div
-                                    className="rightLabel"
-                                    id="donationDate"
-                                    style={{ textAlign: "right" }}
-                                >
+
+                            <div className="d-print-table-row">
+                                <div className="rightLabel" id="donationDate">
                                     Date Received by Department:
-                                    <span
-                                        className="normal"
-                                        style={{ textAlign: "left" }}
-                                    >
+                                    <span className="normal">
                                         {formValues.donationDate}
                                     </span>
                                 </div>
                             </div>
-                        </div>
-                        <div className="d-print-table-row">
-                            <div className="rightLabel" id="donationDate">
-                                Date Received by Department:
-                                <span className="normal">
-                                    {formValues.donationDate}
-                                </span>
-                            </div>
-                            <div className="rightLabel">
-                                Prepared By:
-                                <span className="normal">
-                                    {formValues.preparedBy}
-                                </span>
+                            <div className="col">
+                                <DatePrepared />
                             </div>
                         </div>
                         <div className="d-print-table-row">
                             <UnitReferenceNumber />
                             <SourceCode />
+                        </div>
+                        <div className="d-print-table-row">
+                            <div className="col">
+                                <div className="rightLabel">
+                                    Prepared By:
+                                    <span className="normal">
+                                        {formValues.preparedBy}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="rightLabel">&nbsp;</div>
                         </div>
                     </div>
                 </div>
@@ -399,28 +371,38 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                             ""
                         )}
                         {!formValues.donorUnknownCheckBox ? (
-                            <>
-                                <Row>
-                                    <Col>
-                                        <AddressType />
-                                    </Col>
-                                    <Col>
-                                        <NewDonorCheckBox />
-                                        <NewAddressCheckBox />
-                                    </Col>
-                                </Row>
+                            <Row>
+                                <Col>
+                                    <AddressType />
 
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        Contact/Publicity:
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">
+                                            Contact/Publicity:
+                                        </div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                {formValues.publicityCode}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {formValues.publicityCode}
-                                        </span>
+                                </Col>
+
+                                <div class="col">
+                                    <div className="resultItems row">
+                                        <div class="d-flex justify-content-center">
+                                            <strong>
+                                                <NewDonorCheckBox />
+                                            </strong>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center">
+                                            <strong>
+                                                <NewAddressCheckBox />
+                                            </strong>
+                                        </div>
                                     </div>
                                 </div>
-                            </>
+                            </Row>
                         ) : (
                             " "
                         )}

@@ -116,4 +116,8 @@
 .printTable .hideForScreen {
   display: none !important;
 }
+
+.normal.longName {
+  max-width: 300px;
+}
 /*# sourceMappingURL=PrintStyles.css.map */
