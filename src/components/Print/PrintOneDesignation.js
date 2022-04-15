@@ -31,21 +31,11 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                 <div style={{ paddingLeft: "0em" }}>
                     <Row>
                         <div className="col">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">Gift Amount: </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formatAmount(
-                                            oneDesignation.designationGiftAmount
-                                        )}
-                                    </span>
-                                </div>
-                            </div>
                             {oneDesignation.newDesignationRequestedChecked ? (
                                 <>
                                     <div className="d-print-table-row">
                                         <div className="rightLabel">
-                                            Contact Requested:
+                                            Department Contact:
                                         </div>
                                         <div className="d-print-table-cell">
                                             <span className="normal">
@@ -90,7 +80,16 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                     </span>
                                 </div>
                             </div>
-
+                            <div className="d-print-table-row">
+                                <div className="rightLabel">Gift Amount: </div>
+                                <div className="d-print-table-cell">
+                                    <span className="normal">
+                                        {formatAmount(
+                                            oneDesignation.designationGiftAmount
+                                        )}
+                                    </span>
+                                </div>
+                            </div>
                             {oneDesignation.nonGiftPortionChecked ? (
                                 <>
                                     <NonGift />
