@@ -128,7 +128,7 @@ const PrintTribute = ({ formValues }) => {
 
                     <div className="d-print-table-row">
                         <div className="rightLabel">Email:</div>
-                        <div className="d-print-table-cell">
+                        <div className="d-print-table-cell" id="tributePrint">
                             <span className="normal">
                                 {formValues.notifyIndividualOrFamilyEmail}
                             </span>

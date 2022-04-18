@@ -13,7 +13,13 @@
   input,
   label,
   div,
-  button, table, thead, tr, th, tbody, td {
+  button,
+  table,
+  thead,
+  tr,
+  th,
+  tbody,
+  td {
     font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif;
   }
   .headerPrint .row {
@@ -80,7 +86,9 @@
     position: relative;
     left: 10em !important;
   }
-  .rightLabel, span.lineUp, .lineUp {
+  .rightLabel,
+  span.lineUp,
+  .lineUp {
     -webkit-box-pack: end !important;
         -ms-flex-pack: end !important;
             justify-content: flex-end !important;
@@ -119,5 +127,10 @@
 
 .normal.longName {
   max-width: 300px;
+}
+
+#tributePrint {
+  margin-right: 1em;
+  word-break: break-word;
 }
 /*# sourceMappingURL=PrintStyles.css.map */

@@ -13,16 +13,22 @@
     input,
     label,
     div,
-    button, table, thead, tr, th, tbody, td {
+    button,
+    table,
+    thead,
+    tr,
+    th,
+    tbody,
+    td {
         font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica,
             sans-serif;
     }
-.headerPrint{
-    .row{
-        padding-top: 0 !important;
+    .headerPrint {
+        .row {
+            padding-top: 0 !important;
+        }
     }
-}
-    #timestamp{
+    #timestamp {
         display: block !important;
     }
     .navbar {
@@ -43,7 +49,7 @@
         display: flex;
         font-size: inherit;
     }
-    .hdrCol{
+    .hdrCol {
         display: flex !important;
         align-items: center !important;
     }
@@ -52,23 +58,20 @@
         padding-left: 1rem;
     }
 
-    #contactPrint{
+    #contactPrint {
         .rightLabel {
-            
-            span.normal{
+            span.normal {
                 padding-left: 0.5em !important;
             }
         }
     }
 
-    .d-print-table-row{
-        display:flex !important;
+    .d-print-table-row {
+        display: flex !important;
     }
 
-
-
     .totals {
-        width:295px;
+        width: 295px;
     }
     span.normal {
         padding-left: 0 !important;
@@ -87,20 +90,22 @@
         left: 10em !important;
     }
 
-    .rightLabel, span.lineUp, .lineUp {
+    .rightLabel,
+    span.lineUp,
+    .lineUp {
         justify-content: flex-end !important;
         text-align: right;
         min-width: 250px !important;
     }
-    .gTlabels{
+    .gTlabels {
         width: stretch;
     }
 }
 
-.printTable{
+.printTable {
     display: flex;
     justify-content: center;
-    table{
+    table {
         width: 75%;
     }
 
@@ -109,11 +114,15 @@
             background: #cccccc !important;
         }
     }
-.hideForScreen{
-    display: none !important;
+    .hideForScreen {
+        display: none !important;
+    }
+}
+.normal.longName {
+    max-width: 300px;
 }
 
-}
-.normal.longName{
-    max-width:300px;
+#tributePrint {
+    margin-right: 1em; 
+    word-break: break-word;
 }
