@@ -155,13 +155,14 @@ const PrintTribute = ({ formValues }) => {
         ) {
             return (
                 <>
-                    <div className="resultItems row mt-2">
+                    <div className="resultItems row mt-2 mb-0">
                         <div className="col">
                             <div className="d-flex justify-content-center">
                                 <strong className="normal justify-col-tribute">
-                                    <Typography>
+                                    <Typography className="mb-0">
                                         <strong>
                                             Please notify the following
+                                            <br />
                                             individual/family of my gift
                                         </strong>
                                     </Typography>
@@ -359,27 +360,21 @@ const PrintTribute = ({ formValues }) => {
                         borderRadius: "4px",
                     }}
                 >
-                    <div className="resultItems row">
-                        <Col>
-                            <IsTributeNewAddressChecked />
-                            {/* <div className="d-print-table-cell">
-                            <div className="d-print-table-row">
-                                <div className="d-print-table-cell">&nbsp;</div>
-                                <div className="rightLabel justify-col-tribute">
-                                    This Gift is a Tribute
-                                </div>
-                            </div>
-                        </div> */}
+                    <div>
+                        <Row>
+                            <Col>
+                                <IsTributeNewAddressChecked />
 
-                            <TedTributeConstituentId />
-                            <div
-                                className="d-print-table-cell"
-                                style={{ width: "100%" }}
-                            >
+                                <TedTributeConstituentId />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="d-print-table-cell">
                                 <div className="d-print-table-row mt-2">
                                     <div className="rightLabel">
                                         {formValues.giftTribute}:
                                     </div>
+
                                     <div className="d-print-table-cell">
                                         <span className="normal">
                                             <HonorOrDeceased />
@@ -398,16 +393,23 @@ const PrintTribute = ({ formValues }) => {
                                 <div className="d-print-table-row">
                                     <div className="rightLabel">Email:</div>
                                     <div className="d-print-table-cell">
-                                        <span className="normal">
+                                        <span
+                                            className="normal"
+                                            style={{
+                                                display: "tableRow",
+                                                left: "1em",
+                                                position: "relative",
+                                            }}
+                                        >
                                             {formValues.designationEmail}
                                         </span>
                                     </div>
                                 </div>
-                            </div>
-                        </Col>
-                        <Col>
-                            <NotifyIndividualOrFamily />
-                        </Col>
+                            </Col>
+                            <Col className="d-print-table-cell">
+                                <NotifyIndividualOrFamily />
+                            </Col>
+                        </Row>
                     </div>
                 </Col>
             </>
