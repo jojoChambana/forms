@@ -8,23 +8,23 @@ import Check from "./Pages/Check";
 import GiftInKind from "./Pages/GiftInKind";
 import SecWireDataEntry from "./components/SecWireDataEntry";
 import SecWirePrint from "./components/Print/SecWirePrint";
-import Trust from "./Pages/Trust";
-import TrustDeferred from "./Pages/TrustDeferred";
+// import Trust from "./Pages/Trust";
+// import TrustDeferred from "./Pages/TrustDeferred";
 import PageNotFound from "./Pages/PageNotFound";
 import Home from "./Pages/Home";
 import "./App.css";
 import {
     newFormValues,
     newSecWireFormValues,
-    newTrustFormValues,
-    newTrustDeferredFormValues,
+    // newTrustFormValues,
+    // newTrustDeferredFormValues,
 } from "./components/HelperFunctions";
 import CashCheckGIKPrint from "./components/Print/CashCheckGIKPrint";
 
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/system";
-import TrustPrint from "./components/Print/TrustPrint";
-import TrustDeferredPrint from "./components/Print/TrustDeferredPrint";
+// import TrustPrint from "./components/Print/TrustPrint";
+// import TrustDeferredPrint from "./components/Print/TrustDeferredPrint";
 const theme = createTheme({
     palette: {
         primary: {
@@ -48,10 +48,10 @@ function App() {
     const [cashValues, setCashValues] = useState(newFormValues());
     const [checkValues, setCheckValues] = useState(newFormValues());
     const [giftInKindValues, setGiftInKindValues] = useState(newFormValues());
-    const [trustValues, setTrustValues] = useState(newTrustFormValues());
-    const [trustDeferredValues, setTrustDeferredValues] = useState(
-        newTrustDeferredFormValues()
-    );
+    // const [trustValues, setTrustValues] = useState(newTrustFormValues());
+    // const [trustDeferredValues, setTrustDeferredValues] = useState(
+    //     newTrustDeferredFormValues()
+    // );
     const [securitiesValues, setSecuritiesValues] = useState(
         newSecWireFormValues()
     );
@@ -180,7 +180,7 @@ function App() {
                             }
                         />
 
-                        <Route
+                        {/* <Route
                             exact
                             path="/trust"
                             element={
@@ -228,7 +228,7 @@ function App() {
                                     title={"Trust"}
                                 />
                             }
-                        />
+                        /> */}
 
                         <Route path="*" element={<PageNotFound />} />
                     </Routes>

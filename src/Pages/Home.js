@@ -250,7 +250,7 @@ export default function Home() {
                     </Row>
                 </section>
 
-                <section>
+                {/* <section>
                     <Row>
                         <Col>
                             <Typography variant="h5" component="h3">
@@ -292,7 +292,7 @@ export default function Home() {
                             </ListItem>
                         </List>
                     </Row>
-                </section>
+                </section> */}
 
                 {/* <Row>
                     <Links />
