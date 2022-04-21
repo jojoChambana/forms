@@ -5,7 +5,7 @@ import CashCheckGIKDataEntry from "../components/CashCheckGIKDataEntry";
 import { parseNum } from "../components/HelperFunctions";
 import InstructionsGIK from "../components/InstructionsGIK";
 
-export default function GiftInKind(props, errorDisplay) {
+export default function GiftInKind(props) {
     const methods = useForm({
         defaultValues: props.formValues,
         mode: "onChange",

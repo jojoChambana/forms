@@ -31,6 +31,24 @@ h1 > span {
   margin-bottom: 1rem;
 }
 
+.border {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  --bs-gutter-x: -0.5rem;
+}
+
+.border .mt-3 .row {
+  margin: 0;
+}
+
+.border .col {
+  padding: 0;
+}
+
+.border .row {
+  --bs-gutter-x: -0.135rem;
+}
+
 li {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -433,6 +451,12 @@ button:hover,
   width: 50%;
 }
 
+.d-print-table-cell .normal {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
 .justify-col-tribute {
   position: relative;
   left: 0em;
@@ -568,5 +592,11 @@ button:hover,
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
+}
+
+.innerBorder {
+  max-width: 91.75vw;
+  position: relative;
+  margin: 1em auto;
 }
 /*# sourceMappingURL=App.css.map */

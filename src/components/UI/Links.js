@@ -26,12 +26,12 @@ const Links = () => {
             <Link href="/wire" underline="none">
                 Wire
             </Link>
-            <Link href="/trust" underline="none">
+            {/* <Link href="/trust" underline="none">
                 Trust
             </Link>
             <Link href="/trustdeferred" underline="none">
                 Trust Deferred
-            </Link>
+            </Link> */}
         </Box>
     );
 };

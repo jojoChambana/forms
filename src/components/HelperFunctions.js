@@ -27,7 +27,7 @@ export function formatAmount2(amount) {
     } else {
         amount = parseFloat(amount);
         if (Math.floor(amount / 100) !== amount) {
-            amount = amount.toFixed(2);
+            amount = amount.tofixed(2);
         }
     }
     return amount;
@@ -237,6 +237,8 @@ export function newFormValues() {
 
         notifyIndividualOrFamilyEmail: "",
         tedTributeAcknowledgedPhone: "",
+
+        trustWire: [{ ...newTrustWire() }], // Trust.js
     };
 }
 
@@ -474,6 +476,8 @@ export function newTrustFormValues() {
         designation: [{ ...newDesignation() }], // DesignationInformation.js
         otherInformation: "", // TrustOtherInformation.js
         is8283Required: "No", // TrustOtherInformation.js
+        giftAdmincheckbox: false,
+        trustcheckbox: false,
     };
 }
 
@@ -512,8 +516,8 @@ export function SharedFillForm(setValue) {
     setValue("designation.0.tedDesignationTitle", "The first designation");
     setValue("designation.0.designationGiftAmount", 3000);
 
-    setValue("giftInKind.0.descriptionOfGift", "");
-    setValue("giftInKind.0.giftValue", "");
+    setValue("giftInKind.0.descriptionOfGift", "A car");
+    setValue("giftInKind.0.giftValue", "2000");
 
     setValue("designation.0.designationNonGiftAmount", 0);
     setValue("designation.0.designationTotalAmount", 3000);
@@ -561,8 +565,8 @@ export function SecurtityWireFillForm(setValue) {
     setValue("designation.0.tedDesignationTitle", "The first designation");
     setValue("designation.0.designationGiftAmount", 3000);
 
-    setValue("giftInKind.0.descriptionOfGift", "");
-    setValue("giftInKind.0.giftValue", "");
+    // setValue("giftInKind.0.descriptionOfGift", "");
+    // setValue("giftInKind.0.giftValue", "");
 
     setValue("designation.0.designationNonGiftAmount", 0);
     setValue("designation.0.designationTotalAmount", 3000);
@@ -739,7 +743,7 @@ export function FillTrustForm(setValue) {
     setValue("trustWire.0.bankName", "PNC");
     setValue("trustWire.0.totalValue", "3000");
 
-    setValue("trustCheck.0.bankName", "564532487");
+    setValue("trustCheck.0.checkNumbers", "564532487");
     setValue("trustCheck.0.checkTotal", "5000");
 
     setValue("otherInformation", "None");
@@ -768,6 +772,13 @@ export function FillTrustForm(setValue) {
     setValue("designation.0.nonGiftPortionChecked", false);
 
     setValue("designation.0.associatedOpportunityChecked", false);
+
+    setValue("is8283Required", "No");
+    setValue("giftAdmincheckbox", false);
+    setValue("trustcheckbox", false);
+
+    setValue("trustCheck.0.checkNumbers", "8675309");
+    setValue("trustCheck.0.checkTotal", "8000");
 }
 function get_date_format(myDate) {
     const addZeroIfNeeded = (num) => {

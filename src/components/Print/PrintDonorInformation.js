@@ -23,8 +23,8 @@ const PrintDonorInformation = ({ formValues }) => {
                     }}
                 >
                     <div className="d-print-table-cell d-flex">
-                        <span className="normal" style={{ width: "300px" }}>
-                            <strong>This is a new donor</strong>
+                        <span className="normal maxWidth justify-content-end">
+                            This is a new donor
                         </span>
                     </div>
                 </Row>
@@ -41,8 +41,8 @@ const PrintDonorInformation = ({ formValues }) => {
                     }}
                 >
                     <div className="d-print-table-cell d-flex">
-                        <span className="normal" style={{ width: "300px" }}>
-                            <strong>This is a new address</strong>
+                        <span className="normal maxWidth justify-content-end">
+                            This is a new address
                         </span>
                     </div>
                 </Row>

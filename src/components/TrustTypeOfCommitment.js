@@ -152,9 +152,9 @@ export default function TrustTypeOfCommitment() {
                                 <MenuItem value={"Living Trust"}>
                                     Living Trust
                                 </MenuItem>
-                                <MenuItem value={"Life Insurance"}>
+                                {/* <MenuItem value={"Life Insurance"}>
                                     Life Insurance
-                                </MenuItem>
+                                </MenuItem> */}
                                 <MenuItem value={"Retirement Plan"}>
                                     Retirement Plan
                                 </MenuItem>

@@ -33,7 +33,7 @@ function App() {
     return (
         <div className="App">
             <TextField
-                value={values.toFixed(2)}
+                value={values.tofixed(2)}
                 onChange={handleChange}
                 InputProps={{
                     inputComponent: NumberFormatCustom,

@@ -2,7 +2,12 @@ import PrintOneOpportunity from "./PrintOneOpportunity";
 import { formatAmount } from "../HelperFunctions";
 import { Row, Col, ListGroupItem } from "react-bootstrap";
 
-const PrintOneDesignation = ({ oneDesignation, index }) => {
+const PrintOneDesignation = ({
+    formValues,
+    oneDesignation,
+    index,
+    trustMode,
+}) => {
     function NonGift() {
         if (oneDesignation.designationNonGiftAmount)
             return (
@@ -19,6 +24,10 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
             );
         else return null;
     }
+    const pledgeRevLabel =
+        trustMode === true
+            ? "Planned Gift or Pledge Revenue ID:"
+            : "Pledge Revenue ID:";
     return (
         <div className="resultItems" key={"designation" + index}>
             <ListGroupItem
@@ -58,16 +67,30 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                     </div>
                                 </>
                             ) : (
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        Designation ID:
+                                <>
+                                    {/* <div className="d-print-table-row">
+                                        <div className="rightLabel">
+                                            Trust Type:
+                                        </div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                {formValues.trustType}
+                                            </span>
+                                        </div>
+                                    </div> */}
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">
+                                            Designation ID:
+                                        </div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                {
+                                                    oneDesignation.tedDesignationId
+                                                }
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {oneDesignation.tedDesignationId}
-                                        </span>
-                                    </div>
-                                </div>
+                                </>
                             )}
 
                             <div className="d-print-table-row">
@@ -112,7 +135,7 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                             {oneDesignation.pledgeRevenueId !== "" ? (
                                 <div className="d-print-table-row">
                                     <div className="rightLabel">
-                                        Pledge Revenue ID:
+                                        {pledgeRevLabel}
                                     </div>
                                     <div className="d-print-table-cell">
                                         <span className="normal">
@@ -142,8 +165,18 @@ const PrintOneDesignation = ({ oneDesignation, index }) => {
                                 ""
                             )}
                         </div>
-
                         <Col>
+                            {/* <div className="d-print-table-row">
+                                <div className="rightLabel">
+                                    Actual Ask Date:
+                                </div>
+                                <div className="d-print-table-cell">
+                                    <span className="normal">
+                                        {oneDesignation.actualAskDate}
+                                    </span>
+                                </div>
+                            </div> */}
+
                             {oneDesignation.associatedOpportunityChecked ? (
                                 <PrintOneOpportunity
                                     oneDesignation={oneDesignation}

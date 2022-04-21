@@ -9,9 +9,12 @@ import {
 import { Col, Row } from "react-bootstrap";
 import PrintOneSecurity from "./PrintOneSecurity";
 
-const PrintSecurities = ({ formValues }) => {
-    return (
-        <>
+const PrintSecurities = ({ formValues }, key) => {
+    var securityCount = 0;
+    if (formValues.security !== undefined)
+        securityCount = formValues.security.length; // used to determine if we should show Delete security buttons
+    return securityCount > 0 ? (
+        <div key={key}>
             <Row>
                 <Col>
                     <Typography variant="h5" component="h3" className="mt-2">
@@ -49,7 +52,7 @@ const PrintSecurities = ({ formValues }) => {
                     </TableBody>
                 </Table>
             </div>
-        </>
-    );
+        </div>
+    ) : null;
 };
 export default PrintSecurities;

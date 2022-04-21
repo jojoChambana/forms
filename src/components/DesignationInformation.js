@@ -18,7 +18,7 @@ import {
 } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
 
-export default function DesignationInformation() {
+export default function DesignationInformation({ trustMode = false }) {
     const { register, control, setValue, getValues, watch } = useFormContext();
 
     // used in building the repeating designation section.  Get the array of object from the 'designation' object in cashValues
@@ -26,6 +26,11 @@ export default function DesignationInformation() {
         control,
         name: "designation",
     });
+
+    const pledgeRevLabel =
+        trustMode === true
+            ? "Planned Gift or Pledge Revenue ID"
+            : "Pledge Revenue ID";
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
@@ -80,129 +85,151 @@ export default function DesignationInformation() {
 
     return (
         <>
-            <ListGroup className="list-group row">
-                {fields.map((item, index) => {
-                    var newDesigChecked = getValues(
-                        `designation[${index}].newDesignationRequestedChecked`
-                    );
-                    var nonGiftChecked = getValues(
-                        `designation[${index}].nonGiftPortionChecked`
-                    );
-                    return (
-                        <ListGroupItem key={index} className="mt-4">
-                            <Typography
-                                variant="h5"
-                                component="h3"
-                                className="mt-3"
-                            >
-                                Designation Information
-                            </Typography>
-                            <FormGroup>
-                                <Row className="mb-0">
-                                    {/* the two checkboxes at the top */}
-                                    <Col>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    {...register(
-                                                        `designation.${index}.newDesignationRequestedChecked`
-                                                    )}
-                                                    onChange={
-                                                        handleChangeNewDesignation
-                                                    }
-                                                />
-                                            }
-                                            label="New Designation Requested"
-                                            name={`newDesigCheckbox.${index}`}
-                                            checked={newDesigChecked}
-                                        />
-                                    </Col>
-                                    <Col>
-                                        <FormControlLabel
-                                            label="Check for Non-Gift Portion"
-                                            control={
-                                                <Checkbox
-                                                    placeholder="Is there a non-gift portion?"
-                                                    {...register(
-                                                        `designation.${index}.nonGiftPortionChecked`
-                                                    )}
-                                                    onChange={
-                                                        handleChangeIncludesNonGiftChecked
-                                                    }
-                                                    name={`NonGiftCheckbox.${index}`}
-                                                    checked={nonGiftChecked}
-                                                />
-                                            }
-                                        />
-                                    </Col>
-                                    <Col>
-                                        {/* only show the 'delete Designation' button if there is more than one item being shown */}
-                                        {designationCount > 1 ? (
-                                            <div className="end-align">
-                                                <Button
-                                                    placeholder="Delete Designation"
-                                                    label="Delete Designation"
-                                                    className="addButtonIcon mt-3"
-                                                    onClick={() => {
-                                                        remove(index);
-                                                        calcFinalTotals(
-                                                            getValues(
-                                                                "designation"
-                                                            ),
-                                                            setValue
-                                                        );
-                                                    }}
-                                                >
-                                                    <IconContext.Provider
-                                                        value={{
-                                                            size: "2em",
-                                                        }}
-                                                    >
-                                                        <MdDelete />
-                                                    </IconContext.Provider>
-                                                </Button>
-                                            </div>
-                                        ) : (
-                                            <></>
-                                        )}
-                                    </Col>
-                                </Row>
-                            </FormGroup>
-
-                            {/* if New Designation is checked, show two contact fields, otherwise show designation id */}
-                            {newDesigChecked ? (
-                                <>
-                                    <Row>
-                                        <Col xs={12} md={3}>
-                                            <TextField
-                                                {...register(
-                                                    `designation.${index}.departmentContactEmail`
-                                                )}
-                                                required
-                                                type="email"
-                                                placeholder="Department Contact Email"
-                                                label="Department Contact Email"
-                                                className="maxWidth"
+            <div>
+                <ListGroup className="list-group row innerBorder">
+                    {fields.map((item, index) => {
+                        var newDesigChecked = getValues(
+                            `designation[${index}].newDesignationRequestedChecked`
+                        );
+                        var nonGiftChecked = getValues(
+                            `designation[${index}].nonGiftPortionChecked`
+                        );
+                        return (
+                            <ListGroupItem key={index} className="mt-4">
+                                <Typography
+                                    variant="h5"
+                                    component="h3"
+                                    className="mt-3"
+                                >
+                                    Designation Information
+                                </Typography>
+                                <FormGroup>
+                                    <Row className="mb-0">
+                                        {/* the two checkboxes at the top */}
+                                        <Col>
+                                            <FormControlLabel
+                                                control={
+                                                    <Checkbox
+                                                        {...register(
+                                                            `designation.${index}.newDesignationRequestedChecked`
+                                                        )}
+                                                        onChange={
+                                                            handleChangeNewDesignation
+                                                        }
+                                                    />
+                                                }
+                                                label="New Designation Requested"
+                                                name={`newDesigCheckbox.${index}`}
+                                                checked={newDesigChecked}
                                             />
                                         </Col>
+                                        <Col>
+                                            <FormControlLabel
+                                                label="Check for Non-Gift Portion"
+                                                control={
+                                                    <Checkbox
+                                                        placeholder="Is there a non-gift portion?"
+                                                        {...register(
+                                                            `designation.${index}.nonGiftPortionChecked`
+                                                        )}
+                                                        onChange={
+                                                            handleChangeIncludesNonGiftChecked
+                                                        }
+                                                        name={`NonGiftCheckbox.${index}`}
+                                                        checked={nonGiftChecked}
+                                                    />
+                                                }
+                                            />
+                                        </Col>
+                                        <Col>
+                                            {/* only show the 'delete Designation' button if there is more than one item being shown */}
+                                            {designationCount > 1 ? (
+                                                <div className="end-align">
+                                                    <Button
+                                                        placeholder="Delete Designation"
+                                                        label="Delete Designation"
+                                                        className="addButtonIcon mt-3"
+                                                        onClick={() => {
+                                                            remove(index);
+                                                            calcFinalTotals(
+                                                                getValues(
+                                                                    "designation"
+                                                                ),
+                                                                setValue
+                                                            );
+                                                        }}
+                                                    >
+                                                        <IconContext.Provider
+                                                            value={{
+                                                                size: "2em",
+                                                            }}
+                                                        >
+                                                            <MdDelete />
+                                                        </IconContext.Provider>
+                                                    </Button>
+                                                </div>
+                                            ) : (
+                                                <></>
+                                            )}
+                                        </Col>
+                                    </Row>
+                                </FormGroup>
+
+                                {/* if New Designation is checked, show two contact fields, otherwise show designation id */}
+                                {newDesigChecked ? (
+                                    <>
+                                        <Row>
+                                            <Col xs={12} md={3}>
+                                                <TextField
+                                                    {...register(
+                                                        `designation.${index}.departmentContactEmail`
+                                                    )}
+                                                    required
+                                                    type="email"
+                                                    placeholder="Department Contact Email"
+                                                    label="Department Contact Email"
+                                                    className="maxWidth"
+                                                />
+                                            </Col>
+                                            <Col xs={12} md={3}>
+                                                <TextField
+                                                    {...register(
+                                                        `designation.${index}.departmentContact`
+                                                    )}
+                                                    required
+                                                    placeholder="Department Contact"
+                                                    label="Department Contact"
+                                                    className="maxWidth"
+                                                />
+                                            </Col>
+                                        </Row>
+                                    </>
+                                ) : (
+                                    <Row>
                                         <Col xs={12} md={3}>
-                                            <TextField
-                                                {...register(
-                                                    `designation.${index}.departmentContact`
+                                            <Controller
+                                                name={`designation.${index}.tedDesignationId`}
+                                                control={control}
+                                                render={({
+                                                    field: { onChange, value },
+                                                }) => (
+                                                    <TextField
+                                                        onChange={onChange}
+                                                        value={value}
+                                                        label="TED Designation ID"
+                                                        required
+                                                        className="maxWidth"
+                                                    />
                                                 )}
-                                                required
-                                                placeholder="Department Contact"
-                                                label="Department Contact"
-                                                className="maxWidth"
                                             />
                                         </Col>
                                     </Row>
-                                </>
-                            ) : (
+                                )}
+                                {/* designation title */}
                                 <Row>
-                                    <Col xs={12} md={3}>
+                                    <Col xs={12} md={6}>
                                         <Controller
-                                            name={`designation.${index}.tedDesignationId`}
+                                            name={`designation.${index}.tedDesignationTitle`}
                                             control={control}
                                             render={({
                                                 field: { onChange, value },
@@ -210,125 +237,107 @@ export default function DesignationInformation() {
                                                 <TextField
                                                     onChange={onChange}
                                                     value={value}
-                                                    label="TED Designation ID"
-                                                    required
+                                                    label="Designation Title"
                                                     className="maxWidth"
+                                                    required
                                                 />
                                             )}
                                         />
                                     </Col>
                                 </Row>
-                            )}
-                            {/* designation title */}
-                            <Row>
-                                <Col xs={12} md={6}>
-                                    <Controller
-                                        name={`designation.${index}.tedDesignationTitle`}
-                                        control={control}
-                                        render={({
-                                            field: { onChange, value },
-                                        }) => (
+                                {/* Gift Amount */}
+                                <Row>
+                                    <Col xs={12} md={2}>
+                                        <div className="dollarAmount maxWidth">
                                             <TextField
-                                                onChange={onChange}
-                                                value={value}
-                                                label="Designation Title"
-                                                className="maxWidth"
+                                                label="Gift Amount"
+                                                placeholder="0.00"
                                                 required
+                                                inputProps={{
+                                                    inputMode: "numeric",
+                                                    pattern:
+                                                        "[0-9]+(.[0-9][0-9])?",
+                                                }}
+                                                {...register(
+                                                    `designation.${index}.designationGiftAmount`
+                                                )}
                                             />
-                                        )}
-                                    />
-                                </Col>
-                            </Row>
-                            {/* Gift Amount */}
-                            <Row>
-                                <Col xs={12} md={2}>
-                                    <div className="dollarAmount maxWidth">
+                                        </div>
+                                    </Col>
+
+                                    {/* Only show nongift and total if nongift is checked */}
+                                    {nonGiftChecked && (
+                                        <>
+                                            <Col xs={12} md={2}>
+                                                <div className="dollarAmount">
+                                                    <TextField
+                                                        {...register(
+                                                            `designation.${index}.designationNonGiftAmount`
+                                                        )}
+                                                        required
+                                                        inputProps={{
+                                                            inputMode:
+                                                                "numeric",
+                                                            pattern:
+                                                                "[0-9]+(.[0-9][0-9])?",
+                                                        }}
+                                                        placeholder="Non-gift Amount"
+                                                        label="Non-gift Amount"
+                                                        className="maxWidth"
+                                                    />
+                                                </div>
+                                            </Col>
+                                            <Col xs={12} md={2}>
+                                                <div className="dollarAmount">
+                                                    <TextField
+                                                        disabled
+                                                        {...register(
+                                                            `designation.${index}.designationTotalAmount`
+                                                        )}
+                                                        placeholder="Total Amount"
+                                                        label="Total Amount"
+                                                        className="maxWidth"
+                                                        defaultValue="0"
+                                                    />
+                                                </div>
+                                            </Col>
+                                        </>
+                                    )}
+                                </Row>
+                                {/* pledge revenue  */}
+                                <Row>
+                                    <Col xs={12} md={4}>
                                         <TextField
-                                            label="Gift Amount"
-                                            placeholder="0.00"
-                                            required
-                                            inputProps={{
-                                                inputMode: "numeric",
-                                                pattern: "[0-9]+(.[0-9][0-9])?",
-                                            }}
                                             {...register(
-                                                `designation.${index}.designationGiftAmount`
+                                                `designation.${index}.pledgeRevenueId`
                                             )}
+                                            placeholder={pledgeRevLabel}
+                                            label={pledgeRevLabel}
+                                            className="maxWidth"
                                         />
-                                    </div>
-                                </Col>
+                                    </Col>
+                                </Row>
+                                {/* opportunity checkbox and all of those fields  */}
 
-                                {/* Only show nongift and total if nongift is checked */}
-                                {nonGiftChecked && (
-                                    <>
-                                        <Col xs={12} md={2}>
-                                            <div className="dollarAmount">
-                                                <TextField
-                                                    {...register(
-                                                        `designation.${index}.designationNonGiftAmount`
-                                                    )}
-                                                    required
-                                                    inputProps={{
-                                                        inputMode: "numeric",
-                                                        pattern:
-                                                            "[0-9]+(.[0-9][0-9])?",
-                                                    }}
-                                                    placeholder="Non-gift Amount"
-                                                    label="Non-gift Amount"
-                                                    className="maxWidth"
-                                                />
-                                            </div>
-                                        </Col>
-                                        <Col xs={12} md={2}>
-                                            <div className="dollarAmount">
-                                                <TextField
-                                                    disabled
-                                                    {...register(
-                                                        `designation.${index}.designationTotalAmount`
-                                                    )}
-                                                    placeholder="Total Amount"
-                                                    label="Total Amount"
-                                                    className="maxWidth"
-                                                    defaultValue="0"
-                                                />
-                                            </div>
-                                        </Col>
-                                    </>
-                                )}
-                            </Row>
-                            {/* pledge revenue  */}
-                            <Row>
-                                <Col xs={12} md={4}>
-                                    <TextField
-                                        {...register(
-                                            `designation.${index}.pledgeRevenueId`
-                                        )}
-                                        placeholder="Pledge Revenue ID"
-                                        label="Pledge Revenue ID"
-                                        className="maxWidth"
-                                    />
-                                </Col>
-                            </Row>
-                            {/* opportunity checkbox and all of those fields  */}
-
-                            <Row>
-                                <Col sm={12}>
-                                    {/* Last is the comments field  */}
-                                    <TextField
-                                        placeholder="Comments"
-                                        label="Comments"
-                                        {...register(
-                                            `designation.${index}.designationAdditionalComments`
-                                        )}
-                                        className="maxWidth"
-                                    />
-                                </Col>
-                            </Row>
-                            <GiftAssociatedOpportunity index={index} />
-                        </ListGroupItem>
-                    );
-                })}
-            </ListGroup>
+                                <Row>
+                                    <Col sm={12}>
+                                        {/* Last is the comments field  */}
+                                        <TextField
+                                            placeholder="Comments"
+                                            label="Comments"
+                                            {...register(
+                                                `designation.${index}.designationAdditionalComments`
+                                            )}
+                                            className="maxWidth"
+                                        />
+                                    </Col>
+                                </Row>
+                                <GiftAssociatedOpportunity index={index} />
+                            </ListGroupItem>
+                        );
+                    })}
+                </ListGroup>
+            </div>
             {/* the Add Designation button at the end */}
             <Row>
                 <Col xs={6} md={3}>

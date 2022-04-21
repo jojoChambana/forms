@@ -24,6 +24,7 @@ import TransmittalTotals from "../components/TransmittalTotals";
 import { DevTool } from "@hookform/devtools";
 import { FillTrustForm, SharedFillForm, SubmitButton } from "./HelperFunctions";
 import GiftTribute from "./GiftTribute";
+import Security from "./Security";
 
 export default function TrustDataEntry({
     onSubmit,
@@ -112,11 +113,11 @@ export default function TrustDataEntry({
                                 control={<Radio />}
                                 label="Life Income"
                             />
-                            <FormControlLabel
+                            {/* <FormControlLabel
                                 value="Life Insurance"
                                 control={<Radio />}
                                 label="Life Insurance"
-                            />
+                            /> */}
                         </RadioGroup>
                     </Col>
                 </Row>
@@ -147,7 +148,11 @@ export default function TrustDataEntry({
                         <TrustCheck />
                         <GiftInKindInformation alwaysShowDeleteButtons={true} />
                         <TrustOtherInformation />
-                        <DesignationInformation />
+                        <DesignationInformation trustMode={true} />
+                        <Security
+                            alwaysShowSecurityDeleteButtons={true}
+                            showSeeAttached={true}
+                        />
                         <TransmittalTotals ignoreNonGiftChecked={false} />
                     </>
                 )}

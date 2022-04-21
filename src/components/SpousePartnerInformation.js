@@ -70,7 +70,7 @@ export default function SpousePartnerInformation({
                     <TextField
                         {...register("spousePartnerOrganizationDonorName")}
                         placeholder="Organization/Donor Name"
-                        required
+                        // required
                         className="maxWidth"
                         label="Organization/Donor Name"
                     />

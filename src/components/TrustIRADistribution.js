@@ -1,5 +1,6 @@
+import { FormLabel, Typography } from "@mui/material";
 import { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import RadioButtons from "./RadioButtons";
 
 export default function TrustIRADistribution() {
@@ -7,16 +8,27 @@ export default function TrustIRADistribution() {
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
 
     return (
-        <Row>
-            <Col>
-                <RadioButtons
-                    variableName="iraDistribution"
-                    label="IRA Distribution"
-                    values={["Yes", "No"]}
-                    radioChangedFlag={aCheckboxChanged}
-                    setRadioChangedFlag={setaCheckboxChanged}
-                />
-            </Col>
-        </Row>
+        <>
+            <div className="row">
+                <Col xs={2}>
+                    <FormLabel
+                        component="legend"
+                        style={{ paddingTop: "0.5em" }}
+                    >
+                        <Typography variable="p" style={{ marginBottom: "0" }}>
+                            IRA Distribution:
+                        </Typography>
+                    </FormLabel>
+                </Col>
+                <div className="col">
+                    <RadioButtons
+                        variableName="iraDistribution"
+                        values={["Yes", "No"]}
+                        radioChangedFlag={aCheckboxChanged}
+                        setRadioChangedFlag={setaCheckboxChanged}
+                    />
+                </div>
+            </div>
+        </>
     );
 }

@@ -361,16 +361,12 @@ const PrintTribute = ({ formValues }) => {
                     }}
                 >
                     <div>
-                        <Row>
-                            <Col>
-                                <IsTributeNewAddressChecked />
-
-                                <TedTributeConstituentId />
-                            </Col>
-                        </Row>
-                        <Row>
+                        <div className="d-print-table-row mt-1">
                             <Col className="d-print-table-cell">
                                 <div className="d-print-table-row mt-2">
+                                    <TedTributeConstituentId />
+                                </div>
+                                <div className="d-print-table-row">
                                     <div className="rightLabel">
                                         {formValues.giftTribute}:
                                     </div>
@@ -395,21 +391,22 @@ const PrintTribute = ({ formValues }) => {
                                     <div className="d-print-table-cell">
                                         <span
                                             className="normal"
-                                            style={{
-                                                display: "tableRow",
-                                                left: "1em",
-                                                position: "relative",
-                                            }}
+                                            // style={{
+                                            //     display: "tableRow",
+                                            //     left: "1em",
+                                            //     position: "relative",
+                                            // }}
                                         >
                                             {formValues.designationEmail}
                                         </span>
                                     </div>
                                 </div>
                             </Col>
-                            <Col className="d-print-table-cell">
+                            <Col className="d-print-table-cell mt-2">
+                                <IsTributeNewAddressChecked />
                                 <NotifyIndividualOrFamily />
                             </Col>
-                        </Row>
+                        </div>
                     </div>
                 </Col>
             </>

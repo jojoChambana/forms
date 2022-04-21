@@ -67,17 +67,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
             );
     }
 
-    function DateOfGift() {
-        if (formValues.dateOfGift != null)
-            return (
-                <div className="rightLabel">
-                    Date of Gift:
-                    <span className="normal">{formValues.dateOfGift}</span>
-                </div>
-            );
-        else return null;
-    }
-
     function DatePrepared() {
         if (formValues.datePrepared != null)
             return (
@@ -107,27 +96,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                 </div>
             );
     }
-
-    // const correctPadding = {
-    //     padding: "1em 0.5em",
-    // };
-
-    // function DoNotProcessUntilContacted() {
-    //     if (formValues.doNotProcessUntilContactedByTrustServices !== false)
-    //         return (
-    //             <>
-    //                 <div className="row mt-1">
-    //                     <Col style={{ textAlign: "center" }}>
-    //                         <span className="normal" style={correctPadding}>
-    //                             Do not process until until donor is contacted by
-    //                             Trust Services
-    //                         </span>
-    //                     </Col>
-    //                 </div>
-    //             </>
-    //         );
-    //     else return null;
-    // }
 
     const borderStyles = {
         border: "solid 1px rgba(0,0,0,.125)",
@@ -301,24 +269,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                     </span>
                                 </div>
                             </div>
-
-                            <div className="d-print-table-row">
-                                <div className="rightLabel" id="donationDate">
-                                    Date Received by Department:
-                                    <span className="normal">
-                                        {formValues.donationDate}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <DatePrepared />
-                            </div>
-                        </div>
-                        <div className="d-print-table-row">
-                            <UnitReferenceNumber />
-                            <SourceCode />
-                        </div>
-                        <div className="d-print-table-row">
                             <div className="col">
                                 <div className="rightLabel">
                                     Prepared By:
@@ -327,7 +277,21 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                     </span>
                                 </div>
                             </div>
-                            <div className="rightLabel">&nbsp;</div>
+                        </div>
+                        <div className="d-print-table-row">
+                            <div className="rightLabel" id="donationDate">
+                                Date Received by Department:
+                                <span className="normal">
+                                    {formValues.donationDate}
+                                </span>
+                            </div>
+                            <div className="col">
+                                <DatePrepared />
+                            </div>
+                        </div>
+                        <div className="d-print-table-row">
+                            <UnitReferenceNumber />
+                            <SourceCode />
                         </div>
                     </div>
                 </div>
@@ -393,15 +357,15 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                     </div>
                                 </Col>
 
-                                <div class="col">
+                                <div className="col">
                                     <div className="resultItems row">
-                                        <div class="d-flex justify-content-center">
+                                        <div className="d-flex justify-content-center">
                                             <strong>
                                                 <NewDonorCheckBox />
                                             </strong>
                                         </div>
 
-                                        <div class="d-flex justify-content-center">
+                                        <div className="d-flex justify-content-center">
                                             <strong>
                                                 <NewAddressCheckBox />
                                             </strong>

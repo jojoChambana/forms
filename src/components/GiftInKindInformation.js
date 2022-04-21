@@ -21,6 +21,7 @@ export default function GiftInKindInformation({
 
     // console.log("gikCount", gikCount);
     // console.log("alwaysShowDeleteButtons", alwaysShowDeleteButtons);
+
     return (
         <>
             <Typography
@@ -55,12 +56,11 @@ export default function GiftInKindInformation({
                                             required
                                             inputProps={{
                                                 inputMode: "numeric",
-                                                pattern:
-                                                    "/(?=.*?)^$?(([1-9]d{0,2}(,d{3})*)|d+)?(.d{1,2})?$/",
+                                                pattern: "[0-9]+(.[0-9][0-9])?",
                                             }}
                                             placeholder="0"
                                             label="Gift Value (Use $1 if Unknown)"
-                                            toFixed
+                                            tofixed="true"
                                             className="maxWidth"
                                         />
                                     </Col>

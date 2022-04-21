@@ -36,7 +36,7 @@ export default function TrustCheck() {
                                     <Col xs={12} md={3}>
                                         <TextField
                                             {...register(
-                                                `trustCheck.${index}.bankName`
+                                                `trustCheck.${index}.checkNumbers`
                                             )}
                                             required
                                             placeholder="Check Number(s)"

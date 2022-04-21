@@ -7,7 +7,7 @@ export default function PrintSpousalPartner({ formValues }) {
         if (formValues.doNotAddSpousePartnerToReceipt === true)
             return (
                 <div className="d-print-table-row">
-                    <div className="d-print-table-cell">
+                    <div className="d-print-table-cell maxWidth justify-content-end">
                         <span className="normal">
                             Do not add spouse/partner to receipt.
                         </span>
@@ -21,7 +21,7 @@ export default function PrintSpousalPartner({ formValues }) {
         if (formValues.doNotGiveSpousePartnerCredit === true)
             return (
                 <div className="d-print-table-row">
-                    <div className="d-print-table-cell">
+                    <div className="d-print-table-cell maxWidth justify-content-end">
                         <span className="normal">
                             Do not give spouse/partner credit for donation.
                         </span>
@@ -31,22 +31,21 @@ export default function PrintSpousalPartner({ formValues }) {
         else return null;
     }
 
-    function SpousePartnerTedConstituentId() {
-        if (formValues.spousePartnerTedConstituentId.length > 0)
-            return (
-                <div className="d-print-table-row">
-                    <div className="d-print-table-cell">
-                        <span>TED Constituent ID:</span>
-                    </div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.spousePartnerTedConstituentId}
-                        </span>
-                    </div>
-                </div>
-            );
-        else return null;
-    }
+    // function SpousePartnerTedConstituentId() {
+    //     if (formValues.spousePartnerTedConstituentId.length > 0)
+    //         return (
+    //             <div className="rightLabel maxWidth">
+    //                 <span>TED Constituent ID: </span>
+
+    //                 <div className="d-print-table-cell">
+    //                     <span className="normal">
+    //                         {formValues.spousePartnerTedConstituentId}
+    //                     </span>
+    //                 </div>
+    //             </div>
+    //         );
+    //     else return null;
+    // }
     return (
         <>
             <Row className="mt-2">
@@ -56,29 +55,48 @@ export default function PrintSpousalPartner({ formValues }) {
                     </Typography>
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    <div className="d-print-table-row mt-2">
-                        <Col>
+
+            <div className="row border mt-3">
+                <div className="col">
+                    <div className="d-print-table-row">
+                        <div className="rightLabel maxWidth">
+                            <span>Organization/Donor Name: </span>
+
                             <div className="d-print-table-cell">
-                                <span>Organization/Donor Name: </span>
                                 <span className="normal">
                                     {
                                         formValues.spousePartnerOrganizationDonorName
                                     }
                                 </span>
                             </div>
-                        </Col>
-                        <Col>
-                            <SpousePartnerTedConstituentId />
-                        </Col>
+                        </div>
                     </div>
-                </Col>
-                <Col>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel maxWidth">
+                            <span>TED Constituent ID: </span>
+
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formValues.spousePartnerTedConstituentId >
+                                    0 ? (
+                                        <>
+                                            {
+                                                formValues.spousePartnerTedConstituentId
+                                            }
+                                        </>
+                                    ) : (
+                                        <></>
+                                    )}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col">
                     <DoNotAddSpousePartnerToReceipt />
                     <DoNotGiveAddSpousePartnerCredit />
-                </Col>
-            </Row>
+                </div>
+            </div>
         </>
     );
 }

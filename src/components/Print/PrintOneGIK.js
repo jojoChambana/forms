@@ -2,10 +2,10 @@ import React from "react";
 import { TableCell, TableRow } from "@mui/material";
 import { formatAmount } from "../HelperFunctions";
 export default function PrintOneGIK({ oneGiftInKind, index }) {
-    console.log("Gift", oneGiftInKind);
+    // console.log("Gift", oneGiftInKind);
     return (
         <>
-            <TableRow key={"security" + index}>
+            <TableRow key={"giftInKind" + index}>
                 <TableCell component="th" scope="row">
                     {oneGiftInKind.descriptionOfGift}
                 </TableCell>

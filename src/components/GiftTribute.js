@@ -82,7 +82,7 @@ export default function GiftTribute() {
 
     return (
         <>
-            <FormGroup className="row list-group-item pt-4">
+            <FormGroup className="row list-group-item pt-4 innerBorder">
                 <Typography variant="h5" component="h3">
                     Tribute
                 </Typography>
@@ -120,7 +120,7 @@ export default function GiftTribute() {
                                     </Col>
                                     <Col xs={6} md={2} style={divStyle}>
                                         <FormControlLabel
-                                            value="In honor Of"
+                                            value="In Honor Of"
                                             control={<Radio />}
                                             label="In Honor Of"
                                         />

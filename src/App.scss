@@ -32,6 +32,24 @@ h1 > span {
     }
 }
 
+.border{
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    --bs-gutter-x: -0.5rem;
+    .mt-3{
+        .row{
+            margin: 0;
+        }
+    }
+    .col{
+        padding: 0;
+    }
+    .row{
+        // padding: 1em 2em 0px 3em;
+    --bs-gutter-x: -0.135rem;
+    }
+}
+
 li {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -387,7 +405,12 @@ button,
 
 .d-print-table-cell{
     width: 50%;
+    .normal{
+        display: flex !important;
+    }
 }
+
+
 
 .justify-col-tribute {
     position: relative;
@@ -511,4 +534,10 @@ div.col-md-6.col-12 {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+}
+
+.innerBorder{
+    max-width: 91.75vw;
+    position: relative;
+    margin: 1em auto
 }

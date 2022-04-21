@@ -2,30 +2,7 @@ import { Typography } from "@mui/material";
 import { Col, ListGroup, Row } from "react-bootstrap";
 import PrintOneDesignation from "./PrintOneDesignation";
 
-const PrintDesignations = ({ formValues }) => {
-    function OtherInformation() {
-        if (formValues.otherInformation)
-            return (
-                <Row>
-                    <Col style={{ position: "relative", left: "0.5em" }}>
-                        <div className="d-print-table-cell col centerColContent mt-2">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    Other Information:{" "}
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formValues.otherInformation}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
-            );
-        else return null;
-    }
-
+const PrintDesignations = ({ formValues, trustMode = false }) => {
     return (
         <>
             <Row className="mt-3">
@@ -41,20 +18,42 @@ const PrintDesignations = ({ formValues }) => {
                     <ListGroup>
                         {formValues.designation.map((item, index, key) => {
                             return (
-                                <>
-                                    <PrintOneDesignation
-                                        oneDesignation={item}
-                                        index={index}
-                                        key={"oneDesig" + key}
-                                    />
-                                </>
+                                <PrintOneDesignation
+                                    oneDesignation={item}
+                                    index={index}
+                                    key={"oneDesig" + key}
+                                    trustMode={trustMode}
+                                />
                             );
                         })}
                     </ListGroup>
                 </Col>
             </Row>
-
-            <OtherInformation />
+            {formValues.otherInformation ? (
+                <>
+                    <Typography variant="h5" component="h3" className="mt-3">
+                        Other Information
+                    </Typography>
+                    <Row className="border mt-3">
+                        <Col style={{ position: "relative", left: "0.5em" }}>
+                            <div className="d-print-table-cell col centerColContent">
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">
+                                        Other Information:{" "}
+                                    </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.otherInformation}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </>
+            ) : (
+                <></>
+            )}
         </>
     );
 };
