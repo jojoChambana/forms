@@ -7,7 +7,7 @@ export default function PrintSpousalPartner({ formValues }) {
         if (formValues.doNotAddSpousePartnerToReceipt === true)
             return (
                 <div className="d-print-table-row">
-                    <div className="d-print-table-cell maxWidth justify-content-end">
+                    <div className="d-print-table-cell maxWidth">
                         <span className="normal">
                             Do not add spouse/partner to receipt.
                         </span>
@@ -21,7 +21,7 @@ export default function PrintSpousalPartner({ formValues }) {
         if (formValues.doNotGiveSpousePartnerCredit === true)
             return (
                 <div className="d-print-table-row">
-                    <div className="d-print-table-cell maxWidth justify-content-end">
+                    <div className="d-print-table-cell maxWidth">
                         <span className="normal">
                             Do not give spouse/partner credit for donation.
                         </span>

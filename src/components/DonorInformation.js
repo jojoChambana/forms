@@ -28,7 +28,7 @@ export default function DonorInformation({
             <Typography variant="h5" component="h3">
                 Donor Information
             </Typography>
-            <Row className="mt-2">
+            <Row className="mt-3 mb-2">
                 <>
                     {showAnonymousDonorCheckBox ? (
                         <Col xs={12} md={6}>
@@ -58,29 +58,46 @@ export default function DonorInformation({
 
                     {!donorUnknownCheckBox && (
                         <>
-                            <Col xs={12} md={6}>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            checked={getValues(
-                                                "newDonorCheckBox"
-                                            )}
-                                            onClick={(event) => {
-                                                setValue(
-                                                    "newDonorCheckBox",
-                                                    event.target.checked
-                                                ); // set the rect hook array element appropriately
-                                                setaCheckboxChanged(
-                                                    !aCheckboxChanged
-                                                ); // this will trigger a re-render of the page to hide/show elements
-                                            }}
-                                        />
-                                    }
-                                    label="New Donor"
-                                />
-                            </Col>
                             <Row className="mb-0">
-                                <Col xs={12} md={6}>
+                                <Col xs={12} md={3}>
+                                    <TextField
+                                        {...register("organizationDonorName")}
+                                        placeholder="Organization/Donor Name"
+                                        required
+                                        className="maxWidth"
+                                        label="Organization/Donor Name"
+                                    />
+                                </Col>
+                                <Col xs={12} md={3}>
+                                    <TextField
+                                        {...register("tedConstituentId")}
+                                        placeholder="TED Constituent ID"
+                                        className="maxWidth"
+                                        label="TED Constituent ID"
+                                    />
+                                </Col>
+                                <Col xs={12} md={3}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked={getValues(
+                                                    "newDonorCheckBox"
+                                                )}
+                                                onClick={(event) => {
+                                                    setValue(
+                                                        "newDonorCheckBox",
+                                                        event.target.checked
+                                                    ); // set the rect hook array element appropriately
+                                                    setaCheckboxChanged(
+                                                        !aCheckboxChanged
+                                                    ); // this will trigger a re-render of the page to hide/show elements
+                                                }}
+                                            />
+                                        }
+                                        label="New Donor"
+                                    />
+                                </Col>
+                                <Col xs={12} md={3}>
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -99,25 +116,6 @@ export default function DonorInformation({
                                             />
                                         }
                                         label="New Address"
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={12} md={4}>
-                                    <TextField
-                                        {...register("organizationDonorName")}
-                                        placeholder="Organization/Donor Name"
-                                        required
-                                        className="maxWidth"
-                                        label="Organization/Donor Name"
-                                    />
-                                </Col>
-                                <Col xs={12} md={3}>
-                                    <TextField
-                                        {...register("tedConstituentId")}
-                                        placeholder="TED Constituent ID"
-                                        className="maxWidth"
-                                        label="TED Constituent ID"
                                     />
                                 </Col>
                             </Row>

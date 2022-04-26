@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import { Col, Row } from "react-bootstrap";
 
 export default function PrintGiftInformation({ formValues }) {
     return (
@@ -33,7 +34,7 @@ export default function PrintGiftInformation({ formValues }) {
                 ) : (
                     <></>
                 )}
-                <div className="col">
+                <Col xs={6}>
                     {!formValues.receiptToTrustServices === false ? (
                         <div className="d-print-table-cell maxWidth">
                             <div>
@@ -63,34 +64,32 @@ export default function PrintGiftInformation({ formValues }) {
                     ) : (
                         <></>
                     )}
-                </div>
+                </Col>
 
                 {!formValues.receiptToOther === false ? (
                     <>
-                        <div className="row">
-                            <div className="col">
-                                <div className="row">
-                                    <div
-                                        className="d-print-table-cell maxWidth justify-content-end"
-                                        style={{ paddingRight: "7.5em" }}
-                                    >
-                                        <div className="rightLabel">
-                                            Send Receipt To Other:
-                                        </div>
-
-                                        <span
-                                            className="normal"
-                                            style={{
-                                                maxWidth: "200px",
-                                                wordBreak: "break-word",
-                                            }}
-                                        >
-                                            {formValues.receiptToOther}
-                                        </span>
+                        <Col sm={6}>
+                            <div className="row" style={{ marginBottom: "0" }}>
+                                <div
+                                    className="d-print-table-cell maxWidth justify-content-end"
+                                    style={{ paddingRight: "7.5em" }}
+                                >
+                                    <div className="rightLabel">
+                                        Send Receipt To Other:
                                     </div>
+
+                                    <span
+                                        className="normal"
+                                        style={{
+                                            maxWidth: "200px",
+                                            wordBreak: "break-word",
+                                        }}
+                                    >
+                                        {formValues.receiptToOther}
+                                    </span>
                                 </div>
                             </div>
-                        </div>
+                        </Col>
                     </>
                 ) : (
                     <></>

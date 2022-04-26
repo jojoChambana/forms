@@ -1,7 +1,7 @@
 {
   "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
   "appService.showBuildDuringDeployPrompt": false,
-  "cSpell.ignoreWords": ["setvisible"],
+  "cSpell.ignoreWords": ["Admincheckbox", "setvisible", "trustcheckbox"],
   "cSpell.words": [
     "cashprint",
     "checkprint",

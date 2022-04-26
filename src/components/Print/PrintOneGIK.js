@@ -6,10 +6,12 @@ export default function PrintOneGIK({ oneGiftInKind, index }) {
     return (
         <>
             <TableRow key={"giftInKind" + index}>
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" style={{ width: "50%" }}>
                     {oneGiftInKind.descriptionOfGift}
                 </TableCell>
-                <TableCell>{formatAmount(oneGiftInKind.giftValue)}</TableCell>
+                <TableCell style={{ width: "123px" }}>
+                    {formatAmount(oneGiftInKind.giftValue)}
+                </TableCell>
             </TableRow>
         </>
     );

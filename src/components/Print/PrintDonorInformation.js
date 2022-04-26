@@ -217,6 +217,25 @@ const PrintDonorInformation = ({ formValues }) => {
                                 " "
                             )}
                         </Row>
+                        <Row>
+                            {!formValues.doNotProcessUntilContactedByTrustServices ? (
+                                ""
+                            ) : (
+                                <>
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">
+                                            Donor Contact:
+                                        </div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                Do Not Process Until Contacted
+                                                By Trust Services
+                                            </span>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
+                        </Row>
                     </div>
                 </div>
             </Row>

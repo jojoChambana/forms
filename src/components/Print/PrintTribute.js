@@ -6,7 +6,7 @@ const PrintTribute = ({ formValues }) => {
         if (formValues.inMemoryNewAddress === true) {
             return (
                 <>
-                    <div className="resultItems row">
+                    <div className="resultItems row mb-0">
                         <div className="col">
                             <div className="d-flex justify-content-center">
                                 <strong className="normal justify-col-tribute">
@@ -155,7 +155,7 @@ const PrintTribute = ({ formValues }) => {
         ) {
             return (
                 <>
-                    <div className="resultItems row mt-2 mb-0">
+                    <div className="resultItems row mb-0">
                         <div className="col">
                             <div className="d-flex justify-content-center">
                                 <strong className="normal justify-col-tribute">
@@ -402,7 +402,7 @@ const PrintTribute = ({ formValues }) => {
                                     </div>
                                 </div>
                             </Col>
-                            <Col className="d-print-table-cell mt-2">
+                            <Col className="d-print-table-cell mt-2 mb-2">
                                 <IsTributeNewAddressChecked />
                                 <NotifyIndividualOrFamily />
                             </Col>

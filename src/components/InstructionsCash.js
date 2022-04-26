@@ -20,7 +20,7 @@ export default function InstructionsCash() {
                 <Typography variant="body1" gutterBottom>
                     The form, cash and all other supporting documentation,
                     should be hand-delivered to the Gift Processing and
-                    Stewardship Office (GPSSO) noted below.
+                    Stewardship Services Office (GPSSO) noted below.
                 </Typography>
 
                 <Typography>

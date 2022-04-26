@@ -25,7 +25,7 @@ export default function UIFonlyContactInformation({ trustType }) {
                     </Typography>
                 </Col>
             </Row>
-            <Row></Row>
+
             <Row>
                 <Col xs={12} md={3}>
                     <TextField
@@ -36,7 +36,7 @@ export default function UIFonlyContactInformation({ trustType }) {
                         label="Date of Gift"
                     />
                 </Col>
-                <Col xs={12} md={4}>
+                <Col xs={12} md={3}>
                     <TextField
                         {...register("preparedBy")}
                         required
@@ -45,7 +45,7 @@ export default function UIFonlyContactInformation({ trustType }) {
                         className="maxWidth"
                     />
                 </Col>
-                <Col xs={12} md={2}>
+                <Col xs={12} md={3}>
                     <TextField
                         {...register("datePrepared")}
                         required
@@ -54,20 +54,24 @@ export default function UIFonlyContactInformation({ trustType }) {
                         label="Date Prepared"
                     />
                 </Col>
-                <Col xs={12} md={2}>
-                    <Controller
-                        name={"sourceCode"}
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                            <TextField
-                                onChange={onChange}
-                                value={value}
-                                label="Source Code"
-                                className="maxWidth"
-                            />
-                        )}
-                    />
-                </Col>
+                {(!trustType === "Estate" ||
+                    !trustType === "Life Income" ||
+                    !trustType === "Life Insurance") && (
+                    <Col xs={12} md={2}>
+                        <Controller
+                            name={"sourceCode"}
+                            control={control}
+                            render={({ field: { onChange, value } }) => (
+                                <TextField
+                                    onChange={onChange}
+                                    value={value}
+                                    label="Source Code"
+                                    className="maxWidth"
+                                />
+                            )}
+                        />
+                    </Col>
+                )}
             </Row>
 
             {(trustType === "Estate" || trustType === "Life Income") && (

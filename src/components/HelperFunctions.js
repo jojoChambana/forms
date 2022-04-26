@@ -184,6 +184,7 @@ export function newFormValues() {
         giftTribute: "In Memory Of", // GiftTribute.js
         tedTributeConstituentId: "", // GiftTribute.js
         deceasedFullName: "", // GiftTribute.js
+
         inMemoryNewAddress: false, // GiftTribute.js
         inHonorTedID: "", // GiftTribute.js
         honoreeFullName: "", // GiftTribute.js
@@ -476,8 +477,8 @@ export function newTrustFormValues() {
         designation: [{ ...newDesignation() }], // DesignationInformation.js
         otherInformation: "", // TrustOtherInformation.js
         is8283Required: "No", // TrustOtherInformation.js
-        giftAdmincheckbox: false,
-        trustcheckbox: false,
+        giftAdmincheckbox: "",
+        trustcheckbox: "",
     };
 }
 
@@ -490,6 +491,7 @@ export function SharedFillForm(setValue) {
     setValue("donationDate", "02-10-2022");
     setValue("preparedBy", "Ted Logan");
     setValue("unitReferenceNumber", "");
+    setValue("datePrepared", "04-26-2022");
     setValue("sourceCode", "14028472984");
 
     setValue("donorDomesticAddressNewDonor", false);
@@ -596,6 +598,8 @@ export function FillCashCheckGIKForm(setValue) {
 
     setValue("tributeForeignAddressCheckbox", false);
     setValue("inMemoryNewAddress", false);
+
+    setValue("honoreeFullName", "Tom Thumb");
 
     //  setValue("inMemoryNewAddress", "3215 Tandy");
 
@@ -773,9 +777,9 @@ export function FillTrustForm(setValue) {
 
     setValue("designation.0.associatedOpportunityChecked", false);
 
-    setValue("is8283Required", "No");
-    setValue("giftAdmincheckbox", false);
-    setValue("trustcheckbox", false);
+    setValue("is8283Required", "Yes");
+    setValue("giftAdmincheckbox", "");
+    setValue("trustcheckbox", "");
 
     setValue("trustCheck.0.checkNumbers", "8675309");
     setValue("trustCheck.0.checkTotal", "8000");

@@ -108,6 +108,12 @@ const SecWirePrint = (props) => {
                             </Col>
                         </div>
 
+                        <Row>
+                            <Col>
+                                <PrintTotals formValues={props.formValues} />
+                            </Col>
+                        </Row>
+
                         {props.formValues.generalComments ? (
                             <>
                                 <Row>
@@ -137,11 +143,6 @@ const SecWirePrint = (props) => {
                             <></>
                         )}
 
-                        <Row>
-                            <Col>
-                                <PrintTotals formValues={props.formValues} />
-                            </Col>
-                        </Row>
                         <Container>
                             <Row className="hiddenForPrint">
                                 <Col className="d-flex col justify-content-center">

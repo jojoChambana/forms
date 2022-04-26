@@ -2,7 +2,13 @@ import { Typography } from "@mui/material";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-export const PrintEightyTwoEightyThree = ({ formValues }) => {
+export const PrintEightyTwoEightyThree = ({
+    formValues,
+    is8283RequiredCheckBoxes,
+    giftAdmincheckbox,
+    trustcheckbox,
+}) => {
+    // console.log("Is gift admin checked?", formValues.trustcheckbox);
     return (
         <>
             <Row className="mt-3">
@@ -39,11 +45,28 @@ export const PrintEightyTwoEightyThree = ({ formValues }) => {
                             </div>
                         </Col>
                         <Col xs={3}>
-                            {formValues.giftAdmincheckbox}Ask Bill about these
-                            checkboxes
+                            <div className="d-print-table-row">
+                                <div>Gift Admin:</div>
+                                <div className="d-print-table-cell">
+                                    {formValues.giftAdmincheckbox !== true ? (
+                                        <span className="normal">No</span>
+                                    ) : (
+                                        <span className="normal">Yes</span>
+                                    )}
+                                </div>
+                            </div>
                         </Col>
                         <Col xs={3}>
-                            {formValues.trustcheckbox} not showing up
+                            <div className="d-print-table-row">
+                                <div>Trust:</div>
+                                <div className="d-print-table-cell">
+                                    {formValues.trustcheckbox !== true ? (
+                                        <span className="normal">No</span>
+                                    ) : (
+                                        <span className="normal">Yes</span>
+                                    )}
+                                </div>
+                            </div>
                         </Col>
                     </div>
                 </div>

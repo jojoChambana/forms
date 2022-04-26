@@ -123,7 +123,7 @@ const TrustPrint = (props) => {
                         </Row>
 
                         <PrintGiftInformation formValues={props.formValues} />
-                        <PrintWire formValues={props.formValues} />
+                        {/* <PrintWire formValues={props.formValues} /> */}
                         <PrintTribute formValues={props.formValues} />
                         <PrintCheck formValues={props.formValues} />
                         <PrintGIKs formValues={props.formValues} />

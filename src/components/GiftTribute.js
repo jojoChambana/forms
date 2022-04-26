@@ -193,7 +193,11 @@ export default function GiftTribute() {
                         {/* We only want the address to be required if 'In honor of' is selected */}
                         <Address
                             prefix="tribute"
-                            isRequired={!showInMemoryOf}
+                            isRequired={
+                                !showInMemoryOf &&
+                                getValues("notifyIndividualOrFamily") ===
+                                    C_NOTIFY_PERSON_ABOVE
+                            }
                         />
                         <Row className="p-0">
                             <Col xs={12} md={3}>

@@ -29,13 +29,13 @@ export default function PrintWire({ formValues }) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {formValues.trustCheck.map((item, index) => {
+                        {formValues.trustWire.map((item, index) => {
                             return (
                                 <>
                                     <PrintOneWire
-                                        oneCheck={item}
+                                        trustWire={item}
                                         index={index}
-                                        key={"oneCheck" + index}
+                                        key={"trustWire" + index}
                                     />
                                 </>
                             );

@@ -50,6 +50,17 @@ export default function NameEmail() {
                         label="Prepared By"
                     />
                 </Col>
+
+                <Col xs={12} md={3}>
+                    <TextField
+                        {...register("datePrepared")}
+                        label="Date Prepared by Department"
+                        className="dateField maxWidth"
+                        required
+                    />
+                </Col>
+            </Row>
+            <Row>
                 <Col xs={12} md={3}>
                     <TextField
                         placeholder="Unit Reference Number"
@@ -58,8 +69,6 @@ export default function NameEmail() {
                         label="Unit Reference Number"
                     />
                 </Col>
-            </Row>
-            <Row>
                 <Col xs={12} md={3}>
                     <TextField
                         {...register("sourceCode")}

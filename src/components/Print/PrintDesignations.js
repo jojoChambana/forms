@@ -14,20 +14,18 @@ const PrintDesignations = ({ formValues, trustMode = false }) => {
             </Row>
 
             <Row className="mt-3">
-                <Col>
-                    <ListGroup>
-                        {formValues.designation.map((item, index, key) => {
-                            return (
-                                <PrintOneDesignation
-                                    oneDesignation={item}
-                                    index={index}
-                                    key={"oneDesig" + key}
-                                    trustMode={trustMode}
-                                />
-                            );
-                        })}
-                    </ListGroup>
-                </Col>
+                <ListGroup>
+                    {formValues.designation.map((item, index, key) => {
+                        return (
+                            <PrintOneDesignation
+                                oneDesignation={item}
+                                index={index}
+                                key={"oneDesig" + key}
+                                trustMode={trustMode}
+                            />
+                        );
+                    })}
+                </ListGroup>
             </Row>
             {formValues.otherInformation ? (
                 <>

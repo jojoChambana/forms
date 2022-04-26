@@ -29,7 +29,7 @@ export default function PrintCheck({ formValues }) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {formValues.giftInKind.map((item, index) => {
+                        {formValues.trustCheck.map((item, index) => {
                             return (
                                 <>
                                     <PrintOneCheck

@@ -37,7 +37,7 @@ export default function GiftInKindInformation({
                         <ListGroupItem key={item.id} className="mt-3">
                             <FormGroup>
                                 <Row className="mt-2 mr-0 mb-2 ml-0">
-                                    <Col xs={12} md={3}>
+                                    <Col xs={12} md={9}>
                                         <TextField
                                             {...register(
                                                 `giftInKind.${index}.descriptionOfGift`

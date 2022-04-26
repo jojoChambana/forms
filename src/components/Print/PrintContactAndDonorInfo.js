@@ -75,7 +75,12 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                     <span className="normal">{formValues.datePrepared}</span>
                 </div>
             );
-        else return null;
+        else
+            return (
+                <div className="rightLabel">
+                    <span className="normal">&nbsp;</span>
+                </div>
+            );
     }
 
     function SourceCode() {
@@ -290,8 +295,8 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                             </div>
                         </div>
                         <div className="d-print-table-row">
-                            <UnitReferenceNumber />
                             <SourceCode />
+                            <UnitReferenceNumber />
                         </div>
                     </div>
                 </div>
@@ -310,7 +315,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
                     {/* ============ right column at the top for donor info ============== */}
                     <div
-                        className="d-print-table-cell col centerColContent mt-3"
+                        className="d-print-table-cell col centerColContent mt-3 pb-2"
                         style={borderStyles}
                     >
                         <DonorUnknownCheckBox />

@@ -255,7 +255,10 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
         if (!isForeign) return <Domestic />;
         else return <Foreign />;
     }
-
+    console.log(
+        "Is Do Not Process Until Contacted by Trust Services Checked?",
+        formValues.doNotProcessUntilContactedByTrustServices
+    );
     return (
         <>
             <Row>

@@ -103,77 +103,87 @@ export default function DesignationInformation({ trustMode = false }) {
                                 >
                                     Designation Information
                                 </Typography>
-                                <FormGroup>
-                                    <Row className="mb-0">
-                                        {/* the two checkboxes at the top */}
-                                        <Col>
-                                            <FormControlLabel
-                                                control={
-                                                    <Checkbox
-                                                        {...register(
-                                                            `designation.${index}.newDesignationRequestedChecked`
-                                                        )}
-                                                        onChange={
-                                                            handleChangeNewDesignation
+                                <Row>
+                                    <Col>
+                                        <FormGroup>
+                                            <Row className="mb-0">
+                                                {/* the two checkboxes at the top */}
+                                                <Col>
+                                                    <FormControlLabel
+                                                        control={
+                                                            <Checkbox
+                                                                {...register(
+                                                                    `designation.${index}.newDesignationRequestedChecked`
+                                                                )}
+                                                                onChange={
+                                                                    handleChangeNewDesignation
+                                                                }
+                                                            />
+                                                        }
+                                                        label="New Designation Requested"
+                                                        name={`newDesigCheckbox.${index}`}
+                                                        checked={
+                                                            newDesigChecked
                                                         }
                                                     />
-                                                }
-                                                label="New Designation Requested"
-                                                name={`newDesigCheckbox.${index}`}
-                                                checked={newDesigChecked}
-                                            />
-                                        </Col>
-                                        <Col>
-                                            <FormControlLabel
-                                                label="Check for Non-Gift Portion"
-                                                control={
-                                                    <Checkbox
-                                                        placeholder="Is there a non-gift portion?"
-                                                        {...register(
-                                                            `designation.${index}.nonGiftPortionChecked`
-                                                        )}
-                                                        onChange={
-                                                            handleChangeIncludesNonGiftChecked
+                                                </Col>
+                                            </Row>
+                                            <Row className="mb-0">
+                                                <Col>
+                                                    <FormControlLabel
+                                                        label="Check for Non-Gift Portion"
+                                                        control={
+                                                            <Checkbox
+                                                                placeholder="Is there a non-gift portion?"
+                                                                {...register(
+                                                                    `designation.${index}.nonGiftPortionChecked`
+                                                                )}
+                                                                onChange={
+                                                                    handleChangeIncludesNonGiftChecked
+                                                                }
+                                                                name={`NonGiftCheckbox.${index}`}
+                                                                checked={
+                                                                    nonGiftChecked
+                                                                }
+                                                            />
                                                         }
-                                                        name={`NonGiftCheckbox.${index}`}
-                                                        checked={nonGiftChecked}
                                                     />
-                                                }
-                                            />
-                                        </Col>
-                                        <Col>
-                                            {/* only show the 'delete Designation' button if there is more than one item being shown */}
-                                            {designationCount > 1 ? (
-                                                <div className="end-align">
-                                                    <Button
-                                                        placeholder="Delete Designation"
-                                                        label="Delete Designation"
-                                                        className="addButtonIcon mt-3"
-                                                        onClick={() => {
-                                                            remove(index);
-                                                            calcFinalTotals(
-                                                                getValues(
-                                                                    "designation"
-                                                                ),
-                                                                setValue
-                                                            );
+                                                </Col>
+                                            </Row>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col>
+                                        {/* only show the 'delete Designation' button if there is more than one item being shown */}
+                                        {designationCount > 1 ? (
+                                            <div className="end-align">
+                                                <Button
+                                                    placeholder="Delete Designation"
+                                                    label="Delete Designation"
+                                                    className="addButtonIcon mt-3"
+                                                    onClick={() => {
+                                                        remove(index);
+                                                        calcFinalTotals(
+                                                            getValues(
+                                                                "designation"
+                                                            ),
+                                                            setValue
+                                                        );
+                                                    }}
+                                                >
+                                                    <IconContext.Provider
+                                                        value={{
+                                                            size: "2em",
                                                         }}
                                                     >
-                                                        <IconContext.Provider
-                                                            value={{
-                                                                size: "2em",
-                                                            }}
-                                                        >
-                                                            <MdDelete />
-                                                        </IconContext.Provider>
-                                                    </Button>
-                                                </div>
-                                            ) : (
-                                                <></>
-                                            )}
-                                        </Col>
-                                    </Row>
-                                </FormGroup>
+                                                        <MdDelete />
+                                                    </IconContext.Provider>
+                                                </Button>
+                                            </div>
+                                        ) : (
+                                            <></>
+                                        )}
+                                    </Col>
+                                </Row>
 
                                 {/* if New Designation is checked, show two contact fields, otherwise show designation id */}
                                 {newDesigChecked ? (

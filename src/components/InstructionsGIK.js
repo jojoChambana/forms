@@ -20,7 +20,7 @@ export default function InstructionsGIK() {
                 <Typography variant="body1" gutterBottom>
                     The form and all other supporting documentation, should be
                     mailed or hand-delivered to the Gift Processing and
-                    Stewardship Office (GPSSO).
+                    Stewardship Services Office (GPSSO).
                 </Typography>
 
                 <Typography>
