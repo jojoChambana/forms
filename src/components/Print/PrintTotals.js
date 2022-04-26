@@ -87,19 +87,21 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                 {NonGiftAmount()}
                 <Col className="d-flex justify-content-end">
                     <>
-                        <div
-                            className="gTlabels totals"
-                            style={{ fontWeight: "bold" }}
-                        >
-                            Total Amount: &nbsp;
-                        </div>
-                        <div className="vCenter">
-                            <span
-                                className="normal"
+                        <div className="d-flex" style={{ border: "solid 2px" }}>
+                            <div
+                                className="gTlabels totals"
                                 style={{ fontWeight: "bold" }}
                             >
-                                {formValues.overallTotal}
-                            </span>
+                                Total Amount: &nbsp;
+                            </div>
+                            <div className="vCenter">
+                                <span
+                                    className="normal"
+                                    style={{ fontWeight: "bold" }}
+                                >
+                                    {formValues.overallTotal}
+                                </span>
+                            </div>
                         </div>
                     </>
                 </Col>
