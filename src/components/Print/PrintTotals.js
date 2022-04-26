@@ -54,7 +54,7 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                         >
                             Gift Total:
                         </div>
-                        <div>
+                        <div className="vCenter">
                             <span className="normal">
                                 {formValues.giftTotal}
                             </span>
@@ -67,7 +67,7 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                         >
                             Non-Gift Total:
                         </div>
-                        <div style={{ fontWeight: "bold" }}>
+                        <div className="vCenter" style={{ fontWeight: "bold" }}>
                             <span
                                 className="normal"
                                 style={{ fontWeight: "bold" }}
@@ -93,7 +93,7 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                         >
                             Total Amount: &nbsp;
                         </div>
-                        <div>
+                        <div className="vCenter">
                             <span
                                 className="normal"
                                 style={{ fontWeight: "bold" }}
@@ -111,7 +111,7 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                         >
                             Gift in Kind Total: &nbsp;
                         </div>
-                        <div>
+                        <div className="vCenter">
                             <span
                                 className="normal"
                                 style={{ fontWeight: "bold" }}

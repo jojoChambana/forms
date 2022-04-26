@@ -541,3 +541,9 @@ div.col-md-6.col-12 {
     position: relative;
     margin: 1em auto
 }
+
+.vCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
