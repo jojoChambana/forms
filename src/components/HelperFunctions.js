@@ -519,7 +519,7 @@ export function SharedFillForm(setValue) {
     setValue("designation.0.designationGiftAmount", 3000);
 
     setValue("giftInKind.0.descriptionOfGift", "A car");
-    setValue("giftInKind.0.giftValue", "2000");
+    setValue("giftInKind.0.giftValue", "3000");
 
     setValue("designation.0.designationNonGiftAmount", 0);
     setValue("designation.0.designationTotalAmount", 3000);
