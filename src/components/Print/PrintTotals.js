@@ -84,8 +84,27 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
     return (
         <>
             <div className="d-print-table-row mt-3">
-                {showGIKTotal && (
+                {NonGiftAmount()}
+                <Col className="d-flex justify-content-end">
                     <>
+                        <div
+                            className="gTlabels totals"
+                            style={{ fontWeight: "bold" }}
+                        >
+                            Total Amount: &nbsp;
+                        </div>
+                        <div>
+                            <span
+                                className="normal"
+                                style={{ fontWeight: "bold" }}
+                            >
+                                {formValues.overallTotal}
+                            </span>
+                        </div>
+                    </>
+                </Col>
+                {showGIKTotal && (
+                    <div className="d-flex" style={{ border: "solid 2px" }}>
                         <div
                             className="totals gTlabels"
                             style={{ fontWeight: "bold", width: "auto" }}
@@ -100,28 +119,8 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                                 {formValues.gikTotal}
                             </span>
                         </div>
-                    </>
-                )}
-
-                {NonGiftAmount()}
-                <Col className="d-flex justify-content-end">
-                    <div className="d-flex" style={{ border: "solid 2px" }}>
-                        <div
-                            className="gTlabels totals"
-                            style={{ fontWeight: "bold" }}
-                        >
-                            Overall Total: &nbsp;
-                        </div>
-                        <div>
-                            <span
-                                className="normal"
-                                style={{ fontWeight: "bold" }}
-                            >
-                                {formValues.overallTotal}
-                            </span>
-                        </div>
                     </div>
-                </Col>
+                )}
             </div>
         </>
     );
