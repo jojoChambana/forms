@@ -83,14 +83,14 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
 
     return (
         <>
-            <div className="d-print-table-row mt-3 justify-content-end">
+            <div className="d-print-table-row mt-3">
                 {showGIKTotal && (
                     <>
                         <div
                             className="totals gTlabels"
-                            style={{ fontWeight: "bold" }}
+                            style={{ fontWeight: "bold", width: "auto" }}
                         >
-                            Gift in Kind Total:
+                            Gift in Kind Total: &nbsp;
                         </div>
                         <div>
                             <span
@@ -110,7 +110,7 @@ const PrintTotals = ({ formValues, showGIKTotal = false }) => {
                             className="gTlabels totals"
                             style={{ fontWeight: "bold" }}
                         >
-                            Overall Total:
+                            Overall Total: &nbsp;
                         </div>
                         <div>
                             <span
