@@ -1,5 +1,4 @@
 import {
-    Paper,
     Table,
     TableBody,
     TableCell,
@@ -21,7 +20,7 @@ export default function PrintGIKs({ formValues }) {
                     </Typography>
                 </Col>
             </Row>
-            <Paper className="printTable mt-3">
+            <div className="printTable mt-3">
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -43,7 +42,7 @@ export default function PrintGIKs({ formValues }) {
                         })}
                     </TableBody>
                 </Table>
-            </Paper>
+            </div>
         </>
     );
 }
