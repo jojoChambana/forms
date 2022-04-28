@@ -1,58 +1,36 @@
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { parseNum } from "../HelperFunctions";
 
 const PrintTotals = ({ formType, formValues, showGIKTotal = false }) => {
-    const gutter = `--bs-gutter-x: 0rem`;
-    function GiftOverallTotal() {
-        if (formType === "Gift in Kind") {
-            //console.log("GIK");
-            return (
-                <>
-                    {/* <Col className="d-flex justify-content-start">
-                        <div
-                            className="totals gTlabels"
-                            style={{ fontWeight: "bold" }}
-                        >
-                            Gift Total:
-                        </div>
-                        <div>
-                            <span className="normal">
-                                {formValues.giftTotal}
-                            </span>
-                        </div>
-                    </Col> */}
-                </>
-            );
-        } else
-            return (
-                <>
-                    <Col className="d-flex justify-content-end">
-                        <div
-                            className="totals gTlabels"
-                            style={{ fontWeight: "bold", margin: "0em 0.5em" }}
-                        >
-                            Gift Total:
-                        </div>
-                        <div>
-                            <span className="normal">
-                                {formValues.giftTotal}
-                            </span>
-                        </div>
-                    </Col>
-
-                    {NonGiftAmount()}
-                </>
-            );
-    }
-
     function NonGiftAmount() {
         if (parseNum(formValues.nonGiftTotal) > 0) {
             return (
                 <>
-                    <Col className="d-flex">
+                    <Col className="d-flex justify-content-start">
+                        <div
+                            className="totals gTlabels vCenter"
+                            style={{
+                                fontWeight: "bold",
+                                margin: "0em 0.5em",
+                                width: "auto",
+                            }}
+                        >
+                            Gift Total:
+                        </div>
+                        <div className="vCenter">
+                            <span className="normal" style={{ padding: "0" }}>
+                                {formValues.giftTotal}
+                            </span>
+                        </div>
+                    </Col>
+                    <Col className="d-flex justify-content-center">
                         <div
                             className="gTlabels vCenter"
-                            style={{ fontWeight: "bold" }}
+                            style={{
+                                fontWeight: "bold",
+                                margin: "0em 0.5em",
+                                width: "auto",
+                            }}
                         >
                             Non-Gift Total:
                         </div>
@@ -68,10 +46,14 @@ const PrintTotals = ({ formType, formValues, showGIKTotal = false }) => {
                             </span>
                         </div>
                     </Col>
-                    <Col className="d-flex">
+                    <Col className="d-flex justify-content-end">
                         <div
                             className="gTlabels totals vCenter"
-                            style={{ fontWeight: "bold" }}
+                            style={{
+                                fontWeight: "bold",
+                                margin: "0em 0.5em",
+                                width: "max-content",
+                            }}
                         >
                             Total Amount:
                         </div>
@@ -90,13 +72,34 @@ const PrintTotals = ({ formType, formValues, showGIKTotal = false }) => {
                     </Col>
                 </>
             );
-        } else return <></>;
+        } else
+            return (
+                <>
+                    <Col className="d-flex justify-content-end">
+                        <div
+                            className="totals gTlabels vCenter"
+                            style={{
+                                fontWeight: "bold",
+                                margin: "0em 0.5em",
+                                width: "auto",
+                            }}
+                        >
+                            Gift Total!:
+                        </div>
+                        <div className="vCenter">
+                            <span className="normal" style={{ padding: "0" }}>
+                                {formValues.giftTotal}
+                            </span>
+                        </div>
+                    </Col>
+                </>
+            );
     }
 
     return (
         <>
-            <div className="row mt-3 border" style={{ margin: "0" }}>
-                <Col className="d-flex">
+            <div className="row mt-3 border" style={{ padding: "0 1em" }}>
+                {/* <Col className="d-flex">
                     <div
                         className="totals gTlabels vCenter"
                         style={{
@@ -105,14 +108,37 @@ const PrintTotals = ({ formType, formValues, showGIKTotal = false }) => {
                             width: "auto",
                         }}
                     >
-                        Gift Total: &nbsp;
+                        Gift Total:
                     </div>
                     <div className="vCenter">
                         <span className="normal" style={{ padding: "0" }}>
                             {formValues.giftTotal}
                         </span>
                     </div>
-                </Col>
+                </Col> */}
+
+                {formType === "Cash" || formType === "Check" ? (
+                    <Col className="d-flex">
+                        <div
+                            className="totals gTlabels vCenter"
+                            style={{
+                                fontWeight: "bold",
+                                margin: "0em 0.5em",
+                                width: "auto",
+                            }}
+                        >
+                            Gift Total:
+                        </div>
+                        <div className="vCenter">
+                            <span className="normal" style={{ padding: "0" }}>
+                                {formValues.giftTotal}
+                            </span>
+                        </div>
+                    </Col>
+                ) : (
+                    <></>
+                )}
+
                 {NonGiftAmount()}
 
                 <>
