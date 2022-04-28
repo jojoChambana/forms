@@ -20,7 +20,7 @@ export default function PrintGIKs({ formValues }) {
                     </Typography>
                 </Col>
             </Row>
-            <div className="printTable mt-3">
+            <div className="printTable mt-3 pb-3 border">
                 <Table>
                     <TableHead>
                         <TableRow>
