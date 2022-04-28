@@ -6,7 +6,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import "react-phone-number-input/style.css";
 import TrustCheck from "./TrustCheck";
 export default function DonorInfo() {
-    const { register, errors, control } = useFormContext();
+    const { register, errors, control, getValues } = useFormContext();
 
     return (
         <>
@@ -38,7 +38,7 @@ export default function DonorInfo() {
                                 <PhoneInput
                                     {...register("contactPhone")}
                                     placeholder="Phone *"
-                                    value={value}
+                                    value={getValues("contactPhone")}
                                     required
                                     onChange={onChange}
                                     defaultCountry="US"

@@ -37,7 +37,7 @@ const PrintOneDesignation = ({
                     borderRadius: "4px",
                 }}
             >
-                <div style={{ paddingLeft: "0em" }}>
+                <div>
                     <Row>
                         <div className="col">
                             {oneDesignation.newDesignationRequestedChecked ? (

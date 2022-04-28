@@ -14,7 +14,7 @@ const PrintDesignations = ({ formValues, trustMode = false }) => {
             </Row>
 
             <Row className="mt-3">
-                <ListGroup>
+                <ListGroup style={{ paddingLeft: "0.7em" }}>
                     {formValues.designation.map((item, index, key) => {
                         return (
                             <PrintOneDesignation
