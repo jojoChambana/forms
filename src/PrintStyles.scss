@@ -98,7 +98,7 @@
         min-width: 250px !important;
     }
     .gTlabels {
-        width: stretch;
+        width: max-content;
     }
 }
 
@@ -125,4 +125,8 @@
 #tributePrint {
     margin-right: 1em; 
     word-break: break-word;
+}
+
+.gikTotalSpacing{
+    margin: 0em 0.5em;
 }

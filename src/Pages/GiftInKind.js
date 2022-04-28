@@ -17,8 +17,8 @@ export default function GiftInKind(props) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-        console.table(data);
-        console.log(data.giftInKind);
+        //console.table(data);
+        // console.log(data.giftInKind);
         if (parseNum(data.gikTotal) === parseNum(data.overallTotal)) {
             navigate("/giftinkindprint");
         }

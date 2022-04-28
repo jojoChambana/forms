@@ -2,7 +2,7 @@ import React from "react";
 import { TableCell, TableRow } from "@mui/material";
 import { formatAmount } from "../HelperFunctions";
 export default function PrintOneWire({ trustWire, index }) {
-    console.log("Trust Wire", trustWire);
+    //console.log("Trust Wire", trustWire);
     return (
         <>
             <TableRow key={"trustWire" + index}>
