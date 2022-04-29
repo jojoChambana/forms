@@ -386,10 +386,16 @@ button,
     max-width: 450px;
 }
 
-.totals {
-    // width: 175px;
-    margin-left: 20px;
-    margin-left: 20px;
+.totalTable{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.total {
+    width: 25%;
+    padding: 10px;
+    text-align: right;  
 }
 
 .css-1wc848c-MuiFormHelperText-root {

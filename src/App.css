@@ -431,9 +431,23 @@ button:hover,
   max-width: 450px;
 }
 
-.totals {
-  margin-left: 20px;
-  margin-left: 20px;
+.totalTable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.total {
+  width: 25%;
+  padding: 10px;
+  text-align: right;
 }
 
 .css-1wc848c-MuiFormHelperText-root {
