@@ -1,4 +1,3 @@
-import { Col } from "react-bootstrap";
 import { parseNum } from "../HelperFunctions";
 
 const PrintTotals = ({ formType, formValues, showGIKTotal = false }) => {
