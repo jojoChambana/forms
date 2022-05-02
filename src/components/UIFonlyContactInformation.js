@@ -54,9 +54,7 @@ export default function UIFonlyContactInformation({ trustType }) {
                         label="Date Prepared"
                     />
                 </Col>
-                {(!trustType === "Estate" ||
-                    !trustType === "Life Income" ||
-                    !trustType === "Life Insurance") && (
+                {trustType === "Outright" || trustType === "Life Income" ? (
                     <Col xs={12} md={2}>
                         <Controller
                             name={"sourceCode"}
@@ -65,6 +63,21 @@ export default function UIFonlyContactInformation({ trustType }) {
                                 <TextField
                                     onChange={onChange}
                                     value={value}
+                                    label="Source Code"
+                                    className="maxWidth"
+                                />
+                            )}
+                        />
+                    </Col>
+                ) : (
+                    <Col xs={12} md={2}>
+                        <Controller
+                            name={"sourceCode"}
+                            control={control}
+                            render={({ field: { onChange, value } }) => (
+                                <TextField
+                                    onChange={onChange}
+                                    value={10000}
                                     label="Source Code"
                                     className="maxWidth"
                                 />

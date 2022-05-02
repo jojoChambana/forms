@@ -51,7 +51,7 @@ export default function TrustOtherInformation() {
             </Row>
 
             <Row className="border">
-                <Col>
+                <Col className="ml-2">
                     <RadioButtons
                         variableName="is8283Required"
                         values={["Yes", "No"]}
@@ -61,53 +61,46 @@ export default function TrustOtherInformation() {
                 </Col>
                 <Col>
                     {getValues("is8283Required") === "Yes" ? (
-                        <div className="col">
-                            <FormGroup variableName="is8283RequiredCheckBoxes">
-                                <div className="d-flex flex-direction-row">
-                                    <div
-                                        className="col"
-                                        style={{ width: "200px" }}
-                                    >
-                                        <FormControlLabel
-                                            control={<Checkbox />}
-                                            value="Gift Admin"
-                                            label="Gift Admin"
-                                            name="giftAdmincheckbox"
-                                            checked={getValues(
-                                                "giftAdmincheckbox"
-                                            )}
-                                            onClick={(event) => {
-                                                setValue(
-                                                    "giftAdmincheckbox",
-                                                    event.target.checked
-                                                ); // set the rect hook array element appropriately
-                                                setaCheckboxChanged(
-                                                    !aCheckboxChanged
-                                                ); // this will trigger a re-render of the page to hide/show elements
-                                            }}
-                                        />
-                                    </div>
-                                    <div className="col">
-                                        <FormControlLabel
-                                            control={<Checkbox />}
-                                            value="Trust"
-                                            label="Trust"
-                                            name="trustcheckbox"
-                                            checked={getValues("trustcheckbox")}
-                                            onClick={(event) => {
-                                                setValue(
-                                                    "trustcheckbox",
-                                                    event.target.checked
-                                                ); // set the rect hook array element appropriately
-                                                setaCheckboxChanged(
-                                                    !aCheckboxChanged
-                                                ); // this will trigger a re-render of the page to hide/show elements
-                                            }}
-                                        />
-                                    </div>
+                        <FormGroup variableName="is8283RequiredCheckBoxes">
+                            <div className="d-flex flex-direction-row">
+                                <div style={{ width: "200px" }}>
+                                    <FormControlLabel
+                                        control={<Checkbox />}
+                                        value="Gift Admin"
+                                        label="Gift Admin"
+                                        name="giftAdmincheckbox"
+                                        checked={getValues("giftAdmincheckbox")}
+                                        onClick={(event) => {
+                                            setValue(
+                                                "giftAdmincheckbox",
+                                                event.target.checked
+                                            ); // set the rect hook array element appropriately
+                                            setaCheckboxChanged(
+                                                !aCheckboxChanged
+                                            ); // this will trigger a re-render of the page to hide/show elements
+                                        }}
+                                    />
                                 </div>
-                            </FormGroup>
-                        </div>
+                                <div>
+                                    <FormControlLabel
+                                        control={<Checkbox />}
+                                        value="Trust"
+                                        label="Trust"
+                                        name="trustcheckbox"
+                                        checked={getValues("trustcheckbox")}
+                                        onClick={(event) => {
+                                            setValue(
+                                                "trustcheckbox",
+                                                event.target.checked
+                                            ); // set the rect hook array element appropriately
+                                            setaCheckboxChanged(
+                                                !aCheckboxChanged
+                                            ); // this will trigger a re-render of the page to hide/show elements
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </FormGroup>
                     ) : null}
                 </Col>
                 {/* <FormControl>

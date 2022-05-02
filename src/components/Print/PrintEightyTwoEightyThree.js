@@ -44,7 +44,7 @@ export const PrintEightyTwoEightyThree = ({
                                 </div>
                             </div>
                         </Col>
-                        <Col xs={3}>
+                        <Col xs={3} className="p-3">
                             <div className="d-print-table-row">
                                 <div>Gift Admin:</div>
                                 <div className="d-print-table-cell">
@@ -56,7 +56,7 @@ export const PrintEightyTwoEightyThree = ({
                                 </div>
                             </div>
                         </Col>
-                        <Col xs={3}>
+                        <Col xs={3} className="p-3">
                             <div className="d-print-table-row">
                                 <div>Trust:</div>
                                 <div className="d-print-table-cell">

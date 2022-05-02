@@ -492,7 +492,7 @@ export function SharedFillForm(setValue) {
     setValue("preparedBy", "Ted Logan");
     setValue("unitReferenceNumber", "");
     setValue("datePrepared", "04-26-2022");
-    setValue("sourceCode", "14028472984");
+    // setValue("sourceCode", "14028472984");
 
     setValue("donorDomesticAddressNewDonor", false);
     setValue("donorDomesticAddressNewAddress", false);
@@ -737,12 +737,12 @@ export function FillTrustForm(setValue) {
     setValue("doNotGiveSpousePartnerCredit", false);
     setValue("spousePartnerOrganizationDonorName", "The Hen House");
     setValue("spousePartnerTedConstituentId", "35944651");
-    setValue("iraDistribution", "No");
+    // setValue("iraDistribution", "No");
 
     setValue("receiptToTrustServices", false);
     setValue("receiptToPlannedGiving", false);
     setValue("receiptToDevelopmentPrograms", false);
-    setValue("receiptToOther", "John Townsend");
+    // setValue("receiptToOther", "John Townsend");
 
     setValue("trustWire.0.bankName", "PNC");
     setValue("trustWire.0.totalValue", "3000");

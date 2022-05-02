@@ -35,19 +35,20 @@ h1 > span {
 .border{
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 4px;
-    --bs-gutter-x: -0.5rem;
+    --bs-gutter-x: 0rem;
+    .row{
+        // padding: 1em 2em 0px 3em;
+    --bs-gutter-x: 0;
+    }
     .mt-3{
         .row{
             margin: 0;
         }
     }
     .col{
-        padding: 0;
+        padding: 1em;
     }
-    .row{
-        // padding: 1em 2em 0px 3em;
-    --bs-gutter-x: -0.135rem;
-    }
+
 }
 
 li {

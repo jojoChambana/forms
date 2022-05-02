@@ -12,50 +12,76 @@ export default function PrintGiftInformation({ formValues }) {
                     </Typography>
                 </div>
             </div>
-            <div className="row border">
+            <div className="row">
                 <div className="col">
-                    <div className="rightLabel">IRA Distribution:</div>
-                </div>
-                <div className="col">
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.iraDistribution}
-                        </span>
-                    </div>
-                </div>
-                {!formValues.receiptToTrustServices === false ||
-                !formValues.receiptToTrustServices === false ||
-                !formValues.receiptToPlannedGiving === false ? (
-                    <>
-                        <div className="col">
-                            <div className="rightLabel">Send Receipt To:</div>
+                    <div className="d-print-table-row">
+                        <div className="col rightLabel">IRA Distribution:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.iraDistribution}
+                            </span>
                         </div>
-                    </>
-                ) : (
-                    <></>
-                )}
-                <Col xs={6}>
-                    {!formValues.receiptToTrustServices === false ? (
-                        <div className="d-print-table-cell maxWidth">
-                            <div>
-                                <span className="normal">Trust Services</span>
+                    </div>
+
+                    {!formValues.receiptToOther === false ? (
+                        <div className="row">
+                            <div className="col">
+                                <div className="d-print-table-row">
+                                    <div className="col rightLabel">
+                                        Send Receipt To Other:
+                                    </div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.receiptToOther}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ) : (
                         <></>
                     )}
+                </div>
+                <div className="col">
+                    <div className="d-print-table-row">
+                        {!formValues.receiptToTrustServices === false ? (
+                            <div className="col">
+                                <div className="d-print-table-row">
+                                    <div className="col rightLabel">
+                                        Receipt To:
+                                    </div>
+                                    <div className="maxWidth">
+                                        <span className="normal">
+                                            Trust Services
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+
                     {!formValues.receiptToPlannedGiving === false ? (
-                        <div className="d-print-table-cell maxWidth">
-                            <div>
-                                <span className="normal">Planned Giving</span>
+                        <div className="col">
+                            <div className="d-print-table-row">
+                                <div className="col rightLabel">
+                                    Receipt To:
+                                </div>
+                                <div className="maxWidth">
+                                    <span className="normal">
+                                        Planned Giving
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     ) : (
                         <></>
                     )}
                     {!formValues.receiptToDevelopmentPrograms === false ? (
-                        <div className="d-print-table-cell maxWidth">
-                            <div>
+                        <div className="d-print-table-row">
+                            <div className="col rightLabel">Receipt To:</div>
+                            <div className="maxWidth">
                                 <span className="normal">
                                     Development Programs
                                 </span>
@@ -64,36 +90,7 @@ export default function PrintGiftInformation({ formValues }) {
                     ) : (
                         <></>
                     )}
-                </Col>
-
-                {!formValues.receiptToOther === false ? (
-                    <>
-                        <Col sm={6}>
-                            <div className="row" style={{ marginBottom: "0" }}>
-                                <div
-                                    className="d-print-table-cell maxWidth justify-content-end"
-                                    style={{ paddingRight: "7.5em" }}
-                                >
-                                    <div className="rightLabel">
-                                        Send Receipt To Other:
-                                    </div>
-
-                                    <span
-                                        className="normal"
-                                        style={{
-                                            maxWidth: "200px",
-                                            wordBreak: "break-word",
-                                        }}
-                                    >
-                                        {formValues.receiptToOther}
-                                    </span>
-                                </div>
-                            </div>
-                        </Col>
-                    </>
-                ) : (
-                    <></>
-                )}
+                </div>
             </div>
         </>
     );

@@ -67,7 +67,7 @@ const PrintTotals = ({ formType, formValues, showGIKTotal = false }) => {
                     <></>
                 )}
             </div>
-
+            {/* 
             {showGIKTotal ? (
                 <div className="totalTable border mt-3">
                     <div className="total">
@@ -77,7 +77,7 @@ const PrintTotals = ({ formType, formValues, showGIKTotal = false }) => {
                 </div>
             ) : (
                 <></>
-            )}
+            )} */}
         </>
     );
 };
