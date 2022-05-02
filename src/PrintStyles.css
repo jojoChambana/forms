@@ -27,6 +27,7 @@
   }
   #timestamp {
     display: block !important;
+    margin-top: 2em;
   }
   .navbar {
     display: none;
