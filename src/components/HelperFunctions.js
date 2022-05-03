@@ -2,6 +2,9 @@ import { Button, Grid, Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
+export function ShowFillButton() {
+    return window.location.hostname !== "transmittal.uif.uillinois.edu";
+}
 export function formatAmount(amount) {
     return parseNum(amount).toLocaleString("en-US", {
         style: "currency",

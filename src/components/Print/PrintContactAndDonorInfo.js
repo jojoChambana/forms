@@ -70,10 +70,16 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function DatePrepared() {
         if (formValues.datePrepared != null)
             return (
-                <div className="rightLabel">
-                    Date Prepared:
-                    <span className="normal">{formValues.datePrepared}</span>
-                </div>
+                <>
+                    <div className="col">
+                        <div>Date Prepared:</div>
+                    </div>
+                    <div className="col">
+                        <span className="normal">
+                            {formValues.datePrepared}
+                        </span>
+                    </div>
+                </>
             );
         else
             return (
@@ -283,17 +289,48 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 </div>
                             </div>
                         </div>
+                        {/* <div className="d-print-table-row">
+                            <div className="row">
+                                <div className="rightLabel" id="donationDate">
+                                    <div
+                                        className="col"
+                                        style={{ textAlign: "end" }}
+                                    >
+                                        Date Received by Department:
+                                    </div>
+                                    <div className="col">
+                                        <span className="normal">
+                                            {formValues.donationDate}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <DatePrepared />
+                        </div> */}
+
                         <div className="d-print-table-row">
-                            <div className="rightLabel" id="donationDate">
-                                Date Received by Department:
-                                <span className="normal">
-                                    {formValues.donationDate}
-                                </span>
+                            <div className="col">
+                                <div className="rightLabel">
+                                    <div style={{ textAlign: "end" }}>
+                                        Date Prepared:
+                                    </div>
+                                    <span className="normal d-flex align-items-center">
+                                        {formValues.datePrepared}
+                                    </span>
+                                </div>
                             </div>
                             <div className="col">
-                                <DatePrepared />
+                                <div className="rightLabel">
+                                    <div style={{ textAlign: "end" }}>
+                                        Date Received:
+                                    </div>
+                                    <span className="normal d-flex align-items-center">
+                                        {formValues.donationDate}
+                                    </span>
+                                </div>
                             </div>
                         </div>
+
                         <div className="d-print-table-row">
                             <SourceCode />
                             <UnitReferenceNumber />
@@ -320,8 +357,8 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                     >
                         <DonorUnknownCheckBox />
                         {formValues.donorUnknownCheckBox === false ? (
-                            <Row className="mt-2 mb-2">
-                                <div className="d-print-table-row">
+                            <div className="row mt-2 mb-2">
+                                <div className="d-print-table-row donorPrintStuff">
                                     <div className="rightLabel">
                                         TED Constituent ID:
                                     </div>
@@ -331,17 +368,19 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="d-print-table-row">
+                                <div className="d-print-table-row donorPrintStuff">
                                     <div className="rightLabel min-cell">
-                                        Organization/Donor Name:
+                                        Organization/
+                                        <br />
+                                        Donor Name:
                                     </div>
-                                    <div className="d-print-table-cell">
+                                    <div className="d-print-table-cell d-flex align-items-center">
                                         <span className="normal">
                                             {formValues.organizationDonorName}
                                         </span>
                                     </div>
                                 </div>
-                            </Row>
+                            </div>
                         ) : (
                             ""
                         )}
@@ -352,9 +391,11 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
                                     <div className="d-print-table-row">
                                         <div className="rightLabel">
-                                            Contact/Publicity:
+                                            Contact/
+                                            <br />
+                                            Publicity:
                                         </div>
-                                        <div className="d-print-table-cell">
+                                        <div className="d-print-table-cell d-flex align-items-center">
                                             <span className="normal">
                                                 {formValues.publicityCode}
                                             </span>

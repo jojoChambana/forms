@@ -47,7 +47,7 @@ const CashCheckGIKPrint = (props) => {
                                     <Col>
                                         <Button
                                             variant="contained"
-                                            className="buttonClass"
+                                            className="buttonClass backButton"
                                             onClick={() => {
                                                 navigate(props.returnUrl);
                                             }}
@@ -71,7 +71,7 @@ const CashCheckGIKPrint = (props) => {
                                         direction="row"
                                         justifyContent="end"
                                     >
-                                        <Row className="hideForPrint mb-0">
+                                        <Row className="hideForPrint mt-3 mb-0">
                                             <CampusAddress
                                                 campusLocation={
                                                     props.formValues
@@ -142,7 +142,7 @@ const CashCheckGIKPrint = (props) => {
                                 <Col>
                                     <Button
                                         variant="contained"
-                                        className="buttonClass"
+                                        className="buttonClass backButton"
                                         onClick={() => {
                                             navigate(props.returnUrl);
                                         }}

@@ -16,6 +16,7 @@ import {
     FillCashCheckGIKForm,
     SharedFillForm,
     SubmitButton,
+    ShowFillButton,
 } from "../components/HelperFunctions";
 import { Col, Row } from "react-bootstrap";
 
@@ -31,12 +32,17 @@ const CashCheckGIKDataEntry = ({
         FillCashCheckGIKForm(setValue);
         SharedFillForm(setValue);
     };
-
+    console.log(window.location.hostname);
     return (
         <Container className="pb-4">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <DepartmentCampus formType={formType} />
-                <Button onClick={fillButton}>Fill</Button>
+                {ShowFillButton() ? (
+                    <Button onClick={fillButton}>Fill</Button>
+                ) : (
+                    <></>
+                )}
+
                 <ContactInformation />
                 <NameEmail />
                 <DonorInformation

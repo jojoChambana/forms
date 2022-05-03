@@ -14,7 +14,7 @@ export default function PrintGiftInformation({ formValues }) {
             <div className="row">
                 <div className="col">
                     <div className="d-print-table-row">
-                        <div className="col rightLabel">IRA Distribution:</div>
+                        <div className="col rightLabel">IRA Distribution!:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.iraDistribution}

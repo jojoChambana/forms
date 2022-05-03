@@ -149,5 +149,10 @@
     .col{
         padding: 1em;
     }
-
+    #donationDate {
+        display: flex;
+        align-items: center;
+        max-width: fit-content;
+        text-align: end;
+    }
 }

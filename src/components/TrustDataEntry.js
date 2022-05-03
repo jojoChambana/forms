@@ -22,7 +22,12 @@ import TrustBankNumber from "./TrustBankNumber";
 import DesignationInformation from "../components/DesignationInformation";
 import TransmittalTotals from "../components/TransmittalTotals";
 import { DevTool } from "@hookform/devtools";
-import { FillTrustForm, SharedFillForm, SubmitButton } from "./HelperFunctions";
+import {
+    FillTrustForm,
+    SharedFillForm,
+    ShowFillButton,
+    SubmitButton,
+} from "./HelperFunctions";
 import GiftTribute from "./GiftTribute";
 import Security from "./Security";
 
@@ -51,7 +56,12 @@ export default function TrustDataEntry({
     return (
         <Container className="pb-4">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Button onClick={fillButton}>Fill</Button>
+                {/* <Button onClick={fillButton}>Fill</Button> */}
+                {ShowFillButton() ? (
+                    <Button onClick={fillButton}>Fill</Button>
+                ) : (
+                    <></>
+                )}
                 <Row>
                     <Col>
                         <RadioGroup

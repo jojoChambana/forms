@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import {
     SubmitButton,
     SecurtityWireFillForm,
+    ShowFillButton,
 } from "../components/HelperFunctions";
 import { Col, Row } from "react-bootstrap";
 import UIFonlyContactInformation from "./UIFonlyContactInformation";
@@ -42,7 +43,12 @@ export default function SecWireDataEntry({
             <FormProvider {...methods}>
                 <Container className="pb-4">
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
-                        <Button onClick={fillButton}>Fill</Button>
+                        {/* <Button onClick={fillButton}>Fill</Button> */}
+                        {ShowFillButton() ? (
+                            <Button onClick={fillButton}>Fill</Button>
+                        ) : (
+                            <></>
+                        )}
 
                         <UIFonlyContactInformation trustType={"securityWire"} />
 
