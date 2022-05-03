@@ -34,11 +34,8 @@ const PrintOneSecWireDesignation = ({ oneDesignation, index }) => {
         <>
             <div className="resultItems">
                 <ListGroupItem
-                    className="aDesignation mb-2"
+                    className="aDesignation mb-2 border"
                     key={"designation" + index}
-                    style={{
-                        borderRadius: "4px",
-                    }}
                 >
                     <div className="resultItems row">
                         <div className="col">

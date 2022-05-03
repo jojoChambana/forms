@@ -16,20 +16,7 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
             );
         else return null;
     }
-    function CampusShow() {
-        if (formValues.campusLocation !== null)
-            return (
-                <div className="d-print-table-row">
-                    <div className="rightLabel">
-                        University:
-                        <span className="normal">
-                            {formValues.campusLocation}
-                        </span>
-                    </div>
-                </div>
-            );
-        else return null;
-    }
+
     function DateOfGift() {
         if (formValues.dateOfGift != null)
             return (
@@ -138,27 +125,6 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                 </div>
             );
     }
-
-    // const correctPadding = {
-    //     padding: "1em 0.5em",
-    // };
-
-    // function DoNotProcessUntilContacted() {
-    //     if (formValues.doNotProcessUntilContactedByTrustServices !== false)
-    //         return (
-    //             <>
-    //                 <div className="row mt-1">
-    //                     <Col style={{ textAlign: "center" }}>
-    //                         <span className="normal" style={correctPadding}>
-    //                             Do not process until until donor is contacted by
-    //                             Trust Services
-    //                         </span>
-    //                     </Col>
-    //                 </div>
-    //             </>
-    //         );
-    //     else return null;
-    // }
 
     const borderStyles = {
         border: "solid 1px rgba(0,0,0,.125)",

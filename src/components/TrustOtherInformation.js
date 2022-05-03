@@ -1,10 +1,7 @@
 import {
     TextField,
     Typography,
-    RadioGroup,
-    Radio,
     FormControlLabel,
-    FormControl,
     Checkbox,
     FormGroup,
 } from "@mui/material";
@@ -103,61 +100,6 @@ export default function TrustOtherInformation() {
                         </FormGroup>
                     ) : null}
                 </Col>
-                {/* <FormControl>
-                        <div className="col" style={{ padding: "1em" }}>
-                            
-                            <RadioGroup
-                                row
-                                aria-labelledby="is8283Required"
-                                value={getValues("is8283Required")}
-                                name="is8283Required"
-                                onChange={(event) => {
-                                    setValue(
-                                        "is8283Required",
-                                        event.target.value
-                                    ); // set the rect hook array element appropriately
-                                    setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
-                                    // var is8283Required = event.target.value;
-
-                                    // iraDistribution !== "Yes"
-                                    //     ? console.log("No")
-                                    //     : console.log("Yes");
-                                }}
-                            >
-                                <div>
-
-                                </div>
-                            </RadioGroup>
-                        </div>
-                        {!hidden ? (
-                            <div className="col">
-                                <FormGroup>
-                                    <div className="d-flex flex-direction-row">
-                                        <div
-                                            className="col"
-                                            style={{ width: "200px" }}
-                                        >
-                                            <FormControlLabel
-                                                control={<Checkbox />}
-                                                value="Gift Admin"
-                                                label="Gift Admin"
-                                                name="giftAdmincheckbox"
-                                            />
-                                        </div>
-                                        <div className="col">
-                                            <FormControlLabel
-                                                control={<Checkbox />}
-                                                value="Trust"
-                                                label="Trust"
-                                                name="trustcheckbox"
-                                            />
-                                        </div>
-                                    </div>
-                                </FormGroup>
-                            </div>
-                        ) : null}
-                    </FormControl>
-                </Col> */}
             </Row>
         </>
     );

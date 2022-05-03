@@ -40,6 +40,12 @@ export default function NameEmail() {
                         defaultValue={date}
                         required
                     />
+                    {/* <BasicDatePicker
+                        labelName="Date Received by Department"
+                        fieldName={"donationDate"}
+                        className="dateField maxWidth"
+                        required
+                    /> */}
                 </Col>
                 <Col xs={12} md={3}>
                     <TextField

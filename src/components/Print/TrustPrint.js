@@ -21,7 +21,6 @@ import PrintSecurities from "./PrintSecurities";
 import PrintGiftInformation from "./PrintGiftInformation";
 import { PrintEightyTwoEightyThree } from "./PrintEightyTwoEightyThree";
 import PrintGIKs from "./PrintGIKs";
-import PrintWire from "./PrintWire";
 import PrintCheck from "./PrintCheck";
 
 // import TrustIRADistribution from "../TrustIRADistribution";

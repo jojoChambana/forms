@@ -71,10 +71,7 @@ const CashCheckGIKPrint = (props) => {
                                         direction="row"
                                         justifyContent="end"
                                     >
-                                        <Row
-                                            className="hideForPrint mb-0"
-                                            // style={{ textAlign: "end" }}
-                                        >
+                                        <Row className="hideForPrint mb-0">
                                             <CampusAddress
                                                 campusLocation={
                                                     props.formValues

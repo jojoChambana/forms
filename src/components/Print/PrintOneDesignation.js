@@ -30,13 +30,7 @@ const PrintOneDesignation = ({
             : "Pledge Revenue ID:";
     return (
         <div className="resultItems" key={"designation" + index}>
-            <ListGroupItem
-                className="aDesignation mb-2"
-                style={{
-                    border: "1px solid rgba(0, 0, 0, 0.125)",
-                    borderRadius: "4px",
-                }}
-            >
+            <ListGroupItem className="aDesignation mb-2 border">
                 <div>
                     <Row>
                         <div className="col">

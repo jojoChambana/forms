@@ -2,18 +2,6 @@ import { Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 
 const PrintDonorInformation = ({ formValues }) => {
-    function DonorUnknownCheckBox() {
-        if (formValues.donorUnknownCheckBox === false)
-            return (
-                <div className="d-print-table-cell">
-                    <span className="normal" style={{ paddingLeft: "0" }}>
-                        Donor is unknown, anonymous or various cash donors
-                    </span>
-                </div>
-            );
-        else return null;
-    }
-
     function NewDonorCheckBox() {
         if (formValues.newDonorCheckBox === true)
             return (

@@ -131,3 +131,23 @@
 .gikTotalSpacing{
     margin: 0em 0.5em;
 }
+
+.border{
+    border-style: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    --bs-gutter-x: 0px;
+    --bs-gutter-x: 0rem;
+    .row{
+        // padding: 1em 2em 0px 3em;
+    --bs-gutter-x: 0;
+    }
+    .mt-3{
+        .row{
+            margin: 0;
+        }
+    }
+    .col{
+        padding: 1em;
+    }
+
+}

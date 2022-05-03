@@ -354,12 +354,7 @@ const PrintTribute = ({ formValues }) => {
                         </Typography>
                     </Col>
                 </Row>
-                <Col
-                    style={{
-                        border: "1px solid rgba(0, 0, 0, 0.125)",
-                        borderRadius: "4px",
-                    }}
-                >
+                <Col className="border">
                     <div>
                         <div className="d-print-table-row mt-1">
                             <Col className="d-print-table-cell">

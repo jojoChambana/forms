@@ -22,13 +22,7 @@ const PrintSecurities = ({ formValues }, key) => {
                     </Typography>
                 </Col>
             </Row>
-            <div
-                className="printTable mt-3 pb-3"
-                style={{
-                    border: "1px solid rgba(0, 0, 0, 0.125)",
-                    borderRadius: "4px",
-                }}
-            >
+            <div className="printTable mt-3 pb-3 border">
                 <Table>
                     <TableHead>
                         <TableRow>

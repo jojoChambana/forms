@@ -127,12 +127,8 @@ const SecWirePrint = (props) => {
                                         </Typography>
 
                                         <Col
-                                            style={{
-                                                border: "1px solid rgba(0, 0, 0, 0.125)",
-                                                borderRadius: "4px",
-                                                padding: "2em",
-                                                marginTop: "1em",
-                                            }}
+                                            className="border"
+                                            style={{ padding: "1em" }}
                                         >
                                             {props.formValues.generalComments}
                                         </Col>

@@ -138,4 +138,23 @@
 .gikTotalSpacing {
   margin: 0em 0.5em;
 }
+
+.border {
+  border-style: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  --bs-gutter-x: 0px;
+  --bs-gutter-x: 0rem;
+}
+
+.border .row {
+  --bs-gutter-x: 0;
+}
+
+.border .mt-3 .row {
+  margin: 0;
+}
+
+.border .col {
+  padding: 1em;
+}
 /*# sourceMappingURL=PrintStyles.css.map */
