@@ -8,7 +8,6 @@ export const PrintEightyTwoEightyThree = ({
     giftAdmincheckbox,
     trustcheckbox,
 }) => {
-    // console.log("Is gift admin checked?", formValues.trustcheckbox);
     return (
         <>
             <Row className="mt-3">

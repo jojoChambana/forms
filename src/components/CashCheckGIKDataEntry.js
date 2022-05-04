@@ -32,7 +32,7 @@ const CashCheckGIKDataEntry = ({
         FillCashCheckGIKForm(setValue);
         SharedFillForm(setValue);
     };
-    console.log(window.location.hostname);
+
     return (
         <Container className="pb-4">
             <form onSubmit={handleSubmit(onSubmit)}>

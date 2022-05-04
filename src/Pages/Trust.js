@@ -18,7 +18,6 @@ export default function Trust(props) {
     const onSubmit = (data) => {
         removeEmptyFields(data);
         props.setFormValues(data);
-        console.table(data);
         navigate("/trustprint");
     };
 

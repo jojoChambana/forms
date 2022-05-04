@@ -6,7 +6,7 @@ import React from "react";
 
 export default function BasicDatePicker({ labelName, fieldName }) {
     const { setValue, getValues } = useFormContext();
-    console.log(fieldName, getValues(fieldName));
+
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker

@@ -67,28 +67,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
             );
     }
 
-    function DatePrepared() {
-        if (formValues.datePrepared != null)
-            return (
-                <>
-                    <div className="col">
-                        <div>Date Prepared:</div>
-                    </div>
-                    <div className="col">
-                        <span className="normal">
-                            {formValues.datePrepared}
-                        </span>
-                    </div>
-                </>
-            );
-        else
-            return (
-                <div className="rightLabel">
-                    <span className="normal">&nbsp;</span>
-                </div>
-            );
-    }
-
     function SourceCode() {
         if (formValues.sourceCode.length > 0)
             return (
@@ -204,8 +182,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         else return <Foreign />;
     }
 
-    // console.log("donorUnknownCheckBox", formValues.donorUnknownCheckBox);
-
     return (
         <>
             <Row>
@@ -289,24 +265,6 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="d-print-table-row">
-                            <div className="row">
-                                <div className="rightLabel" id="donationDate">
-                                    <div
-                                        className="col"
-                                        style={{ textAlign: "end" }}
-                                    >
-                                        Date Received by Department:
-                                    </div>
-                                    <div className="col">
-                                        <span className="normal">
-                                            {formValues.donationDate}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <DatePrepared />
-                        </div> */}
 
                         <div className="d-print-table-row">
                             <div className="col">

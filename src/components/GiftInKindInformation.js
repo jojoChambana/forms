@@ -19,9 +19,6 @@ export default function GiftInKindInformation({
     if (getValues("giftInKind") !== undefined)
         gikCount = getValues("giftInKind").length; // used to determine if we should show Delete security buttons
 
-    // console.log("gikCount", gikCount);
-    // console.log("alwaysShowDeleteButtons", alwaysShowDeleteButtons);
-
     return (
         <>
             <Typography

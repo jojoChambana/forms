@@ -33,7 +33,6 @@ export default function SecWireDataEntry({
     };
     const onSubmit = (data) => {
         setFormValues(data);
-        //console.table(data);
         navigate(submitURL);
     };
 

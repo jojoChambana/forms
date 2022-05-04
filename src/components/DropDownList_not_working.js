@@ -9,9 +9,8 @@ export default function DropDownList({
     dropDownChanged,
     setDropDownChanged,
 }) {
-    const { getValues, setValue } = useFormContext();
+    const { setValue } = useFormContext();
 
-    //console.log(variableName,getValues("heldByUIFChoice"))
     return (
         <FormControl fullWidth required>
             <InputLabel id={`${variableName}Label`}>Commitment Type</InputLabel>

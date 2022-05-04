@@ -25,8 +25,6 @@ export default function GiftTribute() {
         giftTribute = getValues("giftTribute");
     }
     const tributeChecked = getValues("tributeChecked");
-    // console.log("tributeChecked", tributeChecked);
-    // console.log("giftTribute", giftTribute);
 
     //const notifyIndividualOrFamily = getValues("notifyIndividualOrFamily");
 
@@ -65,8 +63,6 @@ export default function GiftTribute() {
     // };
 
     const handleNotificationChange = (event) => {
-        // console.log(event.target.value);
-
         setValue("notifyIndividualOrFamily", event.target.value);
         setaCheckboxChanged(!aCheckboxChanged); // this will trigger a re-render of the page to hide/show elements
     };

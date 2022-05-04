@@ -11,7 +11,6 @@ export default function PublicityDropDown() {
     const handleChange = (event) => {
         setValue("publicityCode", event.target.value);
         setDropDownChanged(!dropDownChanges); // this will trigger a re-render of the page to hide/show elements
-        // console.table(event.target.value)
     };
 
     return (

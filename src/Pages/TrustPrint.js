@@ -22,8 +22,6 @@ import {
 const TrustPrint = (props) => {
     const navigate = useNavigate();
     const componentRef = useRef();
-    // console.log(props.formValues.inMemoryNewAddress);
-
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });

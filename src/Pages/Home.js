@@ -249,54 +249,6 @@ export default function Home() {
                         </List>
                     </Row>
                 </section>
-
-                {/* <section>
-                    <Row>
-                        <Col>
-                            <Typography variant="h5" component="h3">
-                                Trust and Trust Deferred (UIF Only)
-                            </Typography>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <div className="indent-list">
-                            <List
-                                sx={{
-                                    listStylePosition: "outside",
-                                }}
-                                className="pt-0"
-                            >
-                                <ListItem
-                                    sx={{
-                                        listStyleType: "disc",
-                                        display: "list-item",
-                                    }}
-                                >
-                                    <ListItemText primary="All trust transmittals are processed internally at UIF. If you have questions about trust types please contact the Director of XXX at 217-999-9999." />
-                                </ListItem>
-                            </List>
-                        </div>
-
-                        <List>
-                            <ListItem>
-                                <ListItemText>
-                                    <Link href="/trust">Trust Transmittal</Link>
-                                </ListItemText>
-                            </ListItem>
-                            <ListItem>
-                                <ListItemText>
-                                    <Link href="/trustdeferred">
-                                        Deferred Trust Transmittal
-                                    </Link>
-                                </ListItemText>
-                            </ListItem>
-                        </List>
-                    </Row>
-                </section> */}
-
-                {/* <Row>
-                    <Links />
-                </Row> */}
             </Container>
         </>
     );

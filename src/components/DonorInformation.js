@@ -21,7 +21,6 @@ export default function DonorInformation({
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
 
     const donorUnknownCheckBox = getValues("donorUnknownCheckBox");
-    // console.log("showAnonymousCheckBox", showAnonymousDonorCheckBox);
 
     return (
         <>

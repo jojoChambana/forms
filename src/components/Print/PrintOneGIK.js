@@ -2,7 +2,6 @@ import React from "react";
 import { TableCell, TableRow } from "@mui/material";
 import { formatAmount } from "../HelperFunctions";
 export default function PrintOneGIK({ oneGiftInKind, index }) {
-    // console.log("Gift", oneGiftInKind);
     return (
         <>
             <TableRow key={"giftInKind" + index}>
