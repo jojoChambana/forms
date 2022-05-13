@@ -471,6 +471,26 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                                 " "
                             )}
                         </Row>
+                        <Row>
+                            {formValues.doNotProcessUntilContactedByTrustServices !=
+                            null ? (
+                                <div className="col-6">
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">
+                                            Process Gift:
+                                        </div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                Do Not Process Until Contacted
+                                                By Trust Services
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                        </Row>
                     </div>
                 </div>
             </Row>

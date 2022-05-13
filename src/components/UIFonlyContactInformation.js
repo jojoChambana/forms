@@ -21,7 +21,7 @@ export default function UIFonlyContactInformation({ trustType }) {
             <Row>
                 <Col>
                     <Typography variant="h5" component="h3">
-                        Contact Information
+                        Department Information
                     </Typography>
                 </Col>
             </Row>

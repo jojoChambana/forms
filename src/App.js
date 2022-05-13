@@ -188,6 +188,7 @@ function App() {
                                     formValues={trustValues}
                                     setFormValues={setTrustValues}
                                     submitURL={"/trustprint"}
+                                    formType={"Trust"}
                                 />
                             }
                         />

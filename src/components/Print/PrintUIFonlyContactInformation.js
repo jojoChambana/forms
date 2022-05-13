@@ -2,11 +2,6 @@ import { Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 
 const PrintUIFonlyContactInformation = ({ formValues }) => {
-    const borderStyles = {
-        border: "solid 1px rgba(0,0,0,.125)",
-        borderRadius: "4px",
-    };
-
     return (
         <>
             <Row>
@@ -16,59 +11,67 @@ const PrintUIFonlyContactInformation = ({ formValues }) => {
                     </Typography>
                 </Col>
             </Row>
-            <div style={borderStyles} className="mt-3">
-                <div className="resultItems">
-                    <div
-                        id="contactPrint"
-                        className="resultItems d-flex flex-wrap"
-                    >
+            <div className="border mt-3">
+                <div className="row">
+                    <div className="col-6">
                         <div className="d-print-table-row">
-                            <div className="col">
-                                {formValues.dateOfGift != null ? (
-                                    <div className="rightLabel">
-                                        Date of Gift:
-                                        <span className="normal">
-                                            {formValues.dateOfGift}
-                                        </span>
-                                    </div>
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
-                            <div className="rightLabel">
-                                Prepared By:
+                            <div className="rightLabel">Date of Gift:</div>
+                            <div className="d-print-table-cell">
                                 <span className="normal">
-                                    {formValues.preparedBy}
+                                    {formValues.dateOfGift}
                                 </span>
                             </div>
                         </div>
-                        <div className="d-print-table-row">
-                            <div className="col">
-                                {formValues.datePrepared != null ? (
-                                    <div className="rightLabel">
-                                        Date Prepared:
-                                        <span className="normal">
-                                            {formValues.datePrepared}
-                                        </span>
-                                    </div>
-                                ) : (
-                                    <></>
-                                )}
+                    </div>
+                    <div className="col-6">
+                        <div className="row">
+                            <div className="d-print-table-row">
+                                <div className="d-print-table-cell leftLabel">
+                                    Prepared By:
+                                </div>
+                                <div className="d-print-table-cell">
+                                    <span className="normal">
+                                        {formValues.preparedBy}
+                                    </span>
+                                </div>
                             </div>
-                            {formValues.sourceCode.length ? (
-                                <div className="col">
-                                    <div className="rightLabel overFlowBreakWord">
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-6">
+                        {formValues.datePrepared != null ? (
+                            <div className="d-print-table-row">
+                                <div className="rightLabel">Date Prepared:</div>
+                                <div className="d-print-table-cell">
+                                    <span className="normal">
+                                        {formValues.datePrepared}
+                                    </span>
+                                </div>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    {formValues.sourceCode > 0 ? (
+                        <div className="col-6">
+                            <div className="row">
+                                <div className="d-print-table-row">
+                                    <div className="d-print-table-cell leftLabel">
                                         Source Code:
+                                    </div>
+                                    <div className="d-print-table-cell">
                                         <span className="normal">
                                             {formValues.sourceCode}
                                         </span>
                                     </div>
                                 </div>
-                            ) : (
-                                <></>
-                            )}
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </>

@@ -10,9 +10,12 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import PrintOneWire from "./PrintOneWire";
 
-export default function PrintWire({ formValues }) {
-    return (
-        <>
+const PrintWire = ({ formValues, key }) => {
+    var wireCount = 0;
+    if (formValues.trustWire !== undefined)
+        wireCount = formValues.trustWire.length; // used to determine if we should show Delete trustWire buttons
+    return wireCount > 0 ? (
+        <div key={key}>
             <Row>
                 <Col>
                     <Typography variant="h5" component="h3" className="mt-2">
@@ -20,12 +23,12 @@ export default function PrintWire({ formValues }) {
                     </Typography>
                 </Col>
             </Row>
-            <div className="printTable mt-3">
+            <div className="printTable mt-3 pb-3 border">
                 <Table>
                     <TableHead>
                         <TableRow>
                             <TableCell>Bank Name</TableCell>
-                            <TableCell>Total Value of Securities</TableCell>
+                            <TableCell>Total Value</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -43,6 +46,8 @@ export default function PrintWire({ formValues }) {
                     </TableBody>
                 </Table>
             </div>
-        </>
-    );
-}
+        </div>
+    ) : null;
+};
+
+export default PrintWire;

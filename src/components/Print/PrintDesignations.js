@@ -36,9 +36,7 @@ const PrintDesignations = ({ formValues, trustMode = false }) => {
                         <Col style={{ position: "relative", left: "0.5em" }}>
                             <div className="d-print-table-cell col centerColContent">
                                 <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        Other Information:{" "}
-                                    </div>
+                                    <div className="rightLabel">Note: </div>
                                     <div className="d-print-table-cell">
                                         <span className="normal">
                                             {formValues.otherInformation}

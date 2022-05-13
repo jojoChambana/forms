@@ -34,7 +34,7 @@ export default function InstructionsGIK() {
                 <Typography>
                     Instructions on how to complete this form are{" "}
                     <Link
-                        href="https://d1vy0qa05cdjr5.cloudfront.net/e75b2f22-8ebc-4f95-ad4a-f08ed296445e/Resources/How to Submit Gifts Using the Gift Transmittal Form.pdf"
+                        href="https://app.sharebase.com/#/document/14467/share/375-LTTbeCrSrwC8PDZjyD7--ynG1A6E "
                         underline="always"
                         rel="noreferrer"
                         target="_blank"

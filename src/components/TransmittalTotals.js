@@ -10,7 +10,9 @@ import { calcFinalTotals, calcGIKTotals, parseNum } from "./HelperFunctions";
 export default function TransmittalTotals({
     ignoreNonGiftChecked,
     showGIKTotal = false,
-    setShowBalanceProblemMessage = undefined,
+    setShowProblemMessage = undefined,
+    isTrustMode = false,
+    formType,
 }) {
     const { register, setValue, watch, getValues } = useFormContext();
 
@@ -34,9 +36,26 @@ export default function TransmittalTotals({
                     parseNum(getValues("gikTotal")) !==
                     parseNum(getValues("overallTotal"))
                 ) {
-                    setShowBalanceProblemMessage(true);
+                    setShowProblemMessage(true);
                 } else {
-                    setShowBalanceProblemMessage(false);
+                    setShowProblemMessage(false);
+                }
+            }
+            var objectCount = 0;
+
+            if (isTrustMode) {
+                if (getValues("security") !== undefined)
+                    objectCount += getValues("security").length; // used to determine if we should show Delete security buttons}
+                if (getValues("trustWire") !== undefined)
+                    objectCount += getValues("trustWire").length; // used to determine if we should show Delete security buttons}
+                if (getValues("trustCheck") !== undefined)
+                    objectCount += getValues("trustCheck").length; // used to determine if we should show Delete security buttons}
+                if (getValues("giftInKind") !== undefined)
+                    objectCount += getValues("giftInKind").length; // used to determine if we should show Delete security buttons}
+                if (objectCount === 0) {
+                    setShowProblemMessage(true);
+                } else {
+                    setShowProblemMessage(false);
                 }
             }
         });

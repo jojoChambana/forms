@@ -56,7 +56,7 @@ const CashCheckGIKDataEntry = ({
                 <TransmittalTotals
                     ignoreNonGiftChecked={false}
                     showGIKTotal={formType === "GiftInKind"}
-                    setShowBalanceProblemMessage={setShowBalanceProblemMessage}
+                    setShowProblemMessage={setShowBalanceProblemMessage}
                 />
                 <Row className="submitRow">
                     <Col className="theSubmit">

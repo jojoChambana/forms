@@ -248,16 +248,17 @@ export default function GiftTribute() {
                                 <FormControl>
                                     <RadioGroup
                                         row
-                                        aria-labelledby="campus-Location"
+                                        aria-labelledby="notifyIndividualOrFamily"
                                         value={getValues(
                                             "notifyIndividualOrFamily"
                                         )}
                                         onChange={handleNotificationChange}
-                                        name="campusLocation"
+                                        name="notifyIndividualOrFamily"
                                     >
                                         <FormControlLabel
                                             value={C_DO_NOT_SEND}
                                             control={<Radio />}
+                                            checked={true}
                                             label={C_DO_NOT_SEND}
                                         />
                                         <FormControlLabel

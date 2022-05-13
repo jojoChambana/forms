@@ -201,6 +201,15 @@ span.lineUp,
         justify-content: flex-start;
     }
 }
+
+.leftLabel{
+    @media only screen and (min-device-width: 600px) {
+        display: flex;
+        justify-content: center;
+        max-width: 130px;
+    }  
+}
+
 .resultItems {
     li {
         border: none;

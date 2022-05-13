@@ -6,13 +6,10 @@ const PrintTribute = ({ formValues }) => {
         if (formValues.inMemoryNewAddress === true) {
             return (
                 <>
-                    <div className="resultItems row mb-0">
-                        <div className="col">
-                            <div className="d-flex justify-content-center">
-                                <strong className="normal justify-col-tribute">
-                                    This is a New Address
-                                </strong>
-                            </div>
+                    <div className="d-print-table-row justify-content-center">
+                        <div>New Address:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">Yes</span>
                         </div>
                     </div>
                 </>
@@ -27,7 +24,7 @@ const PrintTribute = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div className="rightLabel">Location:</div>
+                        <div>Location:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">
                                 This is a Foreign Address
@@ -94,7 +91,7 @@ const PrintTribute = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div className="rightLabel">Address:</div>
+                        <div>Address:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.acknowledgeeDomesticAddress}
@@ -126,23 +123,30 @@ const PrintTribute = ({ formValues }) => {
                         </div>
                     </div>
 
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Email:</div>
-                        <div className="d-print-table-cell" id="tributePrint">
-                            <span className="normal">
-                                {formValues.notifyIndividualOrFamilyEmail}
-                            </span>
+                    {formValues.notifyIndividualOrFamilyEmail && (
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">Email:</div>
+                            <div
+                                className="d-print-table-cell"
+                                id="tributePrint"
+                            >
+                                <span className="normal">
+                                    {formValues.notifyIndividualOrFamilyEmail}
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    )}
 
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">Phone:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.tedTributeAcknowledgedPhone}
-                            </span>
+                    {formValues.tedTributeAcknowledgedPhone && (
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">Phone:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formValues.tedTributeAcknowledgedPhone}
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </>
             );
         }
@@ -155,23 +159,17 @@ const PrintTribute = ({ formValues }) => {
         ) {
             return (
                 <>
-                    <div className="resultItems row mb-0">
-                        <div className="col">
-                            <div className="d-flex justify-content-center">
-                                <strong className="normal justify-col-tribute">
-                                    <Typography className="mb-0">
-                                        <strong>
-                                            Please notify the following
-                                            <br />
-                                            individual/family of my gift
-                                        </strong>
-                                    </Typography>
-                                </strong>
-                            </div>
+                    <div className="d-print-table-row justify-content-center">
+                        <div>Notification:</div>
+                        <div className="d-print-table-cell maxWidth">
+                            <span className="normal">
+                                Please Notify Acknowledgee
+                            </span>
                         </div>
                     </div>
+
                     <div className="d-print-table-row">
-                        <div className="rightLabel">Acknowledgee Name:</div>
+                        <div>Acknowledgee:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.tedTributeAcknowledgedFirstName}{" "}
@@ -186,21 +184,12 @@ const PrintTribute = ({ formValues }) => {
             formValues.notifyIndividualOrFamily === "Do Not Send a Notification"
         ) {
             return (
-                <>
-                    <div className="resultItems row mt-2">
-                        <div className="col">
-                            <div className="d-flex justify-content-center">
-                                <strong className="normal justify-col-tribute">
-                                    <Typography>
-                                        <strong>
-                                            Do Not Send a Notification
-                                        </strong>
-                                    </Typography>
-                                </strong>
-                            </div>
-                        </div>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">Notification:</div>
+                    <div className="d-print-table-cell">
+                        <span className="normal">Please Do Not Notify</span>
                     </div>
-                </>
+                </div>
             );
         } else if (
             formValues.notifyIndividualOrFamily === "Please Notify the Honoree"
@@ -230,7 +219,7 @@ const PrintTribute = ({ formValues }) => {
     function TedTributeConstituentId() {
         if (formValues.tedTributeConstituentId.length > 0)
             return (
-                <Col>
+                <>
                     <div className="d-print-table-row">
                         <div className="rightLabel min-cell">
                             TED Constituent ID:
@@ -242,7 +231,7 @@ const PrintTribute = ({ formValues }) => {
                             </span>
                         </div>
                     </div>
-                </Col>
+                </>
             );
         else return null;
     }
@@ -250,38 +239,59 @@ const PrintTribute = ({ formValues }) => {
     const Domestic = () => {
         return (
             <>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Address:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeDomesticAddress}
-                        </span>
-                    </div>
-                </div>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">City:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeDomesticAddressCity}
-                        </span>
-                    </div>
-                </div>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">State:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeDomesticAddressState}
-                        </span>
-                    </div>
-                </div>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Zip:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeDomesticAddressZipCode}
-                        </span>
-                    </div>
-                </div>
+                <>
+                    {formValues.tributeDomesticAddress ? (
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">Address:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formValues.tributeDomesticAddress}
+                                </span>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+
+                    {formValues.tributeDomesticAddressCity ? (
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">City:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formValues.tributeDomesticAddressCity}
+                                </span>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+
+                    {formValues.tributeDomesticAddressState ? (
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">State:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formValues.tributeDomesticAddressState}
+                                </span>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+
+                    {formValues.tributeDomesticAddressZipCode ? (
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">Zip:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
+                                    {formValues.tributeDomesticAddressZipCode}
+                                </span>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+                </>
             </>
         );
     };
@@ -289,46 +299,70 @@ const PrintTribute = ({ formValues }) => {
     const Foreign = () => {
         return (
             <>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Address:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeForeignAddress}
-                        </span>
+                {formValues.tributeForeignAddress ? (
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Address:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.tributeForeignAddress}
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">City:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeForeignAddressCity}
-                        </span>
+                ) : (
+                    <></>
+                )}
+
+                {formValues.tributeForeignAddressCity ? (
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">City:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.tributeForeignAddressCity}
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Province/Region:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeForeignAddressProvinceRegion}
-                        </span>
+                ) : (
+                    <></>
+                )}
+
+                {formValues.tributeForeignAddressProvinceRegion ? (
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Province/Region:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.tributeForeignAddressProvinceRegion}
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Country:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeForeignAddressCountry}
-                        </span>
+                ) : (
+                    <></>
+                )}
+
+                {formValues.tributeForeignAddressCountry ? (
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Country:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.tributeForeignAddressCountry}
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Postal Code:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">
-                            {formValues.tributeForeignAddressPostalCode}
-                        </span>
+                ) : (
+                    <></>
+                )}
+
+                {formValues.tributeForeignAddressPostalCode ? (
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Postal Code:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
+                                {formValues.tributeForeignAddressPostalCode}
+                            </span>
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <></>
+                )}
             </>
         );
     };
@@ -373,29 +407,29 @@ const PrintTribute = ({ formValues }) => {
                                     </div>
                                 </div>
                                 <AddressType />
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">Phone:</div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {formValues.designationPhoneNumber}
-                                        </span>
+                                {formValues.designationPhoneNumber && (
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">Phone:</div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                {
+                                                    formValues.designationPhoneNumber
+                                                }
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">Email:</div>
-                                    <div className="d-print-table-cell">
-                                        <span
-                                            className="normal"
-                                            // style={{
-                                            //     display: "tableRow",
-                                            //     left: "1em",
-                                            //     position: "relative",
-                                            // }}
-                                        >
-                                            {formValues.designationEmail}
-                                        </span>
+                                )}
+
+                                {formValues.designationEmail && (
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">Email:</div>
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
+                                                {formValues.designationEmail}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
                             </Col>
                             <Col className="d-print-table-cell mt-2 mb-2">
                                 <IsTributeNewAddressChecked />

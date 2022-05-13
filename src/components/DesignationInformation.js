@@ -17,6 +17,7 @@ import {
     newDesignation,
 } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
+import RadioButtons from "./RadioButtons";
 
 export default function DesignationInformation({ trustMode = false }) {
     const { register, control, setValue, getValues, watch } = useFormContext();
@@ -34,6 +35,8 @@ export default function DesignationInformation({ trustMode = false }) {
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
+
+    const [isGiftPlanned, setGiftPlanned] = useState("no");
 
     const handleChangeNewDesignation = (event) => {
         const [, index] = event.target.name.split("."); // the name will be 'designation.index.newDesignationRequestedChecked ' and we just need the index
@@ -316,6 +319,95 @@ export default function DesignationInformation({ trustMode = false }) {
                                 </Row>
                                 {/* pledge revenue  */}
                                 <Row>
+                                    <Col>
+                                        <Typography
+                                            variant="h5"
+                                            component="h3"
+                                            className="mt-3"
+                                        >
+                                            Planned Gift
+                                        </Typography>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Typography variant="p">
+                                            Is this gift associated with a
+                                            Planned Gift Application?
+                                        </Typography>
+                                    </Col>
+                                </Row>
+                                <Row className="border">
+                                    <Col className="ml-2">
+                                        <RadioButtons
+                                            variablename="isGiftPlanned"
+                                            values={["Yes", "No"]}
+                                            radioChangedFlag={isGiftPlanned}
+                                            setRadioChangedFlag={setGiftPlanned}
+                                        />
+                                    </Col>
+                                    <FormGroup variablename="isGiftPlannedCheckBoxes">
+                                        <Row>
+                                            <Col>
+                                                {/* Last is the comments field  */}
+                                                <TextField
+                                                    placeholder="Comments"
+                                                    label="Comments"
+                                                    {...register(
+                                                        `designation.${index}.designationAdditionalComments`
+                                                    )}
+                                                    className="maxWidth"
+                                                />
+                                            </Col>
+                                        </Row>
+                                    </FormGroup>
+                                </Row>
+
+                                {getValues("isGiftPlanned") === "Yes" ? (
+                                    <>
+                                        <Row>
+                                            <Col>
+                                                <Typography
+                                                    variant="h5"
+                                                    component="h3"
+                                                >
+                                                    Application
+                                                </Typography>
+                                            </Col>
+                                        </Row>
+                                        <Row className="border">
+                                            <Col className="ml-2 d-flex align-items-center">
+                                                <Typography
+                                                    variant="p"
+                                                    className="pr-3"
+                                                >
+                                                    <div
+                                                        style={{
+                                                            marginRight: "1em",
+                                                        }}
+                                                    >
+                                                        This is a
+                                                    </div>
+                                                </Typography>
+                                                <RadioButtons
+                                                    variablename="applicationType"
+                                                    values={[
+                                                        "Planned Gift",
+                                                        "Planned Gift Addition",
+                                                    ]}
+                                                    radioChangedFlag={
+                                                        isGiftPlanned
+                                                    }
+                                                    setRadioChangedFlag={
+                                                        setGiftPlanned
+                                                    }
+                                                />
+                                            </Col>
+                                        </Row>
+                                    </>
+                                ) : null}
+
+                                <Row>
                                     <Col xs={12} md={4}>
                                         <TextField
                                             {...register(
@@ -329,19 +421,6 @@ export default function DesignationInformation({ trustMode = false }) {
                                 </Row>
                                 {/* opportunity checkbox and all of those fields  */}
 
-                                <Row>
-                                    <Col sm={12}>
-                                        {/* Last is the comments field  */}
-                                        <TextField
-                                            placeholder="Comments"
-                                            label="Comments"
-                                            {...register(
-                                                `designation.${index}.designationAdditionalComments`
-                                            )}
-                                            className="maxWidth"
-                                        />
-                                    </Col>
-                                </Row>
                                 <GiftAssociatedOpportunity index={index} />
                             </ListGroupItem>
                         );

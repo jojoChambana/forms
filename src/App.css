@@ -234,6 +234,18 @@ span.lineUp,
   }
 }
 
+@media only screen and (min-device-width: 600px) {
+  .leftLabel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    max-width: 130px;
+  }
+}
+
 .resultItems li {
   border: none;
 }

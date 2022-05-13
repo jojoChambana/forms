@@ -16,9 +16,16 @@ export default function Trust(props) {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        removeEmptyFields(data);
-        props.setFormValues(data);
-        navigate("/trustprint");
+        const objCount =
+            (data.security?.length || 0) +
+            (data.trustWire?.length || 0) +
+            (data.trustCheck?.length || 0) +
+            (data.giftInKind?.length || 0);
+        if (objCount > 0) {
+            removeEmptyFields(data);
+            props.setFormValues(data);
+            navigate("/trustprint");
+        }
     };
 
     return (
@@ -33,6 +40,7 @@ export default function Trust(props) {
                 <TrustDataEntry
                     onSubmit={onSubmit}
                     showAnonymousDonorCheckBox={false}
+                    formType={"Trust"}
                 />
             </FormProvider>
         </>

@@ -14,12 +14,13 @@ import RadioButtons from "./RadioButtons";
 
 export default function TrustOtherInformation() {
     const { register, getValues, setValue } = useFormContext();
-
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
-    const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
-    // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
-
     const [is8283Changed, set8283Changed] = useState(false);
+
+    // we use this to trigger a render operation when a radio button is checked.  Used in the handleChange events for the radio buttons
+    const [is8283RadioButtonsChanged, set8283RadioButtonsChanged] =
+        useState(false);
+
     return (
         <>
             <Row>
@@ -33,9 +34,9 @@ export default function TrustOtherInformation() {
                 <Col sm={12}>
                     <TextField
                         {...register("otherInformation")}
-                        placeholder="Other information"
+                        placeholder="Please enter any additional information"
                         className="maxWidth"
-                        label="Other Information"
+                        label="Note"
                     />
                 </Col>
             </Row>
@@ -58,46 +59,12 @@ export default function TrustOtherInformation() {
                 </Col>
                 <Col>
                     {getValues("is8283Required") === "Yes" ? (
-                        <FormGroup variableName="is8283RequiredCheckBoxes">
-                            <div className="d-flex flex-direction-row">
-                                <div style={{ width: "200px" }}>
-                                    <FormControlLabel
-                                        control={<Checkbox />}
-                                        value="Gift Admin"
-                                        label="Gift Admin"
-                                        name="giftAdmincheckbox"
-                                        checked={getValues("giftAdmincheckbox")}
-                                        onClick={(event) => {
-                                            setValue(
-                                                "giftAdmincheckbox",
-                                                event.target.checked
-                                            ); // set the rect hook array element appropriately
-                                            setaCheckboxChanged(
-                                                !aCheckboxChanged
-                                            ); // this will trigger a re-render of the page to hide/show elements
-                                        }}
-                                    />
-                                </div>
-                                <div>
-                                    <FormControlLabel
-                                        control={<Checkbox />}
-                                        value="Trust"
-                                        label="Trust"
-                                        name="trustcheckbox"
-                                        checked={getValues("trustcheckbox")}
-                                        onClick={(event) => {
-                                            setValue(
-                                                "trustcheckbox",
-                                                event.target.checked
-                                            ); // set the rect hook array element appropriately
-                                            setaCheckboxChanged(
-                                                !aCheckboxChanged
-                                            ); // this will trigger a re-render of the page to hide/show elements
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                        </FormGroup>
+                        <RadioButtons
+                            variableName="is8283RadioButtons"
+                            values={["Gift Admin", "Trust"]}
+                            radioChangedFlag={is8283RadioButtonsChanged}
+                            setRadioChangedFlag={set8283RadioButtonsChanged}
+                        />
                     ) : null}
                 </Col>
             </Row>

@@ -26,14 +26,14 @@ const PrintOneDesignation = ({
     }
     const pledgeRevLabel =
         trustMode === true
-            ? "Planned Gift or Pledge Revenue ID:"
+            ? "Planned Gift" || "Pledge Revenue ID:"
             : "Pledge Revenue ID:";
     return (
         <div className="resultItems" key={"designation" + index}>
             <ListGroupItem className="aDesignation mb-2 border">
                 <div>
                     <Row>
-                        <div className="col">
+                        <Col xs={6}>
                             {oneDesignation.newDesignationRequestedChecked ? (
                                 <>
                                     <div className="d-print-table-row">
@@ -158,19 +158,8 @@ const PrintOneDesignation = ({
                             ) : (
                                 ""
                             )}
-                        </div>
-                        <Col>
-                            {/* <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    Actual Ask Date:
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {oneDesignation.actualAskDate}
-                                    </span>
-                                </div>
-                            </div> */}
-
+                        </Col>
+                        <Col xs={6}>
                             {oneDesignation.associatedOpportunityChecked ? (
                                 <PrintOneOpportunity
                                     oneDesignation={oneDesignation}

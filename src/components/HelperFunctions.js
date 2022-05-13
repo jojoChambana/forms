@@ -480,8 +480,13 @@ export function newTrustFormValues() {
         designation: [{ ...newDesignation() }], // DesignationInformation.js
         otherInformation: "", // TrustOtherInformation.js
         is8283Required: "No", // TrustOtherInformation.js
+
+        is8283RadioButtons: "Gift Admin",
         giftAdmincheckbox: "",
         trustcheckbox: "",
+
+        isGiftPlanned: "No",
+        applicationType: "Planned Gift",
     };
 }
 
@@ -787,6 +792,7 @@ export function FillTrustForm(setValue) {
     setValue("trustCheck.0.checkNumbers", "8675309");
     setValue("trustCheck.0.checkTotal", "8000");
 }
+
 function get_date_format(myDate) {
     const addZeroIfNeeded = (num) => {
         return num < 10 ? "0" + num : num.toString();

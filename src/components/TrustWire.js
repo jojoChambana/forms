@@ -55,7 +55,7 @@ export default function TrustWire() {
                                                 pattern: "[0-9]+(.[0-9][0-9])?",
                                             }}
                                             placeholder="0.00"
-                                            label="Total Value of Securities"
+                                            label="Total Value"
                                             required
                                         />
                                     </Col>

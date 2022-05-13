@@ -19,9 +19,10 @@ import PrintSpousalPartner from "./PrintSpousalPartner";
 import PrintSecurities from "./PrintSecurities";
 
 import PrintGiftInformation from "./PrintGiftInformation";
-import { PrintEightyTwoEightyThree } from "./PrintEightyTwoEightyThree";
+import PrintEightyTwoEightyThree from "./PrintEightyTwoEightyThree";
 import PrintGIKs from "./PrintGIKs";
 import PrintCheck from "./PrintCheck";
+import PrintWire from "./PrintWire";
 
 // import TrustIRADistribution from "../TrustIRADistribution";
 
@@ -45,12 +46,12 @@ const TrustPrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
-                        <div id="timestamp"></div>
+                        <div id="timestamp" className="pb-2"></div>
                         <PrintCampusAddressSwap
                             campusLocation={props.formValues.campusLocation}
                             formType={props.formType}
                         />
-                        <Container>
+                        <Container className="d-flex justify-content-center">
                             <Row className="hideForPrint">
                                 <>
                                     <Col>
@@ -68,6 +69,7 @@ const TrustPrint = (props) => {
                                         <Button
                                             variant="contained"
                                             onClick={handlePrint}
+                                            style={{ width: "max-content" }}
                                         >
                                             Print Document
                                         </Button>
@@ -122,8 +124,8 @@ const TrustPrint = (props) => {
                         </Row>
 
                         <PrintGiftInformation formValues={props.formValues} />
-                        {/* <PrintWire formValues={props.formValues} /> */}
                         <PrintTribute formValues={props.formValues} />
+                        <PrintWire formValues={props.formValues} />
                         <PrintCheck formValues={props.formValues} />
                         <PrintGIKs formValues={props.formValues} />
                         <div className="theDesignationResults">
@@ -151,6 +153,50 @@ const TrustPrint = (props) => {
                                 <PrintTotals formValues={props.formValues} />
                             </Col>
                         </Row>
+                        <Container className="d-flex justify-content-center">
+                            <Row className="hideForPrint">
+                                <>
+                                    <Col>
+                                        <Button
+                                            variant="contained"
+                                            className="buttonClass"
+                                            onClick={() => {
+                                                navigate(props.returnUrl);
+                                            }}
+                                        >
+                                            Back
+                                        </Button>
+                                    </Col>
+                                    <div className="d-flex col justify-content-center">
+                                        <Button
+                                            variant="contained"
+                                            onClick={handlePrint}
+                                            style={{ width: "max-content" }}
+                                        >
+                                            Print Document
+                                        </Button>
+                                    </div>
+                                </>
+
+                                <Col>
+                                    <Grid
+                                        container
+                                        direction="row"
+                                        justifyContent="end"
+                                    >
+                                        <Row className="hideForPrint mb-0">
+                                            <CampusAddress
+                                                campusLocation={
+                                                    props.formValues
+                                                        .campusLocation
+                                                }
+                                                formType={props.formType}
+                                            />
+                                        </Row>
+                                    </Grid>
+                                </Col>
+                            </Row>
+                        </Container>
                     </Container>
                 </div>
             </ThemeProvider>
