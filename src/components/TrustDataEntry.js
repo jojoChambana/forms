@@ -31,6 +31,7 @@ import {
 } from "./HelperFunctions";
 import GiftTribute from "./GiftTribute";
 import Security from "./Security";
+import PlannedGift from "./PlannedGift";
 
 export default function TrustDataEntry({
     onSubmit,
@@ -166,6 +167,7 @@ export default function TrustDataEntry({
                         <GiftInKindInformation alwaysShowDeleteButtons={true} />
                         <TrustOtherInformation is8283RadioButtons={true} />
                         <DesignationInformation trustMode={true} />
+                        <PlannedGift />
                         <TransmittalTotals
                             ignoreNonGiftChecked={false}
                             setShowProblemMessage={setShowProblemMessage}

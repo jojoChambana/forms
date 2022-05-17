@@ -1,10 +1,4 @@
-import {
-    TextField,
-    Typography,
-    FormControlLabel,
-    Checkbox,
-    FormGroup,
-} from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 import { useState } from "react";
@@ -13,7 +7,7 @@ import "react-phone-number-input/style.css";
 import RadioButtons from "./RadioButtons";
 
 export default function TrustOtherInformation() {
-    const { register, getValues, setValue } = useFormContext();
+    const { register, getValues } = useFormContext();
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [is8283Changed, set8283Changed] = useState(false);
 

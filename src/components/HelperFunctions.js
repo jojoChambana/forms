@@ -100,6 +100,15 @@ export function newDesignation() {
     };
 }
 
+export function newApplication() {
+    return {
+        applicationDate: "",
+        planGiftType: "",
+        planGiftAmount: "",
+        pledgeRevenueId: "",
+    };
+}
+
 export function newSecurity() {
     return {
         shares: "",
@@ -121,6 +130,15 @@ export function newTrustCheck() {
         checkTotal: 0,
     };
 }
+
+export function newDesignationApplication() {
+    return {
+        date: "",
+        planGiftType: "",
+        applicationAmount: 0,
+    };
+}
+
 export function newGiftInKind() {
     return {
         descriptionOfGift: "",
@@ -477,9 +495,12 @@ export function newTrustFormValues() {
         trustWire: [], // TrustWire.js
         trustCheck: [], // TrustCheck.js
         giftInKind: [], // giftInKind.js
+        application: [{ ...newApplication() }], // application.js
         designation: [{ ...newDesignation() }], // DesignationInformation.js
         otherInformation: "", // TrustOtherInformation.js
         is8283Required: "No", // TrustOtherInformation.js
+
+        isDifferentDonor: "No",
 
         is8283RadioButtons: "Gift Admin",
         giftAdmincheckbox: "",
@@ -487,6 +508,9 @@ export function newTrustFormValues() {
 
         isGiftPlanned: "No",
         applicationType: "Planned Gift",
+        applicationDate: "05-25-2021",
+        planGiftType: "A widget",
+        planGiftAmount: "3000",
     };
 }
 
@@ -791,6 +815,13 @@ export function FillTrustForm(setValue) {
 
     setValue("trustCheck.0.checkNumbers", "8675309");
     setValue("trustCheck.0.checkTotal", "8000");
+
+    setValue("isGiftPlanned", "No");
+    setValue("applicationAdditionalComments", "");
+
+    setValue("application.0.applicationDate", "");
+    setValue("application.0.planGiftType", "");
+    setValue("application.0.planGiftAmount", "");
 }
 
 function get_date_format(myDate) {

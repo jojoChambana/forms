@@ -50,6 +50,7 @@ const PrintDesignations = ({ formValues, trustMode = false }) => {
             ) : (
                 <></>
             )}
+            {formValues.isGiftPlanned ? <></> : <></>}
         </>
     );
 };

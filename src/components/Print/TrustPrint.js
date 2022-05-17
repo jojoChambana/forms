@@ -23,6 +23,8 @@ import PrintEightyTwoEightyThree from "./PrintEightyTwoEightyThree";
 import PrintGIKs from "./PrintGIKs";
 import PrintCheck from "./PrintCheck";
 import PrintWire from "./PrintWire";
+import PrintOneApplication from "./PrintOneApplication";
+import PrintPlannedGift from "./PrintPlannedGift";
 
 // import TrustIRADistribution from "../TrustIRADistribution";
 
@@ -126,6 +128,13 @@ const TrustPrint = (props) => {
                         <PrintGiftInformation formValues={props.formValues} />
                         <PrintTribute formValues={props.formValues} />
                         <PrintWire formValues={props.formValues} />
+                        <Row className="theDesignationResults">
+                            <Col>
+                                <PrintSecurities
+                                    formValues={props.formValues}
+                                />
+                            </Col>
+                        </Row>
                         <PrintCheck formValues={props.formValues} />
                         <PrintGIKs formValues={props.formValues} />
                         <div className="theDesignationResults">
@@ -137,16 +146,10 @@ const TrustPrint = (props) => {
                                 </div>
                             </Col>
                         </div>
+                        <PrintPlannedGift formValues={props.formValues} />
                         <PrintEightyTwoEightyThree
                             formValues={props.formValues}
                         />
-                        <Row className="theDesignationResults">
-                            <Col>
-                                <PrintSecurities
-                                    formValues={props.formValues}
-                                />
-                            </Col>
-                        </Row>
 
                         <Row>
                             <Col>
