@@ -4,10 +4,12 @@ import { MdDelete, MdAdd } from "react-icons/md";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { calcFinalTotals, newDesignation } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
+import RadioButtons from "./RadioButtons";
+import { useState } from "react";
 
-export default function TrustApplication() {
+export default function TrustApplication({ formType }) {
     const { register, control, getValues } = useFormContext();
-
+    const [radioChanged, setRadioChanged] = useState(false); // needed to force re-render
     // used in building the repeating application section.  Get the array of object from the 'application' object in cashValues
     const { fields, setValue, append, remove } = useFieldArray({
         control,
@@ -15,13 +17,14 @@ export default function TrustApplication() {
     });
 
     var applicationCount = 0;
+
     if (getValues("application") !== undefined)
         applicationCount = getValues("application").length; // used to determine if we should show Delete application buttons
-    console.log("Application", applicationCount);
+
     return (
         <>
             <Row>
-                <Col>
+                <Col className="pb-0">
                     <Typography variant="h5" component="h3">
                         Application Information
                     </Typography>
@@ -39,12 +42,104 @@ export default function TrustApplication() {
                                     padding: "0em 0em 1em 0.5em",
                                 }}
                             >
-                                <div className="applicationInfo">
+                                <div className="col pt-0 pb-0">
+                                    <div className="d-flex align-items-center">
+                                        <div className="col-1">This is a</div>
+                                        <div className="col-8">
+                                            <RadioButtons
+                                                variableName="applicationType"
+                                                // required={true}
+                                                {...register(
+                                                    `application.${index}.applicationType`
+                                                )}
+                                                values={[
+                                                    "Planned Gift",
+                                                    "Planned Gift Addition",
+                                                ]}
+                                                radioChangedFlag={radioChanged}
+                                                setRadioChangedFlag={
+                                                    setRadioChanged
+                                                }
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col pt-0">
+                                    <div className="d-flex align-items-center">
+                                        <div className="col-4">
+                                            Is Donor different than Donor above?
+                                        </div>
+                                        <div className="col-8">
+                                            <RadioButtons
+                                                variableName="isApplicationDonorDifferent"
+                                                {...register(
+                                                    `application.${index}.isApplicationDonorDifferent`
+                                                )}
+                                                // checked={true}
+                                                values={["Yes", "No"]}
+                                                radioChangedFlag={radioChanged}
+                                                setRadioChangedFlag={
+                                                    setRadioChanged
+                                                }
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div
+                                        className="d-flex justify-content-around"
+                                        style={{
+                                            position: "relative",
+                                            right: "0.2em",
+                                        }}
+                                    >
+                                        <div className="col-4">
+                                            <TextField
+                                                {...register(
+                                                    `application.${index}.dLastOrgName`
+                                                )}
+                                                required
+                                                placeholder="Last/Organization Name"
+                                                label="Last/Organization Name"
+                                                className="maxWidth"
+                                            />
+                                        </div>
+                                        <div className="col-3">
+                                            <TextField
+                                                {...register(
+                                                    `application.${index}.dFirstName`
+                                                )}
+                                                required
+                                                placeholder="First Name"
+                                                label="First Name"
+                                                className="maxWidth"
+                                            />
+                                        </div>
+                                        <div className="col-4">
+                                            <TextField
+                                                {...register(
+                                                    `application.${index}.dMiddleName`
+                                                )}
+                                                required
+                                                placeholder="Middle Name"
+                                                label="Middle Name"
+                                                className="maxWidth"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    className="applicationInfo"
+                                    style={{ width: "maxContent" }}
+                                >
                                     <div className="col-2">
                                         <TextField
                                             {...register(
                                                 `application.${index}.applicationDate`
                                             )}
+                                            required
                                             placeholder="Date"
                                             label="Date"
                                             className="maxWidth"
@@ -56,6 +151,7 @@ export default function TrustApplication() {
                                             {...register(
                                                 `application.${index}.planGiftType`
                                             )}
+                                            required
                                             label="Plan Gift Type"
                                             className="dateField maxWidth"
                                         />
@@ -65,6 +161,7 @@ export default function TrustApplication() {
                                             {...register(
                                                 `application.${index}.planGiftAmount`
                                             )}
+                                            required
                                             label="Plan Gift Amount"
                                             className="dateField maxWidth"
                                         />

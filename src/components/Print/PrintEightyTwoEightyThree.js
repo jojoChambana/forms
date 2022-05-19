@@ -42,14 +42,14 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={3} className="p-3">
+                            <Col xs={4} className="p-3">
                                 <div className="d-print-table-row">
                                     <div className="d-print-table-cell">
                                         {formValues.is8283RequiredCheckBoxes !==
                                         "Gift Admin" ? (
                                             <>
                                                 <div className="d-flex">
-                                                    <div>Type:</div>
+                                                    Type:{" "}
                                                     <span
                                                         className="normal"
                                                         style={{

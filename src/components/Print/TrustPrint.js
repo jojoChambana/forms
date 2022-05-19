@@ -23,7 +23,6 @@ import PrintEightyTwoEightyThree from "./PrintEightyTwoEightyThree";
 import PrintGIKs from "./PrintGIKs";
 import PrintCheck from "./PrintCheck";
 import PrintWire from "./PrintWire";
-import PrintOneApplication from "./PrintOneApplication";
 import PrintPlannedGift from "./PrintPlannedGift";
 
 // import TrustIRADistribution from "../TrustIRADistribution";

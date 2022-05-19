@@ -508,9 +508,17 @@ export function newTrustFormValues() {
 
         isGiftPlanned: "No",
         applicationType: "Planned Gift",
+        isApplicationDonorDifferent: "Yes",
         applicationDate: "05-25-2021",
         planGiftType: "A widget",
         planGiftAmount: "3000",
+
+        dLastOrgName: "",
+        fFirstName: "",
+        dMiddleName: "",
+
+        charitableRemainderAmount: "",
+        annuityPayable: "",
     };
 }
 
@@ -820,8 +828,17 @@ export function FillTrustForm(setValue) {
     setValue("applicationAdditionalComments", "");
 
     setValue("application.0.applicationDate", "");
+    setValue("application.0.applicationType", "Planned Gift");
+    setValue("application.0.isApplicationDonorDifferent", "Yes");
     setValue("application.0.planGiftType", "");
     setValue("application.0.planGiftAmount", "");
+
+    setValue("dLastOrgName", "");
+    setValue("fFirstName", "");
+    setValue("dMiddleName", "");
+
+    setValue("charitableRemainderAmount", "");
+    setValue("annuityPayable", "");
 }
 
 function get_date_format(myDate) {

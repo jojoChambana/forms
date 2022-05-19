@@ -61,17 +61,41 @@ export default function PlannedGift({
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <FormGroup variableName="isGiftPlannedCheckBoxes">
-                            {/* Last is the comments field  */}
-                            <TextField
-                                placeholder="Comments"
-                                label="Comments"
-                                {...register(`applicationAdditionalComments`)}
-                                className="maxWidth"
-                            />
-                        </FormGroup>
-                    </Col>
+                    <FormGroup variableName="isGiftPlannedCheckBoxes">
+                        <Row className="mb-0">
+                            <div className="col">
+                                {" "}
+                                <TextField
+                                    placeholder="Charitable Remainder Amount"
+                                    label="Charitable Remainder Amount"
+                                    {...register(`charitableRemainderAmount`)}
+                                    className="maxWidth"
+                                />
+                            </div>
+                            <div className="col">
+                                <TextField
+                                    placeholder="Annuity Payable"
+                                    label="Annuity Payable"
+                                    {...register(`annuityPayable`)}
+                                    className="maxWidth"
+                                />
+                            </div>
+                        </Row>
+
+                        <Row className="mb-0">
+                            <Col>
+                                {/* Last is the comments field  */}
+                                <TextField
+                                    placeholder="Comments"
+                                    label="Comments"
+                                    {...register(
+                                        `applicationAdditionalComments`
+                                    )}
+                                    className="maxWidth"
+                                />
+                            </Col>
+                        </Row>
+                    </FormGroup>
                     {getValues("isGiftPlanned") === "Yes" ? (
                         <TrustApplication />
                     ) : null}

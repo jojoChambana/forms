@@ -4,7 +4,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import PhoneInput from "react-phone-number-input";
 import { Controller, useFormContext } from "react-hook-form";
 import "react-phone-number-input/style.css";
-import TrustCheck from "./TrustCheck";
+
 export default function DonorInfo() {
     const { register, errors, control, getValues } = useFormContext();
 
