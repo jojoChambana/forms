@@ -310,8 +310,21 @@ export default function DesignationInformation({ trustMode = false }) {
                                     )}
                                 </Row>
 
-                                {/* opportunity checkbox and all of those fields  */}
+                                <Row className="mb-3">
+                                    <Col sm={12}>
+                                        {/* Last is the comments field  */}
+                                        <TextField
+                                            placeholder="Comments"
+                                            label="Comments"
+                                            {...register(
+                                                `designation.${index}.designationAdditionalComments`
+                                            )}
+                                            className="maxWidth"
+                                        />
+                                    </Col>
+                                </Row>
 
+                                {/* opportunity checkbox and all of those fields  */}
                                 <GiftAssociatedOpportunity index={index} />
                             </ListGroupItem>
                         );

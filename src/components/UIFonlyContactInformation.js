@@ -54,7 +54,8 @@ export default function UIFonlyContactInformation({ trustType }) {
                         label="Date Prepared"
                     />
                 </Col>
-                {trustType === "Outright" || trustType === "Life Income" ? (
+
+                {trustType !== "Life Income" ? (
                     <Col xs={12} md={2}>
                         <Controller
                             name={"sourceCode"}

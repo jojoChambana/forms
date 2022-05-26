@@ -2,7 +2,7 @@ import { FormGroup, TextField, Typography } from "@mui/material";
 import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { MdDelete, MdAdd } from "react-icons/md";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import { calcFinalTotals, newDesignation } from "./HelperFunctions";
+import { calcFinalTotals, newApplication } from "./HelperFunctions";
 import { IconContext } from "react-icons/lib";
 import RadioButtons from "./RadioButtons";
 import { useState } from "react";
@@ -47,7 +47,7 @@ export default function TrustApplication({ formType }) {
                                         <div className="col-1">This is a</div>
                                         <div className="col-8">
                                             <RadioButtons
-                                                variableName="applicationType"
+                                                variableName={`application.${index}.applicationType`}
                                                 // required={true}
                                                 {...register(
                                                     `application.${index}.applicationType`
@@ -60,6 +60,7 @@ export default function TrustApplication({ formType }) {
                                                 setRadioChangedFlag={
                                                     setRadioChanged
                                                 }
+                                                checked
                                             />
                                         </div>
                                     </div>
@@ -72,11 +73,10 @@ export default function TrustApplication({ formType }) {
                                         </div>
                                         <div className="col-8">
                                             <RadioButtons
-                                                variableName="isApplicationDonorDifferent"
+                                                variableName={`application.${index}.isApplicationDonorDifferent`}
                                                 {...register(
                                                     `application.${index}.isApplicationDonorDifferent`
                                                 )}
-                                                // checked={true}
                                                 values={["Yes", "No"]}
                                                 radioChangedFlag={radioChanged}
                                                 setRadioChangedFlag={
@@ -86,6 +86,7 @@ export default function TrustApplication({ formType }) {
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="row">
                                     <div
                                         className="d-flex justify-content-around"
@@ -121,7 +122,6 @@ export default function TrustApplication({ formType }) {
                                                 {...register(
                                                     `application.${index}.dMiddleName`
                                                 )}
-                                                required
                                                 placeholder="Middle Name"
                                                 label="Middle Name"
                                                 className="maxWidth"
@@ -214,17 +214,17 @@ export default function TrustApplication({ formType }) {
                 <Row>
                     <Col style={{ padding: "0em 1em" }}>
                         <Button
-                            placeholder="Add Designation"
-                            label="Add Designation"
+                            placeholder="Add Application"
+                            label="Add Application"
                             className="addButtonIcon"
                             onClick={() => {
-                                append({ ...newDesignation() });
+                                append({ ...newApplication() });
                             }}
                         >
                             <IconContext.Provider
                                 value={{
                                     size: "2em",
-                                    title: "Add Designation",
+                                    title: "Add Application",
                                 }}
                             >
                                 <MdAdd />

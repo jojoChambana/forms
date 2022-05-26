@@ -74,7 +74,7 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
                                             </>
                                         )} */}
                                     </div>
-                                    {console.log(formValues.is8283RadioButtons)}
+                                    {/* {console.log(formValues.is8283RadioButtons)} */}
                                 </div>
                             </Col>
                         </div>

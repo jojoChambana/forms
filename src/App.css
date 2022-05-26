@@ -1,5 +1,9 @@
 @import url(/node_modules/bootstrap-print-css/css/bootstrap-print.min.css);
 @import url(PrintStyles.css);
+@page {
+  size: 5.5in 8.5in;
+}
+
 body,
 h1,
 h2,
@@ -14,7 +18,13 @@ span,
 input,
 label,
 div,
-button, table, thead, tr, th, tbody, td {
+button,
+table,
+thead,
+tr,
+th,
+tbody,
+td {
   font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif !important;
 }
 
@@ -622,6 +632,12 @@ button:hover,
           hyphens: auto;
 }
 
+.overFlowNoBreakWord {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .innerBorder {
   max-width: 91.75vw;
   position: relative;
@@ -663,6 +679,10 @@ button:hover,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.pGiftTable td {
+  width: 33.3333%;
 }
 
 /* Viewports between 320px and 480px wide */

@@ -1,4 +1,11 @@
 @media only print {
+  @page {
+    margin: 5em 0;
+  }
+  #root {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
   body,
   h1,
   h2,
@@ -27,7 +34,6 @@
   }
   #timestamp {
     display: block !important;
-    margin-top: 2em;
   }
   .navbar {
     display: none;
@@ -101,73 +107,66 @@
     width: -moz-max-content;
     width: max-content;
   }
-}
-
-.printTable {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.printTable table {
-  width: 75%;
-}
-
-@-moz-document url-prefix(about:blank) {
-  .printTable h3 {
-    background: #cccccc !important;
+  html, body {
+    height: initial !important;
+    overflow: initial !important;
+    -webkit-print-color-adjust: exact;
   }
-}
-
-.printTable .hideForScreen {
-  display: none !important;
-}
-
-.normal.longName {
-  max-width: 300px;
-}
-
-#tributePrint {
-  margin-right: 1em;
-  word-break: break-word;
-}
-
-.gikTotalSpacing {
-  margin: 0em 0.5em;
-}
-
-.border {
-  border-style: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 4px;
-  --bs-gutter-x: 0px;
-  --bs-gutter-x: 0rem;
-}
-
-.border .row {
-  --bs-gutter-x: 0;
-}
-
-.border .mt-3 .row {
-  margin: 0;
-}
-
-.border .col {
-  padding: 1em;
-}
-
-.border #donationDate {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  text-align: end;
+  .printTable {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .printTable table {
+    width: 75%;
+  }
+  @-moz-document url-prefix(about:blank) {
+    .printTable h3 {
+      background: #cccccc !important;
+    }
+  }
+  .printTable .hideForScreen {
+    display: none !important;
+  }
+  .normal.longName {
+    max-width: 300px;
+  }
+  #tributePrint {
+    margin-right: 1em;
+    word-break: break-word;
+  }
+  .gikTotalSpacing {
+    margin: 0em 0.5em;
+  }
+  .border {
+    border-style: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    --bs-gutter-x: 0px;
+    --bs-gutter-x: 0rem;
+  }
+  .border .row {
+    --bs-gutter-x: 0;
+  }
+  .border .mt-3 .row {
+    margin: 0;
+  }
+  .border .col {
+    padding: 1em;
+  }
+  .border #donationDate {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    text-align: end;
+  }
 }
 /*# sourceMappingURL=PrintStyles.css.map */

@@ -14,6 +14,7 @@ import {
 } from "../components/HelperFunctions";
 import { Col, Row } from "react-bootstrap";
 import UIFonlyContactInformation from "./UIFonlyContactInformation";
+import DesignationInformation from "./DesignationInformation";
 
 export default function SecWireDataEntry({
     formValues,
@@ -63,7 +64,7 @@ export default function SecWireDataEntry({
                             <></>
                         )}
 
-                        <SecWireDesignations />
+                        <DesignationInformation />
                         <Typography
                             variant="h5"
                             component="h3"

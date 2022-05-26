@@ -14,7 +14,7 @@ import PrintTotals from "./PrintTotals";
 import { PrintCampusAddressSwapNoHeaderAddress } from "../HelperFunctions";
 
 import PrintSecurities from "./PrintSecurities";
-import PrintSecWireDesignations from "./PrintSecWireDesignations";
+import PrintDesignations from "./PrintDesignations";
 import PrintUIFonlyContactInformation from "./PrintUIFonlyContactInformation";
 import PrintDonorInformation from "./PrintDonorInformation";
 
@@ -39,7 +39,7 @@ const SecWirePrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
-                        <div id="timestamp"></div>
+                        {/* <div id="timestamp"></div> */}
                         <PrintCampusAddressSwapNoHeaderAddress
                             campusLocation={props.formValues.campusLocation}
                         />
@@ -87,7 +87,7 @@ const SecWirePrint = (props) => {
 
                         {props.printSecurities ? (
                             <>
-                                <Row className="theDesignationResults">
+                                <Row className="theDesignationResults mb1">
                                     <Col>
                                         <PrintSecurities
                                             formValues={props.formValues}
@@ -98,17 +98,18 @@ const SecWirePrint = (props) => {
                         ) : (
                             <></>
                         )}
+                        {console.table(props.printSecurities)}
+
                         <div className="theDesignationResults mt-0">
                             <Col className="p-0">
                                 <div className="resultItems">
-                                    <PrintSecWireDesignations
+                                    <PrintDesignations
                                         formValues={props.formValues}
                                     />
                                 </div>
                             </Col>
                         </div>
-
-                        <Row>
+                        <Row className="mb12">
                             <Col>
                                 <PrintTotals formValues={props.formValues} />
                             </Col>
@@ -116,24 +117,29 @@ const SecWirePrint = (props) => {
 
                         {props.formValues.generalComments ? (
                             <>
-                                <Row>
-                                    <Col>
-                                        <Typography
-                                            variant="h5"
-                                            component="h3"
-                                            className="mt-2 mr-0 mb-2 ml-0"
-                                        >
-                                            General Comments
-                                        </Typography>
+                                <div>
+                                    <Row>
+                                        <Col>
+                                            <Typography
+                                                variant="h5"
+                                                component="h3"
+                                                className="mt-2 mr-0 mb-2 ml-0"
+                                            >
+                                                General Comments
+                                            </Typography>
 
-                                        <Col
-                                            className="border"
-                                            style={{ padding: "1em" }}
-                                        >
-                                            {props.formValues.generalComments}
+                                            <Col
+                                                className="border"
+                                                style={{ padding: "1em" }}
+                                            >
+                                                {
+                                                    props.formValues
+                                                        .generalComments
+                                                }
+                                            </Col>
                                         </Col>
-                                    </Col>
-                                </Row>
+                                    </Row>
+                                </div>
                             </>
                         ) : (
                             <></>

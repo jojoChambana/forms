@@ -47,7 +47,7 @@ const TrustPrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
-                        <div id="timestamp" className="pb-2"></div>
+                        {/* <div id="timestamp" className="pb-2"></div> */}
                         <PrintCampusAddressSwap
                             campusLocation={props.formValues.campusLocation}
                             formType={props.formType}
@@ -136,6 +136,7 @@ const TrustPrint = (props) => {
                         </Row>
                         <PrintCheck formValues={props.formValues} />
                         <PrintGIKs formValues={props.formValues} />
+
                         <div className="theDesignationResults">
                             <Col className="p-0">
                                 <div className="resultItems">
@@ -145,7 +146,9 @@ const TrustPrint = (props) => {
                                 </div>
                             </Col>
                         </div>
+
                         <PrintPlannedGift formValues={props.formValues} />
+
                         <PrintEightyTwoEightyThree
                             formValues={props.formValues}
                         />

@@ -106,6 +106,8 @@ export function newApplication() {
         planGiftType: "",
         planGiftAmount: "",
         pledgeRevenueId: "",
+        applicationType: "Planned Gift",
+        isApplicationDonorDifferent: "No",
     };
 }
 
@@ -508,7 +510,7 @@ export function newTrustFormValues() {
 
         isGiftPlanned: "No",
         applicationType: "Planned Gift",
-        isApplicationDonorDifferent: "Yes",
+        isApplicationDonorDifferent: "No",
         applicationDate: "05-25-2021",
         planGiftType: "A widget",
         planGiftAmount: "3000",
@@ -676,10 +678,10 @@ export function FillCashCheckGIKForm(setValue) {
     setValue("designation.0.tedOpportunityAmount", 22000);
     setValue("designation.0.actualAskDate", "01-22-2022");
     setValue("designation.0.primaryPlanManager", "Tom Smith");
-    setValue(
-        "designation.0.designationAdditionalComments",
-        "This is a designation additional comment"
-    );
+    // setValue(
+    //     "designation.0.designationAdditionalComments",
+    //     "This is a designation additional comment"
+    // );
 
     setValue("tedTributeAcknowledgedFirstName", "David");
     setValue("tedTributeAcknowledgedLastName", "Long");
@@ -829,7 +831,7 @@ export function FillTrustForm(setValue) {
 
     setValue("application.0.applicationDate", "");
     setValue("application.0.applicationType", "Planned Gift");
-    setValue("application.0.isApplicationDonorDifferent", "Yes");
+    setValue("application.0.isApplicationDonorDifferent", "No");
     setValue("application.0.planGiftType", "");
     setValue("application.0.planGiftAmount", "");
 

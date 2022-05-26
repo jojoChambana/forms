@@ -1,6 +1,6 @@
 import { FormGroup, TextField, Typography } from "@mui/material";
 import { Col, Row } from "react-bootstrap";
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { useState } from "react";
 import RadioButtons from "./RadioButtons";
 import TrustApplication from "./TrustApplication";
@@ -10,27 +10,10 @@ export default function PlannedGift({
     showSeeAttached,
     trustMode = false,
 }) {
-    const { register, control, getValues, event } = useFormContext();
-
-    // used in building the repeating Planned Gift section.  Get the array of object from the 'PlannedGift' object in cashValues
-    const { fields, append, remove } = useFieldArray({
-        control,
-        name: "PlannedGift",
-    });
-
-    var PlannedGiftCount = 0;
-    if (getValues("PlannedGift") !== undefined)
-        PlannedGiftCount = getValues("PlannedGift").length; // used to determine if we should show Delete Planned Gift buttons
+    const { register, getValues } = useFormContext();
 
     const [isGiftPlanned, setGiftPlanned] = useState("no");
-    const [isDifferentDonor, setIsDifferentDonor] = useState("no");
 
-    // const [, index] = event.target.name.split("."); // the name will be 'designation.index.newDesignationRequestedChecked ' and we just need the index
-
-    const pledgeRevLabel =
-        trustMode === true
-            ? "Planned Gift or Pledge Revenue ID"
-            : "Pledge Revenue ID";
     return (
         <>
             <Typography variant="h5" component="h3" className="mt-3">
@@ -60,6 +43,13 @@ export default function PlannedGift({
                         />
                     </Col>
                 </Row>
+
+                <>
+                    {getValues("isGiftPlanned") === "Yes" ? (
+                        <TrustApplication />
+                    ) : null}
+                </>
+
                 <Row>
                     <FormGroup variableName="isGiftPlannedCheckBoxes">
                         <Row className="mb-0">
@@ -96,9 +86,6 @@ export default function PlannedGift({
                             </Col>
                         </Row>
                     </FormGroup>
-                    {getValues("isGiftPlanned") === "Yes" ? (
-                        <TrustApplication />
-                    ) : null}
                 </Row>
             </div>
         </>

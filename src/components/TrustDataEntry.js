@@ -102,7 +102,7 @@ export default function TrustDataEntry({
                                         );
                                     }
                                 }
-                                if (event.target.value === "Estate")
+                                if (event.target.value === "Lif Income")
                                     setValue("sourceCode", "10000");
                                 else {
                                     if (getValues("sourceCode") === "10000")
