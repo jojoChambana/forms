@@ -15,7 +15,12 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
                     </Typography>
                 </Col>
             </Row>
-            <div className="mt-3 mb-2 border">
+            <Row className="border">
+                <Col>
+                    Is 8282 Required?<span className="normal"> Yes</span>
+                </Col>
+            </Row>
+            {/* <div className="mt-3 mb-2 border">
                 <>
                     <div className="theDesignationResults">
                         <div className="row mb-0">
@@ -31,11 +36,9 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
                                         <div className="rightLabel">
                                             8282 Required:
                                         </div>
-                                    </div>
-                                    <div className="col">
-                                        <div className="d-print-table-cell">
+
+                                        <div>
                                             <span className="normal">
-                                                {/* {formValues.is8283RadioButtons} */}
                                                 Yes
                                             </span>
                                         </div>
@@ -65,22 +68,14 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
                                         ) : (
                                             <></>
                                         )}
-                                        {/* {formValues.is8283RequiredCheckBoxes !==
-                                        "Trust" ? (
-                                            <></>
-                                        ) : (
-                                            <>
 
-                                            </>
-                                        )} */}
                                     </div>
-                                    {/* {console.log(formValues.is8283RadioButtons)} */}
                                 </div>
                             </Col>
                         </div>
                     </div>
                 </>
-            </div>
+            </div> */}
         </div>
     ) : null;
 }

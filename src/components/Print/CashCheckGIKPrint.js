@@ -36,7 +36,7 @@ const CashCheckGIKPrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
-                        {/* <div id="timestamp"></div> */}
+                        <div id="timestamp"></div>
                         <PrintCampusAddressSwap
                             campusLocation={props.formValues.campusLocation}
                             formType={props.formType}

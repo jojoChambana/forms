@@ -1,12 +1,10 @@
 @media only print {
     @page{
-        margin:5em 0;
+        size:auto !important;
+        margin:2em;
+    }
 
-    }
-    #root{
-        padding-top:5em;
-        padding-bottom: 5em;
-    }
+
     body,
     h1,
     h2,
@@ -170,6 +168,28 @@
             text-align: end;
         }
     }    
+    .arrangeInlineCols{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        div{
+            width: max-content;
+        }
+        .firstChild{
+            width: 250px;
+            display: flex;
+            .normal{
+                display: flex;
+                align-items: end;
+            }
+            .spacer{
+                display: flex;
+                justify-content: end;
+                text-align: end;
+                width: 170px
+            }
+        }
+    }
 }
 
 

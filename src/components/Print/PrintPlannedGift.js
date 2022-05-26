@@ -23,121 +23,22 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                 </Col>
             </Row>
             <div className="border">
-                <Row className="mb-0">
-                    <Col className="col-6 mb-0 pb-0">
-                        <div className="d-print-table-row">
-                            <div className="rightLabel">
-                                <Typography variant="p">
-                                    Is this associated with
-                                    <br /> a Planned Gift Application?
-                                </Typography>
-                            </div>
-                            <div className="d-print-table-cell">
-                                <span className="normal d-flex align-items-center">
-                                    {formValues.isGiftPlanned}
-                                </span>
-                            </div>
-                        </div>
-                    </Col>
-
-                    {!formValues.charitableRemainderAmount > 0 ? (
-                        <></>
-                    ) : (
-                        <Col className="col-6 mb-0">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    <Typography variant="p">
-                                        Charitable Remainder Amount:
-                                    </Typography>
-                                </div>
-                                <div style={{ width: "maxContent" }}>
-                                    <span className="normal d-flex">
-                                        {formValues.charitableRemainderAmount}
-                                    </span>
-                                </div>
-                            </div>
-                        </Col>
-                    )}
-
-                    {!formValues.applicationAdditionalComments > 0 ? (
-                        <></>
-                    ) : (
-                        <Col className="col-6 mb-0">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    <Typography variant="p">
-                                        Comments:
-                                    </Typography>
-                                </div>
-                                <div style={{ width: "maxContent" }}>
-                                    <span
-                                        className="normal d-flex"
-                                        style={{ wordBreak: "break-word" }}
-                                    >
-                                        {
-                                            formValues.applicationAdditionalComments
-                                        }
-                                    </span>
-                                </div>
-                            </div>
-                        </Col>
-                    )}
-
-                    {!formValues.annuityPayable > 0 ? (
-                        <></>
-                    ) : (
-                        <Col className="col-6 mb-0">
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    <Typography variant="p">
-                                        Annuity Payable:
-                                    </Typography>
-                                </div>
-                                <div style={{ width: "maxContent" }}>
-                                    <span className="normal d-flex">
-                                        {formValues.annuityPayable}
-                                    </span>
-                                </div>
-                            </div>
-                        </Col>
-                    )}
-                </Row>
-
                 {formValues.isGiftPlanned === "Yes" ? (
                     <>
                         {formValues.application.map((item, index) => {
                             return (
                                 <>
-                                    <Row>
-                                        <div className="col pb-3">
-                                            <Table className="pGiftTable">
-                                                <TableHead>
-                                                    <TableRow>
-                                                        <TableCell
-                                                            style={{
-                                                                width: "20%",
-                                                            }}
-                                                        >
-                                                            Date
-                                                        </TableCell>
-                                                        <TableCell>
-                                                            Type
-                                                        </TableCell>
-                                                        <TableCell>
-                                                            Amount
-                                                        </TableCell>
-                                                    </TableRow>
-                                                </TableHead>
-
-                                                <TableBody>
-                                                    <PrintOneApplication
-                                                        oneApplication={item}
-                                                        index={index}
-                                                        // key={"oneDesig" + index}
-                                                    />
-                                                </TableBody>
-                                            </Table>
-                                        </div>
+                                    <Row
+                                        style={{
+                                            paddingBottom: "0",
+                                            marginBottom: "0",
+                                        }}
+                                    >
+                                        <PrintOneApplication
+                                            oneApplication={item}
+                                            index={index}
+                                            // key={"oneDesig" + index}
+                                        />
                                     </Row>
                                 </>
                             );
@@ -145,6 +46,60 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                     </>
                 ) : (
                     <></>
+                )}
+
+                <Row>
+                    {!formValues.charitableRemainderAmount > 0 ? (
+                        <></>
+                    ) : (
+                        <Col className="d-flex justify-content-center">
+                            <div
+                                className="firstChild"
+                                style={{ display: "flex" }}
+                            >
+                                <div className="spacer">
+                                    <Typography variant="p">
+                                        Charitable Remainder Amount:
+                                    </Typography>
+                                </div>
+                                <span className="normal">
+                                    {formValues.charitableRemainderAmount}
+                                </span>
+                            </div>
+                        </Col>
+                    )}
+
+                    {!formValues.annuityPayable > 0 ? (
+                        <></>
+                    ) : (
+                        <Col className="d-flex justify-content-center">
+                            <div
+                                className="firstChild"
+                                style={{ display: "flex" }}
+                            >
+                                <Typography variant="p">
+                                    Annuity Payable:
+                                </Typography>
+                                <span className="normal">
+                                    {formValues.annuityPayable}
+                                </span>
+                            </div>
+                        </Col>
+                    )}
+                </Row>
+                {!formValues.applicationAdditionalComments > 0 ? (
+                    <></>
+                ) : (
+                    <Col className="d-flex justify-content-start">
+                        <div className="firstChild" style={{ display: "flex" }}>
+                            <div className="spacer">
+                                <Typography variant="p">Comments: </Typography>
+                            </div>
+                            <span className="normal">
+                                {formValues.applicationAdditionalComments}
+                            </span>
+                        </div>
+                    </Col>
                 )}
             </div>
         </div>

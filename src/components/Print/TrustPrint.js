@@ -47,7 +47,7 @@ const TrustPrint = (props) => {
             <ThemeProvider theme={theme}>
                 <div ref={componentRef}>
                     <Container>
-                        {/* <div id="timestamp" className="pb-2"></div> */}
+                        <div id="timestamp" className="pb-2"></div>
                         <PrintCampusAddressSwap
                             campusLocation={props.formValues.campusLocation}
                             formType={props.formType}
