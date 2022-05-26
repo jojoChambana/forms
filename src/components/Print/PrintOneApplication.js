@@ -1,5 +1,4 @@
 import { TableCell, TableRow, Typography } from "@mui/material";
-import { Col, Row } from "react-bootstrap";
 
 const PrintOneApplication = ({ oneApplication, index }) => {
     return (
