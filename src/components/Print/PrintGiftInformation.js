@@ -12,7 +12,11 @@ export default function PrintGiftInformation({ formValues, trustType }) {
             !formValues.receiptToDevelopmentPrograms === false ? (
                 <div className="row">
                     <div className="col">
-                        <Typography variant="h5" component="h3">
+                        <Typography
+                            variant="h5"
+                            component="h3"
+                            className="mt-3"
+                        >
                             Gift Information
                         </Typography>
                     </div>
@@ -23,46 +27,51 @@ export default function PrintGiftInformation({ formValues, trustType }) {
 
             <div className="row border">
                 <div className="col-6">
-                    {!formValues.receiptToTrustServices === false ? (
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Busey Bank number: </div>
+                        <div
+                            className="d-print-table-cell"
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                            }}
+                        >
+                            {" "}
+                            <span className="normal">
+                                {formValues.bankNumber}
+                            </span>
+                        </div>
+                    </div>
+                    {formValues.trustType === "Outright" ? (
                         <div className="d-print-table-row">
-                            <div className="rightLabel">Receipt To:</div>
-                            <div className="maxWidth">
-                                <span className="normal">Trust Services</span>
+                            <div className="rightLabel">IRA Distribution: </div>
+                            <div
+                                className="d-print-table-cell"
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                }}
+                            >
+                                {" "}
+                                <span className="normal">
+                                    {formValues.iraDistribution}
+                                </span>
                             </div>
                         </div>
                     ) : (
                         <></>
                     )}
-                    {!formValues.noReceiptNecessary === false ? (
+                    {!formValues.receiptToOther === false ? (
                         <div className="d-print-table-row">
                             <div className="rightLabel">
-                                Receipt to Trust Services:
+                                Send Receipt To Other:
                             </div>
-                            <div className="maxWidth">
-                                <span className="normal">No</span>
-                            </div>
-                        </div>
-                    ) : (
-                        <></>
-                    )}
-
-                    {!formValues.receiptToPlannedGiving === false ? (
-                        <div className="d-print-table-row">
-                            <div className="rightLabel">Receipt To:</div>
-                            <div className="maxWidth">
-                                <span className="normal">Planned Giving</span>
-                            </div>
-                        </div>
-                    ) : (
-                        <></>
-                    )}
-
-                    {!formValues.receiptToDevelopmentPrograms === false ? (
-                        <div className="d-print-table-row">
-                            <div className="rightLabel">Receipt To:</div>
-                            <div className="maxWidth">
-                                <span className="normal">
-                                    Development Programs
+                            <div className="d-print-table-cell">
+                                <span
+                                    className="normal"
+                                    style={{ wordBreak: "break-all" }}
+                                >
+                                    {formValues.receiptToOther}
                                 </span>
                             </div>
                         </div>
@@ -71,43 +80,51 @@ export default function PrintGiftInformation({ formValues, trustType }) {
                     )}
                 </div>
                 <div className="col-6">
-                    {!trustType === "Life Income" ? (
-                        <></>
-                    ) : (
+                    {!formValues.receiptToTrustServices === false ? (
                         <div className="d-print-table-row">
-                            <div
-                                className="leftLabel"
-                                style={{ maxWidth: "none" }}
-                            >
-                                IRA Distribution:
+                            <div className="d-print-table-cell leftLabel">
+                                Receipt To:
                             </div>
-                            <div
-                                className="d-print-table-cell"
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                }}
-                            >
-                                <span className="normal">
-                                    {formValues.iraDistribution}
+                            <div className="maxWidth">
+                                <span
+                                    className="normal"
+                                    style={{ paddingLeft: "0" }}
+                                >
+                                    Trust Services
                                 </span>
                             </div>
                         </div>
+                    ) : (
+                        <></>
                     )}
 
-                    {!formValues.receiptToOther === false ? (
-                        <div className="row">
-                            <div className="col">
-                                <div className="d-print-table-row">
-                                    <div className="col leftLabel">
-                                        Send Receipt To Other:
-                                    </div>
-                                    <div className="d-print-table-cell d-flex align-items-center">
-                                        <span className="normal">
-                                            {formValues.receiptToOther}
-                                        </span>
-                                    </div>
-                                </div>
+                    {!formValues.receiptToPlannedGiving === false ? (
+                        <div className="d-print-table-row">
+                            <div className="d-print-table-cell leftLabel">
+                                Receipt To:
+                            </div>
+                            <div className="maxWidth">
+                                <span
+                                    className="normal"
+                                    style={{ paddingLeft: "0" }}
+                                >
+                                    Planned Giving
+                                </span>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+
+                    {!formValues.receiptToDevelopmentPrograms === false ? (
+                        <div className="d-print-table-row">
+                            <div className="d-print-table-cell leftLabel">
+                                Receipt To:
+                            </div>
+                            <div className="maxWidth">
+                                <span className="normal">
+                                    Development Programs
+                                </span>
                             </div>
                         </div>
                     ) : (

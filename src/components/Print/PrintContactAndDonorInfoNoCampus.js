@@ -31,17 +31,25 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     function NewDonorCheckBox() {
         if (formValues.newDonorCheckBox === true)
             return (
-                <Row
-                    style={{
-                        justifyContent: "flex-end",
-                    }}
-                >
-                    <div className="d-print-table-cell d-flex" s>
-                        <span className="normal" style={{ width: "300px" }}>
-                            <strong>This is a new donor</strong>
+                // <Row
+                //     style={{
+                //         justifyContent: "flex-end",
+                //     }}
+                // >
+                //     <div className="d-print-table-cell d-flex">
+                //         <span className="normal" style={{ width: "300px" }}>
+                //             <strong>This is a new donor</strong>
+                //         </span>
+                //     </div>
+                // </Row>
+                <div className="print-table-row">
+                    <div className="leftLabel">New Donor:</div>
+                    <div className="print-table-cell">
+                        <span className="normal">
+                            {formValues.newDonorCheckBox}
                         </span>
                     </div>
-                </Row>
+                </div>
             );
         else return null;
     }
@@ -49,23 +57,19 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
     function NewAddressCheckBox() {
         if (formValues.newDonorAddressCheckBox === true)
             return (
-                <Row
-                    style={{
-                        justifyContent: "flex-end",
-                    }}
-                >
-                    <div className="d-print-table-cell d-flex justify-content-center">
-                        <span className="normal" style={{ width: "300px" }}>
-                            <strong>This is a new address</strong>
+                <div className="print-table-row">
+                    <div className="leftLabel">New Address:</div>
+                    <div className="print-table-cell">
+                        <span className="normal">
+                            {formValues.newDonorCheckBox}
                         </span>
                     </div>
-                </Row>
+                </div>
             );
         else return null;
     }
 
     function UnitReferenceNumber() {
-        // if (!formValues.unitReferenceNumber === undefined)
         if (formValues.unitReferenceNumber.length === 0)
             return (
                 <div className="col rightLabel">
@@ -82,17 +86,6 @@ const PrintContactAndDonorInfoNoCampus = ({ formValues }) => {
                 </div>
             );
     }
-
-    // function DateOfGift() {
-    //     if (formValues.dateOfGift != null)
-    //         return (
-    //             <div className="col rightLabel">
-    //                 Date of Gift:
-    //                 <span className="normal">{formValues.dateOfGift}</span>
-    //             </div>
-    //         );
-    //     else return null;
-    // }
 
     function DatePrepared() {
         if (formValues.datePrepared != null)

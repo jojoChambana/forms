@@ -194,7 +194,7 @@
     display: flex;
     -webkit-box-align: end;
         -ms-flex-align: end;
-            align-items: end;
+            align-items: flex-end;
   }
   .arrangeInlineCols .firstChild .spacer {
     display: -webkit-box;
@@ -202,7 +202,7 @@
     display: flex;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
-            justify-content: end;
+            justify-content: flex-end;
     text-align: end;
     width: 170px;
   }

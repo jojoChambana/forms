@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 
 export default function PrintEightyTwoEightyThree({ formValues }, key) {
     const is8283Required = formValues.is8283Required;
-
+    const is8283RadioButtons = formValues.is8283RadioButtons;
     //is8283Required = formValues.security.length; // used to determine if we should show Delete security buttons
     return is8283Required !== "No" ? (
         <div key={key}>
@@ -17,65 +17,13 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
             </Row>
             <Row className="border">
                 <Col>
-                    Is 8282 Required?<span className="normal"> Yes</span>
+                    Is 8282 Required?{" "}
+                    <span className="normal">{is8283Required}</span>
+                </Col>
+                <Col>
+                    Type: <span className="normal">{is8283RadioButtons}</span>
                 </Col>
             </Row>
-            {/* <div className="mt-3 mb-2 border">
-                <>
-                    <div className="theDesignationResults">
-                        <div className="row mb-0">
-                            <Col xs={6}>
-                                <div
-                                    className="row"
-                                    style={{
-                                        marginBottom: "0",
-                                        paddingRight: "3em",
-                                    }}
-                                >
-                                    <div className="col">
-                                        <div className="rightLabel">
-                                            8282 Required:
-                                        </div>
-
-                                        <div>
-                                            <span className="normal">
-                                                Yes
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xs={4} className="p-3">
-                                <div className="d-print-table-row">
-                                    <div className="d-print-table-cell">
-                                        {formValues.is8283RequiredCheckBoxes !==
-                                        "Gift Admin" ? (
-                                            <>
-                                                <div className="d-flex">
-                                                    Type:{" "}
-                                                    <span
-                                                        className="normal"
-                                                        style={{
-                                                            width: "max-content",
-                                                        }}
-                                                    >
-                                                        {
-                                                            formValues.is8283RadioButtons
-                                                        }
-                                                    </span>
-                                                </div>
-                                            </>
-                                        ) : (
-                                            <></>
-                                        )}
-
-                                    </div>
-                                </div>
-                            </Col>
-                        </div>
-                    </div>
-                </>
-            </div> */}
         </div>
     ) : null;
 }

@@ -10,10 +10,10 @@ export default function PrintOneCheck({ oneCheck, index }) {
                 scope="row"
                 style={{ width: "50%", fontWeight: "bold" }}
             >
-                <Col xs={6}>{oneCheck.checkNumbers}</Col>
+                {oneCheck.checkNumbers}
             </TableCell>
             <TableCell style={{ width: "123px" }}>
-                <Col xs={6}>{formatAmount(oneCheck.checkTotal)}</Col>
+                {formatAmount(oneCheck.checkTotal)}
             </TableCell>
         </TableRow>
     );

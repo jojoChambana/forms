@@ -29,7 +29,7 @@ export default function PlannedGift({
                             style={{ marginBottom: "0" }}
                         >
                             Is this gift associated with a Planned Gift
-                            Application?
+                            Application
                         </Typography>
                     </Col>
                 </Row>

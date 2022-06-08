@@ -7,7 +7,7 @@ import { IconContext } from "react-icons/lib";
 import RadioButtons from "./RadioButtons";
 import { useState } from "react";
 
-export default function TrustApplication({ formType }) {
+export default function TrustApplication({ formType, formValues, index }) {
     const { register, control, getValues } = useFormContext();
     const [radioChanged, setRadioChanged] = useState(false); // needed to force re-render
     // used in building the repeating application section.  Get the array of object from the 'application' object in cashValues
@@ -34,6 +34,12 @@ export default function TrustApplication({ formType }) {
             <>
                 <ListGroup className="list-group">
                     {fields.map((item, index) => {
+                        // console.log(
+                        //     "I got Here",
+                        //     getValues(
+                        //         `application.${index}.isApplicationDonorDifferent`
+                        //     )
+                        // );
                         return (
                             <ListGroupItem
                                 key={item.id}
@@ -86,49 +92,53 @@ export default function TrustApplication({ formType }) {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="row">
-                                    <div
-                                        className="d-flex justify-content-around"
-                                        style={{
-                                            position: "relative",
-                                            right: "0.2em",
-                                        }}
-                                    >
-                                        <div className="col-4">
-                                            <TextField
-                                                {...register(
-                                                    `application.${index}.dLastOrgName`
-                                                )}
-                                                required
-                                                placeholder="Last/Organization Name"
-                                                label="Last/Organization Name"
-                                                className="maxWidth"
-                                            />
-                                        </div>
-                                        <div className="col-3">
-                                            <TextField
-                                                {...register(
-                                                    `application.${index}.dFirstName`
-                                                )}
-                                                required
-                                                placeholder="First Name"
-                                                label="First Name"
-                                                className="maxWidth"
-                                            />
-                                        </div>
-                                        <div className="col-4">
-                                            <TextField
-                                                {...register(
-                                                    `application.${index}.dMiddleName`
-                                                )}
-                                                placeholder="Middle Name"
-                                                label="Middle Name"
-                                                className="maxWidth"
-                                            />
+                                {getValues(
+                                    `application.${index}.isApplicationDonorDifferent`
+                                ) === "Yes" ? (
+                                    <div className="row">
+                                        <div
+                                            className="d-flex justify-content-around"
+                                            style={{
+                                                position: "relative",
+                                                right: "0.2em",
+                                            }}
+                                        >
+                                            <div className="col-4">
+                                                <TextField
+                                                    {...register(
+                                                        `application.${index}.dLastOrgName`
+                                                    )}
+                                                    required
+                                                    placeholder="Last/Organization Name"
+                                                    label="Last/Organization Name"
+                                                    className="maxWidth"
+                                                />
+                                            </div>
+                                            <div className="col-3">
+                                                <TextField
+                                                    {...register(
+                                                        `application.${index}.dFirstName`
+                                                    )}
+                                                    placeholder="First Name"
+                                                    label="First Name"
+                                                    className="maxWidth"
+                                                />
+                                            </div>
+                                            <div className="col-4">
+                                                <TextField
+                                                    {...register(
+                                                        `application.${index}.dMiddleName`
+                                                    )}
+                                                    placeholder="Middle Name"
+                                                    label="Middle Name"
+                                                    className="maxWidth"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                ) : (
+                                    <></>
+                                )}
 
                                 <div
                                     className="applicationInfo"

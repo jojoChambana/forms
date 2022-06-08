@@ -85,11 +85,9 @@ const CashCheckGIKPrint = (props) => {
                             </Row>
                         </Container>
 
-                        <div className="resultItems">
-                            <PrintContactAndDonorInfo
-                                formValues={props.formValues}
-                            />
-                        </div>
+                        <PrintContactAndDonorInfo
+                            formValues={props.formValues}
+                        />
                         <Row>
                             <Col>
                                 <PrintTotals

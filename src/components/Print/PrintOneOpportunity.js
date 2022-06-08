@@ -2,10 +2,10 @@ import { formatAmount } from "../HelperFunctions";
 
 const PrintOneOpportunity = ({ oneDesignation, index }) => {
     return (
-        <>
+        <div className="rightOffset">
             <div className="resultItems row">
-                <div className="d-flex justify-content-center">
-                    <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-end">
+                    <div className="d-flex justify-content-end">
                         <span className="normal longName">
                             <strong>Opportunity Details</strong>
                         </span>
@@ -14,7 +14,7 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
             </div>
             <div className="resultItems row">
                 <div className="d-print-table-row">
-                    <div className="col">
+                    <div className="col" style={{ padding: "0 1em" }}>
                         <div className="d-print-table-row">
                             <div className="rightLabel">TED Household ID:</div>
                             <div className="d-print-table-cell">
@@ -79,7 +79,7 @@ const PrintOneOpportunity = ({ oneDesignation, index }) => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 export default PrintOneOpportunity;

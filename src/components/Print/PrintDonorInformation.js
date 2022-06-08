@@ -7,8 +7,9 @@ const PrintDonorInformation = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div className="d-print-table-cell maxWidth">
-                            <span className="normal">This is a new donor</span>
+                        <div className="d-leftLabel">New Donor:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">Yes</span>
                         </div>
                     </div>
                 </>
@@ -21,10 +22,9 @@ const PrintDonorInformation = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div className="d-print-table-cell maxWidth">
-                            <span className="normal">
-                                This is a new address
-                            </span>
+                        <div className="d-leftLabel">New Address:</div>
+                        <div className="d-print-table-cell ">
+                            <span className="normal">Yes</span>
                         </div>
                     </div>
                 </>
@@ -34,7 +34,7 @@ const PrintDonorInformation = ({ formValues }) => {
 
     const Domestic = () => {
         return (
-            <>
+            <div className="resultItems">
                 <div className="d-print-table-row">
                     <div className="rightLabel">Address:</div>
                     <div className="d-print-table-cell">
@@ -67,7 +67,7 @@ const PrintDonorInformation = ({ formValues }) => {
                         </span>
                     </div>
                 </div>
-            </>
+            </div>
         );
     };
 
@@ -124,93 +124,6 @@ const PrintDonorInformation = ({ formValues }) => {
     }
 
     return (
-        // <>
-        //     <Row className="mt-3">
-        //         <Col>
-        //             <Typography variant="h5" component="h3">
-        //                 Donor Information
-        //             </Typography>
-        //         </Col>
-        //     </Row>
-
-        //     <Row>
-        //         <div className="d-print-table-cell col mt-3 border">
-        //             <Row className="mt-2 mb-2">
-        //                 <div className="d-print-table-row">
-        //                     <div className="rightLabel">
-        //                         TED Constituent ID:
-        //                     </div>
-        //                     <div className="d-print-table-cell">
-        //                         <span className="normal">
-        //                             {formValues.tedConstituentId}
-        //                         </span>
-        //                     </div>
-        //                 </div>
-        //                 <div className="d-print-table-row">
-        //                     <div className="rightLabel min-cell">
-        //                         Organization/Donor Name:
-        //                     </div>
-        //                     <div className="d-print-table-cell">
-        //                         <span className="normal">
-        //                             {formValues.organizationDonorName}
-        //                         </span>
-        //                     </div>
-        //                 </div>
-
-        // {!formValues.donorUnknownCheckBox ? (
-        //     <>
-        //         <Row>
-        //             <Col>
-        //                 <AddressType />
-        //             </Col>
-        //             <Col>
-        //                 <Row>
-        //                     <NewDonorCheckBox />
-        //                     <NewAddressCheckBox />
-        //                     {/* <DonorUnknownCheckBox /> */}
-        //                 </Row>
-        //             </Col>
-        //         </Row>
-
-        //         <div className="d-print-table-row">
-        //             <div className="rightLabel">
-        //                 Contact/Publicity:
-        //             </div>
-        //             <div className="d-print-table-cell">
-        //                 <span className="normal">
-        //                     {formValues.publicityCode}
-        //                 </span>
-        //             </div>
-        //         </div>
-        //     </>
-        // ) : (
-        //     " "
-        // )}
-        //             </Row>
-        // <Row>
-        //     {!formValues.doNotProcessUntilContactedByTrustServices ? (
-        //         ""
-        //     ) : (
-        //         <>
-        //             <div className="d-print-table-row">
-        //                 <div className="rightLabel">
-        //                     Donor Contact:
-        //                 </div>
-        //                 <div className="d-print-table-cell">
-        //                     <span className="normal">
-        //                         Do Not Process Until Contacted By
-        //                         Trust Services
-        //                     </span>
-        //                 </div>
-        //             </div>
-        //         </>
-        //     )}
-        // </Row>
-        //         </div>
-        //     </Row>
-        // </>
-
-        // </div>
         <>
             <Row className="mt-3">
                 <Col>
@@ -220,94 +133,29 @@ const PrintDonorInformation = ({ formValues }) => {
                 </Col>
             </Row>
 
-            <div className="row mt-3 border">
-                <div className="col-6">
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">TED Constituent ID:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.tedConstituentId}
-                            </span>
+            <div className="mt-3 border">
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="d-print-table-row">
+                            <div class="rightLabel">TED Constituent ID:</div>
+                            <div class="d-print-table-cell">
+                                <span class="normal">
+                                    {formValues.tedConstituentId}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div className="d-print-table-row">
-                        <div className="rightLabel">
-                            Organization/Donor Name:
-                        </div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.organizationDonorName}
-                            </span>
+                    <div class="col-6">
+                        <div class="d-print-table-row">
+                            <div class="leftLabel">Contact/Publicity:</div>
+                            <div class="d-print-table-cell">
+                                <span class="normal">
+                                    {formValues.publicityCode}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    {!formValues.donorUnknownCheckBox ? (
-                        <>
-                            <AddressType />
-
-                            <div className="d-print-table-row">
-                                <div className="rightLabel">
-                                    Contact/Publicity:
-                                </div>
-                                <div className="d-print-table-cell">
-                                    <span className="normal">
-                                        {formValues.publicityCode}
-                                    </span>
-                                </div>
-                            </div>
-                        </>
-                    ) : (
-                        " "
-                    )}
-                    <Row>
-                        {formValues.doNotProcessUntilContactedByTrustServices ===
-                        true ? (
-                            <div className="col-6">
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">&nbsp;</div>
-                                    <div className="d-flex">
-                                        <span
-                                            className="normal"
-                                            style={{
-                                                width: "max-content",
-                                            }}
-                                        >
-                                            Do Not Process Until Contacted By
-                                            Trust Services
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        ) : (
-                            <></>
-                        )}
-                    </Row>
                 </div>
-                <div className="col-6">
-                    <NewDonorCheckBox />
-                    <NewAddressCheckBox />
-                </div>
-                {/* <div className="col-6">
-                    <Row>
-                        {!formValues.doNotProcessUntilContactedByTrustServices ? (
-                            ""
-                        ) : (
-                            <>
-                                <div className="d-print-table-row">
-                                    <div className="d-print-table-cell leftLabel">
-                                        Donor Contact:
-                                    </div>
-
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            Do Not Process Until Contacted By
-                                            Trust Services
-                                        </span>
-                                    </div>
-                                </div>
-                            </>
-                        )}
-                    </Row>
-                </div> */}
             </div>
         </>
     );

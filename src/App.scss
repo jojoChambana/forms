@@ -25,7 +25,8 @@ thead,
 tr,
 th,
 tbody,
-td {
+td 
+ {
     font-family: "Gotham SSm A", "Gotham SSm B", Arial, Helvetica, sans-serif !important;
 }
 div.noMargPad.row > div.row, .noMargPad, .noMargBot{
@@ -45,27 +46,54 @@ div.noMargPad.row > div.col{
 }
 
 .rowCols{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .arrangeInlineCols{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     div{
+        width: -webkit-max-content;
+        width: -moz-max-content;
         width: max-content;
     }
     .firstChild{
         width: 300px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         .normal{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            align-items: end;
+            -webkit-box-align: end;
+                -ms-flex-align: end;
+                    align-items: flex-end;
+            width:-webkit-min-content;
+            width:-moz-min-content;
+            width:min-content;
         }
         .spacer{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: end;
+            -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end;
             text-align: end;
             width: 170px
         }
@@ -82,6 +110,7 @@ h1 > span {
 }
 #root {
     p {
+        margin-bottom: 16px;
         margin-bottom: 1rem;
     }
 }
@@ -89,6 +118,7 @@ h1 > span {
 .border {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 4px;
+    --bs-gutter-x: 0px;
     --bs-gutter-x: 0rem;
     .row {
         // padding: 1em 2em 0px 3em;
@@ -111,8 +141,10 @@ li {
 .logo {
     padding: 0;
     width: 224px;
+    width: 224px;
     width: 14rem;
     box-sizing: border-box;
+    margin-bottom: 1.6px;
     margin-bottom: 1.6px;
     margin-bottom: 0.1rem;
 }
@@ -147,9 +179,15 @@ nav {
         display: none;
     }
     #navbarSupportedContent > div > div.active > h1 {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: flex-end;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+        padding-right: 64px;
         padding-right: 4rem;
+        font-size: 20px;
         font-size: 20px;
         font-size: 1.25rem;
         margin: 0.3em 0em;
@@ -157,6 +195,7 @@ nav {
     }
 }
 .navbar-brand {
+    padding: 0 48px 0 14.4px;
     padding: 0 48px 0 14.4px;
     padding: 0 3rem 0 0.9rem;
 }
@@ -210,6 +249,7 @@ h3 {
     background-color: #ccc;
     padding: 4px;
     padding: 4px;
+    padding: 4px;
     padding: 0.25rem;
 }
 
@@ -246,7 +286,7 @@ span.lineUp,
         -ms-flex-pack: end;
         justify-content: flex-end;
         text-align: right;
-        min-width: 320px !important;
+        width: 485px !important;
     }
     @media only print {
         -webkit-box-pack: start;
@@ -257,8 +297,12 @@ span.lineUp,
 
 .leftLabel {
     @media only screen and (min-device-width: 600px) {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         max-width: 130px;
     }
 }
@@ -304,6 +348,7 @@ span.normal {
     border: solid 1px #cccccc;
     padding: 14.4px;
     padding: 14.4px;
+    padding: 14.4px;
     padding: 0.9rem;
     border-radius: 4px;
     .PhoneInputInput {
@@ -318,6 +363,7 @@ span.normal {
 }
 
 .addressSpace {
+    margin-left: 0.8px;
     margin-left: 0.8px;
     margin-left: 0.8px;
     margin-left: 0.05rem;
@@ -375,6 +421,7 @@ button,
         text-align: right;
         padding-right: 4px;
         padding-right: 16px;
+        padding-right: 16px;
         padding-right: 1rem;
     }
 }
@@ -403,7 +450,9 @@ button,
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         text-align: left;
     }
     @media only print {
@@ -435,18 +484,27 @@ button,
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    // align-items: center;
 }
 
 .normal.longName {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     max-width: 450px;
 }
 
 .totalTable {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .total {
@@ -468,6 +526,8 @@ button,
 .d-print-table-cell {
     width: 50%;
     .normal {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
         display: flex !important;
     }
 }
@@ -546,6 +606,8 @@ div.col-md-6.col-12 {
         display: contents;
     }
     .theSubmit {
+        max-height: -webkit-fit-content;
+        max-height: -moz-fit-content;
         max-height: fit-content;
     }
 }
@@ -561,7 +623,9 @@ div.col-md-6.col-12 {
     }
 }
 .d-print-table-cell.d-flex.justify-content-center {
-    justify-content: center !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
 }
 
 .d-print-table-cell {
@@ -571,13 +635,32 @@ div.col-md-6.col-12 {
 }
 
 .printTable {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     table {
         width: 75%;
         td {
             font-weight: bold;
         }
+    }
+}
+.tableIsh{
+    margin:0 2rem;
+
+}
+
+div.row.tableIsh > div:nth-child(1), div.row.tableIsh > div:nth-child(2){
+    border-bottom: solid 1px #ccc;
+    margin:0 2rem;
+}
+
+div.row.tableIsh:last-of-type{
+    .col{
+        border-bottom: 0px none;
     }
 }
 
@@ -588,10 +671,14 @@ div.col-md-6.col-12 {
 .overFlowBreakWord {
     overflow-wrap: break-word;
     word-wrap: break-word;
-    hyphens: auto;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
 }
 
 .overFlowNoBreakWord{
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
 }
 
@@ -602,22 +689,45 @@ div.col-md-6.col-12 {
 }
 
 .vCenter {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.rightOffset{
+    position: relative;
+    right: 6em;
 }
 
 #donationDate {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
     max-width: fit-content;
     text-align: end;
 }
 
 .applicationInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .pGiftTable {
@@ -625,7 +735,21 @@ div.col-md-6.col-12 {
         width: 33.3333%;
     }
 }
+.borderTop{
+    border-top: solid 1px #ccc;
+    margin: 0rem 1rem
+}
+.borderBtm:nth-child(even){
+    border-bottom: solid 1px #ccc;
+}
 
+.trustPrintBtn{
+    padding:1em;
+}
+
+th,td{
+    text-align: center !important;
+}
 /* Viewports between 320px and 480px wide */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .backButton {
@@ -633,12 +757,15 @@ div.col-md-6.col-12 {
         height: 100%;
     }
     .d-print-table-row {
-        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     }
     #contactPrint .rightLabel {
         min-width: 500px !important;
     }
     .donorPrintStuff {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
     #donationDate {

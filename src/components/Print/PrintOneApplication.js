@@ -1,73 +1,48 @@
-import { Col, Row } from "react-bootstrap";
-
-const PrintOneApplication = ({ oneApplication, index }) => {
+const PrintOneApplication = ({ oneApplication, index, formValues }) => {
     return (
         <>
-            <Row>
-                <Col key={"application" + index} className="arrangeInlineCols">
-                    <div className="firstChild">
-                        <div className="spacer">Date: &nbsp;</div>
-                        <span className="normal">
-                            {oneApplication.applicationDate}
-                        </span>
-                    </div>
-                    <div className="firstChild">
-                        <div className="spacer">Plan Gift Type: &nbsp;</div>
-                        <span className="normal">
-                            {oneApplication.planGiftType}
-                        </span>
-                    </div>
-                    <div className="firstChild">
-                        <div className="spacer">Plan Gift Amount: &nbsp;</div>
-                        <span className="normal">
-                            {oneApplication.planGiftAmount}
-                        </span>
-                    </div>
-                </Col>
-
-                <Col className="arrangeInlineCols">
-                    <div className="firstChild">
-                        <div className="spacer">This is a:&nbsp;</div>
-
-                        <span className="normal">
-                            {oneApplication.applicationType}
-                        </span>
-                    </div>
-
-                    <div className="firstChild">
-                        <div className="spacer">
-                            Is Donor different than Donor above? &nbsp;
-                        </div>
-                        <span className="normal">
-                            {oneApplication.isApplicationDonorDifferent}
-                        </span>
-                    </div>
-                </Col>
-
-                <Col className="arrangeInlineCols">
-                    <div className="firstChild">
-                        <div className="spacer">Last/Org Name:&nbsp;</div>
-
+            <div key={"application" + index}>
+                <div className="resultItems row">
+                    <div className="col">
+                        Last/Organization Name:{" "}
                         <span className="normal">
                             {oneApplication.dLastOrgName}
                         </span>
                     </div>
-
-                    <div className="firstChild">
-                        <div className="spacer">First Name:&nbsp;</div>
+                    <div className="col">
+                        First Name:
                         <span className="normal">
                             {oneApplication.dFirstName}
                         </span>
                     </div>
-
-                    <div className="firstChild">
-                        <div className="spacer">Middle Name:&nbsp;</div>
+                    <div className="col">
+                        Middle Name:
                         <span className="normal">
                             {oneApplication.dMiddleName}
                         </span>
                     </div>
-                </Col>
-            </Row>
+                </div>
+                <div className="resultItems row">
+                    <div className="col">
+                        Date:{" "}
+                        <span className="normal">
+                            {oneApplication.applicationDate}
+                        </span>
+                    </div>
+                    <div className="col">
+                        Plan Gift Type:
+                        <span className="normal">
+                            {oneApplication.planGiftType}
+                        </span>
+                    </div>
+                    <div className="col">
+                        Plan Gift Amount:
+                        <span className="normal">
+                            {oneApplication.planGiftAmount}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

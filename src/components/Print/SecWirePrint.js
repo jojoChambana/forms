@@ -66,85 +66,50 @@ const SecWirePrint = (props) => {
                                 </Col>
                             </Row>
                         </Container>
+                        <PrintUIFonlyContactInformation
+                            formValues={props.formValues}
+                        />
 
-                        <div className="resultItems">
-                            <PrintUIFonlyContactInformation
-                                formValues={props.formValues}
-                            />
-                        </div>
-                        <div className="resultItems">
-                            <PrintDonorInformation
-                                formValues={props.formValues}
-                            />
-                        </div>
-                        <Row className="mt-2 mb-1">
-                            <Col>
-                                <PrintTotals formValues={props.formValues} />
-                            </Col>
-                        </Row>
-
+                        <PrintDonorInformation formValues={props.formValues} />
+                        <PrintTotals formValues={props.formValues} />
                         <PrintTribute formValues={props.formValues} />
 
                         {props.printSecurities ? (
                             <>
-                                <Row className="theDesignationResults mb1">
+                                <PrintSecurities
+                                    formValues={props.formValues}
+                                />
+                            </>
+                        ) : (
+                            <></>
+                        )}
+
+                        <PrintDesignations formValues={props.formValues} />
+                        {props.formValues.generalComments ? (
+                            <>
+                                <Row>
                                     <Col>
-                                        <PrintSecurities
-                                            formValues={props.formValues}
-                                        />
+                                        <Typography
+                                            variant="h5"
+                                            component="h3"
+                                            className="mt-2 mr-0 mb-3 ml-0"
+                                        >
+                                            General Comments
+                                        </Typography>
+
+                                        <Col
+                                            className="border"
+                                            style={{ padding: "1em" }}
+                                        >
+                                            {props.formValues.generalComments}
+                                        </Col>
                                     </Col>
                                 </Row>
                             </>
                         ) : (
                             <></>
                         )}
-                        {console.table(props.printSecurities)}
-
-                        <div className="theDesignationResults mt-0">
-                            <Col className="p-0">
-                                <div className="resultItems">
-                                    <PrintDesignations
-                                        formValues={props.formValues}
-                                    />
-                                </div>
-                            </Col>
-                        </div>
-                        <Row className="mb12">
-                            <Col>
-                                <PrintTotals formValues={props.formValues} />
-                            </Col>
-                        </Row>
-
-                        {props.formValues.generalComments ? (
-                            <>
-                                <div>
-                                    <Row>
-                                        <Col>
-                                            <Typography
-                                                variant="h5"
-                                                component="h3"
-                                                className="mt-2 mr-0 mb-2 ml-0"
-                                            >
-                                                General Comments
-                                            </Typography>
-
-                                            <Col
-                                                className="border"
-                                                style={{ padding: "1em" }}
-                                            >
-                                                {
-                                                    props.formValues
-                                                        .generalComments
-                                                }
-                                            </Col>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </>
-                        ) : (
-                            <></>
-                        )}
-
+                        <PrintTotals formValues={props.formValues} />
                         <Container>
                             <Row className="hiddenForPrint">
                                 <Col className="d-flex col justify-content-center">

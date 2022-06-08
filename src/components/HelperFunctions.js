@@ -108,6 +108,7 @@ export function newApplication() {
         pledgeRevenueId: "",
         applicationType: "Planned Gift",
         isApplicationDonorDifferent: "No",
+        dLastOrgName: "",
     };
 }
 
@@ -137,6 +138,9 @@ export function newDesignationApplication() {
     return {
         date: "",
         planGiftType: "",
+        dLastOrgName: "",
+        dFirstName: "",
+        dMiddleName: "",
         applicationAmount: 0,
     };
 }
@@ -450,7 +454,7 @@ export function newTrustFormValues() {
         datePrepared: "", // UIFonlyContactInformation.js
         doNotProcessUntilContactedByTrustServices: false, // UIFonlyContactInformation.js
         sourceCode: "", // UIFonlyContactInformation.js
-
+        publicityCode: "No Restrictions", // publicityDropDown.js
         tributeChecked: false, // GiftTribute.js
         giftTribute: "In Memory Of", // GiftTribute.js
         tedTributeConstituentId: "", // GiftTribute.js
@@ -512,12 +516,11 @@ export function newTrustFormValues() {
         applicationType: "Planned Gift",
         isApplicationDonorDifferent: "No",
         applicationDate: "05-25-2021",
+        dLastOrgName: "Thompson",
+        dFirstName: "Joseph",
+        dMiddleName: "James",
         planGiftType: "A widget",
         planGiftAmount: "3000",
-
-        dLastOrgName: "",
-        fFirstName: "",
-        dMiddleName: "",
 
         charitableRemainderAmount: "",
         annuityPayable: "",
@@ -836,12 +839,20 @@ export function FillTrustForm(setValue) {
     setValue("application.0.planGiftType", "");
     setValue("application.0.planGiftAmount", "");
 
-    setValue("dLastOrgName", "");
-    setValue("fFirstName", "");
-    setValue("dMiddleName", "");
+    setValue("application.0.dLastOrgName", "Thompson");
+    setValue("application.0.dFirstName", "James");
+    setValue("application.0.dMiddleName", "Gordon");
 
-    setValue("charitableRemainderAmount", "");
-    setValue("annuityPayable", "");
+    setValue("application.0.applicationDate", "06-22-2022");
+    setValue("application.0.planGiftType", "Car");
+    setValue("application.0.planGiftAmount", "3000");
+
+    setValue("charitableRemainderAmount", "1550");
+    setValue("annuityPayable", "123456");
+    setValue(
+        "applicationAdditionalComments",
+        "Nulla fermentum eget sapien nec aliquet. Proin nec tortor turpis. Quisque ut augue varius, molestie ipsum quis, euismod tellus. Sed lacinia blandit odio a tincidunt. Quisque volutpat aliquet massa, id rhoncus turpis sagittis nec. Suspendisse ultrices mi ac mauris pulvinar, id sagittis ligula malesuada."
+    );
 }
 
 function get_date_format(myDate) {

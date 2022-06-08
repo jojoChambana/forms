@@ -62,16 +62,6 @@ const PrintOneDesignation = ({
                                 </>
                             ) : (
                                 <>
-                                    {/* <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            Trust Type:
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {formValues.trustType}
-                                            </span>
-                                        </div>
-                                    </div> */}
                                     <div className="d-print-table-row">
                                         <div className="rightLabel">
                                             Designation ID:

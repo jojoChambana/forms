@@ -258,7 +258,7 @@ export default function GiftTribute() {
                                         <FormControlLabel
                                             value={C_DO_NOT_SEND}
                                             control={<Radio />}
-                                            checked={true}
+                                            // checked={true}
                                             label={C_DO_NOT_SEND}
                                         />
                                         <FormControlLabel

@@ -60,6 +60,7 @@ export default function TrustOtherInformation() {
                             setRadioChangedFlag={set8283RadioButtonsChanged}
                         />
                     ) : null}
+                    {/* {console.log(getValues("is8283RadioButtons"))} */}
                 </Col>
             </Row>
         </>

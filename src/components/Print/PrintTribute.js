@@ -5,14 +5,14 @@ const PrintTribute = ({ formValues }) => {
     function IsTributeNewAddressChecked(props) {
         if (formValues.inMemoryNewAddress === true) {
             return (
-                <>
-                    <div className="d-print-table-row justify-content-center">
-                        <div>New Address:</div>
+                <div className="rightOffset">
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">New Address:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">Yes</span>
                         </div>
                     </div>
-                </>
+                </div>
             );
         } else {
             return null;
@@ -23,14 +23,6 @@ const PrintTribute = ({ formValues }) => {
         if (formValues.acknowledgeeForeignAddressCheckbox === true) {
             return (
                 <>
-                    <div className="d-print-table-row">
-                        <div>Location:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                This is a Foreign Address
-                            </span>
-                        </div>
-                    </div>
                     <div className="d-print-table-row">
                         <div className="rightLabel">Address:</div>
                         <div className="d-print-table-cell">
@@ -91,7 +83,7 @@ const PrintTribute = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div>Address:</div>
+                        <div className="rightLabel">Address:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.acknowledgeeDomesticAddress}
@@ -158,10 +150,10 @@ const PrintTribute = ({ formValues }) => {
             "Please Notify the Individual/Family Below"
         ) {
             return (
-                <>
-                    <div className="d-print-table-row justify-content-center">
-                        <div>Notification:</div>
-                        <div className="d-print-table-cell maxWidth">
+                <div className="rightOffset">
+                    {/* <div className="d-print-table-row">
+                        <div className="leftLabel">Notification:</div>
+                        <div className="d-print-table-cell">
                             <span className="normal">
                                 Please Notify Acknowledgee
                             </span>
@@ -169,7 +161,7 @@ const PrintTribute = ({ formValues }) => {
                     </div>
 
                     <div className="d-print-table-row">
-                        <div>Acknowledgee:</div>
+                        <div className="leftLabel">Acknowledgee:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">
                                 {formValues.tedTributeAcknowledgedFirstName}{" "}
@@ -177,17 +169,40 @@ const PrintTribute = ({ formValues }) => {
                             </span>
                         </div>
                     </div>
+                    <IsAcknowledgeeForeignAddressCheckboxChecked /> */}
+                    <div class="d-print-table-row">
+                        <div class="rightLabel">Notification:</div>
+                        <div class="d-print-table-cell">
+                            <span class="normal">
+                                Please Notify Acknowledgee
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="d-print-table-row">
+                        <div class="rightLabel">Acknowledgee:</div>
+                        <div class="d-print-table-cell">
+                            <span class="normal">
+                                {formValues.tedTributeAcknowledgedFirstName}{" "}
+                                {formValues.tedTributeAcknowledgedLastName}
+                            </span>
+                        </div>
+                    </div>
                     <IsAcknowledgeeForeignAddressCheckboxChecked />
-                </>
+                </div>
             );
         } else if (
             formValues.notifyIndividualOrFamily === "Do Not Send a Notification"
         ) {
             return (
-                <div className="d-print-table-row">
-                    <div className="rightLabel">Notification:</div>
-                    <div className="d-print-table-cell">
-                        <span className="normal">Please Do Not Notify</span>
+                <div className="rightOffset">
+                    <div class="d-print-table-row">
+                        <div class="rightLabel">Notification:</div>
+                        <div class="d-print-table-cell">
+                            <span class="normal">
+                                Do Not Send a Notification
+                            </span>
+                        </div>
                     </div>
                 </div>
             );
@@ -195,21 +210,14 @@ const PrintTribute = ({ formValues }) => {
             formValues.notifyIndividualOrFamily === "Please Notify the Honoree"
         ) {
             return (
-                <>
-                    <div className="resultItems row mt-2">
-                        <div className="col">
-                            <div className="d-flex justify-content-center">
-                                <strong className="normal justify-col-tribute">
-                                    <Typography>
-                                        <strong>
-                                            Please Notify the Honoree
-                                        </strong>
-                                    </Typography>
-                                </strong>
-                            </div>
+                <div className="rightOffset">
+                    <div className="d-print-table-row">
+                        <div className="leftLabel">Notification:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">Please Notify</span>
                         </div>
                     </div>
-                </>
+                </div>
             );
         } else {
             return <></>;
@@ -389,53 +397,49 @@ const PrintTribute = ({ formValues }) => {
                     </Col>
                 </Row>
                 <Col className="border">
-                    <div>
-                        <div className="d-print-table-row mt-1">
-                            <Col className="d-print-table-cell">
-                                <div className="d-print-table-row mt-2">
-                                    <TedTributeConstituentId />
+                    <div className="d-print-table-row mt-1">
+                        <Col className="d-print-table-cell">
+                            <div className="d-print-table-row mt-2">
+                                <TedTributeConstituentId />
+                            </div>
+                            <div className="d-print-table-row">
+                                <div className="rightLabel">
+                                    {formValues.giftTribute}:
                                 </div>
-                                <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        {formValues.giftTribute}:
-                                    </div>
 
+                                <div className="d-print-table-cell">
+                                    <span className="normal">
+                                        <HonorOrDeceased />
+                                    </span>
+                                </div>
+                            </div>
+                            <AddressType />
+                            {formValues.designationPhoneNumber && (
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">Phone:</div>
                                     <div className="d-print-table-cell">
                                         <span className="normal">
-                                            <HonorOrDeceased />
+                                            {formValues.designationPhoneNumber}
                                         </span>
                                     </div>
                                 </div>
-                                <AddressType />
-                                {formValues.designationPhoneNumber && (
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">Phone:</div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {
-                                                    formValues.designationPhoneNumber
-                                                }
-                                            </span>
-                                        </div>
-                                    </div>
-                                )}
+                            )}
 
-                                {formValues.designationEmail && (
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">Email:</div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                {formValues.designationEmail}
-                                            </span>
-                                        </div>
+                            {formValues.designationEmail && (
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">Email:</div>
+                                    <div className="d-print-table-cell">
+                                        <span className="normal">
+                                            {formValues.designationEmail}
+                                        </span>
                                     </div>
-                                )}
-                            </Col>
-                            <Col className="d-print-table-cell mt-2 mb-2">
-                                <IsTributeNewAddressChecked />
-                                <NotifyIndividualOrFamily />
-                            </Col>
-                        </div>
+                                </div>
+                            )}
+                        </Col>
+                        <Col className="d-print-table-cell mt-2 mb-2">
+                            <IsTributeNewAddressChecked />
+                            <NotifyIndividualOrFamily />
+                        </Col>
                     </div>
                 </Col>
             </>

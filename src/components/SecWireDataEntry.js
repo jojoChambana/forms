@@ -1,4 +1,3 @@
-import SecWireDesignations from "./SecWireDesignations";
 import Security from "./Security";
 import TransmittalTotals from "./TransmittalTotals";
 import DonorInformation from "./DonorInformation";
