@@ -116,7 +116,7 @@ const PrintTribute = ({ formValues }) => {
                     </div>
 
                     {formValues.notifyIndividualOrFamilyEmail && (
-                        <div className="d-print-table-row">
+                        <div className="d-print-table-row tribOppEmail">
                             <div className="rightLabel">Email:</div>
                             <div
                                 className="d-print-table-cell"
@@ -172,7 +172,10 @@ const PrintTribute = ({ formValues }) => {
                     <IsAcknowledgeeForeignAddressCheckboxChecked /> */}
                     <div class="d-print-table-row">
                         <div class="rightLabel">Notification:</div>
-                        <div class="d-print-table-cell">
+                        <div
+                            class="d-print-table-cell"
+                            style={{ width: "auto" }}
+                        >
                             <span class="normal">
                                 Please Notify Acknowledgee
                             </span>
@@ -398,7 +401,7 @@ const PrintTribute = ({ formValues }) => {
                 </Row>
                 <Col className="border">
                     <div className="d-print-table-row mt-1">
-                        <Col className="d-print-table-cell">
+                        <Col className="d-print-table-cell pushLeftForPrint">
                             <div className="d-print-table-row mt-2">
                                 <TedTributeConstituentId />
                             </div>

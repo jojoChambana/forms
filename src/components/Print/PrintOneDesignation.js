@@ -33,7 +33,7 @@ const PrintOneDesignation = ({
             <ListGroupItem className="aDesignation mb-2 border">
                 <div>
                     <Row>
-                        <Col xs={6}>
+                        <Col xs={6} className="pushLeftForPrint">
                             {oneDesignation.newDesignationRequestedChecked ? (
                                 <>
                                     <div className="d-print-table-row">

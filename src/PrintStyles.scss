@@ -137,7 +137,7 @@
     
     #tributePrint {
         margin-right: 1em; 
-        word-break: break-word;
+
     }
     
     .gikTotalSpacing{
@@ -190,6 +190,17 @@
             }
         }
     }
+    .rightOffset {
+        position: relative;
+        right: 2em !important;
+    }
+    .rightFix{
+        padding-right: 3.5rem !important; 
+    }
+    .tribOppEmail{
+        padding-left: 0rem !important;
+    }
+    
 }
 
 

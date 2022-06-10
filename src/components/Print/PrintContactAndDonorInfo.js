@@ -6,8 +6,8 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
         if (formValues.donorUnknownCheckBox === true)
             return (
                 <div className="d-print-table-row">
-                    <div className="col-6">
-                        <div className="rightLabel">
+                    <div className="col">
+                        <div>
                             <span className="normal">
                                 Donor is unknown, anonymous or various cash
                                 donors
@@ -192,7 +192,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 </div>
                             </div>
                             <div className="col-6">
-                                <div className="rightLabel">
+                                <div className="rightLabel rightFix">
                                     College Name:
                                     <span
                                         className="normal"
@@ -216,7 +216,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 </div>
                             </div>
                             <div className="col-6">
-                                <div className="rightLabel">
+                                <div className="rightLabel rightFix">
                                     Department Name:
                                     <span
                                         className="normal"
@@ -241,7 +241,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 </div>
                             </div>
                             <div className="col-6">
-                                <div className="rightLabel">
+                                <div className="rightLabel rightFix">
                                     Prepared By:
                                     <span className="normal">
                                         {formValues.preparedBy}
@@ -262,7 +262,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
                                 </div>
                             </div>
                             <div className="col-6">
-                                <div className="rightLabel">
+                                <div className="rightLabel rightFix">
                                     <div style={{ textAlign: "end" }}>
                                         Date Received:
                                     </div>
@@ -275,7 +275,14 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
                         <div className="d-print-table-row">
                             <SourceCode />
-                            <UnitReferenceNumber />
+                            <div
+                                style={{
+                                    position: "relative",
+                                    right: "3.25rem",
+                                }}
+                            >
+                                <UnitReferenceNumber />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -294,7 +301,7 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
 
                     {/* ============ right column at the top for donor info ============== */}
                     <div className="row border ">
-                        <div className="col-6">
+                        <div className="col-6 pushLeftForPrint">
                             <DonorUnknownCheckBox />
                             {formValues.donorUnknownCheckBox === false ? (
                                 <div className="row mt-2">

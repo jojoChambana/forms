@@ -281,12 +281,13 @@ span.lineUp,
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+
     @media only screen and (min-device-width: 600px) {
         -webkit-box-pack: end;
         -ms-flex-pack: end;
         justify-content: flex-end;
         text-align: right;
-        width: 485px !important;
+        width: 335px !important;
     }
     @media only print {
         -webkit-box-pack: start;
@@ -771,4 +772,12 @@ th,td{
     #donationDate {
         min-width: 510 !important;
     }
+}
+
+.rightFix{
+    padding-right: 3.5rem !important; 
+}
+
+.tribOppEmail{
+    padding-left: 3.5rem; 
 }

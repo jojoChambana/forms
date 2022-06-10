@@ -7,7 +7,7 @@ const PrintDonorInformation = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div className="d-leftLabel">New Donor:</div>
+                        <div className="leftLabel">New Donor:</div>
                         <div className="d-print-table-cell">
                             <span className="normal">Yes</span>
                         </div>
@@ -22,7 +22,7 @@ const PrintDonorInformation = ({ formValues }) => {
             return (
                 <>
                     <div className="d-print-table-row">
-                        <div className="d-leftLabel">New Address:</div>
+                        <div className="leftLabel">New Address:</div>
                         <div className="d-print-table-cell ">
                             <span className="normal">Yes</span>
                         </div>
@@ -144,8 +144,21 @@ const PrintDonorInformation = ({ formValues }) => {
                                 </span>
                             </div>
                         </div>
+                        <div class="d-print-table-row">
+                            <div class="rightLabel">
+                                Organization/Donor Name:
+                            </div>
+                            <div class="d-print-table-cell">
+                                <span class="normal">
+                                    {formValues.organizationDonorName}
+                                </span>
+                            </div>
+                        </div>
+                        <AddressType />
                     </div>
                     <div class="col-6">
+                        <NewDonorCheckBox />
+                        <NewAddressCheckBox />
                         <div class="d-print-table-row">
                             <div class="leftLabel">Contact/Publicity:</div>
                             <div class="d-print-table-cell">

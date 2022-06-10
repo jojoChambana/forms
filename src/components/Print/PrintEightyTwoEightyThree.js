@@ -21,7 +21,7 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
                     <span className="normal">{is8283Required}</span>
                 </Col>
                 <Col>
-                    Type: <span className="normal">{is8283RadioButtons}</span>
+                    {is8283RadioButtons}: <span className="normal">Yes</span>
                 </Col>
             </Row>
         </div>

@@ -19,7 +19,13 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                 <div className="row">
                     <div className="col-6">
                         <div class="d-print-table-row mt-3">
-                            <div class="rightLabel">
+                            <div
+                                class="rightLabel"
+                                style={{
+                                    textAlign: "initial",
+                                    paddingLeft: "1em",
+                                }}
+                            >
                                 Is this gift associated with a Planned Gift
                                 Application?
                             </div>

@@ -3,15 +3,16 @@ import { formatAmount } from "../HelperFunctions";
 const PrintOneOpportunity = ({ oneDesignation, index }) => {
     return (
         <div className="rightOffset">
-            <div className="resultItems row">
-                <div className="d-flex justify-content-end">
-                    <div className="d-flex justify-content-end">
-                        <span className="normal longName">
-                            <strong>Opportunity Details</strong>
-                        </span>
-                    </div>
+            {/* <div className="resultItems row">
+                <div className="d-flex justify-content-center">
+                    <span
+                        className="normal longName"
+                        style={{ paddingLeft: "2.3rem" }}
+                    >
+                        <strong>Opportunity Details</strong>
+                    </span>
                 </div>
-            </div>
+            </div> */}
             <div className="resultItems row">
                 <div className="d-print-table-row">
                     <div className="col" style={{ padding: "0 1em" }}>

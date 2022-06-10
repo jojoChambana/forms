@@ -10,9 +10,8 @@ import { useState } from "react";
 
 import "react-phone-number-input/style.css";
 
-export default function UIFonlyContactInformation() {
-    const { register, getValues, setValue, control, trustType } =
-        useFormContext();
+export default function UIFonlyContactInformation({ trustType }) {
+    const { register, getValues, setValue, control } = useFormContext();
 
     // we use this to trigger a render operation when a checkbox is checked.  Used in the handleChange events for the checkboxes
     const [aCheckboxChanged, setaCheckboxChanged] = useState(false);
@@ -56,7 +55,7 @@ export default function UIFonlyContactInformation() {
                     />
                 </Col>
 
-                {trustType !== "Life Income" ? (
+                {trustType !== "Estate" ? (
                     <Col xs={12} md={2}>
                         <Controller
                             name={"sourceCode"}

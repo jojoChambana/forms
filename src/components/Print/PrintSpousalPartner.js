@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { formatRelative } from "date-fns";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
@@ -33,48 +34,74 @@ const PrintSpousalPartner = ({ formValues, spousalVal }, key) => {
         else return null;
     }
 
+    function SpousePartnerOrganizationDonorName() {
+        if (formValues.spousePartnerOrganizationDonorName)
+            return (
+                <>
+                    <div className="rightLabel">
+                        <span>Organization/Donor Name: </span>
+                    </div>
+                    <div className="d-print-table-cell">
+                        <span className="normal">
+                            {formValues.spousePartnerOrganizationDonorName}
+                        </span>
+                    </div>
+                </>
+            );
+        else return null;
+    }
+
+    function SpousePartnerTedConstituentId() {
+        if (formValues.spousePartnerTedConstituentId)
+            return (
+                <>
+                    <div className="rightLabel">
+                        <span>TED Constituent ID: </span>
+                    </div>
+                    <div className="d-print-table-cell">
+                        <span className="normal">
+                            {formValues.spousePartnerTedConstituentId}
+                        </span>
+                    </div>
+                </>
+            );
+        else return null;
+    }
+
     return !spousalVal ? (
         <div className="theDesignationResults">
             <Col className="p-0">
                 <div className="resultItems">
                     <div key={key}>
-                        <div className="row mt-3">
-                            <div className="col">
-                                <Typography variant="h5" component="h3">
-                                    Spousal/Partner Information
-                                </Typography>
-                            </div>
-                        </div>
+                        {spousalVal ? (
+                            <>
+                                <div className="row mt-3">
+                                    <div className="col">
+                                        <Typography variant="h5" component="h3">
+                                            Spousal/Partner Information
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <></>
+                        )}
                         <div className="row mt-3 border">
                             <div className="col-6">
                                 <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        <span>Organization/Donor Name: </span>
-                                    </div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {
-                                                formValues.spousePartnerOrganizationDonorName
-                                            }
-                                        </span>
-                                    </div>
+                                    <SpousePartnerOrganizationDonorName />
                                 </div>
                                 <div className="d-print-table-row">
-                                    <div className="rightLabel">
-                                        <span>TED Constituent ID: </span>
-                                    </div>
-                                    <div className="d-print-table-cell">
-                                        <span className="normal">
-                                            {
-                                                formValues.spousePartnerTedConstituentId
-                                            }
-                                        </span>
-                                    </div>
+                                    <SpousePartnerTedConstituentId />
                                 </div>
                             </div>
                             <div className="col-6">
-                                <DoNotAddSpousePartnerToReceipt />
-                                <DoNotGiveAddSpousePartnerCredit />
+                                <div className="d-print-table-row">
+                                    <DoNotAddSpousePartnerToReceipt />
+                                </div>
+                                <div className="d-print-table-row">
+                                    <DoNotGiveAddSpousePartnerCredit />
+                                </div>
                             </div>
                         </div>
                     </div>
