@@ -170,22 +170,22 @@ const PrintTribute = ({ formValues }) => {
                         </div>
                     </div>
                     <IsAcknowledgeeForeignAddressCheckboxChecked /> */}
-                    <div class="d-print-table-row">
-                        <div class="rightLabel">Notification:</div>
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Notification:</div>
                         <div
-                            class="d-print-table-cell"
+                            className="d-print-table-cell"
                             style={{ width: "auto" }}
                         >
-                            <span class="normal">
+                            <span className="normal">
                                 Please Notify Acknowledgee
                             </span>
                         </div>
                     </div>
 
-                    <div class="d-print-table-row">
-                        <div class="rightLabel">Acknowledgee:</div>
-                        <div class="d-print-table-cell">
-                            <span class="normal">
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Acknowledgee:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
                                 {formValues.tedTributeAcknowledgedFirstName}{" "}
                                 {formValues.tedTributeAcknowledgedLastName}
                             </span>
@@ -199,10 +199,10 @@ const PrintTribute = ({ formValues }) => {
         ) {
             return (
                 <div className="rightOffset">
-                    <div class="d-print-table-row">
-                        <div class="rightLabel">Notification:</div>
-                        <div class="d-print-table-cell">
-                            <span class="normal">
+                    <div className="d-print-table-row">
+                        <div className="rightLabel">Notification:</div>
+                        <div className="d-print-table-cell">
+                            <span className="normal">
                                 Do Not Send a Notification
                             </span>
                         </div>

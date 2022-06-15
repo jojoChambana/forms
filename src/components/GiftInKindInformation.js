@@ -28,7 +28,7 @@ export default function GiftInKindInformation({
             >
                 Gift in Kind Information
             </Typography>
-            <ListGroup className="list-group row">
+            <ListGroup className="row">
                 {fields.map((item, index) => {
                     return (
                         <ListGroupItem key={item.id} className="mt-3">
@@ -42,7 +42,7 @@ export default function GiftInKindInformation({
                                             required
                                             placeholder="Description of Gift"
                                             label="Description of Gift"
-                                            className="maxWidth"
+                                            className="maxWidth mb-3"
                                         />
                                     </Col>
                                     <Col xs={12} md={3}>

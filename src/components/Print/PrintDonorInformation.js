@@ -134,35 +134,37 @@ const PrintDonorInformation = ({ formValues }) => {
             </Row>
 
             <div className="mt-3 border">
-                <div class="row mt-3">
-                    <div class="col-6">
-                        <div class="d-print-table-row">
-                            <div class="rightLabel">TED Constituent ID:</div>
-                            <div class="d-print-table-cell">
-                                <span class="normal">
+                <div className="row mt-3">
+                    <div className="col-6">
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">
+                                TED Constituent ID:
+                            </div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
                                     {formValues.tedConstituentId}
                                 </span>
                             </div>
                         </div>
-                        <div class="d-print-table-row">
-                            <div class="rightLabel">
+                        <div className="d-print-table-row">
+                            <div className="rightLabel">
                                 Organization/Donor Name:
                             </div>
-                            <div class="d-print-table-cell">
-                                <span class="normal">
+                            <div className="d-print-table-cell">
+                                <span className="normal">
                                     {formValues.organizationDonorName}
                                 </span>
                             </div>
                         </div>
                         <AddressType />
                     </div>
-                    <div class="col-6">
+                    <div className="col-6">
                         <NewDonorCheckBox />
                         <NewAddressCheckBox />
-                        <div class="d-print-table-row">
-                            <div class="leftLabel">Contact/Publicity:</div>
-                            <div class="d-print-table-cell">
-                                <span class="normal">
+                        <div className="d-print-table-row">
+                            <div className="leftLabel">Contact/Publicity:</div>
+                            <div className="d-print-table-cell">
+                                <span className="normal">
                                     {formValues.publicityCode}
                                 </span>
                             </div>

@@ -448,6 +448,7 @@ export function newTrustDeferredFormValues() {
 
 export function newTrustFormValues() {
     return {
+        notifyIndividualOrFamily: "Do Not Send a Notification",
         trustType: "", // TrustDataEntry.js
         dateOfGift: "", // UIFonlyContactInformation.js
         preparedBy: "", // UIFonlyContactInformation.js

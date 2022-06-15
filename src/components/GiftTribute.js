@@ -78,7 +78,7 @@ export default function GiftTribute() {
 
     return (
         <>
-            <FormGroup className="row list-group-item pt-4 innerBorder">
+            <FormGroup className="row  pt-4 innerBorder">
                 <Typography variant="h5" component="h3">
                     Tribute
                 </Typography>

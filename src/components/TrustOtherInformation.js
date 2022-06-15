@@ -42,7 +42,7 @@ export default function TrustOtherInformation() {
                 </Col>
             </Row>
 
-            <Row className="border">
+            <Row>
                 <Col className="ml-2">
                     <RadioButtons
                         variableName="is8283Required"

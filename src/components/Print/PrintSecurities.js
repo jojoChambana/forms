@@ -49,7 +49,7 @@ const PrintSecurities = ({ formValues }, key) => {
                                 </Col>
                             </Row>
                         </>
-                    ) : (
+                    ) : securityCount > 0 ? (
                         <>
                             <div key={key}>
                                 <div className="printTable mt-3 pb-3 border">
@@ -82,6 +82,8 @@ const PrintSecurities = ({ formValues }, key) => {
                                 </div>
                             </div>
                         </>
+                    ) : (
+                        <></>
                     )}
                 </Col>
             </Row>

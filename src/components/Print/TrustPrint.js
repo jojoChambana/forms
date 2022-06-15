@@ -1,6 +1,5 @@
 import {
     Button,
-    Grid,
     Container,
     createTheme,
     ThemeProvider,
@@ -15,7 +14,7 @@ import PrintDonorInformation from "./PrintDonorInformation";
 import PrintTribute from "./PrintTribute";
 import PrintDesignations from "./PrintDesignations";
 import PrintTotals from "./PrintTotals";
-import { PrintCampusAddressSwap, CampusAddress } from "../HelperFunctions";
+import { PrintCampusAddressSwap } from "../HelperFunctions";
 import PrintSpousalPartner from "./PrintSpousalPartner";
 import PrintSecurities from "./PrintSecurities";
 
@@ -25,6 +24,7 @@ import PrintGIKs from "./PrintGIKs";
 import PrintCheck from "./PrintCheck";
 import PrintWire from "./PrintWire";
 import PrintPlannedGift from "./PrintPlannedGift";
+import PrintOtherInformation from "./PrintOtherInformation";
 
 // import TrustIRADistribution from "../TrustIRADistribution";
 
@@ -99,11 +99,12 @@ const TrustPrint = (props) => {
                         <PrintWire formValues={props.formValues} />
                         <PrintCheck formValues={props.formValues} />
                         <PrintGIKs formValues={props.formValues} />
+                        <PrintOtherInformation formValues={props.formValues} />
                         <PrintEightyTwoEightyThree
                             formValues={props.formValues}
                         />
-                        <PrintPlannedGift formValues={props.formValues} />
                         <PrintDesignations formValues={props.formValues} />
+                        <PrintPlannedGift formValues={props.formValues} />
                         <PrintTotals formValues={props.formValues} />
                         <Container className="d-flex justify-content-center">
                             <Row className="hideForPrint">

@@ -18,9 +18,9 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
             <div className="border">
                 <div className="row">
                     <div className="col-6">
-                        <div class="d-print-table-row mt-3">
+                        <div className="d-print-table-row mt-3">
                             <div
-                                class="rightLabel"
+                                className="rightLabel"
                                 style={{
                                     textAlign: "initial",
                                     paddingLeft: "1em",
@@ -29,18 +29,12 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                                 Is this gift associated with a Planned Gift
                                 Application?
                             </div>
-                            <div class="d-print-table-cell">
-                                <span class="normal">
+                            <div className="d-print-table-cell">
+                                <span className="normal">
                                     {formValues.isGiftPlanned}
                                 </span>
                             </div>
                         </div>
-                    </div>
-                    <div className="col">
-                        Is Donor different than Donor above?{" "}
-                        <span className="normal">
-                            {formValues.isGiftPlanned}
-                        </span>
                     </div>
                 </div>
                 {formValues.isGiftPlanned === "Yes" ? (
@@ -100,27 +94,18 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                         </Col>
                     )}
                 </Row>
-                {!formValues.applicationAdditionalComments > 0 ? (
-                    <></>
-                ) : (
-                    <Row>
-                        <Col className="d-flex justify-content-start">
-                            <div
-                                className="firstChild"
-                                style={{ display: "flex" }}
-                            >
-                                <div className="spacer">
-                                    <Typography variant="p">
-                                        Comments:{" "}
-                                    </Typography>
-                                </div>
-                                <span className="normal">
-                                    {formValues.applicationAdditionalComments}
-                                </span>
+                <Row>
+                    <Col className="d-flex justify-content-start">
+                        <div className="firstChild" style={{ display: "flex" }}>
+                            <div className="spacer">
+                                <Typography variant="p">Comments: </Typography>
                             </div>
-                        </Col>
-                    </Row>
-                )}
+                            <span className="normal">
+                                {formValues.applicationAdditionalComments}
+                            </span>
+                        </div>
+                    </Col>
+                </Row>
             </div>
         </div>
     ) : (

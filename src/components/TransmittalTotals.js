@@ -44,14 +44,28 @@ export default function TransmittalTotals({
             var objectCount = 0;
 
             if (isTrustMode) {
-                if (getValues("security") !== undefined)
-                    objectCount += getValues("security").length; // used to determine if we should show Delete security buttons}
-                if (getValues("trustWire") !== undefined)
-                    objectCount += getValues("trustWire").length; // used to determine if we should show Delete security buttons}
-                if (getValues("trustCheck") !== undefined)
-                    objectCount += getValues("trustCheck").length; // used to determine if we should show Delete security buttons}
-                if (getValues("giftInKind") !== undefined)
-                    objectCount += getValues("giftInKind").length; // used to determine if we should show Delete security buttons}
+                if (getValues("seeAttachedSecuritiesListCheckbox") === true)
+                    objectCount += 1;
+                else {
+                    // if (getValues("security") !== undefined)
+                    objectCount += getValues("security")?.length || 0; // used to determine if we should show Delete security buttons}
+                }
+
+                // console.log("I got here", getValues("trustWireX")?.length || 0);
+
+                // if (getValues("trustWire") !== undefined)
+                //     objectCount += getValues("trustWire").length; // used to determine if we should show Delete security buttons}
+                // if (getValues("trustCheck") !== undefined)
+                //     objectCount += getValues("trustCheck").length; // used to determine if we should show Delete security buttons}
+                // if (getValues("giftInKind") !== undefined)
+                //     objectCount += getValues("giftInKind").length; // used to determine if we should show Delete security buttons}
+
+                objectCount += getValues("trustWire")?.length || 0; // used to determine if we should show Delete security buttons}
+
+                objectCount += getValues("trustCheck")?.length || 0; // used to determine if we should show Delete security buttons}
+
+                objectCount += getValues("giftInKind")?.length || 0; // used to determine if we should show Delete security buttons}
+
                 if (objectCount === 0) {
                     setShowProblemMessage(true);
                 } else {

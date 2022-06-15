@@ -144,16 +144,16 @@ export default function PrintGiftInformation({ formValues, trustType }) {
                         )}
                     </div>
 
-                    <div class="row">
-                        <div class="col-12">
+                    <div className="row">
+                        <div className="col-12">
                             {formValues.trustType === "Estate" ? (
                                 formValues.noReceiptNecessary === true ? (
-                                    <div class="d-print-table-row">
-                                        <div class="rightLabel">
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">
                                             <span>Receipt To: </span>
                                         </div>
-                                        <div class="d-print-table-cell">
-                                            <span class="normal">
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
                                                 No Receipt Necessary Per Trust
                                                 Services
                                             </span>
@@ -165,14 +165,14 @@ export default function PrintGiftInformation({ formValues, trustType }) {
                             ) : (
                                 <></>
                             )}
-                            <div class="col-12">
+                            <div className="col-12">
                                 {formValues.receiptToTrustServices ? (
-                                    <div class="d-print-table-row">
-                                        <div class="rightLabel">
+                                    <div className="d-print-table-row">
+                                        <div className="rightLabel">
                                             <span>Receipt To: </span>
                                         </div>
-                                        <div class="d-print-table-cell">
-                                            <span class="normal">
+                                        <div className="d-print-table-cell">
+                                            <span className="normal">
                                                 Trust Services
                                             </span>
                                         </div>
@@ -182,9 +182,9 @@ export default function PrintGiftInformation({ formValues, trustType }) {
                                 )}
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="d-print-table-row"></div>
-                            <div class="d-print-table-row"></div>
+                        <div className="col-6">
+                            <div className="d-print-table-row"></div>
+                            <div className="d-print-table-row"></div>
                         </div>
                     </div>
                 </div>

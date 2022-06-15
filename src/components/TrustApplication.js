@@ -55,9 +55,6 @@ export default function TrustApplication({ formType, formValues, index }) {
                                             <RadioButtons
                                                 variableName={`application.${index}.applicationType`}
                                                 // required={true}
-                                                {...register(
-                                                    `application.${index}.applicationType`
-                                                )}
                                                 values={[
                                                     "Planned Gift",
                                                     "Planned Gift Addition",
@@ -80,9 +77,6 @@ export default function TrustApplication({ formType, formValues, index }) {
                                         <div className="col-8">
                                             <RadioButtons
                                                 variableName={`application.${index}.isApplicationDonorDifferent`}
-                                                {...register(
-                                                    `application.${index}.isApplicationDonorDifferent`
-                                                )}
                                                 values={["Yes", "No"]}
                                                 radioChangedFlag={radioChanged}
                                                 setRadioChangedFlag={
