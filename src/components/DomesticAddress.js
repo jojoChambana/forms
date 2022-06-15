@@ -3,7 +3,6 @@ import { Col, Row } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
 export default function DomesticAddress({ prefix, isRequired }) {
-
     const { register } = useFormContext();
 
     return (

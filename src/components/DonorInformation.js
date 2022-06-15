@@ -120,7 +120,10 @@ export default function DonorInformation({
                             </Row>
                             <Row>
                                 <Col>
-                                    <Address prefix="donor" />
+                                    <Address
+                                        prefix="donor"
+                                        isRequired={false}
+                                    />
                                 </Col>
                             </Row>
                             <Row>
