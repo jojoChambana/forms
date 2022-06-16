@@ -17,10 +17,13 @@ export default function Trust(props) {
 
     const onSubmit = (data) => {
         const objCount =
-            (data.security?.length || 0) +
             (data.trustWire?.length || 0) +
             (data.trustCheck?.length || 0) +
-            (data.giftInKind?.length || 0);
+            (data.giftInKind?.length || 0) +
+            (data.seeAttachedSecuritiesListCheckbox
+                ? 1
+                : data.security?.length || 0);
+
         if (objCount > 0) {
             removeEmptyFields(data);
             props.setFormValues(data);
