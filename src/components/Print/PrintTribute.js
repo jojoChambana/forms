@@ -151,25 +151,6 @@ const PrintTribute = ({ formValues }) => {
         ) {
             return (
                 <div className="rightOffset">
-                    {/* <div className="d-print-table-row">
-                        <div className="leftLabel">Notification:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                Please Notify Acknowledgee
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="d-print-table-row">
-                        <div className="leftLabel">Acknowledgee:</div>
-                        <div className="d-print-table-cell">
-                            <span className="normal">
-                                {formValues.tedTributeAcknowledgedFirstName}{" "}
-                                {formValues.tedTributeAcknowledgedLastName}
-                            </span>
-                        </div>
-                    </div>
-                    <IsAcknowledgeeForeignAddressCheckboxChecked /> */}
                     <div className="d-print-table-row">
                         <div className="rightLabel">Notification:</div>
                         <div
@@ -213,11 +194,13 @@ const PrintTribute = ({ formValues }) => {
             formValues.notifyIndividualOrFamily === "Please Notify the Honoree"
         ) {
             return (
-                <div className="rightOffset">
+                <div>
                     <div className="d-print-table-row">
                         <div className="leftLabel">Notification:</div>
                         <div className="d-print-table-cell">
-                            <span className="normal">Please Notify</span>
+                            <span className="normal">
+                                Please Notify the Honoree
+                            </span>
                         </div>
                     </div>
                 </div>

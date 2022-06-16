@@ -29,7 +29,10 @@ export default function PrintGiftInformation({ formValues, trustType }) {
             )}
 
             <div className="border">
-                <div className="row">
+                <div
+                    className="row"
+                    style={{ padding: "2em 0em 1em 0em", marginBottom: "0" }}
+                >
                     <div className="col-6">
                         {formValues.trustType === "Outright" ||
                         formValues.trustType === "Life Income" ? (

@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
-import { formatRelative } from "date-fns";
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 // export default function PrintSpousalPartner({ formValues }) {
 
@@ -73,7 +72,7 @@ const PrintSpousalPartner = ({ formValues, spousalVal }, key) => {
             <Col className="p-0">
                 <div className="resultItems">
                     <div key={key}>
-                        {spousalVal ? (
+                        {!spousalVal ? (
                             <>
                                 <div className="row mt-3">
                                     <div className="col">

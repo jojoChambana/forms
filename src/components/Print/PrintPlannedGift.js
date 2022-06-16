@@ -16,8 +16,8 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                 </Col>
             </Row>
             <div className="border">
-                <div className="row">
-                    <div className="col-6">
+                {/* <div className="row">
+                    <div className="pushLeftForPrint  col-6">
                         <div className="d-print-table-row mt-3">
                             <div
                                 className="rightLabel"
@@ -34,6 +34,21 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                                     {formValues.isGiftPlanned}
                                 </span>
                             </div>
+                        </div>
+                    </div>
+                </div> */}
+
+                <div class="pushLeftForPrint col-6">
+                    <div class="d-print-table-row">
+                        <div class="rightLabel">
+                            Is this gift associated with a Planned Gift
+                            Application?
+                        </div>
+                        <div class="d-print-table-cell">
+                            <span class="normal">
+                                {" "}
+                                {formValues.isGiftPlanned}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -94,18 +109,12 @@ const PrintPlannedGift = ({ formValues, index }, key) => {
                         </Col>
                     )}
                 </Row>
-                <Row>
-                    <Col className="d-flex justify-content-start">
-                        <div className="firstChild" style={{ display: "flex" }}>
-                            <div className="spacer">
-                                <Typography variant="p">Comments: </Typography>
-                            </div>
-                            <span className="normal">
-                                {formValues.applicationAdditionalComments}
-                            </span>
-                        </div>
-                    </Col>
-                </Row>
+                <Col>
+                    Comments:&nbsp;
+                    <span className="normal">
+                        {formValues.applicationAdditionalComments}
+                    </span>
+                </Col>
             </div>
         </div>
     ) : (

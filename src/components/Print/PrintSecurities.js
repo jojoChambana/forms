@@ -31,7 +31,7 @@ const PrintSecurities = ({ formValues }, key) => {
                                 <Typography
                                     variant="h5"
                                     component="h3"
-                                    className="mt-2"
+                                    className="mt-3"
                                 >
                                     Securities Information
                                 </Typography>

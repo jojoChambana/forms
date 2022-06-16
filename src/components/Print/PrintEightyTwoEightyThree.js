@@ -16,12 +16,13 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
                 </Col>
             </Row>
             <Row className="border">
-                <Col>
+                <Col className="d-flex justify-content-center">
                     Is 8282 Required?{" "}
                     <span className="normal">{is8283Required}</span>
                 </Col>
-                <Col>
-                    {is8283RadioButtons}: <span className="normal">Yes</span>
+                <Col className="d-flex justify-content-center">
+                    {is8283RadioButtons}:{" "}
+                    <span className="normal">{is8283RadioButtons}</span>
                 </Col>
             </Row>
         </div>
