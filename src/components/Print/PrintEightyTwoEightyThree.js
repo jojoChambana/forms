@@ -17,7 +17,7 @@ export default function PrintEightyTwoEightyThree({ formValues }, key) {
             </Row>
             <Row className="border">
                 <Col className="d-flex justify-content-center">
-                    Is 8282 Required?{" "}
+                    Is 8283 Required?{" "}
                     <span className="normal">{is8283Required}</span>
                 </Col>
                 <Col className="d-flex justify-content-center">
