@@ -106,6 +106,29 @@ export default function PrintGiftInformation({ formValues, trustType }) {
                         ) : (
                             <></>
                         )}
+                        <div className="col-12">
+                            {formValues.receiptToTrustServices ? (
+                                <div className="d-print-table-row">
+                                    <div className="rightLabel">
+                                        Receipt To:{" "}
+                                    </div>
+                                    <div
+                                        className="d-print-table-cell"
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                        }}
+                                    >
+                                        {" "}
+                                        <span className="normal">
+                                            Trust Services
+                                        </span>
+                                    </div>
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                        </div>
                     </div>
                     <div className="col-6">
                         {formValues.receiptToDevelopmentPrograms === true &&
@@ -127,21 +150,26 @@ export default function PrintGiftInformation({ formValues, trustType }) {
                         ) : (
                             <></>
                         )}
-                        {formValues.trustType === "Outright" ||
-                        formValues.trustType === "LifeIncome" ? (
-                            <div className="d-print-table-row">
-                                <div className="d-print-table-cell leftLabel">
-                                    Receipt To:
+
+                        {formValues.receiptToPlannedGiving === true ? (
+                            formValues.trustType === "Outright" ||
+                            formValues.trustType === "LifeIncome" ? (
+                                <div className="d-print-table-row">
+                                    <div className="d-print-table-cell leftLabel">
+                                        Receipt To:
+                                    </div>
+                                    <div className="maxWidth">
+                                        <span
+                                            className="normal"
+                                            style={{ paddingLeft: "0" }}
+                                        >
+                                            Planned Giving
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="maxWidth">
-                                    <span
-                                        className="normal"
-                                        style={{ paddingLeft: "0" }}
-                                    >
-                                        Planned Giving
-                                    </span>
-                                </div>
-                            </div>
+                            ) : (
+                                <></>
+                            )
                         ) : (
                             <></>
                         )}
@@ -168,27 +196,11 @@ export default function PrintGiftInformation({ formValues, trustType }) {
                             ) : (
                                 <></>
                             )}
-                            <div className="col-12">
-                                {formValues.receiptToTrustServices ? (
-                                    <div className="d-print-table-row">
-                                        <div className="rightLabel">
-                                            <span>Receipt To: </span>
-                                        </div>
-                                        <div className="d-print-table-cell">
-                                            <span className="normal">
-                                                Trust Services
-                                            </span>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
                         </div>
-                        <div className="col-6">
+                        {/* <div className="col-6">
                             <div className="d-print-table-row"></div>
                             <div className="d-print-table-row"></div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

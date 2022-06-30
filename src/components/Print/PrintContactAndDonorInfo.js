@@ -22,10 +22,10 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function NewDonorCheckBox() {
         if (formValues.newDonorCheckBox === true)
             return (
-                <div class="d-print-table-row">
-                    <div class="rightLabel">New Donor:</div>
-                    <div class="d-print-table-cell">
-                        <span class="normal">Yes</span>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">New Donor:</div>
+                    <div className="d-print-table-cell">
+                        <span className="normal">Yes</span>
                     </div>
                 </div>
             );
@@ -35,10 +35,10 @@ const PrintContactAndDonorInfo = ({ formValues }) => {
     function NewDonorAddressCheckBox() {
         if (formValues.newDonorAddressCheckBox === true)
             return (
-                <div class="d-print-table-row">
-                    <div class="rightLabel">New Donor Address:</div>
-                    <div class="d-print-table-cell">
-                        <span class="normal">Yes</span>
+                <div className="d-print-table-row">
+                    <div className="rightLabel">New Donor Address:</div>
+                    <div className="d-print-table-cell">
+                        <span className="normal">Yes</span>
                     </div>
                 </div>
             );
